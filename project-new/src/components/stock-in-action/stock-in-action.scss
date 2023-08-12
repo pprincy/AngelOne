@@ -1,0 +1,264 @@
+@import '../../assets/scss/styles';
+
+.equity-category-wrap { height: calc(100vh - 120px);}
+
+.stickyTabWrap.stickyTop {
+	.table-hold {
+		table {
+			>thead {
+				background: #fff;
+				z-index: 9;
+				position: fixed;
+				top: 120px;
+				width: calc(100% - 27.938rem);
+                tr {
+                    width: 100%; display: flex;
+                }
+                @include laptop {
+                    width: calc(100% - 21.938rem);
+                }
+                @include tablet {
+                    width: 100%;
+                    
+                }
+			}
+		}
+	}
+}
+
+
+.equity-category-wrap {background: $white; 
+
+    .hold {  display: flex; align-items: center; justify-content: space-between; padding: 1.25rem; 
+        ul.filterblock { list-style: none; margin: 0; padding: 0; border: 1px solid $input-border;
+            li { display: inline-block; padding: 0.75rem 1.5rem; border-right: 1px solid $input-border; font-family: $font-base-med; font-size: $font-14; color: $base-text; line-height: 1rem; cursor: pointer; 
+            
+                &:last-child { border-right: 0;}
+
+                &.active, &:hover { background: $input-bg; color: $highlighted; font-family: $font-base-semibold;}
+                
+            }
+        }
+    }
+    .table-hold { margin: 0 0rem; border: 0px solid; box-sizing: border-box; 
+        .table { width: 100%; padding: 0 0; 
+            thead { border-top: 1px solid $bg; border-bottom: 1px solid $bg;
+                tr { 
+                    th { border: 0;
+
+                        &.sorting{
+                            pointer-events: all;
+                            cursor: pointer;
+                            &:after{
+                                content: "";
+                                width: 0.75rem;
+                                height: 0.75rem;
+                                background: url(../../assets/images/sort-asec-desc.svg) left top no-repeat;
+                                background-size: 100%;
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-left: 0.3rem;
+                                margin-top: -0.1rem;
+                            }
+                            &.sorting_asc{
+                                &:after{
+                                    background-image: url(../../assets/images/sort-asec.png) ;
+                                }
+                               
+                            }
+                            &.sorting_desc{
+                                &:after{
+                                    background-image: url(../../assets/images/sort-desc.png) ;  
+                                }
+                            }
+                        }
+                    
+                        &:first-child { padding-left: 1.25rem;}
+                        &:last-child { padding-right: 1.25rem;}
+
+                        &.stockname { width: 32%; }
+                        &.linechart { width: 16%;}
+                        &.price { width: 18%; text-align: right;}
+                        &.pricechange {width: 24%; text-align: right; }
+                        &.fy { width: 10%;}
+                    }
+                }
+            }
+            tbody {
+                tr { padding: 0 1rem; position: relative;
+                    td { border: 0; padding:1.5rem .75rem;
+                        vertical-align: middle;
+                    
+                        .share-value {
+                            display: block;
+                            font-size: 1rem;
+                            line-height: normal;
+                            font-family: $font-base-semibold;
+                            margin: 0 0 0rem;
+                            &.txt-positive {
+                                &:after {
+                                    font-size: 0;
+                                    position: relative;
+                                    top: -0.2rem;
+                                    content: "";
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 0 4px 6px 4px;
+                                    border-color: transparent transparent #21b7a8 transparent;
+                                    display: inline-block;
+                                    margin-left: 0.3rem;
+                                }
+                            }
+                            &.txt-negative {
+                                &:after {
+                                    content: "";
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 6px 4px 0 4px;
+                                    border-color: #ef5854 transparent transparent transparent;
+                                    margin-left: 0.3rem;
+                                    font-size: 0;
+                                    position: relative;
+                                    top: -0.1rem;
+                                }
+                            }
+                            em {
+                                margin-right: 2px;
+                                // font-style: normal;
+                                // font-size: 1rem;
+                                // font-family: $font-pingFangSC-medium;
+                                // font-weight: 600;
+                                // position: relative;
+                                // top: 0px;
+                                // margin-right: .25rem;
+                            }
+                        }
+
+                        &.stockname { width: 32%;
+                            h4 { font-family: $font-base-med; font-size: 1rem; color: $base-text; line-height: 1rem;}
+                            span {font-family: $font-base-reg; font-size: 0.875rem; color: $grey-med; }
+                        }
+                        &.linechart { width: 16%;}
+                        &.price { width: 18%; text-align: right;}
+                        &.pricechange {width: 24%; text-align: right; font-family: $font-base-reg; font-size: $font-14; color: $grey-med;
+                            span { margin-left: .5rem; display: inline-block;}
+                        }
+                        &.fy {width: 10%; position: relative;
+                            .plus { 
+                                &:before { content: ""; clear: both; display: block; background: url(../../assets/images/star.svg) center center no-repeat; width: 26px; height: 26px; cursor: pointer; }
+                            }
+                            .tick { 
+                                &:before { content: ""; clear: both; display: block; background: url(../../assets/images/wishlist-icon3.svg) center center no-repeat; width: 26px; height: 26px; cursor: pointer; }
+                            }
+                            // .checkbox_option {
+                            //     input { position: absolute; opacity: 0; width: 1.5rem;height: 1.5rem; left: 0px; top: 0px;
+                            //             + {
+                            //                 label {min-height: 1.5rem; line-height: 1.5rem;
+                            //                     &:before {
+                            //                         border-width: 1px;
+                            //                         content: "\e90e"; font-size: $font-14;
+                            //                         width: 1.5rem;height: 1.5rem; margin-top: -0.7rem; padding: 4px 0 0 0; color: #3f5bd9;
+                            //                     }
+                            //                     padding-left: 1.5rem;
+                            //                 }
+                            //             }
+                            //         &:checked {
+                            //             + {
+                            //                 label {
+                            //                     &:before {
+                            //                         content: "\e918"; color: $white;
+                                                    
+                            //                     }
+                            //                 }
+                            //             }
+                            //         }
+                            //     }
+                            //     label {padding-left: 1rem;
+                            //         &::before { border-width: 1px;}
+                            //     }
+                            // }
+
+                            .choose-watchlist { width: 279px; height: 251px; background: $white; border: 1px solid $border-color; position: absolute;top: 93px; right: 2.5rem; padding: 1.25rem 1.5rem; z-index: 1;
+                            
+                                h4 { font-size: $font-14; color: $base-text;}
+                                ul { list-style: none; margin: 0; padding: 0;
+                                    li { padding: 1rem 0;
+                                    
+                                        .choose-watchlist { width: 279px; height: auto; background: $white; border: 1px solid $border-color; position: absolute;top: 93px; right: 2.5rem; padding: 1.25rem 1.5rem; z-index: 1;
+                            
+                                            h4 { font-size: $font-14; color: $base-text;}
+                                            ul { list-style: none; margin: 0; padding: 0;
+                                                li { padding: 1rem 0;
+                                                
+                                                    .checkbox_option {
+                                                        input { position: absolute; opacity: 0; width: 100%;height: 100%; left: 0px; top: 0px;
+                                                                + {
+                                                                    label { width: 100%;  border: 0px solid red; padding-left: 0rem;
+                                                                        &:before {
+                                                                            left: 210px;
+                                                                            content: "\e918";
+                                                                            width: 1rem;height: 1rem;
+                                                                        }
+                                                                        
+                                                                    }
+                                                                }
+                                                            &:checked {
+                                                                + {
+                                                                    label {
+                                                                        &:before {
+                                                                            
+                                                                            
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        label {padding-left: 1rem;
+                                                            &::before { border-width: 1px;}
+                                                        }
+                                                    }
+            
+                                                    h4 { font-family: $font-base-semibold; font-size: $font-14; color: $base-text; margin-bottom: 0.313rem;}
+                                                    span { font-size: $font-12; color: $grey-med; font-family: $font-base-reg;}
+                                                }
+                                            }
+                                            .btn.btn-block { color: $highlighted; font-family: $font-base-semibold; padding: .688rem 1rem 0.625rem; height: auto; line-height: 1.063rem; border-radius: .25rem; margin-top: .25rem;}
+                                        }
+
+                                        h4 { font-family: $font-base-semibold; font-size: $font-14; color: $base-text; margin-bottom: 0;}
+                                        span { font-size: $font-12; color: $grey-med; font-family: $font-base-reg;}
+                                    }
+                                }
+                            }
+                        }
+
+
+                        &:first-child { padding-left: 1.25rem;}
+                        &:last-child { padding-right: 1.25rem;}
+                    }
+
+                    &:hover {background: $hoveredTdBg;}
+                }
+                tr:after {
+                    content: "";
+                    display: block;
+                    width: 96%;
+                    max-width: calc(100% - 40px);
+                    height: 1px;
+                    border-bottom: 1px solid #ebecf3;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                }
+                tr:last-child:after {
+                   display: none;
+                }
+            }
+        }
+        
+    }
+}

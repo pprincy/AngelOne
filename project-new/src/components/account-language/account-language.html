@@ -1,0 +1,23 @@
+<div class="acc-language-sec">
+    <div class="borderedBox p-0">
+        <ul class="icon-info-list">
+            <li v-for="item in languages">
+                <label class="container">
+                       <span class="translate">{{ item.translate }}</span>
+                        <input type="radio" :checked="item.isChecked" name="language" id="language">
+                        <span class="checkmark"></span>
+                        <p :class="item.className">{{ item.name }}</p>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="lang-desc">
+        <em class="custom-info"></em>
+        <p>
+            Language can be changed anytime from the menu. We'll translate information to help you
+            browse and communicate. If you have any feedback on these transactions, please contact
+            our customer support. Please note that translations are provided for convenience only
+            and the english version in the definite version.
+        </p>
+    </div>
+</div>

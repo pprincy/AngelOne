@@ -1,0 +1,199 @@
+@import '../../assets/scss/styles';
+
+// .tabContentWrap {
+
+// }
+.main-content {
+    @include tablet {
+        width: 100%;
+        padding-top: 3rem;
+    }
+    @include small{
+        padding-top: 3.5rem;
+    }
+}
+
+.portfolio-content {
+    .stickyTabWrap {
+
+        .tab-wrap {
+            .nav-tabs {
+                background: $white;
+                z-index: 9;
+                position: fixed;
+                top: 4rem;
+                width: calc(100% - 28rem);
+                border-radius: 4px 4px 0 0;
+                padding-right: 2px;
+                
+                @include laptop {
+                    width: calc(100% - 21.5rem) !important;
+                }
+
+                @include tablet {
+                    width: 100% !important;
+                    top: 3rem;
+                }
+                @include small{
+                    top: 3.4rem;
+                    justify-content: center;
+                }
+                .nav-item {
+                    .nav-link {
+                        font-size: 1rem;
+                        line-height: 1.188rem;
+                        font-family: $font-base-med;
+                        padding: 1rem 1.188rem;
+                        color: $grey-med;
+                        position: relative;
+                        @include tablet {
+                            padding: 1.375rem 1rem;
+                        }
+                        @include small{
+                            font-size: 0.875rem !important;
+                        }
+                        @include xmobile {
+                            padding: 1rem 0rem;
+                        }
+                        &.active {
+                            color: $highlighted;
+                            pointer-events: none;
+                            &:after {
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                width: 100%;
+                                height: 2px;
+                                content: "";
+                                display: block;
+                                background: transparent;
+    
+                                @include tablet {
+                                    top: auto !important;
+                                    left: 50% !important;
+                                    transform: translateX(-50%);
+                                    width: 80%;
+                                    height: 3px;
+                                    bottom: 0;
+                                    font-size: $font-14;
+                                    @include small{
+                                        top: auto;
+                                        bottom: 0px;
+                                        height: 4px;
+                                        left: 0; right: 0; margin: 0 auto;
+                                    }
+                                }
+                            }
+                            
+                            &.active {
+                                &::after {
+                                    background: $highlighted;
+                                }
+                                @include small{
+                                color: $highlighted;
+                                font-family: $font-base-semibold;
+                                font-size: $font-14;
+    
+                                &::after {
+                                    background: $highlighted;
+                                }
+                            }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tab-content {
+                padding-top: 3.188rem;
+            }
+        }
+    }
+}
+
+.portfolio-content {
+    .tab-wrap.greyBg {
+        >.nav-tabs {
+
+            border-bottom: none;
+            padding-bottom: 1px;
+            @include tablet{
+                border-bottom: none;
+                padding-bottom: 1px;
+                width: 100% !important;
+                // justify-content: center;
+                justify-content: start;
+                height: 61px;
+               }
+            &:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                background: $light-border-color;
+            }
+
+            >.nav-item {
+                >.nav-link {
+                    height: calc(100% + 1px);
+                    @include tablet {
+                        height: 100%;
+                    }
+
+                    &.active {
+                        &:before {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            left: 0px;
+                            bottom: 0px;
+                            width: 100%;
+                            height: 1px;
+                            background: $white;
+                            z-index: 2;
+                            @include small{
+                                opacity: 0;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+}
+
+
+.portfolio-page{
+    &.main-content{
+        @include tablet{
+        height: calc(100vh - 55px);
+        min-height: auto;
+        z-index: 10;
+        background-color: $bg;
+        left: 0 !important;
+        }
+        &.full-width{
+            width: calc(100% - 6rem);
+            .nav-tabs{
+                width: calc(100% - 6rem) !important;
+            }
+        }
+    }
+    &.modal-open{
+        @include small{
+            z-index: inherit;
+        }
+    }
+}
+
+
+body.modal-open{
+    .watchlist-side-section{
+        opacity: 0;
+    }
+}

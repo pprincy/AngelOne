@@ -1,0 +1,1325 @@
+<div class="pledge-sec d-none d-lg-block d-md-none d-sm-none">
+    <div class="text-center">
+        <h2>What is Margin Pledge, How does it work?</h2>
+        <img src="../../assets/images/pledge.jpg" alt="">
+    </div>
+    <div class="pledge-steps">
+        <div class="pledge-list">
+            <label>1
+                <span class="step-count"></span>
+            </label>
+            <h3>Select Stocks</h3>
+            <p>Select the stocks you wish to get additional margin on and submit the request</p>
+        </div>
+        <div class="pledge-list">
+            <label>2
+                <span class="step-count"></span>
+            </label>
+            <h3>Authentication</h3>
+            <p>You will be redirected to CDSL website to authenticate the transaction using OTP</p>
+        </div>
+        <div class="pledge-list">
+            <label>3</label>
+            <h3>Increase Margin</h3>
+            <p>Once authenticated your margin will be enhanced within 5 minutes.</p>
+        </div>
+    </div>
+</div>
+<ul class="icon-info-list d-none d-lg-block d-md-none d-sm-none">
+    <li>
+        <div>
+            <span class="price">
+                <em>₹</em>
+                <span class="amt">{{ price }}</span>
+            </span>
+            <p>Eligible Margin Against Holdings</p>
+        </div>
+        <button type="button" class="btn" v-if="price == 0">Increase Margin</button>
+        <button type="button" class="btn btn-primary" v-if="price > 0">Increase Margin</button>
+    </li>
+</ul>
+<ul class="icon-info-list">
+    <li>
+        <div>
+            <span class="price">
+                <em>₹</em>
+                <span class="amt">95,000</span>
+            </span>
+            <p>Eligible Margin Against Holdings
+                <span><em class="icon-info pointer" data-toggle="modal" data-target="#PledgeHoldingModal"></em></span>
+            </p>
+        </div>
+        <div class="withdraw-increase-btn">
+            <router-link to="/pledge-withdraw-margin">
+                <button type="button" class="btn btn-outline-secondary withdraw">WITHDRAW</button>
+            </router-link>
+            <router-link to="/pledge-increase-margin">
+                <button type="button" class="btn btn-primary ml-2 increase">INCREASE</button>
+            </router-link>
+        </div>
+    </li>
+</ul>
+
+<div class="field_bg btm d-none d-lg-block d-md-none d-sm-none">
+    <div class="fundsBtmSecPledge ">
+        <div class="tab-wrap theme3 innerTab">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" data-target="#addPledgeDetail" data-toggle="tab"
+                        class="nav-link small active">Pledge</a></li>
+                <li class="nav-item"><a href="" data-target="#addUnPledgeDetail" data-toggle="tab"
+                        class="nav-link small">Unpledge</a></li>
+            </ul>
+            <!--No transactions available-->
+            <div class="noTransaction" id="no-transaction">
+                <img src="../../assets/images/funds-no-history.png" alt="">
+                <p>No transactions available</p>
+            </div>
+            <!--No transactions available-->
+            <div id="tabsContent1" class="tab-content">
+                <div id="addPledgeDetail" class="tab-pane active">
+                    <div class="table-wrap">
+                        <table class="table theme1 flexTable mainTable stickyonScroll">
+                            <thead>
+                                <tr>
+                                    <th class="refCol">Reference No.</th>
+                                    <th class="amtCol">Amount</th>
+                                    <th class="dateTimeCol">Date</th>
+                                    <th class="statusCol text-right">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row1">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtWarning">
+                                                            <em class="pending"></em>OTP Authorized
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row1">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtWarning">
+                                                                                <em class="pending"></em>OTP
+                                                                                Authorized
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtWarning">
+                                                                                <em class="pending"></em>OTP
+                                                                                Authorized
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtWarning">
+                                                                                <em class="pending"></em>OTP
+                                                                                Authorized
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row2">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtNegative">
+                                                            <em class="failed"></em>Cancelled
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row2">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative">
+                                                                                <em class="failed"></em>Cancelled
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative">
+                                                                                <em class="failed"></em>Cancelled
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative">
+                                                                                <em class="failed"></em>Cancelled
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row3">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtNegative">
+                                                            <em class="failed"></em>Cancelled
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row3">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative">
+                                                                                <em class="failed"></em>Cancelled
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative">
+                                                                                <em class="failed"></em>Cancelled
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative">
+                                                                                <em class="failed"></em>Cancelled
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row4">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtPositive">
+                                                            <em class="success"></em>Margin updated
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row4">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row5">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtPositive">
+                                                            <em class="success"></em>Margin updated
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row5">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row6">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtPositive">
+                                                            <em class="success"></em>Margin updated
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row6">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive">
+                                                                                <em class="success"></em>Margin
+                                                                                updated
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--No Table Entry found-->
+                    <div class="noHistory" style="display: none;">
+                        <img src="../../assets/images/funds-no-history.png" alt="">
+                        <p>You have no pledge history</p>
+                    </div>
+                    <!--No Table Entry found-->
+                </div>
+
+                <div id="addUnPledgeDetail" class="tab-pane">
+                    <div class="table-wrap">
+                        <table class="table theme1 flexTable mainTable stickyonScroll">
+                            <thead>
+                                <tr>
+                                    <th class="refCol">Reference No.</th>
+                                    <th class="amtCol">Amount</th>
+                                    <th class="dateTimeCol">Date</th>
+                                    <th class="statusCol text-right">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row7">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtPositive">
+                                                            <em class="success"></em>Margin updated
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row7">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive"><em
+                                                                                    class="success"></em>Margin
+                                                                                updated</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive"><em
+                                                                                    class="success"></em>Margin
+                                                                                updated</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtPositive"><em
+                                                                                    class="success"></em>Margin
+                                                                                updated</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="full-width-col">
+                                        <table class="table flexTable innerTbl">
+                                            <tbody>
+                                                <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row8">
+                                                    <td class="refCol">
+                                                        <span class="refNo">7528372917382913</span>
+                                                    </td>
+
+                                                    <td class="amtCol">
+                                                        <span class="price"><em>₹</em>10,10,00,000</span>
+                                                    </td>
+
+                                                    <td class="dateTimeCol">
+                                                        <ul>
+                                                            <li>06 Jan ‘20 at</li>
+                                                            <li>6:43 pm</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="statusCol text-right">
+                                                        <span class="status txtNegative">
+                                                            <em class="failed"></em>Cancelled
+                                                        </span>
+                                                        <a href="#" class="arrow "></a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="hovered-tr">
+                                                    <td class="full-width-col">
+                                                        <div class="request-wrap collapse" id="row8">
+                                                            <table class="table flexTable innerTbl">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <!-- <th class="stockCol">Stock</th> -->
+                                                                        <th class="cmpnyCol">Company</th>
+                                                                        <th class="priceQtyCol">Price / Qty</th>
+                                                                        <th class="statusCol text-right">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">SBIN</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">State Bank of
+                                                                                India</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative"><em
+                                                                                    class="failed"></em>Cancelled</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">ICICIBank</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">ICICI Bank
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative"><em
+                                                                                    class="failed"></em>Cancelled</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                                <div class="top-sec" v-show="topSec">
+                                                                    <tr>
+                                                                        <!-- <td class="stockCol">
+                                                                            <span class="stock">HeroMotoco</span>
+                                                                        </td> -->
+
+                                                                        <td class="cmpnyCol">
+                                                                            <span class="cmpny">Hero Motocorp
+                                                                                Ltd.</span>
+                                                                        </td>
+
+                                                                        <td class="priceQtyCol">
+                                                                            <ul>
+                                                                                <li><em>₹</em>5,000 <span
+                                                                                        class="px-1">/</span></li>
+                                                                                <li>10</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                        <td class="statusCol text-right">
+                                                                            <span class="status txtNegative"><em
+                                                                                    class="failed"></em>Cancelled</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--No Table Entry found-->
+                    <div class="noHistory" style="display: none;">
+                        <img src="../../assets/images/funds-no-history.png" alt="">
+                        <p>You have no unpledge history</p>
+                    </div>
+                    <!--No Table Entry found-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- pledge holding modal Start-->
+<div class="pledge-holding-modal-sec">
+    <div class="modal" id="PledgeHoldingModal" tabindex="-1" role="dialog" aria-labelledby="PledgeHoldingModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <em class="custom-times-circle-solid"></em>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="pledge-sec">
+                        <div class="text-center">
+                            <h2>What is Margin Pledge, How does it work?</h2>
+                            <img src="../../assets/images/pledge.jpg" alt="">
+                        </div>
+                        <div class="pledge-steps">
+                            <div class="pledge-list">
+                                <label>1
+                                    <span class="step-count"></span>
+                                </label>
+                                <h3>Select Stocks</h3>
+                                <p>Select the stocks you wish to get additional margin on and submit the request</p>
+                            </div>
+                            <div class="pledge-list">
+                                <label>2
+                                    <span class="step-count"></span>
+                                </label>
+                                <h3>Authentication</h3>
+                                <p>You will be redirected to CDSL website to authenticate the transaction using OTP</p>
+                            </div>
+                            <div class="pledge-list">
+                                <label>3</label>
+                                <h3>Increase Margin</h3>
+                                <p>Once authenticated your margin will be enhanced within 5 minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- pledge holding modal End -->
+
+<!-- mobile responsive start -->
+<div class="pledge-sec-mob d-lg-none d-md-block d-sm-block">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="pledge-tab" data-toggle="tab" href="#pledge" role="tab"
+                aria-controls="pledge" aria-selected="true">Pledge</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="unpledge-tab" data-toggle="tab" href="#unpledge" role="tab" aria-controls="unpledge"
+                aria-selected="false">Unpledge</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane show active" id="pledge" role="tabpanel" aria-labelledby="pledge-tab">
+            <div class="table-wrap-mob">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="refCol">Reference No / Date</th>
+                            <th class="amtCol text-right">Amount / Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <router-link to="/pledge-transaction" class="page-navigate">
+                            <tr>
+                                <td>
+                                    <div class="ref">
+                                        7528372917382913
+                                    </div>
+                                    <div class="date">
+                                        06 Jan ‘20 at 6:43 pm
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="amt">
+                                        <em class="rupee-sign">₹</em>10,10,00,000
+                                    </div>
+                                    <div class="status txtWarning">
+                                        <em class="pending"></em> OTP Authorized
+                                    </div>
+                                </td>
+                            </tr>
+                        </router-link>
+                        <router-link to="/pledge-transaction" class="page-navigate">
+                            <tr>
+                                <td>
+                                    <div class="ref">
+                                        7528372917382913
+                                    </div>
+                                    <div class="date">
+                                        06 Jan ‘20 at 6:43 pm
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="amt">
+                                        <em class="rupee-sign">₹</em>10,10,00,000
+                                    </div>
+                                    <div class="status txtNegative">
+                                        <em class="failed"></em> Cancelled
+                                    </div>
+                                </td>
+                            </tr>
+                        </router-link>
+                        <router-link to="/pledge-transaction" class="page-navigate">
+                            <tr>
+                                <td>
+                                    <div class="ref">
+                                        7528372917382913
+                                    </div>
+                                    <div class="date">
+                                        06 Jan ‘20 at 6:43 pm
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="amt">
+                                        <em class="rupee-sign">₹</em>10,10,00,000
+                                    </div>
+                                    <div class="status txtNegative">
+                                        <em class="failed"></em> Cancelled
+                                    </div>
+                                </td>
+                            </tr>
+                        </router-link>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="unpledge" role="tabpanel" aria-labelledby="unpledge-tab">
+            <div class="table-wrap-mob">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="refCol">Reference No / Date</th>
+                            <th class="amtCol text-right">Amount / Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <router-link to="/unpledge-transaction" class="page-navigate">
+                            <tr>
+                                <td>
+                                    <div class="ref">
+                                        7528372917382913
+                                    </div>
+                                    <div class="date">
+                                        06 Jan ‘20 at 6:43 pm
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="amt">
+                                        <em class="rupee-sign">₹</em>10,10,00,000
+                                    </div>
+                                    <div class="status txtPositive">
+                                        <em class="success"></em> Margin Updated
+                                    </div>
+                                </td>
+                            </tr>
+                        </router-link>
+                        <router-link to="/unpledge-transaction" class="page-navigate">
+                            <tr>
+                                <td>
+                                    <div class="ref">
+                                        7528372917382913
+                                    </div>
+                                    <div class="date">
+                                        06 Jan ‘20 at 6:43 pm
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="amt">
+                                        <em class="rupee-sign">₹</em>10,10,00,000
+                                    </div>
+                                    <div class="status txtNegative">
+                                        <em class="failed"></em> Cancelled
+                                    </div>
+                                </td>
+                            </tr>
+                        </router-link>
+                        <router-link to="/unpledge-transaction" class="page-navigate">
+                            <tr>
+                                <td>
+                                    <div class="ref">
+                                        7528372917382913
+                                    </div>
+                                    <div class="date">
+                                        06 Jan ‘20 at 6:43 pm
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="amt">
+                                        <em class="rupee-sign">₹</em>10,10,00,000
+                                    </div>
+                                    <div class="status txtNegative">
+                                        <em class="failed"></em> Cancelled
+                                    </div>
+                                </td>
+                            </tr>
+                        </router-link>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- mobile responsive end -->

@@ -1,0 +1,1071 @@
+@import '../../assets/scss/styles';
+
+.holding_status {
+    background-color: $grey-bg;
+    border: 1px solid $border-type3;
+    padding: 1rem 1.25rem;
+
+    .row {
+        margin: 0 -7px;
+
+        >div {
+            padding: 0 7px;
+        }
+    }
+
+    .tile {
+        width: 100%;
+        min-height: 5.25rem;
+        height: 100%;
+        background-color: #fff;
+        border: 1px solid $border-type3;
+        box-shadow: 0 8px 12px 0 rgba(231, 233, 243, 0.58);
+        border-radius: 2px;
+        padding: 1rem;
+        @include minidesktop{
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+        .status_icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: $bg;
+            display: table;
+            @include borderradius(50%);
+            font-size: 1.4rem;
+
+            i, em {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                &.icon-bag{
+                    background: url(../../assets/images/bag-custom-icon.svg) left top no-repeat;
+                    width: 2.500rem;
+                    height: 2.500rem;
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .status_content {
+            padding-left: 1rem;
+            @include minidesktop{
+                padding-left: 0.5rem;
+            }
+        }
+
+        .label {
+            font-size: 0.875rem;
+            font-family: $font-base-reg;
+            color: $grey-med;
+            margin-bottom: 0.25rem;
+        }
+
+        .amt {
+            font-size: 1.5rem;
+            font-family: $font-base-med;
+
+            @include midDesktop {
+                font-size: 1.2rem;
+            }
+
+            .icon-ruppe,
+            .icon-rupee-bold {
+                font-size: 66%;
+                vertical-align: middle !important;
+                top: -0.1rem;
+                @include minidesktop{
+                    top: -0.1rem;
+                }
+            }
+
+            .chg {
+                color: $grey-med;
+                font-size: 0.875rem;
+                display: inline-block;
+                vertical-align: baseline;
+                @include ipad{
+                    display: block;
+                }
+            }
+        }
+
+        &.positive {
+            .status_icon {
+                background-color: rgba($green, 0.2);
+                color: $green;
+
+                i, em {
+                    transform: rotate(90deg);
+                    -webkit-transform: rotate(90deg);
+                }
+            }
+
+            .label {
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    vertical-align: baseline;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 5px 7px 5px;
+                    border-color: transparent transparent $green transparent;
+                    margin-left: 0.3rem;
+                }
+            }
+        }
+
+        &.negative {
+            .status_icon {
+                background-color: rgba($red, 0.2);
+                color: $red;
+
+                i, em {
+                    transform: rotate(-90deg);
+                    -webkit-transform: rotate(-90deg);
+                }
+            }
+
+            .label {
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    vertical-align: baseline;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 7px 5px 0 5px;
+                    border-color: $red transparent transparent transparent;
+                    margin-left: 0.3rem;
+                }
+            }
+        }
+    }
+}
+
+.portfolio-holdings_tab {
+    height: calc(100vh - 120px);
+    overflow: auto;
+
+    .holding-article {
+        padding-top: 0;
+
+        .dataTables_wrapper {
+            padding-top: 0;
+        }
+    }
+}
+
+.article_wrapper {
+    &.stickyTop {
+        table {
+            padding-top: 40px;
+
+            >thead {
+                position: fixed;
+                top: 115px;
+                z-index: 11;
+                background-color: $white;
+                box-shadow: 0 13px 14px -11px rgba(43, 47, 63, 0.1);
+                width: calc(100% - 27.938rem);
+                border-top: none;
+                @include laptop {
+                    width: calc(100% - 21.5rem);
+                }
+            }
+        }
+    }
+}
+
+.holding-table {
+    thead {
+        tr {
+
+            th {
+                color: $base-text;
+                font-size: $font-14;
+                @include ipad{
+                    letter-spacing: -0.03rem;
+                    font-size: 0.813rem;
+                }
+                &.todayGL {
+                    min-width: 112px;
+                }
+
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            cursor: pointer;
+
+            td {
+                &.name {
+                    .badge {
+                        padding: 2px;
+                        top: 0.2rem;
+                        position: relative;
+                    }
+                }
+
+                .btn-accordian {
+                    .icon-dropdown-arrow {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        background: url(../../assets/images/right-arrow.svg) left top no-repeat;
+                        background-size: 100% auto;
+                        transform: none;
+
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                &.accordian {
+                    padding-left: 0px !important;
+                }
+            }
+
+            &:hover {
+                background: $tbl-hoverd-bg;
+            }
+        }
+    }
+
+    .badge {
+        font-size: 0.625rem;
+        vertical-align: text-top;
+        margin-left: 0.3rem;
+    }
+
+    .amt {
+        font-size: 1rem;
+        display: inline-block;
+        margin-bottom: 0;
+        @include ipad{
+            font-size: 0.875rem;
+        }
+        @include inlineFlex(flex-start, center);
+
+        .indicator {
+            top: auto;
+            &.negative{
+                top: 2px;
+            }
+            &.positive{
+                top: 1px;
+            }
+        }
+    }
+
+    .indicator {
+        margin: 0 0.3rem;
+    }
+
+    .chg,
+    .chg_per {
+        font-size: 0.75rem;
+        color: $grey-med;
+        letter-spacing: -0.3px;
+        font-family: $font-base-reg;
+        top: -1px;
+         position: relative;
+    }
+
+    .btn-accordian {
+        i, em {
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+    }
+
+    .todayGL {
+        text-align: right;
+    }
+
+    .company_name {
+        text-transform: uppercase;
+        @include ipad{
+            font-size: 0.875rem;
+        }
+    }
+    tr{
+        td,th{
+            @include minidesktop{
+                padding: 0.75rem 0.5rem !important;
+            }
+            @include ipad{
+                padding: 0.75rem 0.35rem !important;
+            }
+            &.name {
+                width: 25%;
+                @include minidesktop{
+                    padding-left: 0.75rem;
+                    width: 27%;
+                }
+            }
+            &.qty  {
+                width: 11%;
+                @include minidesktop{
+                    width: 9%;
+                }
+            }
+            &.invAmt  {
+                width: 16%;
+            }
+            &.marketValue  {
+                width: 14%;
+            }
+            &.overallGL  {
+                width: 14%;
+            }
+            &.todayGL  {
+                width: 14%;
+            }
+            &.accordian  {
+                width: 5%;
+                padding-right: 0;
+                @include minidesktop{
+                    padding-right: 0.75rem;
+                }
+            }
+
+        }
+        
+    }
+    // td{
+    //     padding-top: 1.375rem;
+    //     padding-bottom: 1.625rem;
+    // }
+    .name {
+        .company_name {
+            margin-bottom: 0.375rem !important;
+            line-height: 1.188rem;
+        }
+        .amt {
+            line-height: 1.188rem;
+        }
+    }
+    .overallGL , .todayGL{
+        .amt{
+            line-height: 1.188rem;
+            margin-bottom: 0.250rem;
+           
+        }
+        .chg{
+            display: block;
+        }
+    }
+}
+
+.noHistory {
+    text-align: center;
+    //padding: 3rem 1.25rem;
+    padding: 7.5rem 1.25rem;
+    img {
+        display: block;
+        margin: 0 auto 2rem;
+    }
+
+    p {
+        font-size: 1.125rem;
+        line-height: 1.750rem;
+        color: $grey-med;
+        margin: 0 auto;
+
+    }
+
+}
+
+.portfolio_holdings_tab_mob {
+
+    @include tablet {
+        background: $bg;
+        padding-bottom: 3rem;
+    }
+
+    .search-filter {
+        @include tablet {
+            position: relative;
+            padding: 1rem 0.75rem;
+            background: $white;
+        }
+
+        .input-group-text {
+            @include tablet {
+                background-color: $input-bg;
+                border: solid 1px $input-border;
+            }
+        }
+
+        .form-control {
+            @include tablet {
+                background-color: $input-bg;
+                height: 3rem;
+                padding: 0.063rem 0.75rem 0.063rem 2.25rem;
+                border-radius: 0.25rem !important;
+                border: solid 1px $input-border;
+                padding-right: 2.5rem;
+            }
+        }
+
+        .custom-search {
+            @include tablet {
+                position: absolute;
+                top: 0.7rem;
+                left: 0.688rem;
+                z-index: 9;
+            }
+        }
+    }
+
+    .holding-section {
+        @include tablet {
+            padding: 0 0.5rem;
+        }
+
+        .holding-market-overall {
+            @include tablet {
+                width: 100%;
+                padding: 1.5rem 1rem;
+                border-radius: 0.5rem;
+                // background: #00198a;
+                background: url(../../assets/images/holding-bg.svg) no-repeat center;
+                background-size: cover;
+                color: $white;
+            }
+
+            .holding-market {
+                .status_content {
+                    .label {
+                        @include tablet {
+                            font-size: $font-12;
+                            font-family: $font-base-reg;
+                        }
+                    }
+
+                    .amt {
+                        @include tablet {
+                            font-size: $font-20;
+                            font-family: $font-base-med;
+
+                            .icon-rupee-bold {
+                                @include tablet {
+                                    font-size: 55%;
+                                    font-family: $font-pingFangSC-medium;
+                                    top: 0.45rem;
+                                }
+                            }
+
+                            .price {
+                                @include tablet {
+                                    font-size: $font-20;
+                                    font-family: $font-base-med;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .holding-overall {
+                @include tablet {
+                    margin-top: 1rem;
+                    padding: 1rem 1rem 0;
+                    width: 100%;
+                    min-height: 4.125rem;
+                    border-radius: 0.5rem;
+                    background-color: rgba(255, 255, 255, 0.08);
+
+                    .row {
+                        >div {
+                            border-right: 1px solid rgba($white, 0.16);
+                            text-align: center;
+
+                            &:first-child {
+                                text-align: left;
+                                width: 0.063rem;
+                                height: 2rem;
+                            }
+
+                            &:last-child {
+                                border-right: 0;
+                                text-align: right;
+                            }
+                        }
+                    }
+
+                }
+
+                @include xmobile {
+                    padding: 0.7rem 0.7rem 0;
+                }
+
+                .status_content {
+                    .label {
+                        @include tablet {
+                            font-size: $font-11;
+                            font-family: $font-base-reg;
+                            margin-bottom: 0.2rem;
+                        }
+                    }
+
+                    .overall-gain {
+                        .label {
+                            @include tablet {
+                                font-size: $font-11;
+                                font-family: $font-base-reg;
+                                margin-bottom: 0.2rem;
+                            }
+                        }
+
+                        .icon-back {
+                            transform: rotate(90deg);
+                            color: $positive;
+                        }
+                    }
+
+                    .todays-loss {
+                        .label {
+                            @include tablet {
+                                font-size: $font-11;
+                                font-family: $font-base-reg;
+                                margin-bottom: 0.2rem;
+                            }
+                        }
+
+                        .icon-back {
+                            transform: rotate(-90deg);
+                            color: $negative;
+                        }
+                    }
+
+                    .amt {
+                        .icon-rupee-bold {
+                            @include tablet {
+                                font-size: 25%;
+                                font-family: $font-pingFangSC-medium;
+                                top: 0.55rem;
+                            }
+                        }
+
+                        .price {
+                            @include tablet {
+                                font-size: $font-12;
+                                font-family: $font-base-med;
+                            }
+                        }
+
+                        .per {
+                            @include tablet {
+                                font-size: $font-12;
+                                font-family: $font-base-reg;
+                                padding-left: 0.25rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .holding-list {
+            @include tablet {
+                width: 100%;
+                margin: 1rem 0;
+                padding: 1rem 0.5rem;
+                border-radius: 8px;
+                box-shadow: 0 1px 6px 0 rgba(145, 145, 145, 0.24);
+                background-color: $white;
+                min-height: 9.875rem;
+            }
+
+            .first-sec {
+                @include tablet {
+                    padding: 0 8px;
+
+                    .company-details {
+                        .label {
+                            @include tablet {
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+                                color: $base-text;
+                                margin-bottom: 0.8rem;
+                                text-transform: uppercase;
+                            }
+                            .badge {
+                                @include tablet {
+                                    font-size: 9px;
+                                    font-family: $font-base-med;
+                                }
+                            }
+                        }
+
+                        .overall-amt {
+                            @include tablet {
+                                font-size: $font-12;
+                                font-family: $font-base-reg;
+                                color: $grey-med;
+                            }
+                            .overall {
+                                @include tablet {
+                                    font-size: $font-12;
+                                font-family: $font-base-reg;
+                                color: $grey-med;
+                                }
+                            }
+                            .overall-per {
+                                @include tablet {
+                                    font-size: $font-12;
+                                font-family: $font-base-reg;
+                                color: $base-text;
+                                }
+                            }
+                            .price {
+                                @include tablet {
+                                    font-size: $font-12;
+                                    font-family: $font-base-med;
+                                    padding: 0 0.3rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .amt-details {
+                        .amt {
+                            .icon-rupee-bold {
+                                @include tablet {
+                                    font-size: 30%;
+                                    font-family: $font-pingFangSC-medium;
+                                    top: 0.5rem;
+                                }
+                            }
+
+                            .price {
+                                @include tablet {
+                                    font-size: $font-14;
+                                    font-family: $font-base-med;
+                                }
+
+                                &.txtPositive {
+                                    color: $positive;
+
+                                    &::after {
+                                        content: "";
+                                        display: inline-block;
+                                        vertical-align: baseline;
+                                        width: 0;
+                                        height: 0;
+                                        border-style: solid;
+                                        border-width: 0 5px 7px 5px;
+                                        border-color: transparent transparent $green transparent;
+                                        margin-left: 0.3rem;
+                                    }
+                                }
+
+                                &.txtNegative {
+                                    color: $negative;
+
+                                    &::after {
+                                        content: "";
+                                        display: inline-block;
+                                        vertical-align: baseline;
+                                        width: 0;
+                                        height: 0;
+                                        border-style: solid;
+                                        border-width: 7px 5px 0 5px;
+                                        border-color: $red transparent transparent transparent;
+                                        margin-left: .3rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        .cg {
+                            @include tablet {
+                                font-size: $font-12;
+                                font-family: $font-base-med;
+                                color: $grey-med;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .inner-list {
+                @include tablet {
+                    width: 100%;
+                    // height: 71px;
+                    margin: 0.875rem 0 0;
+                    padding: 1rem 0.75rem;
+                    border-radius: 4px;
+                    background-color: $grey-bg;
+                }
+
+                .inner-status {
+                    .inner-name {
+                        @include tablet {
+                            font-size: $font-12;
+                            font-family: $font-base-reg;
+                            color: $grey-med;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .amt {
+                        @include tablet {
+                            font-size: $font-14;
+                            font-family: $font-base-med;
+                            color: $base-text;
+
+                            .icon-rupee-bold {
+                                @include tablet {
+                                    font-size: 75.5%;
+                                    font-family: $font-pingFangSC-medium;
+                                    top: 0.75rem;
+                                    color: $base-text;
+                                }
+
+                                @include xmobile {
+                                    font-size: 60.5%;
+                                    font-family: $font-pingFangSC-medium;
+                                    top: 0.9rem;
+                                }
+                            }
+
+                            .inner-price {
+                                @include tablet {
+                                    font-size: $font-14;
+                                    font-family: $font-base-med;
+                                    color: $base-text;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal {
+    &.holdingDetailModal {
+        .modal-content {
+            @include tablet {
+                padding-top: 1.25rem;
+                padding-bottom: 4.5rem;
+                background-color: $grey-bg !important;
+            }
+        }
+
+        .modal_header {
+            @include tablet {
+                padding: 0 1rem;
+                border-bottom: 0;
+                margin-bottom: 8px;
+
+                .row {
+                    margin: 0 -8px;
+
+                    >div {
+                        padding: 0 8px;
+                    }
+                }
+
+                .scrip_name {
+                    font-size: 1rem;
+                    margin-bottom: 0.3rem;
+                    @include ipad{
+                        font-size: 0.875rem;
+                    }
+                }
+
+                .badge {
+                    background-color: $white;
+                }
+
+                .amt {
+                    font-size: 1rem;
+                    line-height: 1.4rem;
+                    margin-bottom: 0.1rem;
+                    @include ipad{
+                        font-size: 0.875rem;
+                    }
+                    .icon-rupee,
+                    .icon-rupee-bold {
+                        font-size: 70%;
+                        top: 0.3rem;
+                    }
+
+                    .indicator {
+                        top: 0.45rem;
+                    }
+                }
+
+                .parameters {
+                    font-size: 0.75rem;
+                    font-family: $font-base-med;
+                    color: $grey2;
+
+                    .chg_per {
+                        margin-left: 0.4rem;
+                        color: $grey-med;
+                    }
+                }
+            }
+        }
+
+        .modal-body {
+            @include tablet {
+                padding: 0 0.5rem;
+            }
+
+            .title-panel-first {
+                @include tablet {
+                    padding: 1rem 2.375rem !important;
+
+                    .label_heading {
+                        font-size: $font-12 !important;
+                    }
+                }
+            }
+
+            .title-panel {
+                @include tablet {
+                    box-shadow: 0 2px 6px 0 rgba(106, 117, 130, 0.12);
+                    background-color: $white;
+                    padding: 1rem 1.25rem;
+                    border-radius: 4px;
+                    margin: 8px 0;
+
+                    .label_heading {
+                        font-size: $font-14;
+                        color: $grey-med;
+                        margin-bottom: 6px;
+                    }
+
+                    .label_value {
+                        font-size: $font-14;
+                        font-family: $font-base-med;
+                        color: $base-text;
+                        margin-bottom: 0;
+                        .holding-per {
+                            font-family: $font-base-reg;
+                            // font-size: $font-10;
+                            font-size: inherit;
+                            color: $base-text;
+                        }
+                    }
+
+                    .row {
+                        >div {
+                            border-right: 1px solid $input-border;
+                            text-align: center;
+
+                            // &:first-child {
+                            //     text-align: left;
+                            // }
+
+                            &:last-child {
+                                border-right: 0;
+                                // text-align: right;
+                            }
+                        }
+                    }
+
+                    table.label_value-table {
+                        width: 100%;
+
+                        tr {
+                            td {
+                                font-size: 0.875rem;
+                                padding-bottom: 20px;
+
+                                &.label_heading {
+                                    width: 65%;
+                                    margin: 0;
+                                    color: $grey-med;
+
+                                    &::after {
+                                        content: ":";
+                                        float: right;
+                                    }
+                                }
+
+                                &.label_value {
+                                    width: 35%;
+                                    text-align: right;
+                                    color: $base-text;
+                                }
+                            }
+
+                            &:last-child {
+                                td {
+                                    padding-bottom: 0px;
+                                }
+                            }
+                        }
+                    }
+
+                    .custom_tooltip {
+                        @include tablet {
+                            position: relative;
+
+                            .icon-info {
+                                width: 2px !important;
+                                height: 6px !important;
+                                position: absolute !important;
+                                font-size: $font-14 !important;
+                                top: -0.7rem;
+                            }
+
+                            &:hover {
+                                .tooltip_popup {
+                                    z-index: 1;
+                                    opacity: 1;
+                                }
+                            }
+
+                            .tooltip_popup {
+                                min-width: 15.625rem;
+                                position: absolute;
+                                background-color: $grey1;
+                                color: $white;
+                                padding: 1.5625rem 1.25rem;
+                                border-radius: 0.2rem;
+                                white-space: nowrap;
+                                left: -1rem;
+                                top: 0.7rem !important;
+                                transition: 0.3s all;
+                                z-index: -1;
+                                opacity: 0;
+
+                                &.base-color {
+                                    background-color: $base-text;
+
+                                    &::before {
+                                        border-color: transparent transparent $base-text transparent;
+                                    }
+                                }
+
+                                &.small {
+                                    padding: 0.4375rem 0.75rem;
+                                    min-width: auto;
+                                }
+
+                                &::before {
+                                    content: "";
+                                    display: inline-block;
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 0 7px 8px 7px;
+                                    border-color: transparent transparent #2a394e transparent;
+                                    position: absolute;
+                                    left: 18px;
+                                    top: -8px;
+                                }
+
+                                * {
+                                    color: inherit !important;
+                                }
+
+                                h5 {
+                                    font-size: 1.125rem;
+                                    margin-bottom: 0.2rem;
+                                }
+
+                                h6 {
+                                    font-size: 0.8125rem;
+                                    margin-bottom: 0.2rem;
+                                }
+
+                                ul {
+                                    padding: 0;
+                                }
+                            }
+
+                            table {
+                                tr {
+                                    td {
+                                        padding: 0 0 0.75rem 0 !important;
+                                    }
+
+                                    &:last-child {
+                                        td {
+                                            padding-bottom: 0 !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .portfolio-buy-sell-footer {
+            @include tablet {
+                background: $white;
+                position: fixed;
+                bottom: 0;
+                padding: 0.5rem 1rem;
+                width: 100%;
+                z-index: 99;
+                box-shadow: 0 -3px 6px 0 rgba(145, 145, 145, 0.08);
+
+                >.row {
+                    margin: 0 -4px;
+
+                    >div {
+                        padding: 0 4px;
+                    }
+                }
+
+                .buyBtn,
+                .sellBtn {
+                    @include tablet {
+                        width: 100%;
+                        height: 3rem;
+                        border-radius: 0.25rem;
+                        text-transform: uppercase;
+                        font-size: 0.875rem;
+                        color: $white;
+                        font-family: $font-base-semibold;
+                    }
+                }
+
+                .buyBtn {
+                    @include tablet {
+                        background: $positive;
+                    }
+                }
+
+                .sellBtn {
+                    @include tablet {
+                        background: $negative;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.holding-article{
+.table.flex-table {
+    thead {
+        tr{
+            @include flex(flex-start, center);
+        }
+    }
+    tbody {
+        tr{
+            @include flex(flex-start, center) ;
+        }
+    }
+}
+}

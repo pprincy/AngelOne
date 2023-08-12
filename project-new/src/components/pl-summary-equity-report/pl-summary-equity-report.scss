@@ -1,0 +1,400 @@
+@import '../../assets/scss/styles';
+
+.pl-report-section {
+    background: $white;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+        display: none;
+        position: relative;
+        z-index:10 ;
+        background: $white;
+        .balance {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+            color: $grey-med;
+            .date {
+                font-family: $font-base-med;
+                font-size: $font-18;
+                letter-spacing: -0.26px;
+                padding-left: 0.5rem;
+                color: $base-text;
+            }
+        }
+
+        .ledger {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            color: $base-text;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+
+            .date {
+                font-family: $font-base-reg;
+                font-size: $font-16;
+                letter-spacing: -0.23px;
+                color: $base-text;
+            }
+        }
+    }
+
+    .pl-table-wrapper {
+        table {
+            thead {
+                border-top: 1px solid $light-border-color;
+                border-bottom: 1px solid $light-border-color;
+                white-space: nowrap;
+                background: $white;
+                position: relative;
+                z-index: 2;
+                tr{
+                    padding: 0 1rem;
+                }
+                th {
+                    padding: 0.75rem 0.5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px;
+                    
+                }
+
+                .sort-link {
+                    display: block;
+                    font-family: $font-base-reg;
+                    font-size: 0.875rem;
+                    color: $base-text;
+                    line-height: 1rem;
+
+                    @include laptop {
+                        padding: 0.85rem 1rem 0.5rem;
+                    }
+
+                    i {
+                        font-size: 0.75rem;
+                        color: $grey;
+                    }
+
+                    .up-down-arrow {
+                        display: inline-flex;
+                        flex-direction: column;
+                        position: relative;
+                        top: -0.3rem;
+                        line-height: 1rem;
+                        margin-left: 0.65rem;
+
+                        span {
+                            margin: -0.28rem 0;
+
+                            i {
+                                font-size: 0;
+
+                                &:before {
+                                    content: "";
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 0 3px 5px 3px;
+                                    border-color: transparent transparent #979ab2 transparent;
+                                    display: block;
+                                }
+                            }
+
+                            &.down {
+                                i {
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+                    }
+
+                    &.ascending {
+                        .up-down-arrow {
+                            .up {
+                                color: $highlighted;
+
+                                i {
+                                    color: $highlighted;
+
+                                    &:before {
+                                        border-color: transparent transparent $highlighted transparent;
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+
+                    &.descending {
+                        .up-down-arrow {
+                            .down {
+                                color: $highlighted;
+
+                                i {
+                                    color: $highlighted;
+
+                                    &:before {
+                                        border-color: transparent transparent $highlighted transparent;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .sellCol, .othersCol {
+                   // padding-left: 0;
+                }
+                .glCol {
+                    text-align: right;
+                }
+            }
+
+            tbody {
+                tr{
+                   &:hover {
+                        background-color: $tbl-hoverd-bg;
+                    }
+                    &.panel{
+                        padding: 0 1rem;
+                    }
+                }
+                
+                td {
+                    //padding: 0.75rem 1rem;
+                    height: auto !important;
+                    padding: 1rem 0.5rem;
+                    font-family: $font-base-med;
+                    font-size: $font-16;
+                    vertical-align: middle;
+                    .price{
+                        @include inlineFlex(flex-end, center);
+                    }
+                    .glvaluewrap{
+                        @include flex(flex-end, center);
+                        .price{
+                            em{
+                                display: none;
+                                margin-right:1px;
+                                font-style: normal;
+                            }
+                            &.txtNegative{
+                                em{
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                        .percent{
+                            @include inlineFlex(flex-end, center);
+                            em{
+                                display: none;
+                               
+                                font-style: normal;
+                            }
+                            &.minus{
+                                em{
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                    }
+                    &.deliveryCol{
+                        .price{
+                            em{
+                                display: none;
+                               
+                                font-style: normal;
+                            }
+                            &.minus{
+                                em{
+                                    display: inline-block;
+                                    margin-right: 1px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .rs {
+                    font-style: normal;
+                    font-size: $font-16;
+                    font-family: $font-pingFangSC-medium;
+                    font-weight: normal;
+                }
+                .delivery {
+                    padding-right: 2rem;
+                }
+                .gl {
+                    text-align: right;
+                }
+                .long {
+                    text-align: right;
+                    padding-right: 2rem;
+                }
+                .short {
+                    text-align: right;
+                    padding-right: 2rem;
+                }
+                .scrip-name {
+                    text-transform: uppercase;
+                    font-family: $font-base-med;
+                    font-size: $font-14;
+
+                    .exchage {
+                        font-size: $font-10;
+                        font-family: $font-base-med;
+                        line-height: 12px;
+                        padding: 0px 2px;
+                        height: 14px;
+                        display: inline-block; vertical-align: middle;
+                        position: relative; top: -1px;
+                    }
+
+                    .group {
+                        font-family: $font-base-reg;
+                        font-size: $font-12;
+                        line-height: $font-14;
+                        text-transform: capitalize;
+                        color: $grey;
+                        padding-top: 0.438rem!important;
+                    }
+                }
+                .percent {
+                    font-family: $font-base-reg;
+                    font-family: $font-16;
+                    color: $grey-med;
+                    padding-left: 0.5rem;
+                }
+            }
+           
+           &.with-sorting-option{
+                thead{
+                    tr{
+                        th{
+                            &.text-right{
+                                padding-right: 1.5rem;
+                                &:after{
+                                    position: absolute;
+                                    right: 0.5rem;
+                                    top: 50%;
+                                    margin-top:-0.375rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                            &.text-right{
+                                padding-right: 1.5rem;
+                            }
+                        }
+                    }
+                }
+           }
+        }
+        &.pl-equity-table-wrap{
+            .table{
+                tbody{
+                    
+                }
+                tr.panel{
+                    min-height: 70px;
+                    td{
+                        z-index: 1;
+                    }
+                    &:after{
+                        z-index:3;
+                    }
+                    &:hover{
+                        &:before{
+                            background:$tbl-hoverd-bg ;
+                        }
+                        .scripCol{
+
+                           &.stickyCol{
+                            background:$tbl-hoverd-bg ;
+                           }
+                        }
+                    }
+                }
+                thead{
+                    &.stickyHead{
+                        box-shadow: 0 13px 14px -11px rgba(73 81 106 / 5%);
+                    }
+                    .scripCol{
+                      
+                       &.stickyCol{
+                         top:259px;
+                         box-shadow: 4px 1px 11px 0px rgb(73 81 106 / 5%);
+                       }
+                    }  
+                }
+                .scripCol{
+                    width: 14% !important;
+                    z-index: 1;
+                //    &.stickyCol{
+                //        background: $white;
+                //        position: fixed;
+                //        min-width: 193px;
+                //        left: 0.625rem;
+                //        z-index: 3;
+                //        padding-left: 1.5rem;
+                //        border-right: 1px solid $lighter-border-color;
+                //        box-shadow: 4px 11px 12px 0 rgba(73, 81, 106, 0.05);
+                //        + .buyCol{
+                //            margin-left: 14%;
+                //        }
+                //    }
+                }
+                .buyCol{
+                    width: 9% !important;
+                }
+                .sellCol{
+                    width: 9% !important;
+                }
+                .othersCol{
+                    width: 9% !important;
+                }
+                .shortCol{
+                    width: 11% !important;
+                }
+                .longCol{
+                    width: 11% !important;
+                }
+                .glCol{
+                    width: 16% !important;
+                }
+                .intradayCol{
+                    width: 10% !important;
+                }
+                .deliveryCol{
+                    width: 11% !important;
+                }
+            }
+        }
+    }
+}
+
+
+// .pl-equity-table-wrap{
+//     table{
+//        min-width: 1300px;
+//         tbody{
+//             height: calc(100vh - 301px);
+//             @include laptop{
+//                 height:  calc(100vh - 301px - 67px);
+//             }
+//         }
+        
+//     }
+// }
+
+
+

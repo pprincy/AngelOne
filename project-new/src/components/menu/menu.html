@@ -1,0 +1,144 @@
+
+<section class="side-quick-links">
+  <!-- <div class="side-quick-links-scrollx"> -->
+  <ul>
+    <li v-for="item in items" :class="item.className" >
+      <!-- <a href="#" :id="item.className" :class="{active:item.id == selected}" @click="selected = item.id"      >
+        <em :class="item.iconName"></em>
+        <span>{{item.name}}</span>
+      </a> -->
+      <router-link :to="item.name">
+        <em :class="item.iconName"></em>
+        <span>{{item.name}}</span>
+      </router-link>
+    </li>
+    
+  </ul>
+<!-- </div> -->
+</section>
+
+<div class="modal fade keyboardShortcutsModal" id="keyboardShortcutsModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Keyboard Shortcuts</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body">
+        <section class="keyboard_shortcuts_sec">
+          <article class="block">
+              <h4 class="block_title">Watchlist</h4>
+              <div class="inner_block">
+                  <div class="main-row">
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Hide Watchlist</div>
+                          <div class="shortcut_key"><div class="code"><em class="icon-key-left"></em></div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Unhide Watchlist</div>
+                          <div class="shortcut_key"><div class="code"><em class="icon-key-right"></em></div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Switch between <br>scrips in a watchlist</div>
+                          <div class="shortcut_key">
+                              <div class="code"><em class="icon-key-up"></em></div><span>OR</span><div class="code"><em class="icon-key-down"></em></div>
+                          </div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Buy Scrip</div>
+                          <div class="shortcut_key"><div class="code">B</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Sell Scrip</div>
+                          <div class="shortcut_key"><div class="code">S</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Open Chart</div>
+                          <div class="shortcut_key"><div class="code">C</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Stock Overview</div>
+                          <div class="shortcut_key"><div class="code">A</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Switch between <br>multiple watchlist</div>
+                          <div class="shortcut_key">
+                              <div class="code">Ctrl</div><div class="code">Shift</div><div class="code"><em class="icon-key-left"></em></div><span>OR</span><div class="code"><em class="icon-key-right"></em></div>
+                          </div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Delete Scrip</div>
+                          <div class="shortcut_key"><div class="code">Del</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Watchlist</div>
+                          <div class="shortcut_key"><div class="code">W</div></div>
+                      </div>
+                  </div>
+              </div>
+          </article>
+          <article class="block">
+              <h4 class="block_title">Charts Expanded View</h4>
+              <div class="inner_block">
+                  <div class="main-row">
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Buy Stock</div>
+                          <div class="shortcut_key"><div class="code">B</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Sell Stock</div>
+                          <div class="shortcut_key"><div class="code">S</div></div>
+                      </div>
+                  </div>
+              </div>
+          </article>
+          <article class="block">
+              <h4 class="block_title">Navigation</h4>
+              <div class="inner_block">
+                  <div class="main-row">
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Account Settings</div>
+                          <div class="shortcut_key"><div class="code">T</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Funds</div>
+                          <div class="shortcut_key"><div class="code">F</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Open Orders</div>
+                          <div class="shortcut_key"><div class="code">O</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Positions</div>
+                          <div class="shortcut_key"><div class="code">P</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Holdings</div>
+                          <div class="shortcut_key"><div class="code">H</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Markets</div>
+                          <div class="shortcut_key"><div class="code">M</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Advisory</div>
+                          <div class="shortcut_key"><div class="code">A</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Reports</div>
+                          <div class="shortcut_key"><div class="code">R</div></div>
+                      </div>
+                      <div class="shortcut d-flex align-items-center">
+                          <div class="shortcut_name">Keyboard Shortcuts</div>
+                          <div class="shortcut_key"><div class="code">K</div></div>
+                      </div>
+                  </div>
+              </div>
+          </article>
+      </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+ <section class="side-quick-links-left d-none d-lg-block d-md-none d-sm-none">
+   <div class="pg-ttl">ACCOUNT</div>
+   <div class="scrollableContent">
+     <ul class="nav nav-tabs">
+       <li class="nav-item" v-for="item in items" :class="item.className">
+         <a :class="{ active: item.active }" data-toggle="tab" :href="item.link">
+           <div class="d-flex align-items-center list-section">
+             <!-- <img :src="item.iconName" class="icon-img" alt=""> -->
+             <em :class="item.iconName"></em>
+             <div class="text-left pl-3">
+               <label>{{ item.name }}</label>
+               <p>{{ item.content }}</p>
+             </div>
+           </div>
+         </a>
+       </li>
+     </ul>
+     <div class="report-content">
+       <ul class="d-flex">
+         <li class="flex-fill">
+           <a href="#">
+             <em class="custom-report"></em>
+             <label>REPORTS</label>
+           </a>
+         </li>
+         <li class="flex-fill">
+           <a href="#">
+             <em class="custom-support"></em>
+             <label class="">SUPPORT</label>
+           </a>
+         </li>
+       </ul>
+
+     </div>
+   </div>
+   <div class="footer">
+     <div class="social-icons d-flex justify-content-between">
+       <a href="https://www.youtube.com/c/angelbroking" target="_blank"><img
+           src="../../assets/images/accounts-imgs/account-nav/youtube.svg" alt=""></a>
+       <a href="https://instagram.com/angelbroking" target="_blank"><img
+           src="../../assets/images/accounts-imgs/account-nav/instagram.png" alt=""></a>
+       <a href="https://m.facebook.com/AngelBrokingLtd" target="_blank"><img
+           src="../../assets/images/accounts-imgs/account-nav/fb.svg" alt=""></a>
+       <a href="https://www.linkedin.com/company/angel-broking" target="_blank"><img
+           src="../../assets/images/accounts-imgs/account-nav/linkedin.svg" alt=""></a>
+       <a href="https://mobile.twitter.com/angelbrokingltd" target="_blank"><img
+           src="../../assets/images/accounts-imgs/account-nav/twitter.svg" alt=""></a>
+     </div>
+     <a href="#" class="logout" data-toggle="modal" data-target="#addLogoutModal">
+       <span>LOGOUT</span><em class="custom-logout"></em>
+     </a>
+   </div>
+
+ </section>
+ <AccountLogoutModal></AccountLogoutModal>
+
+ <div class="main-content">
+   <div class="main-content-in account_main-content-in">
+     <article class="field_bg full-height p-0">
+       <div class="tab-content">
+         <div id="profile" class="container tab-pane active">
+           <div class="account-main-content">
+             <div class="ttl d-none d-lg-block d-md-none d-sm-none">
+               <h3>Profile</h3>
+             </div>
+             <div class="ttl d-lg-none d-md-block d-sm-block">
+               <router-link to="/watchlist" class="btn btn-back">
+                 <em class="icon-dropdown-arrow"></em>
+                 <span>Profile</span>
+               </router-link>
+             </div>
+             <AccountProfileMain></AccountProfileMain>
+           </div>
+         </div>
+         <div id="settings" class="container tab-pane fade"><br>
+           <Accountsetting></Accountsetting>
+         </div>
+         <div id="aboutus" class="container tab-pane fade">
+           <div class="account-main-content">
+             <div class="ttl d-none d-lg-block d-md-none d-sm-none">
+               <h3>About us</h3>
+             </div>
+             <div class="ttl d-lg-none d-md-block d-sm-block">
+               <router-link to="/watchlist" class="btn btn-back">
+                 <em class="icon-dropdown-arrow"></em>
+                 <span>About us</span>
+               </router-link>
+             </div>
+             <Accountaboutus></Accountaboutus>
+           </div>
+
+         </div>
+         <div id="language" class="container tab-pane fade">
+           <div class="account-main-content">
+             <div class="ttl">
+               <h3>Language</h3>
+             </div>
+             <AccountLanguage></AccountLanguage>
+           </div>
+         </div>
+         <div id="KeyboardShortcuts" class="container tab-pane fade">
+          <AccountKeyboardShortcuts></AccountKeyboardShortcuts>
+        </div>
+         <div id="referEarn" class="container tab-pane fade"><br>
+           <h3>Refer & Earn</h3>
+           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+             rem aperiam.</p>
+         </div>
+         <!-- <div class="logout-footer-section d-lg-none d-md-block d-sm-block">
+           <div class="account-main-content">
+             <a href="/">
+               <div class="logout-footer">
+                 <h3>LOGOUT</h3>
+                 <em class="custom-logout"></em>
+               </div>
+             </a>
+           </div>
+         </div> -->
+       </div>
+     </article>
+   </div>
+ </div>

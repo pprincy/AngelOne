@@ -1,0 +1,520 @@
+@import '../../assets/scss/styles';
+
+.ipowrap {}
+.needhelp { background: $white; font-size: $font-18; color: $grey-med; padding:1.5rem; display: flex; align-items: center;
+    border-top:1rem solid #f5f6fa; border-bottom:1rem solid #f5f6fa; border-left:1.5rem solid #f5f6fa; border-right: 1.5rem solid #f5f6fa;
+    span {
+        b, strong{ color: $base-text; font-family: $font-base-med;}
+    }
+    .btn-wrap { margin-left: auto;
+        .knowmore { padding: 0.625rem 2rem; font-size: $font-12; font-family: $font-base-semibold;}
+        .bg { margin: 0 .5rem 0 1rem;
+            .icon-close { background: #f5f6fa; border-radius: 50%; padding: 3px; color: #000;}
+        }
+    }
+    @include ipad-up {
+       font-size: $font-16;
+    }
+}
+
+
+.stickyTabWrap {
+	&.ipowrap {
+		&.stickyTop {
+			.tab-wrap {
+				.nav-tabs {
+					background: $white;
+					z-index: 9;
+					position: fixed;
+					top: 124px;
+					width: calc(100% - 27.938rem);
+                    @include ipad-up {
+                        width: calc(100% - 21.938rem);
+                    }
+                    
+				}
+			}
+			table {
+				&.stickyonScroll {
+					& > thead {
+						background: $white;
+						z-index: 9;
+						position: fixed;
+						top: 170px;
+						width: calc(100% - 27.938rem);
+                        @include ipad-up {
+                            width: calc(100% - 21.938rem);
+                        }
+                        @include tablet {
+                            width: 100%;
+                            top: 181px;
+                        }
+                        tr {
+                            th { white-space: nowrap;}
+                        }
+					}
+				}
+			}
+		}
+	}
+}
+
+.liveipos-section {
+    margin-top: 0;
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        background: $white;
+        padding: 2rem 1.5rem 1rem 1.5rem;
+
+        .headtxt {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+            color: $grey1;
+
+            .counttxt {
+                font-family: $font-base-med;
+                font-size: $font-14;
+                color: $grey1;
+                letter-spacing: -0.23px;
+                background: $bg; padding: 5px; border-radius: 50%; margin-left: 10px; width: 24px; height: 24px; display: inline-flex; justify-content: center;
+            }
+        }
+
+        .updatetxt {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            color: $grey-med;
+            margin-bottom: 0rem;
+
+            .ago {
+                font-family: $font-base-semibold;
+                font-size: $font-16;
+                color: $grey1;
+            }
+        }
+    }
+
+    .liveipo-table-wrapper {
+        table.ipotable {
+            background: $white;
+
+            thead {
+                tr { padding: 0 1rem;
+                th {
+                    padding: 1rem .5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px; 
+                    color: $grey-med;
+                    @include ipad {
+                        font-size: $font-13;
+                    }
+                }
+
+                .companyname { width: 23%;}
+                .closingdate { width: 14%; text-align: right;}
+                .mininvest { width: 20%; text-align: right;}
+                .pricerange { width: 16%; text-align: right;}
+                .predict { width: 16%; text-align: center;
+                    .icon-info.pointer { line-height: 11px;}
+                    .icon-info.pointer.tool-hover {
+                        position: relative;
+                        cursor: pointer;
+                        .tooltip {
+                            top: 25px;
+                            left: -4px;
+                            width: 250px;
+                            padding: 1.5rem;
+                            background-color: black;
+                            color: white;
+                            border-radius: 4px;
+                            opacity: 0;
+                            display: none;
+                            position: absolute;
+                            z-index: 1;
+                            -webkit-transform: translateX(-50%);
+                            transform: translateX(-50%);
+                            -webkit-transition: opacity 0.5s;
+                            -moz-transition: opacity 0.5s;
+                            -ms-transition: opacity 0.5s;
+                            -o-transition: opacity 0.5s;
+                            transition: opacity 0.5s;
+                            &::before {
+                                content: "";
+                                display: block;
+                                clear: both;
+                                position: absolute;
+                                top: -10px;
+                                left: 50%;
+                                width: 0;
+                                height: 0;
+                                border-left: 10px solid transparent;
+                                border-right: 10px solid transparent;
+                                border-bottom: 10px solid #000;
+                            }
+                            h4 {
+                                font-size: $font-14;
+                                font-family: $font-base-semibold;
+                                line-height: 1.063rem;
+                            }
+                            p {
+                                font-size: $font-14;
+                                letter-spacing: -0.3px;
+                                line-height: 1.125rem;
+                            }
+                        }
+                        &:hover {
+                            .tooltip {
+                                opacity: 1;
+                                display: block;
+                            }
+                        }
+                    }
+                    
+                }
+                .subscription { width: 7%;}
+                .arrow { width: 4%;}
+            }  
+            }
+            tbody{
+                tr {
+                    padding: 0 1rem;
+                    align-items: flex-end;
+                    position: relative;
+                    
+                }
+                tr:after {
+                    content: "";
+                    display: block;
+                    width: 96%;
+                    max-width: calc(100% - 40px);
+                    height: 1px;
+                    border-bottom: 1px solid #ebecf3;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                }
+                tr:last-child:after {
+                   display: none;
+                }
+                tr:hover {
+                    background-color: $tbl-hoverd-bg;
+                }
+                
+            td {
+                padding: 1.375rem 0.5rem 1.688rem;
+                font-family: $font-base-med;
+                font-size: $font-16;
+                vertical-align: bottom;
+                color: $base-text;
+                @include ipad {
+                    font-size: $font-14;
+                }
+                &.arrow { position: relative;
+					.icon-dropdown-arrow {
+						width: 1.5rem;
+						height: 1.5rem;
+						background: url(../../assets/images/right-arrow.svg) left top no-repeat; position: absolute; bottom: 1.5rem; left: 0;
+						background-size: 100% auto;
+						transform: none;
+						&:before {
+							content: "";
+						}
+					}
+				}
+            }
+
+                .companyname { width: 23%;
+                    .daytxt { background: $bg; font-size: $font-14; color: $base-text; margin-bottom: 15px; text-transform: uppercase; display: inline-block; padding: 4px 8px;}
+                    div.trunc { text-transform: capitalize; overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;}
+
+                    
+                }
+                .closingdate { width:14%; text-align: right;}
+                .mininvest { width: 20%; text-align: right;
+                    span { color: $grey-med; font-size: $font-14;
+                        @include ipad {
+                            font-size: $font-12;
+                        }
+                    }
+                }
+                .pricerange { width: 16%; text-align: right;}
+                .predict { width: 16%; text-align: center;
+                    .highspd { background: url(../../assets/images/high.svg) 15px center no-repeat $bg; display: inline-block; padding: .5rem 1rem .5rem 3.125rem; border-radius: 1.25rem; color: $green; position: relative; top: 6px;  width: 7.5rem; font-family: $font-base-semibold;}
+
+                    .medspd { background: url(../../assets/images/medium.svg) 15px center no-repeat $bg; display: inline-block; padding: .5rem 1rem .5rem 3.125rem; border-radius: 1.25rem; color: $orange; position: relative; top: 6px; width: 7.5rem; font-family: $font-base-semibold;}
+
+                    .lowspd { background: url(../../assets/images/low.svg) 15px center no-repeat $bg; display: inline-block; padding: .5rem 1rem .5rem 3.125rem; border-radius: 1.25rem; color: $red; position: relative; top: 6px; width: 7.5rem; font-family: $font-base-semibold;}
+                }
+                .subscription { width: 7%; }
+                .arrow { width: 4%;}
+            
+            
+
+            
+        }
+        }
+        .table.tbl-theme thead {
+            border-top: none;
+        }
+    }
+}
+
+.upcomingipos-section {
+    margin-top: 0; border-top: 4px solid #f5f6fa; 
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        background: $white;
+        padding: 2rem 1.5rem 1rem 1.5rem;
+
+        .headtxt {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+            color: $grey1;
+
+            .counttxt {
+                font-family: $font-base-med;
+                font-size: $font-14;
+                color: $grey1;
+                letter-spacing: -0.23px;
+                background: $bg; padding: 5px; border-radius: 50%; margin-left: 10px; width: 24px; height: 24px; display: inline-flex; justify-content: center;
+            }
+        }
+
+        .updatetxt {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            color: $grey-med;
+            margin-bottom: 0rem;
+
+            .ago {
+                font-family: $font-base-semibold;
+                font-size: $font-16;
+                color: $grey1;
+            }
+        }
+    }
+
+    .upcomingipo-table-wrapper {
+        &.stickyHead {
+            table.stickyonScroll1 {
+                thead {
+                    z-index: 10; background: $white;
+                    position: fixed;
+                    top: 170px;
+                    width: calc(100% - 27.938rem);
+                    @include ipad {
+                        width: calc(100% - 21.938rem);
+                    }
+                    @include tablet {
+                        width: 100%;
+                        top: 181px;
+                    }
+                }
+            }
+        }
+        table.ipotable {
+            background: $white;
+
+            thead {
+                tr { padding: 0 1rem;
+                th {
+                    padding: 1rem .5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px; 
+                    color: $grey-med;
+                    @include ipad {
+                        font-size: $font-13;
+                    }
+                }
+
+                .companyname { width: 24%;}
+                .closingdate { width: 24%; text-align: right;}
+                .mininvest { width: 24%; text-align: right;}
+                .pricerange { width: 23%; text-align: right;}
+                .arrow { width: 5%;}
+            }
+                
+            }
+            tbody{
+                tr {
+                    padding: 0 1rem; position: relative;
+                    
+                }
+                tr:after {
+                    content: "";
+                    display: block;
+                    width: 96%;
+                    max-width: calc(100% - 40px);
+                    height: 1px;
+                    border-bottom: 1px solid #ebecf3;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                }
+                tr:last-child:after {
+                   display: none;
+                }
+                tr:hover {
+                    background-color: $tbl-hoverd-bg;
+                }
+            td {
+                padding: 1.2rem 0.5rem 1.8rem;
+                font-family: $font-base-med;
+                font-size: $font-16;
+                vertical-align: bottom;
+                color: $base-text;
+                @include ipad {
+                    font-size: $font-14;
+                }
+                &.arrow {
+					.icon-dropdown-arrow {
+						width: 1.5rem;
+						height: 1.5rem;
+						background: url(../../assets/images/right-arrow.svg) left top no-repeat;
+						background-size: 100% auto;
+						transform: none;
+						&:before {
+							content: "";
+						}
+					}
+				}
+            }
+
+                .companyname { width: 24%;
+                    .daytxt { background: $bg; font-size: $font-14; color: $base-text; margin-bottom: 15px; text-transform: uppercase; display: inline-block; padding: 4px 8px;}
+                    div { text-transform: capitalize;}
+                }
+                .closingdate { width: 24%; text-align: right;}
+                .mininvest { width: 24%; text-align: right;
+                    span { color: $grey-med; font-size: $font-14;
+                        @include ipad {
+                            font-size: $font-12;
+                        }
+                    }
+                }
+                .pricerange { width: 23%; text-align: right;}
+                .arrow { width: 5%;}
+                
+            
+            
+
+            
+        }
+        }
+        .table.tbl-theme thead {
+            border-top: none;
+        }
+    }
+}
+
+.btn-hold { background: $white; padding: 2.5rem 0; margin-top: 0px; border-top: 4px solid #f5f6fa; 
+    .btn.btn-xl.viewClosedIPOyBtn { min-width: 249px; padding: 0.875rem 1rem 0.938rem;}
+    p { color: $grey-med; font-size: $font-16; padding-top: 1.5rem;
+        b, strong { color: $base-text; font-weight: normal;}
+        a.link { font-size: $font-16;}
+    }
+}
+
+
+.noissue-cnt { background: $white; display: flex; align-items: center; justify-content: center; height: 100%;
+    figure {
+        max-width: 400px;
+        text-align: center; margin: 0;
+        img { padding-bottom: 1.25rem; display: inline-block;}
+        figcaption {
+          color: $grey-med;
+          font-size: $font-18;
+          line-height: 1.75rem;
+          span { display: block;}
+          @include small{
+            font-size: 1.2rem;
+            line-height: 1.7rem;
+          }
+        }
+    }
+
+    & .btn-hold { border-top: 0;}
+}
+
+
+.cardDiv {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.card {
+		border-radius: 12px;
+		width: 30.33%;
+		padding: 1rem 1rem 6.88rem 1rem;
+		position: relative;
+		border: 1px solid #c3c3c3;
+		align-self: stretch;
+		.imghold {
+			border: 0px solid red;
+		}
+		&:after {
+			content: "";
+			display: inline-block;
+			font-size: 82px;
+			color: #3f5bd9;
+			opacity: 0.1;
+			position: absolute;
+			bottom: -16px;
+			font-family: $font-base-bold;
+		}
+		&.numone {
+			&:after {
+				content: "1";
+			}
+		}
+		&.numtwo {
+			&:after {
+				content: "2";
+			}
+		}
+		&.numthree {
+			&:after {
+				content: "3";
+			}
+		}
+        h4 {font-size: $font-20; font-family: $font-base-med; color: $base-text;}
+        p { font-size: $font-14; color: $grey-med;}
+	}
+}
+.modal#threestep .modal-xl { max-width: 1080px;}
+.modal#threestep .modal-header { padding:3.5rem 5rem 1.25rem 5rem;}
+.modal#threestep .modal-header h2 { font-size: $font-28; font-family: $font-base-med; margin-bottom:0.875rem;}
+.modal#threestep .modal-header h4 {font-size: $font-20; font-family: $font-base-med; color: $grey-med;}
+.modal#threestep .modal-body { padding: 3.5rem 5rem;}
+.modal#threestep .modal-header .close { right: 5.125rem; top: 3.5rem;}
+.modal#threestep .modal-header.border-bottom-zero {
+    border-bottom: 0;
+}
+
+.modal .modal-header.border-bottom-zero {
+    border-bottom: 0;
+}
+
+
+
+.cname-tooltip { background: #000; color: $white; border-radius: 4px; padding: .5rem; position: absolute; bottom: -24px; z-index: 1; font-size: $font-14;}
+.cname-tooltip:before{ border: solid; border-color: #000 transparent; border-width: 0px 6px 12px 6px; content: ""; left: 35%; top: -10px; position: absolute; z-index: 1; }

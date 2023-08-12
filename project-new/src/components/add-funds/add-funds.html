@@ -1,0 +1,279 @@
+<!-- <header class="header header--ver2">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto">
+        <a href="#" class="logo"><img src="../../assets/images/logo.png"></a>
+      </div>
+    </div>
+  </div>
+</header> -->
+
+<section class="main-content section main_section add_funds-section min_full_height">
+  <div class="sec_title_wrap">
+    <router-link to="/funds" class="btn btn-back"><em class="icon-dropdown-arrow"></em><span>Add Funds</span>
+    </router-link>
+  </div>
+  
+  <div class="main-content-wrapper">
+    <div class="note_bar">Note : The Payment using UPI and Net Banking can be done using the bank account
+      registered with Angel One only</div>
+    <article class="article">
+
+      <div class="form-group enter_amount">
+        <h6 class="label_heading"><em class="icon-rupee-bold"></em>Enter Amount</h6>
+        <div class="form-control-wrap">
+          <em class="icon-rupee-bold"></em>
+          <input type="text" class="form-control amt_form-control has_error" placeholder="0">
+          <!--add class "has_error" for input error-->
+        </div>
+        <div class="field_error">
+          <!-- Please enter amount. -->
+          Please enter a minimum of <em class="rs">₹</em>50 for bank transfer.
+        </div>
+      </div>
+
+      <div class="form-group select_account dropdown">
+        <h6 class="label_heading"><em class="icon-bank"></em>Select Account</h6>
+        <div class="form-control-wrap d-flex align-items-center">
+          <div class="bank_logo">
+            <img src="../../assets/images/icon-bank.svg" alt="">
+          </div>
+          <div class="bank_info">
+            <h5 class="bank_name">Ahmednagar Merchants Co Operative Bank</h5>
+            <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+          </div>
+          <div class="change_action dropdown-toggle" id="selectBankDropdown" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <a href="#" class="change_bank">CHANGE</a>
+          </div>
+          <div class="dropdown-menu bank-dropdown" aria-labelledby="selectBankDropdown">
+            <div class="add_bank_account cursor">
+              <a href="#" data-toggle="modal" data-target="#addBankModal">
+                <span class="add"><img src="../../assets/images/icon-add.svg" alt=""></span> <span>ADD BANK
+                  ACCOUNT</span>
+              </a>
+            </div>
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-hdfc.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">HDFC Bank</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-1" class="radio-input">
+                  <label for="Bank-1" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-statebank.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">State Bank of India</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-2" class="radio-input">
+                  <label for="Bank-2" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-axis.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">Axis Bank</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-3" class="radio-input">
+                  <label for="Bank-3" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-kotak.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">Kotak Mahindra Bank</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-4" class="radio-input">
+                  <label for="Bank-4" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group choose_transfer_mode">
+        <h6 class="label_heading"><em class="icon-funds"></em>Choose mode of transfer</h6>
+        <div class="row">
+          <div class="col-12 col-md-auto xs-order-2">
+            <div class="form-control-wrap d-flex align-items-center" :class="{active : isUpiForm}"
+              v-on:click="upiSlot = !upiSlot , isUpiForm = !isUpiForm">
+              <label for="upiIdInput" class="absolute"></label>
+              <div class="mode_logo">
+                <img width="55" src="../../assets/images/logo-upi.png" alt="">
+              </div>
+              <div class="mode_info">
+                <h5 class="mode_name">UPI</h5>
+              </div>
+              <div class="select_option">
+                <span class="radio_bullets">
+                  <input type="radio" name="transferMode" id="UPIMode" class="radio-input">
+                  <label for="UPIMode" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+            <div class="upi_id_slot" v-show="upiSlot">
+              <div class="form-group m-0">
+                <input type="text" class="form-control" ref="upiIdInput" id="upiIdInput" placeholder="Enter UPI ID">
+                <img v-if="upiIDLoad" class="img-loader" src="../../assets/images/loader1.svg" alt="">
+              </div>
+              <div class="field_error" v-show="upiIDError">Enter valid UPI ID</div>
+            </div>
+            <div class="pay_with">
+              <span>Pay with :</span>
+              <div class="pay_ways d-inline-block">
+                <img src="../../assets/images/logo-gpay.png" alt="">
+                <img src="../../assets/images/logo-phonepe.png" alt="">
+                <img src="../../assets/images/logo-paytm.png" alt="">
+                <img src="../../assets/images/logo-whatsapp.png" alt="">
+                <img src="../../assets/images/logo-amazonpay.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-auto xs-order-1">
+            <div class="form-control-wrap d-flex align-items-center" v-on:click="upiSlot = false , isUpiForm = false">
+              <div class="mode_logo">
+                <img width="22" src="../../assets/images/logo-netbanking.svg" alt="">
+              </div>
+              <div class="mode_info">
+                <h5 class="mode_name">Net Banking</h5>
+              </div>
+              <div class="select_option">
+                <span class="radio_bullets">
+                  <input type="radio" name="transferMode" id="NetBankingMode" class="radio-input">
+                  <label for="NetBankingMode" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-proceed" :class="{ btn_disable: btnDisable }" @click="awaitingPopup()"
+          data-toggle="modal" data-target="#ConfirmationModal">PROCEED</button>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<Addbank></Addbank>
+
+<div class="modal vue-modal limitReachedModal modal-md" id="limitReachedModal" tabindex="-1" role="dialog"
+  v-show="limitReachedModal">
+  <div class="modal-overlay" @click="limitReachedModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <img class="title_icon" src="../../assets/images/icon-exclamation.svg" alt="">
+        <h4 class="modal_title">Limit Reached</h4>
+        <p>You can add maximum of ₹1,00,000 through UPI transfer. For higher transaction use Bank transfer.</p>
+        <button type="button" class="btn btn-modal" data-dismiss="modal"
+          @click="limitReachedModal = false">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal vue-modal awaitingConfirmationModal" id="ConfirmationModal" tabindex="-1" role="dialog"
+  v-show="ConfirmationModal">
+  <div class="modal-overlay" @click="ConfirmationModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <h4 class="modal_title">Awaiting for payment confirmation</h4>
+        <p>You will receive Notification / SMS. Enter UPI PIN to complete payment</p>
+        <img class="title_icon img-loader mt-100 mb-100" src="../../assets/images/loader2.svg" alt="">
+        <p>Time remaining <strong><span>{{countDown}}</span> minutes</strong></p>
+        <p>Note : Do not press back or close the browser</p>
+        <!-- <button type="button" class="btn btn-modal" data-dismiss="modal" @click="ConfirmationModal = false">CLOSE</button> -->
+
+        <!--for Countdown call  @click="awaitingPopup() this function-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal vue-modal transactionSuccessModal" id="transactionSuccessModal" tabindex="-1" role="dialog"
+  v-show="transactionSuccessModal">
+  <div class="modal-overlay" @click="transactionSuccessModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <img class="title_icon" src="../../assets/images/icon-successful.svg" alt="">
+        <h4 class="modal_title">Transaction Successfull</h4>
+        <div class="amt">
+          <em class="icon-rupee-bold"></em><span>10,000</span>
+        </div>
+        <p>Transaction has been done succefully, <br>
+          redirecting to Funds</p>
+        <button type="button" class="btn btn-modal mt-70" data-dismiss="modal"
+          @click="transactionSuccessModal = false">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal vue-modal transactionPendingModal" id="transactionPendingModal" tabindex="-1" role="dialog"
+  v-show="transactionPendingModal">
+  <div class="modal-overlay" @click="transactionPendingModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <img class="title_icon" src="../../assets/images/icon-pending.svg" alt="">
+        <h4 class="modal_title">Transaction Pending</h4>
+        <div class="amt">
+          <em class="icon-rupee-bold"></em><span>10,000</span>
+        </div>
+        <p>If your money has been debited, it will be reflected in your funds account automatically within 48hrs.</p>
+        <button type="button" class="btn btn-modal mt-70" data-dismiss="modal"
+          @click="transactionPendingModal = false">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal vue-modal transactionFailModal" id="transactionFailModal" tabindex="-1" role="dialog"
+  v-show="transactionFailModal">
+  <div class="modal-overlay" @click="transactionFailModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <img class="title_icon" src="../../assets/images/icon-failed.svg" alt="">
+        <h4 class="modal_title">Transaction Failed</h4>
+        <div class="amt">
+          <em class="icon-rupee-bold"></em><span>10,000</span>
+        </div>
+        <p>If your money has been debited from your bank account, it will reflect in your Ledger/Margin account
+          automatically within 48hrs.</p>
+        <button type="button" class="btn btn-modal mt-70" data-dismiss="modal"
+          @click="transactionFailModal = false">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>

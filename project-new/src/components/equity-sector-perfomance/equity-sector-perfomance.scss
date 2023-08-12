@@ -1,0 +1,149 @@
+@import '../../assets/scss/styles';
+
+.btn-viewmore{
+    display: block;
+    font-size: 13px; font-family: $font-base-semibold;
+    letter-spacing: 0.43px;
+    text-align: center;
+    background-color: #f6f7fc;
+    padding: 11px;
+}
+
+.sector_perfomance_table_wrappper{
+    margin: 25px -20px;
+    border-top: 1px solid $light-border-color;
+}
+
+.table{
+    &.sector_perfomance_table{
+        tr{
+            td{
+                vertical-align: middle;
+                font-size: 16px;
+                border: 0;
+            }
+            &.main-tr{
+                position: relative;
+                &::after{
+                    content: ""; display: block;
+                    width: calc(100% - 40px); height: 1px;
+                    border-bottom: 1px solid $light-border-color;
+                    position: absolute;
+                    bottom: 0; left: 0; right: 0;
+                    margin: 0 auto;
+                }
+                &.active{
+                    background-color: $hoveredTdBg;
+                }
+            }
+            &.main-tr{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                td{
+                    font-family: $font-base-med;
+                    color: $base-text;
+                    padding: 20px 15px;
+                    @include small{
+                        padding: 20px 10px;
+                    }
+                    &.sector_icon{ 
+                        width: 70px; 
+                        @include xsmall{
+                            width: 60px;
+                        }
+                    }
+                    &.sector_name{ 
+                        width: 25%; 
+                        @include small{
+                            width: 28%;
+                        }
+                    }
+                    &.percentage{ width: 15%; text-align: right; 
+                        .indicator{
+                            position: relative; top: -2px;
+                        }
+                        @include small{
+                            width: 30%;
+                        }
+                    }
+                    &.change{
+                        width: 32%;
+                        font-size: 14px;
+                        font-family: $font-base-reg;
+                        color: $grey-med;
+                        padding-left: 50px;
+                        @include small{
+                            padding-left: 10px;
+                            width: 25%;
+                        }
+                    }
+                    &.arrow{ width: auto; text-align: right; margin-left: auto; }
+                }
+            }
+            .panel_body{
+                padding: 0 15px !important;
+                &.show{
+                    background-color: $hoveredTdBg;
+                }
+                .row{
+                    margin: 0 -8px;
+                    >div{
+                        padding: 8px;
+                    }
+                }
+                .collapse{ padding-bottom: 32px; }
+            }
+        }
+        .tile{
+            height: 150px;
+            border: 1px solid #eceff6;
+            background-color: $white;
+            padding: 24px;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px 0 #eceff6;
+            .company_name{
+                padding-right: 50px;
+                margin-bottom: 22px;
+            }
+            .short_name{ font-size: 14px; font-family: $font-base-med; color: $base-text; margin-bottom: 6px; }
+            .full_name{ font-size: 13px; font-family: $font-base-reg; color: $grey-med; }
+            .amt{
+                font-size: 18px; font-family: $font-base-med;
+                .icon-rupee, .icon-rupee-bold{
+                    font-size: 68%; top: 7px;
+                }
+                .indicator{
+                    top: 0.6rem;
+                }
+            }
+            .change{ 
+                font-size: 13px; color: $grey-med; 
+                .per{
+                    margin-right: 4px;
+                }
+            }
+            .plus{
+                width: 26px; height: 26px;
+                border: 1px solid rgba($border-color,0.6);
+                position: absolute; top: 25px; right: 25px;
+                border-radius: 2px;
+                cursor: pointer;
+                &::before{
+                    content: "\e90e";
+                    font-size: 1.3rem;
+                    font-family: 'icomoon';
+                    color: $highlighted;
+                    padding: 1px;
+                }
+            }
+        }
+        .positive{
+            .indicator{ border-color: transparent transparent $positive transparent; }
+        }
+        .negative{
+            .indicator{ border-color: transparent transparent $negative transparent; transform: rotate(180deg); }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <filter id="kky9q8bmqa" width="180.8%" height="180.8%" x="-40.4%" y="-32.7%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+            <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.904244112 0 0 0 0 0.908421054 0 0 0 0 0.927139946 0 0 0 1 0"/>
+        </filter>
+        <circle id="z8w3t1surb" cx="13" cy="13" r="13"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <g>
+                                <g transform="translate(-653.000000, -154.000000) translate(362.000000, 116.000000) translate(20.000000, 16.000000) translate(24.000000, 0.000000) translate(254.000000, 0.000000) translate(0.000000, 27.000000)">
+                                    <use fill="#000" filter="url(#kky9q8bmqa)" xlink:href="#z8w3t1surb"/>
+                                    <use fill="#FFF" stroke="#F2F6FD" xlink:href="#z8w3t1surb"/>
+                                </g>
+                                <path fill="#5D5E63" fill-rule="nonzero" d="M17.824 11.64c.16 0 .24-.08.24-.24v-1.008c0-.16-.08-.24-.24-.24H8.176c-.16 0-.24.08-.24.24V11.4c0 .16.08.24.24.24h9.648zm0 5.016c.16 0 .24-.08.24-.24v-1.008c0-.16-.08-.24-.24-.24H8.176c-.16 0-.24.08-.24.24v1.008c0 .16.08.24.24.24h9.648z" transform="translate(-653.000000, -154.000000) translate(362.000000, 116.000000) translate(20.000000, 16.000000) translate(24.000000, 0.000000) translate(254.000000, 0.000000) translate(0.000000, 27.000000)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

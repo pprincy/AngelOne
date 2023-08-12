@@ -1,0 +1,186 @@
+<section>
+    <div class="trade-exchange-report-section">
+        <div class="title-wrap">
+            <h3 class="balance">Trade History from : <span class="date">01 Feb 2020 - 28 Feb 2021</span></h3>
+            <h3 class="ledger">Ledger Last Updated on : <span class="date">Mon 02 Mar 2020</span></h3>
+
+        </div>
+        <div class="mcx-table-wrap">
+        <div class="trade-table-wrapper table-wrapper">
+            <table class="table trade-table table-hover tbl-theme flex-table" id="trade-MCX">
+                <thead>
+                    <tr class="text-center main-head">
+                        <th colspan="2" class="seriesColblank">&nbsp;</th>
+                        <th  colspan="3" class="txtPositive buyCol">Buy</th>
+                        <th  colspan="3" class="txtNegative sellCol">Sell</th>
+                        <th  colspan="3" class="openCol">Open Position</th>
+                        <th  colspan="1" class="netcol">&nbsp;</th>
+                    </tr>
+                    <!-- <tr>
+                        <th class="scrip-nameCol">Scrip Name</th>
+                        <th  class="seriesCol">Instrument</th>
+                        <th  class="buy-qtyCol">
+                            <a href="#" class="sort-link">Qty
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="buy-avgpriceCol">
+                            <a href="#" class="sort-link">Avg. Price
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="buy-valueCol">
+                            <a href="#" class="sort-link">Value
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="sell-qtyCol">
+                            <a href="#" class="sort-link">Qty
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="sell-avgpriceCol">
+                            <a href="#" class="sort-link">Avg. Price
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="sell-valueCol">
+                            <a href="#" class="sort-link">Value
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="open-qty">
+                            <a href="#" class="sort-link">Qty
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="open-avgpriceCol">
+                            <a href="#" class="sort-link">Avg. Price
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="open-valueCol">
+                            <a href="#" class="sort-link">Value
+                                <span class="up-down-arrow">
+                                    <span class="up"><em class="icon-down-arrow"></em></span>
+                                    <span class="down"><em class="icon-down-arrow"></em></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th  class="text-right net-valueCol">Net Value</th>
+                    </tr> -->
+                    <tr>
+                        <th  class="scrip-nameCol scripCol">Scrip Name</th>
+                        <th  class="seriesCol">Instrument</th>
+                        <th  class="buy-qtyCol sort_enable">Qty</th>
+                        <th  class="buy-avgpriceCol sort_enable">Avg. Price</th>
+                        <th  class="buy-valueCol sort_enable">Value</th>
+                        <th  class="sell-qtyCol sort_enable">Qty</th>
+                        <th  class="sell-avgpriceCol sort_enable">Avg. Price</th>
+                        <th  class="sell-valueCol sort_enable">Value</th>
+                        <th  class="open-qty sort_enable">Qty</th>
+                        <th  class="open-avgpriceCol sort_enable">Avg. Price</th>
+                        <th  class="open-valueCol sort_enable">Value</th>
+                        <th  class="text-right net-valueCol">Net Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in tradeExchangeHistoryMCXReport" :key="item.key" class="panel">
+                        <td  class="scrip-name scripCol">
+                            <div><span class="scrip">{{ item.scripName }}</span><span class="badge badge-secondary exchage ml-2">{{ item.badge }}</span></div>
+                            <div class="group pt-2">
+                                <span class="date">{{ item.date }}</span>
+                                <span class="name pl-2">{{ item.name }}</span>
+                                <span class="no pl-2">{{ item.no }}</span>
+                            </div>
+                        </td>
+                        <td  class="series">
+                            <span>{{ item.instrument }}</span>
+                        </td>
+                        <td  class="buy-qty">
+                            <span>{{ item.buyQty }}</span>
+                        </td>
+                        <td  class="buy-avgprice">
+                            <span><em class="rs">₹</em>{{ item.buyAvgPrice }}</span>
+                        </td>
+                        <td  class="buy-value">
+                            <span class="txtPositive"><em class="rs">₹</em>{{ item.buyValue }}</span>
+                        </td>
+                        <td  class="sell-qty">
+                            <span>{{ item.sellQty }}</span>
+                        </td>
+                        <td  class="sell-avgprice">
+                            <span><em class="rs">₹</em>{{ item.sellAvgPrice }}</span>
+                        </td>
+                        <td  class="sell-value">
+                            <span class="txtNegative"><em class="rs">₹</em>{{ item.sellValue}}</span>
+                        </td>
+                        <td  class="open-qty">
+                            <span>{{ item.openQty }}</span>
+                        </td>
+                        <td  class="open-avgprice">
+                            <span><em class="rs">₹</em>{{ item.openAvgPrice }}</span>
+                        </td>
+                        <td  class="open-value">
+                            <span class="txtNegative"  v-if="item.openValue <= '0'"><em class="rs">₹</em>{{ item.openValue}}</span>
+                            <span v-if="item.openValue >= '0'"><em class="rs">₹</em>{{ item.openValue}}</span>
+                        </td>
+                        <!-- <td  class="text-right net-value">
+                            <span class="txtNegative"  v-if="item.netValue <= '0'"><em class="rs">₹</em>{{ item.netValue}}</span>
+                            <span v-if="item.netValue >= '0'"><em class="rs">₹</em>{{ item.netValue}}</span>
+                        </td> -->
+                        <td width="" class="text-right net-value">
+                            <span class="txtNegative"><em class="rs">-₹</em>{{ item.netValue}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="total-section d-flex">
+            <h4 class="total-title">Total</h4>
+            <div class="lable_wrap">
+            <label class="total-buy-value">
+                <em>Total Buy Value</em>
+                <span class="txtPositive"><em class="rs">₹</em>{{ totalBuyValue }}</span>
+            </label>
+            <label class="total-sell-value">
+                <em>Total Sell Value</em>
+                <span class="txtNegative"><em class="rs">₹</em>{{ totalSellValue }}</span>
+            </label>
+            <label class="total-open-value">
+                <em>Total Open Position Value</em>
+                <span class="txtPositive"><em class="rs">₹</em>{{ totalOpenPositionValue }}</span>
+            </label>
+            <label class="total-net-value text-right">
+                <em>Total Net Value</em>
+                <span class="txtNegative"><em class="rs">₹</em>{{ totalNetValue }}</span>
+            </label>
+            </div>
+        </div>
+    </div>
+</section>

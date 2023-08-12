@@ -1,0 +1,80 @@
+<div class="acc-profile-sec">
+    <div class="shodow-box">
+        <div class="profile-sec text-center">
+            <figure>
+                <div class="profile-user-pic position-relative">
+                    <!-- <div class="user-pic">
+                        <img src="../../assets/images/accounts-imgs/profile/user-img.png" alt="">
+                    </div> -->
+                    <div class="user-name">
+                        MM
+                    </div>
+                    <a class="photo-pic pointer" data-toggle="modal" data-target="#uploadProfilePic">
+                        <img src="../../assets/images/accounts-imgs/profile/photo.svg" alt="">
+                    </a>
+                </div>
+                <figcaption>
+                    <h3>{{ profile.name }}</h3>
+                    <p>{{ profile.member }}</p>
+                    <label>
+                        <span class="c1">CLIENT ID - </span>
+                        <span class="c2">{{ profile.clientId }}</span>
+                    </label>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade uploadProfilePic upload_file_modal" id="uploadProfilePic" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" >
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Profile Picture</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <em class="custom-times-circle-solid"></em>
+          </button>
+        </div>
+        <div class="modal-body">
+           
+            <div class="upload_area text-center" v-show="uploadStatementArea">
+                <button type="button" class="btn btn-upload">
+                    <img src="../../assets/images/icon-upload.svg" alt="">
+                </button>
+                <h5>Upload Photo</h5>
+                <p class="condition">JPEG or PNG  file shouldn’t be more than <strong>1MB</strong></p>
+                <div class="drop_area">
+                    <input type="file" @change="previewImage" id="uploadCheque" name="filename">
+                    <h6>DROP HERE</h6>
+                    <strong class="or">Or</strong>
+                    <label class="btn btn-field btn-choose-file"><em class="custom-pic"></em> CHOOSE FILE</label>
+                    <p class="errMsg" style="display: none;">Wrong File Format</p>
+                    <p class="errMsg" style="display: none;">File Size Too Large</p>
+                </div>
+            </div>
+
+            <div class="upload_check_div" v-show="previewStatementArea">
+                <div class="d-flex align-items-center">
+                    <div class="row align-items-center">
+                        <div class="cheque_img">
+                          <img :src="preview" class="img-fluid" />
+                        </div>
+                        <div class="cheque_detail">
+                          <h5>Profile Picture</h5>
+                          <h6 class="filename"><strong>File :</strong> {{ name }}</h6>
+                          <!-- <h6 class="filename"><strong>File :</strong> {{ image.name }}</h6> -->
+                        </div>
+                    </div>
+                    <button type="button" class="btn-reset" @click="reset"><em class="custom-times-circle-solid"></em></button>
+                </div>
+
+                <button type="button" class="btn btn-modal" data-dismiss="modal" @click="uploadProfilePic = false" >SUBMIT</button>
+
+            </div>
+
+        </div>
+      </div>
+    </div>
+</div>

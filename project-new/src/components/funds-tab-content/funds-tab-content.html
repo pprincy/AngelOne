@@ -1,0 +1,591 @@
+
+
+<div class="field_bg" v-show="fundsDetailBanner">
+  <div class="fundsTopSec">
+    <div class="row">
+      <div class="col-xl-6 fundsTopLeftSec">
+        <div class="grey-box">
+          <div class="ttl-sec text-center">
+            <h4>Available Margin</h4>
+            <span class="price">
+              <em>₹</em>
+              <span class="amt">2,50,000</span>
+            </span>
+          </div>
+          <div class="btn-wrap">
+            <router-link to="/add-funds" class="btn btn-primary btn-xl">Add Fund</router-link>
+            <router-link to="/withdraw-funds" class="btn btn-outline-secondary btn-xl">Withdraw
+            </router-link>
+          </div>
+          <div class="payable-amt">
+            <ul>
+              <li>
+                <div><strong>Payable Amount</strong></div>
+                <div><strong class="price txtNegative"><em>₹</em>50,000</strong></div>
+              </li>
+              <li>
+                <div><span>Minimun Payable Amount</span></div>
+                <div><span class="price"><em>₹</em>5,000</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xl-6 fundsTopRightSec">
+        <div id="accordion">
+          <div class="marginSec accWrap">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">Total Margin <span class="arrow collapsed"><em
+                      class="icon-dropdown-arrow"></em></span></a>
+                <span class="price"><em>₹</em>3,00,000</span>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                data-parent="#accordion">
+                <div class="card-body">
+                  <ul>
+                    <li>
+                      <span class="name-sec">Funds</span>
+                      <span class="price"><em>₹</em>9,00,00,00,000.00</span>
+                    </li>
+                    <li>
+                      <span class="name-sec">Eligible holdings</span>
+                      <span class="price"><em>₹</em>2,00,000</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headinTwo">
+                <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">Used Margin <span class="arrow collapsed"><em
+                      class="icon-dropdown-arrow"></em></span></a>
+                <span class="price txtNegative"><em>₹</em>50,000</span>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headinTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <ul>
+                    <li>
+                      <span class="name-sec">Margin</span>
+                      <span class="price">₹20,000</span>
+                    </li>
+                    <li>
+                      <span class="name-sec">Realized profit / loss</span>
+                      <span class="price"><em>₹</em>15,000</span>
+                    </li>
+                    <li>
+                      <span class="name-sec">Unrealized loss</span>
+                      <span class="price"><em>₹</em>15,000</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fundsSec accWrap">
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="true" aria-controls="collapseThree">Funds <span class="arrow collapsed"><em
+                      class="icon-dropdown-arrow"></em></span></a>
+                <span class="price"><em>₹</em>1,00,000</span>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                data-parent="#accordion">
+                <div class="card-body">
+                  <ul>
+                    <li>
+                      <span class="name-sec">Previous day balance</span>
+                      <span class="price"><em>₹</em>75,000</span>
+                    </li>
+                    <li>
+                      <span class="name-sec">Funds transferred today</span>
+                      <span class="price"><em>₹</em>30,000</span>
+                    </li>
+                    <li>
+                      <span class="name-sec">Funds withdrawn today</span>
+                      <span class="price txtNegative"><em>₹</em>10,000</span>
+                    </li>
+                    <li>
+                      <span class="name-sec">Net realized profit</span>
+                      <span class="price"><em>₹</em>6,000</span>
+                    </li>
+                    <li>
+                      <span class="name-sec">Credit for sale</span>
+                      <span class="price"><em>₹</em>6,000</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="field_bg btm d-none d-lg-block d-md-none d-sm-none">
+  <div class="fundsBtmSec">
+    <div class="tab-wrap theme3 innerTab">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="" data-target="#addFundsDetail" data-toggle="tab"
+            class="nav-link small active">Add Funds detail</a></li>
+        <li class="nav-item"><a href="" data-target="#WithdrawFundsDetail" data-toggle="tab"
+            class="nav-link small">Withdraw Funds detail</a></li>
+        <li class="nav-item align-self-center ml-auto">
+          <a href="#" class="expand-view-btn open-tab btn btn-outline-secondary" v-show="expandTab" @click="fundsDetailBanner = false, expandTab = false, shrinkTab = true, expandTabFn()">
+            <em class="icon-expand"></em>
+          </a>
+          <a href="#" class="expand-view-btn close-tab btn btn-outline-secondary" v-show="shrinkTab" @click="fundsDetailBanner = true, expandTab = true, shrinkTab = false, shrinkTabFn()">
+            <em class="icon-expand"></em>
+          </a>
+        </li>
+      </ul>
+
+      <div id="tabsContent1" class="tab-content">
+        <div id="addFundsDetail" class="tab-pane active">
+          <div class="table-wrap">
+            <table class="table theme1 flexTable mainTable stickyonScroll">
+              <thead class="">
+                <tr>
+                  <th class="accCol">Account</th>
+                  <th class="bankCol">Bank</th>
+                  <th class="dateTimeCol">Date/Time</th>
+                  <th class="amtCol">Amount</th>
+                  <th class="statusCol text-right">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in addFunds">
+                  <td class="accCol">
+                    <div class="accInfo">
+                      <figure>
+                        <img src="../../assets/images/bankLogo.png" alt="" v-if="item.bankLogo == ''">
+                        <img :src="item.bankLogo" alt="" v-else>
+                      </figure>
+
+                      <span
+                        class="accNo"><em></em><em></em><em></em><em></em><span>{{item.accNo}}</span></span>
+                    </div>
+                  </td>
+                  <td class="bankCol">
+                    <span class="bankName">{{item.bankName}}</span>
+                  </td>
+                  <td class="dateTimeCol">
+                    <ul>
+                      <li>{{item.date}}</li>
+                      <li>{{item.time}}</li>
+                    </ul>
+                  </td>
+                  <td class="amtCol">
+                    <span class="price"><em>₹</em>{{item.amt}}</span>
+                  </td>
+                  <td class="statusCol  text-right">
+                    <span class="status"
+                      :class="{txtNegative:item.status == 'Failed', txtPositive:item.status == 'Success', txtWarning:item.status == 'Pending'}"><em
+                        :class="{failed:item.status == 'Failed', success:item.status == 'Success', pending:item.status == 'Pending'}"></em>{{item.status}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--No Table Entry found-->
+          <div class="noHistory" style="display: none;">
+            <img src="../../assets/images/funds-no-history.png" alt="">
+            <p>You have no add funds history</p>
+          </div>
+          <!--No Table Entry found-->
+        </div>
+        <div id="WithdrawFundsDetail" class="tab-pane ">
+          <div class="table-wrap">
+            <table class="table theme1 flexTable mainTable stickyonScroll">
+              <thead>
+                <tr>
+                  <th class="accCol">Account</th>
+                  <th class="bankCol">Bank</th>
+                  <th class="dateTimeCol">Date/Time</th>
+                  <th class="amtCol">Amount</th>
+                  <th class="statusCol text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td class="full-width-col">
+                    <table class="table flexTable innerTbl">
+                      <tbody>
+                        <tr class="main-tr collapsed" data-toggle="collapse" data-target="#row1">
+                          <td class="accCol">
+                            <div class="accInfo">
+                              <figure>
+                                <img src="../../assets/images/sbi.png" alt="">
+                              </figure>
+
+                              <span
+                                class="accNo"><em></em><em></em><em></em><em></em><span>2435</span></span>
+                            </div>
+                          </td>
+                          <td class="bankCol">
+                            <span class="bankName">State Bank of India </span>
+                          </td>
+                          <td class="dateTimeCol">
+                            <ul>
+                              <li>06 Jan ‘20 at</li>
+                              <li>6:43 pm</li>
+                            </ul>
+                          </td>
+                          <td class="amtCol">
+                            <span class="price"><em>₹</em>10,10,00,000</span>
+                          </td>
+                          <td class="statusCol">
+                            <span class="status txtWarning"><em class="pending"></em>Pending</span>
+                            <a href="#" class="arrow" ></a>
+                          </td>
+                        </tr>
+                        <tr class="hovered-tr ">
+                          <td class="full-width-col collapse" id="row1">
+                            <div class="request-wrap ">
+                              <div class="top-sec" v-show="topSec">
+                                <div class="d-flex justify-content-between">
+                                  <div>
+                                    <label>Reference no. :</label>
+                                    <strong>NEFT201911054797802</strong>
+                                  </div>
+                                  <div>
+                                    <a href="#" class="txt-link" @click="cancelFunc()">Cancel Request</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="cancel-request-sec" v-show="Cancelrequest">
+                                <div class="d-flex justify-content-between flex-nowrap align-items-end">
+                                  <div>
+                                    <h4>Cancel Withdrawal Request</h4>
+                                    <p>Cancelling the withdrawal request will stop the process further. Are
+                                      you sure you want to Cancel?</p>
+                                  </div>
+                                  <div class="btn-wrap">
+                                    <a href="#" class="btn btn-outline-secondary"
+                                      @click="cancelNoFunc()">NO</a>
+                                    <a href="#" class="btn btn-outline-secondary">YES</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="btm-sec-wrap">
+                                <div class="btm-sec">
+                                  <div class="d-flex flex-nowrap boxwrap transaction-list">
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="full-width-col">
+                    <table class="table flexTable innerTbl">
+                      <tbody>
+                        <tr class="main-tr collapsed" data-toggle="collapse" data-target="#row2">
+                          <td class="accCol">
+                            <div class="accInfo">
+                              <figure>
+                                <img src="../../assets/images/sbi.png" alt="">
+                              </figure>
+
+                              <span
+                                class="accNo"><em></em><em></em><em></em><em></em><span>2435</span></span>
+                            </div>
+                          </td>
+                          <td class="bankCol">
+                            <span class="bankName">State Bank of India </span>
+                          </td>
+                          <td class="dateTimeCol">
+                            <ul>
+                              <li>06 Jan ‘20 at</li>
+                              <li>6:43 pm</li>
+                            </ul>
+                          </td>
+                          <td class="amtCol">
+                            <span class="price"><em>₹</em>10,10,00,000</span>
+                          </td>
+                          <td class="statusCol">
+                            <span class="status txtWarning"><em class="pending"></em>Pending</span>
+                            <a href="#" class="arrow" ></a>
+                          </td>
+                        </tr>
+                        <tr class="hovered-tr">
+                          <td class="full-width-col">
+                            <div class="request-wrap collapse" id="row2">
+                              <div class="top-sec" v-show="topSec">
+                                <div class="d-flex justify-content-between">
+                                  <div>
+                                    <label>Reference no. :</label>
+                                    <strong>NEFT201911054797802</strong>
+                                  </div>
+                                  <div>
+                                    <a href="#" class="txt-link">Cancel Request</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="cancel-request-sec" v-show="Cancelrequest">
+                                <div class="d-flex justify-content-between flex-nowrap align-items-end">
+                                  <div>
+                                    <h4>Cancel Withdrawal Request</h4>
+                                    <p>Cancelling the withdrawal request will stop the process further. Are
+                                      you sure you want to Cancel?</p>
+                                  </div>
+                                  <div class="btn-wrap">
+                                    <a href="#" class="btn btn-outline-secondary">NO</a>
+                                    <a href="#" class="btn btn-outline-secondary">YES</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="btm-sec-wrap">
+                                <div class="btm-sec">
+                                  <div class="d-flex flex-nowrap boxwrap transaction-list">
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="full-width-col">
+                    <table class="table flexTable innerTbl">
+                      <tbody>
+                        <tr class="main-tr collapsed" data-toggle="collapse" data-target="#row3">
+                          <td class="accCol">
+                            <div class="accInfo">
+                              <figure>
+                                <img src="../../assets/images/sbi.png" alt="">
+                              </figure>
+
+                              <span
+                                class="accNo"><em></em><em></em><em></em><em></em><span>2435</span></span>
+                            </div>
+                          </td>
+                          <td class="bankCol">
+                            <span class="bankName">State Bank of India </span>
+                          </td>
+                          <td class="dateTimeCol">
+                            <ul>
+                              <li>06 Jan ‘20 at</li>
+                              <li>6:43 pm</li>
+                            </ul>
+                          </td>
+                          <td class="amtCol">
+                            <span class="price"><em>₹</em>10,10,00,000</span>
+                          </td>
+                          <td class="statusCol">
+                            <span class="status txtWarning"><em class="pending"></em>Pending</span>
+                            <a href="#" class="arrow" ></a>
+                          </td>
+                        </tr>
+                        <tr class="hovered-tr">
+                          <td class="full-width-col">
+                            <div class="request-wrap collapse" id="row3">
+                              <div class="top-sec" v-show="topSec">
+                                <div class="d-flex justify-content-between">
+                                  <div>
+                                    <label>Reference no. :</label>
+                                    <strong>NEFT201911054797802</strong>
+                                  </div>
+                                  <div>
+                                    <a href="#" class="txt-link">Cancel Request</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="cancel-request-sec" v-show="Cancelrequest">
+                                <div class="d-flex justify-content-between flex-nowrap align-items-end">
+                                  <div>
+                                    <h4>Cancel Withdrawal Request</h4>
+                                    <p>Cancelling the withdrawal request will stop the process further. Are
+                                      you sure you want to Cancel?</p>
+                                  </div>
+                                  <div class="btn-wrap">
+                                    <a href="#" class="btn btn-outline-secondary">NO</a>
+                                    <a href="#" class="btn btn-outline-secondary">YES</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="btm-sec-wrap">
+                                <div class="btm-sec">
+                                  <div class="d-flex flex-nowrap boxwrap transaction-list">
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="full-width-col">
+                    <table class="table flexTable innerTbl">
+                      <tbody>
+                        <tr class="main-tr collapsed" data-toggle="collapse" data-target="#row4">
+                          <td class="accCol">
+                            <div class="accInfo">
+                              <figure>
+                                <img src="../../assets/images/sbi.png" alt="">
+                              </figure>
+
+                              <span
+                                class="accNo"><em></em><em></em><em></em><em></em><span>2435</span></span>
+                            </div>
+                          </td>
+                          <td class="bankCol">
+                            <span class="bankName">State Bank of India </span>
+                          </td>
+                          <td class="dateTimeCol">
+                            <ul>
+                              <li>06 Jan ‘20 at</li>
+                              <li>6:43 pm</li>
+                            </ul>
+                          </td>
+                          <td class="amtCol">
+                            <span class="price"><em>₹</em>10,10,00,000</span>
+                          </td>
+                          <td class="statusCol">
+                            <span class="status txtWarning"><em class="pending"></em>Pending</span>
+                            <a href="#" class="arrow " ></a>
+                          </td>
+                        </tr>
+                        <tr class="hovered-tr">
+                          <td class="full-width-col">
+                            <div class="request-wrap collapse" id="row4">
+                              <div class="top-sec" v-show="topSec">
+                                <div class="d-flex justify-content-between">
+                                  <div>
+                                    <label>Reference no. :</label>
+                                    <strong>NEFT201911054797802</strong>
+                                  </div>
+                                  <div>
+                                    <a href="#" class="txt-link">Cancel Request</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="cancel-request-sec" v-show="Cancelrequest">
+                                <div class="d-flex justify-content-between flex-nowrap align-items-end">
+                                  <div>
+                                    <h4>Cancel Withdrawal Request</h4>
+                                    <p>Cancelling the withdrawal request will stop the process further. Are
+                                      you sure you want to Cancel?</p>
+                                  </div>
+                                  <div class="btn-wrap">
+                                    <a href="#" class="btn btn-outline-secondary">NO</a>
+                                    <a href="#" class="btn btn-outline-secondary">YES</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="btm-sec-wrap">
+                                <div class="btm-sec">
+                                  <div class="d-flex flex-nowrap boxwrap transaction-list">
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                    <div class="whiteBox">
+                                      <label>
+                                        <em class="custom-check"></em>Released on<strong>Jan 6</strong>
+                                      </label>
+                                      <span class="price"><em>₹</em>10,000</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!--No Table Entry found-->
+          <div class="noHistory" style="display: none;">
+            <img src="../../assets/images/funds-no-history.png" alt="">
+            <p>You have no withdrow funds history</p>
+          </div>
+          <!--No Table Entry found-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

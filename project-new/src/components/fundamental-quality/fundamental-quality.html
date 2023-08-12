@@ -1,0 +1,41 @@
+
+<section class="fundamental-quality">
+  <div class="left-sec">
+    <ul>
+      <li>
+        <em class="poor-quality-icn" :class="{na:qty1 == 'NA'}"></em>
+        <h5>{{qty1}}</h5>
+        <p>Managment Risk</p>
+      </li>
+      <li>
+        <em class="average-quality-icn" :class="{na:qty2 == 'NA'}"></em>
+        <h5>{{qty2}}</h5>
+        <p>Average</p>
+      </li>
+      <li>
+        <em class="good-quality-icn" :class="{na:qty3 == 'NA'}"></em>
+        <h5>{{qty3}}</h5>
+        <p>Capital Structure</p>
+      </li>
+    </ul>
+  </div>
+  <div class="right-sec">
+    <h3>Insights</h3>
+    <div class="scrollable-info">
+      <ul>
+        <li>Good quality company basis long term financials performance</li>
+        <li>Largest company in Oil/Refineries sector</li>
+        <li>Good quality company basis long term financials performance. Yes this stock is doing well, CEO got a huge bonus for a strong quarter.</li>
+      </ul>
+      <div class="more-info" v-show="moreInfo">
+        <ul>
+          <li>Largest company in Oil/Refineries sector</li>
+          <li>Good quality company basis long term financials performance. Yes this stock is doing well, CEO got a huge bonus for a strong quarter.</li>
+          <li>Good quality company basis long term financials performance</li>
+        </ul>
+      </div>
+    </div>
+    <a class="view-all-lnk" @click="showMoreInfo()" v-show="viewMoreLink">VIEW ALL INSIGHTS</a>
+  </div>
+</section>
+

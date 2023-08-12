@@ -1,0 +1,57 @@
+<div class="main-content">
+  <div class="main-content-in">
+      <div class="row mb-3">
+        <div class="col-12 col-sm-auto d-flex align-items-center">
+            <div class="company_name">
+                <h1 class="short_name">HEROMOTOCORP<span class="badge badge-secondary">NSE</span></h1>
+                <h2 class="full_name">Hero Motors Pvt. Limited</h2>
+            </div>
+            <div class="market_val" >
+              <div class="amt txt-positive">2,509.00</div>
+              <div class="chg">+16.90 <span class="per">(+8.10%)</span></div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-auto ml-auto align-items-center" >
+          <div class="d-flex align-items-end justify-content-end action_btns" >
+            <button class="btn btn-time btn-secondary btn-sm" ><i class="icon-watch"></i></button>
+            <button class="btn btn-AddToWL btn-secondary btn-sm" ><i class="custom-addtowl"></i></button>
+            <button class="btn btn-sell" >Sell</button>
+            <button class="btn btn-buy" >Buy</button></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+            <div class="market-detail d-flex">
+              <div class="box" v-for="item in marketDetail">
+                  <label>{{item.name}}</label>
+                  <h5>{{item.value}}</h5>
+              </div>
+              
+            </div>
+        </div>
+      </div>
+
+      <div class="watchlist_chart">
+        <img src="../../assets/images/chart.jpg" alt="">
+      </div>
+      <div class="chart_nav">
+        <ul>
+          <li>
+            <a href="#">Overview</a>
+          </li>
+          <li>
+            <a href="#">Technical</a>
+          </li>
+          <li>
+            <a href="#">Derivatives</a>
+          </li>
+          <li>
+            <a href="#">Fundamental</a>
+          </li>
+          <li>
+            <a href="#">Option Chain</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>

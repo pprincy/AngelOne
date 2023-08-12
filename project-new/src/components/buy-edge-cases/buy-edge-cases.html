@@ -1,0 +1,1004 @@
+<!-- <div class="buySideBar popup" draggable="true" id="dragme"> -->
+<div class="buySideBar popup" id="dragme">
+    <section class="buy-edge-cases">
+        <!-- <div class="more-horizontal resize" v-show="moreHorizontal"></div> -->
+        <div class="more-horizontal popup-header noselect" v-show="moreHorizontal"></div>
+        <div class="buyEdgeHeader d-flex justify-content-between">
+            <div class="minClosebtn">
+                <a href="#" class="btn btnClose d-none d-lg-block d-md-none d-sm-none"><em
+                        class="icon icon-close"></em></a>
+                <a href="#" class="btn btnMin"><em class="icon icon-custom-minimize"></em></a>
+                <a href="#" class="btn btnMax"><em class="custom-max"></em></a>
+            </div>
+            <div class="buySellbtn ">
+                <div class="toggle-switch btnType">
+                    <input type="checkbox" class="checkBox" id="buySell">
+                    <label class="buySellLbl" for="buySell">
+                        <span class="left active">B</span>
+                        <span class="right">S</span>
+                    </label>
+                </div>
+            </div>
+            <a href="#" class="btn btn-back d-lg-none d-md-block d-sm-block"><em class="icon-back"></em></a>
+        </div>
+        <div class="buyEdgeBody">
+
+
+            <div class="stock-sec">
+                <div class="comp-info-sec">
+                    <h5 class="scrip_name"><span>HEROMOTOCORP</span>
+                        <!-- <span class="badge badge-secondary exchage">NSE</span>  -->
+                        <select class="badge badge-secondary">
+                            <option>NSE</option>
+                            <option>BSE</option>
+                        </select></h5>
+
+                </div>
+                <div class="price-info-sec positive d-flex">
+                    <h5 class="price">₹2780.87</h5>
+                    <div class="chg">20.90 <span class="per">(<span>0.07%</span>)</span></div>
+                </div>
+            </div>
+
+            <div class="investmentWrap" :class="{marginBottom:discloseQuantiyErr == true}">
+
+                <div class="investmentTypeBtnWrap">
+                    <ul class="d-flex justify-content-between flex-nowrap ">
+                        <li class="popoverList1 popover-wrapper">
+                            <!-- <span class="d-inline-block" data-toggle="popover" id="popover-wrap1" data-content="Intraday Trading is not available on this stock" data-placement="bottom"> -->
+                            <span class="d-inline-block">
+                                <a href="#" class="btn" @click="intraday()"
+                                    :class="{active:intradayCont==true}">Intraday<span
+                                        class="badge badge-secondary">80X</span></a>
+                            </span>
+                        </li>
+                        <li class="popoverList2 popover-wrapper">
+                            <!-- <span class="d-inline-block" data-toggle="popover" id="popover-wrap2" data-content="Margin Trading is not available on this stock" data-placement="bottom">
+                            <a href="#" class="btn disabled"> -->
+                            <span class="d-inline-block">
+                                <a href="#" class="btn" @click="margin()" :class="{active:marginCont==true}">Margin<span
+                                        class="badge badge-secondary">40X</span></a>
+                            </span>
+                        </li>
+                        <li class="popoverList3 popover-wrapper">
+                            <span class="d-inline-block ">
+                                <a href="#" class="btn" @click="delivery()"
+                                    :class="{active:deliveryCont==true}">Delivery<span
+                                        class="badge badge-secondary">1X</span></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="investmentContentWrap">
+                    <div id="intradayCont" class="investmentContent" v-show="intradayCont">
+                        <div class="maxQty d-flex justify-content-between">
+                            <div>
+                                <h6>Max Qty available on Intraday</h6>
+                            </div>
+                            <div>
+                                <h6><span>9,00,000</span> shares</h6>
+                            </div>
+                        </div>
+                        <div class="borderedBox noOfShares text-center" :class="{focused:focused==true}">
+                            <h6>Number of <span>Shares</span></h6>
+                            <!-- <h4>700</h4> -->
+                            <input type="text" @focus="focused = true" @blur="focused = false">
+                            <p class="err-msg">Enter Valid no.of shares</p>
+                        </div>
+                        <!-- <div class="borderedBox noOfShares text-center">
+                        <h6>Enter <span>Lots</span></h6>
+                        <input type="text" value="700">
+                        <div class="lotSize">
+                            <h6>1 Lot Size</h6>
+                            <label class="lotSizeInfo" data-toggle="popover" data-trigger="hover"  data-content="Contract Value  =  ₹3.6L(Approx.)" data-placement="bottom">4300 <em class="infoIcon" ><img src="../../assets/images/info-new.svg" alt=""></em></label>
+                        </div>
+                        <p class="err-msg">Errr</p>
+                    </div> -->
+                        <div class="orderTypePriceWrap">
+                            <div class="row row-md">
+                                <div class="col-6 orderType">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Order Type</label>
+                                        <select class="form-control selectpicker" @change="selectMarket">
+                                            <option selected value="Market">Market</option>
+                                            <option value="Limit">Limit</option>
+                                            <option value="Limit2">Limit2</option>
+                                            <option value="Limit3">Limit3</option>
+                                            <option value="Limit4">Limit4</option>
+                                            <option value="Limit5">Limit5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 priceWrap">
+                                    <div id="marketPrice " v-show="intraMarketPrice">
+                                        <div class="form-group text-right popoverWrap">
+                                            <label class="form-lbl">Market Price <em class="infoIcon"
+                                                    data-toggle="tooltip-popup" data-target="#TriggerPricePopup"><img
+                                                        src="../../assets/images/info-new.svg" alt=""></em></label>
+                                            <input type="text" class="form-control text-right autoWidth" disabled
+                                                value="23244">
+                                            <div class="popoverContent leftPopover text-left y-center"
+                                                id="TriggerPricePopup">
+                                                <div class="popoverHeader">
+                                                    <h4 class="popoverTtl">Stop Loss Order</h4>
+                                                </div>
+                                                <div class="popoverBody">
+                                                    <p>A stop loss order allows you to define a trigger price which
+                                                        activates your market or limit order, when the trigger price is
+                                                        hit </p>
+                                                </div>
+                                                <div class="popoverHeader">
+                                                    <h4 class="popoverTtl">Buy Stop Loss Order</h4>
+                                                </div>
+                                                <div class="popoverBody">
+                                                    <p>To place a buy stop loss order with limit, limit price should
+                                                        always be greater than trigger price</p>
+                                                </div>
+                                                <div class="popoverFooter">
+                                                    <div class="btn-wrap text-right">
+                                                        <a href="#" class="btn btn-primary closePopoverBtn">close</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="limitPrice" v-show="intraLimitPrice">
+                                        <div class="form-group ">
+                                            <label class="form-lbl">Limit Price</label>
+                                            <input type="text" class="form-control text-right err" value="2880.87">
+                                            <div class="priceErrMsg" v-show="priceEerrMessage">
+                                                <p>Price should be in multiple of tick size 0.5</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-6 orderType">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Validity</label>
+                                        <select class="form-control selectpicker">
+                                            <option>Day</option>
+                                            <option>IOC</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 marketPrice">
+                                    <div class="form-group text-right">
+                                        <label class="form-lbl">Disclose Quantity</label>
+                                        <input type="text" class="form-control text-right" v-model="dQuantity"
+                                            @keyup="qtyChange()" :class="{err:discloseQuantiyErr == true}">
+                                        <p class="err-msg" style="display: none;">Enter minimum quantity</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="squareOrderLink text-center" v-show="squareOrderLink">
+                            <h5>Create a Square off order? <a href="#" @click="squreOrderToggle()">Continue</a></h5>
+                        </div>
+
+                        <div class="squreOrderContent" v-show="squreOrder">
+                            <div class="border-box  secWrap popoverWrap coverOrderInfoWrap" id="">
+                                <div class="d-flex justify-content-between secTtl">
+                                    <div>
+                                        <h5 class="popoverBtn">Cover Order<em class="infoIcon"><img
+                                                    src="../../assets/images/info-new.svg" alt=""></em></h5>
+                                    </div>
+                                    <div class="toggle-switch sm">
+                                        <input type="radio" name="orderType" class="checkBox" id="coverOrder"
+                                            v-model="x" value="one">
+                                        <label class="bracketOrder" for="coverOrder">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="coverOrderInfo secInfo" v-show="x == 'one'">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Trigger Price</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="text-right coverRange"><label>Range : ₹1600.00 - ₹1650.00</label></div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="coverStep1">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">What is a Cover Order?</h4>
+                                        <span class="stepCount">1/4</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>A Cover order is a 2-in-1 Intraday order consisting of a 'Buy/Sell' order
+                                            along with a compulsory 'Stop loss' order. </p>
+                                    </div>
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link closePopoverBtn">close</a>
+                                            <a href="#" class="btn btn-primary nextPopoverBtn">next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="coverStep2">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">How to use a Stop Loss?</h4>
+                                        <span class="stepCount">2/4</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>A 'Stop loss' order helps you limit the losses in case the prices move
+                                            against your trade. If you are buying a stock, then you will have to add a
+                                            ‘Sell’ stop-loss. If you have to sell a stock, then you will have to add a
+                                            ‘Buy’ stop-loss.</p>
+                                    </div>
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link closePopoverBtn">close</a>
+                                            <a href="#" class="btn btn-primary nextPopoverBtn">next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="coverStep3">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">What is a Trigger Price?</h4>
+                                        <span class="stepCount">3/4</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>‘Trigger price’ indicates the price at which the Stop loss order will get
+                                            activated/triggered. As soon as the 'Trigger price' is reached, the Stop
+                                            loss order will get executed at the next Market price.</p>
+                                    </div>
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link closePopoverBtn">close</a>
+                                            <a href="#" class="btn btn-primary nextPopoverBtn">next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="coverStep4">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">How Cover Order helps?</h4>
+                                        <span class="stepCount">4/4</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <ul class="bulletList">
+                                            <li>Minimize risks</li>
+                                            <li>Maximize profit</li>
+                                            <li>Use higher leverage</li>
+                                            <li>Trade without emotion</li>
+                                        </ul>
+                                        <p>Note: Once the buy/sell order is executed, you cannot cancel the Stop loss
+                                            order. However, you can square off the Cover order at Market price.</p>
+                                    </div>
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link prevPopoverBtn">back</a>
+                                            <a href="#" class="btn btn-primary closePopoverBtn">Done</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-box secWrap popoverWrap bracketOrderInfoWrap">
+                                <div class="d-flex justify-content-between secTtl">
+                                    <div>
+                                        <h5 class="popoverBtn">Bracket Order<em class="infoIcon"><img
+                                                    src="../../assets/images/info-new.svg" alt=""></em></h5>
+                                    </div>
+                                    <div class="toggle-switch sm">
+                                        <input type="radio" name="orderType" class="checkBox" id="bracketOrder"
+                                            v-model="x" value="two">
+                                        <label class="bracketOrder" for="bracketOrder">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="bracketOrderInfo secInfo" v-show="x == 'two'">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Stop Loss Price</label>
+                                        <div class="form-group-in d-flex flex-nowrap">
+                                            <input type="text" class="form-control" v-model="stopLoss"
+                                                @keyup="priceChange()" :class="{err:stopLossErr == true}">
+                                            <span class="selectedVal">₹2890.00</span>
+                                            <div class="form-group-err btmErrCont" v-show="stopLossErr">
+                                                <p>Enter the SL Price to place the order</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-lbl">Target Price</label>
+                                        <div class="form-group-in d-flex flex-nowrap">
+                                            <input type="text" class="form-control" value="2892">
+                                            <span class="selectedVal">₹1000087</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center jumpPrice"
+                                        :class="{cancel:jumpPriceInput == true}">
+                                        <a href="#" class="closeBtn" v-show="jumpPriceInput == true"
+                                            @click="closeJumpPrice()"><em class="custom-close"></em></a>
+                                        <h5>Trailing SL Jump Price</h5>
+                                        <div class="form-group m-0" v-show="jumpPriceInput">
+                                            <input type="text" class="form-control" value="0.0">
+                                        </div>
+                                        <a href="#" class="addBtn" @click="addJumpPrice()" v-show="jumpPriceBtn"><em
+                                                class="custom-plus"></em></a>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="orderStep1">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">What is a Bracket Order?</h4>
+                                        <span class="stepCount">1/5</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>A Bracket order is a <strong>3-in-1 Intraday</strong> order consisting of a
+                                            <strong>'Buy/Sell'</strong> order along with a compulsory <strong>'Stop
+                                                loss' </strong>order and <strong>'Target' order.</strong></p>
+                                    </div>
+
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link closePopoverBtn">close</a>
+                                            <a href="#" class="btn btn-primary nextPopoverBtn">next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="orderStep2">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">How to use a Stop Loss?</h4>
+                                        <span class="stepCount">2/5</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>A 'Stop loss' order helps you limit the losses in case the prices move
+                                            against your trade. If you are buying a stock, then you will have to add a
+                                            ‘Sell’ stop-loss. If you have to sell a stock, then you will have to add a
+                                            ‘Buy’ stop-loss.</p>
+                                    </div>
+
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link closePopoverBtn">close</a>
+                                            <a href="#" class="btn btn-primary nextPopoverBtn">next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="orderStep3">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">What is SL price?</h4>
+                                        <span class="stepCount">3/5</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>'SL price' is the price at which your Stop loss order will get
+                                            activated/triggered. Once the 'SL price' is reached, the Stop loss order
+                                            will get executed at the next Market price.</p>
+                                    </div>
+
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link closePopoverBtn">close</a>
+                                            <a href="#" class="btn btn-primary nextPopoverBtn">next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="orderStep4">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">What is Target price?</h4>
+                                        <span class="stepCount">4/5</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>'Target price' indicates the price at which you want to book your profit. If
+                                            the profit is booked, then the corresponding Stop loss order is cancelled
+                                            and if the Stop loss is triggered then the respective Target order is
+                                            cancelled.</p>
+                                    </div>
+
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link closePopoverBtn">close</a>
+                                            <a href="#" class="btn btn-primary nextPopoverBtn">next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popoverContent leftPopover" id="orderStep5">
+                                    <div class="popoverHeader">
+                                        <h4 class="popoverTtl">What is Trailing SL Jump Price?</h4>
+                                        <span class="stepCount">5/5</span>
+                                    </div>
+                                    <div class="popoverBody">
+                                        <p>'Trailing SL Jump Price' indicates the price at which you want your Stop loss
+                                            price to increase based on the increase in LTP
+                                        </p>
+                                        <p>Note: Once the buy/sell order is executed you cannot cancel the corresponding
+                                            Stop loss or Target order. However, you can square off the Bracket order at
+                                            Market price</p>
+                                    </div>
+
+                                    <div class="popoverFooter">
+                                        <div class="btn-wrap text-right">
+                                            <a href="#" class="btn btn-link prevPopoverBtn">back</a>
+                                            <a href="#" class="btn btn-primary closePopoverBtn">done</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!--Intraday Trade not available -->
+                        <div class="tradeNotAvail" v-show="tradeNotAvail">
+                            <p>Intraday day trade is not allowed after market hours</p>
+                        </div>
+                        <!--Intraday Trade not available -->
+
+                        <!--Min. disclose quantity -->
+                        <div class="discloseQuantiyErr btmErrCont" v-show="discloseQuantiyErr">
+                            <p>Min. disclose quantity is 10% of order quantity</p>
+                        </div>
+                        <!--Min. disclose quantity -->
+                    </div>
+
+                    <div class="tab-pane" id="marginCont" v-show="marginCont">
+                        <div class="maxQty d-flex justify-content-between">
+                            <div>
+                                <h6>Max Qty available on Margin</h6>
+                            </div>
+                            <div>
+                                <h6><span>9,00,000</span> shares</h6>
+                            </div>
+                        </div>
+                        <div class="borderedBox noOfShares text-center">
+                            <h6>Number of <span>Shares</span></h6>
+                            <h4>700</h4>
+
+
+                        </div>
+
+                        <div class="orderTypePriceWrap">
+                            <div class="row row-md">
+                                <div class="col-6 orderType">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Order Type</label>
+                                        <select class="form-control selectpicker" @change="selectMarket1">
+                                            <option selected value="Market1">Market</option>
+                                            <option value="Limit1">Limit</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 priceWrap">
+                                    <div id="marketPrice1 " v-show="intraMarketPrice1">
+                                        <div class="form-group text-right">
+                                            <label class="form-lbl">Market Price</label>
+                                            <input type="text" class="form-control text-right" disabled value="2880.87">
+
+                                        </div>
+                                    </div>
+                                    <div id="limitPrice1" v-show="intraLimitPrice1">
+                                        <div class="form-group ">
+                                            <label class="form-lbl">Limit Price</label>
+                                            <input type="text" class="form-control text-right" value="2880.87">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 orderType">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Validity</label>
+                                        <select class="form-control selectpicker">
+                                            <option>Day</option>
+                                            <option>IOC</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 marketPrice">
+                                    <div class="form-group text-right">
+                                        <label class="form-lbl">Disclose Quantity</label>
+                                        <input type="text" class="form-control text-right" value="90">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="deliveryCont" v-show="deliveryCont">
+                        <div class="maxQty d-flex justify-content-between">
+                            <div>
+                                <h6>Max Qty available on Delivery</h6>
+                            </div>
+                            <div>
+                                <h6><span>9,00,000</span> shares</h6>
+                            </div>
+                        </div>
+                        <div class="borderedBox noOfShares text-center">
+                            <h6>Number of <span>Shares</span></h6>
+                            <h4>700</h4>
+
+
+                        </div>
+
+                        <div class="orderTypePriceWrap">
+                            <div class="row row-md">
+                                <div class="col-6 orderType">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Order Type</label>
+                                        <select class="form-control" @change="selectMarket2">
+                                            <option selected value="Market2">Market</option>
+                                            <option value="Limit2">Limit</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 priceWrap">
+                                    <div id="marketPrice2" v-show="intraMarketPrice2">
+                                        <div class="form-group text-right">
+                                            <label class="form-lbl">Market Price</label>
+                                            <input type="text" class="form-control text-right" disabled value="2880.87">
+                                        </div>
+                                    </div>
+                                    <div id="limitPrice2" v-show="intraLimitPrice2">
+                                        <div class="form-group">
+                                            <label class="form-lbl">Limit Price</label>
+                                            <input type="text" class="form-control text-right" value="2880.87">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 orderType">
+                                    <div class="form-group">
+                                        <label class="form-lbl">Validity</label>
+                                        <select class="form-control">
+                                            <option>Day</option>
+                                            <option>IOC</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 marketPrice">
+                                    <div class="form-group text-right">
+                                        <label class="form-lbl">Disclose Quantity</label>
+                                        <input type="text" class="form-control text-right" value="90">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" @click="fundsErrorFunc()" class="btn btn-primary">Insufficient funds</a>
+                        <br>
+                        <br>
+                        <a href="#" @click="amoErrorFunc()" class="btn btn-primary">AMO Err</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="buyEdgeFooter">
+        <div class="marginOrderValueWrap">
+            <div class="row">
+                <div class="col-6">
+                    <h6>Available Margin</h6>
+                    <h5>8,88,500.00</h5>
+                </div>
+                <div class="col-6 text-right">
+                    <h6>Order Value (Approx)</h6>
+                    <h5>83,500.00</h5>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn btn-buy btn-block placeOrderBtn" @click="placeOrder()">PLACE BUY ORDER</a>
+        <a href="#" class="btn btn-sell btn-block placeOrderBtn" @click="placeOrder()">PLACE SELL ORDER</a>
+        <!-- <div class="inclusive text-center">
+        Inclusive of tax and other charges <a href="#">View Details</a>
+    </div> -->
+        <div class="insufficientFundsError" v-show="insufficientFunds">
+            <div class="d-flex flex-nowrap justify-content-between align-items-center">
+                <a href="#" class="closeBtn" @click="closefundsErrorFunc()"><em class="icon-close"></em></a>
+                <h6>Insufficient funds to place order</h6>
+                <a href="#" class="btn btn-primary addFundBtn">ADD FUNDS</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="amoErrorSec" v-show="amoErr">
+        <div class="amoErrorCont">
+            <h5>After Market Order (AMO)</h5>
+            <p>Your order will be placed as an After Market Order. Would you like to proceed</p>
+            <div class="btn-wrap text-right ">
+                <a href="#" class="btn btn-link" @click="closeAMOError()">close</a>
+                <a href="#" class="btn btn-primary">UNDO</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="selectInvestSec" v-show="selectInvest">
+        <div class="selectInvestCont">
+            <div class="selectInvestHeader">
+                <h5>Select Investment Type</h5>
+                <a href="#" class="close" @click="investClose()"><em class="icon-close"></em></a>
+            </div>
+            <div class="selectInvestBody">
+                <div class="d-flex flex-nowrap justify-content-between align-items-center topsec">
+                    <h6>Toggle off to disable this screen. Enable this screen from settings</h6>
+                    <div class="toggle-switch sm">
+                        <input type="checkbox" class="checkBox" id="investType" checked>
+                        <label class="investType" for="investType">
+                        </label>
+                    </div>
+                </div>
+                <div class="investTypeList">
+
+                    <div class="investTypeBox intradayBox purpleBg disabled pointer">
+                        <span class="d-inline-block" data-toggle="popover" id="invest-popover-wrap1"
+                            data-content="Intraday trade is not allowed after Market hours" data-placement="bottom">
+
+                            <div class="investTypeBoxIn  ">
+                                <div class="d-flex justify-content-between align-items-center topSec">
+                                    <div class="left">
+                                        <h4><em class="custom-intraday-icn"></em> INTRADAY</h4>
+                                    </div>
+                                    <div class="right">
+                                        <h6>40x Leverage</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex btmSec">
+                                    <div>
+                                        <h6>Available Limit</h6>
+                                        <h5>₹10,000</h5>
+                                    </div>
+                                    <div class="text-center">
+                                        <h6>Max Quantity</h6>
+                                        <h5>1,000 Shares</h5>
+                                    </div>
+                                    <div class="text-right">
+                                        <h6>Auto Square-Off</h6>
+                                        <h5>No</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+
+                    <div class="investTypeBox marginBox blueBg pointer">
+                        <span class="d-inline-block" data-toggle="popover" id="invest-popover-wrap2"
+                            data-content="Margin Trading is not available on this stock" data-placement="bottom">
+                            <div class="investTypeBoxIn ">
+                                <!--add disabled class here for disabled field-->
+                                <div class="d-flex justify-content-between align-items-center topSec">
+                                    <div class="left">
+                                        <h4><em class="custom-margin-icn"></em> MARGIN</h4>
+                                    </div>
+                                    <div class="right">
+                                        <h6>10x Leverage</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex btmSec">
+                                    <div>
+                                        <h6>Available Limit</h6>
+                                        <h5>₹10,000</h5>
+                                    </div>
+                                    <div class="text-center">
+                                        <h6>Max Quantity</h6>
+                                        <h5>1,000 Shares</h5>
+                                    </div>
+                                    <div class="text-right">
+                                        <h6>Auto Square-Off</h6>
+                                        <h5>No</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+
+
+                    </div>
+                    <div class="investTypeBox deliveryBox pinkBg pointer">
+                        <span class="d-inline-block" data-toggle="popover" id="invest-popover-wrap3"
+                            data-content="Intraday trade is not allowed after Market hours" data-placement="bottom">
+                            <div class="investTypeBoxIn">
+                                <div class="d-flex justify-content-between align-items-center topSec">
+                                    <div class="left">
+                                        <h4><em class="custom-delivery-icn"></em> DELIVERY</h4>
+                                    </div>
+                                    <div class="right">
+                                        <h6>1x Leverage</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex btmSec">
+                                    <div>
+                                        <h6>Available Limit</h6>
+                                        <h5>₹10,000</h5>
+                                    </div>
+                                    <div class="text-center">
+                                        <h6>Max Quantity</h6>
+                                        <h5>1,000 Shares</h5>
+                                    </div>
+                                    <div class="text-right">
+                                        <h6>Auto Square-Off</h6>
+                                        <h5>No</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+
+                    <!-- <div class="investTypeBox carryforwadBox pinkBg pointer">
+                        <span class="d-inline-block" data-toggle="popover" id="invest-popover-wrap4"
+                            data-content="Intraday trade is not allowed after Market hours" data-placement="bottom">
+                            <div class="investTypeBoxIn ">
+                                <div class="d-flex justify-content-between align-items-center topSec">
+                                    <div class="left">
+                                        <h4><em class="custom-delivery-icn"></em> CARRYFORWARD</h4>
+                                    </div>
+                                    <div class="right">
+                                        <h6>1x Leverage</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex btmSec">
+                                    <div>
+                                        <h6>Available Limit</h6>
+                                        <h5>₹10,000</h5>
+                                    </div>
+                                    <div class="text-center">
+                                        <h6>Max Quantity</h6>
+                                        <h5>1,000 Shares</h5>
+                                    </div>
+                                    <div class="text-right">
+                                        <h6>Auto Square-Off</h6>
+                                        <h5>No</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="orderPlacedWrap" v-show="orderPlacedSuccss">
+    <div class="orderPlacedCont">
+        <div class="text-center">
+            <img src="../../assets/images/success1.svg" alt="">
+            <h5>Order Placed</h5>
+            <p>Order has been placed successfully, redirecting you to <strong>Open Orders</strong></p>
+        </div>
+    </div>
+</div>
+
+
+<!--Complete E-DIS Authorization Popup-->
+<div class="modal eDisAuthorizationModal  vue-modal type2" id="eDisAuthorizationModal" tabindex="-1" role="dialog"
+    v-show="eDisAuthorizationModal">
+    <div class="modal-overlay" @click="eDisAuthorizationModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content d-block text-center p-0">
+            <div class="modal-header">
+                <h5 class="modal-title">Complete E-DIS Authorization</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    @click="eDisAuthorizationModal = false">
+                    <em class="custom-times-circle-solid"></em>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You will be redirected to <strong>CDSL website</strong> to verify your transaction</p>
+            </div>
+            <div class="modal-footer">
+                <div class="btn-wrap d-flex justify-content-between">
+                    <button type="button" class="btn btn-link btn-lg" @click="showMore() ">KNOW MORE</button>
+                    <button type="button" class="btn btn-primary btn-lg">PROCEED</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Know more about CDSL E-DIS Popup-->
+<div class="modal knowMorePopup  vue-modal type2" id="knowMorePopup" tabindex="-1" role="dialog" v-show="knowMore">
+    <div class="modal-overlay" @click="knowMore = false"></div>
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content d-block text-center p-0">
+            <div class="modal-header">
+                <h5 class="modal-title"><a href="#" class="back-btn" @click="back()"><em class="icon-back"></em></a>Know
+                    more about CDSL E-DIS</h5>
+                <!-- <button type="button" class="close" @click="knowMorePopup = false" aria-label="Close">
+              <em class="custom-times-circle-solid"></em>
+            </button> -->
+            </div>
+            <div class="modal-body text-left">
+                <ul class="bulletList type2">
+                    <li>E-DIS (Electonic-Delivery Instruction Slip) is a facility provided to users who wish to sell
+                        shares but have not couriered a physical copy of the POA (Power of Attorney).</li>
+                    <li>Once you click ‘SELL’, you will be prompted to give the consent to sell your shares. A
+                        <strong>CDSL PIN will be sent</strong> to your registered email and phone number.</li>
+                    <li>You will be <strong>redirected to the CDSL Website</strong> to enter this PIN.</li>
+                    <li>If you don’t wish to do this activity, you will need to courier the physical copy of the POA
+                        form to our corporate office address.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Order Preview Popup-->
+<div class="modal orderPreviewPopup  vue-modal type2" id="orderPreviewPopup" tabindex="-1" role="dialog"
+    v-show="orderPreview">
+    <div class="modal-overlay" @click="orderPreview = false"></div>
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content d-block text-center p-0">
+            <div class="modal-header d-block text-left">
+                <h5 class="modal-title">Order Preview</h5>
+                <p>This order will be placed as an <strong>After Market Order</strong> (AMO)</p>
+                <button type="button" class="close" @click="orderPreview = false" aria-label="Close">
+                    <em class="custom-times-circle-solid"></em>
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <!-- <ul class="bulletList type2">
+                <li>E-DIS (Electonic-Delivery Instruction Slip) is a facility provided to users who wish to sell shares but have not couriered a physical copy of the POA (Power of Attorney).</li>
+                <li>Once you click ‘SELL’, you will be prompted to give the consent to sell your shares. A <strong>CDSL PIN will be sent</strong> to your registered email and phone number.</li>
+                <li>You will be <strong>redirected to the CDSL Website</strong> to enter this PIN.</li>
+                <li>If you don’t wish to do this activity, you will need to courier the physical copy of the POA form to our corporate office address.</li>
+            </ul> -->
+            </div>
+            <div class="modal-footer">
+                <div class="btn-wrap d-flex justify-content-between">
+                    <button type="button" class="btn btn-link btn-lg">MODIFY</button>
+                    <button type="button" class="btn btn-primary btn-lg">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Complete E-DIS Authorization Popup-->
+<div class="modal completeEDisModal  vue-modal type2" id="completeEDisModal" tabindex="-1" role="dialog"
+    v-show="completeEDisModal">
+    <div class="modal-overlay" @click="completeEDisModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content d-block text-center p-0">
+            <div class="modal-header">
+                <h5 class="modal-title">Complete E-DIS Authorization</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    @click="completeEDisModal = false">
+                    <em class="custom-times-circle-solid"></em>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-left">
+                    <p>Your <strong>6 digit CDSL PIN</strong> is generated and sent on your registered email and mobile
+                        number <span>xxxxxxx<strong>9876</strong></span></p>
+                </div>
+
+                <img src="../../assets/images/edis-loader-img.svg" class="title_icon img-loader" alt="">
+                <p><small>Redirecting to <strong>CDSL Website</strong>.<br> Do not close or refresh the window</small>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Authorization Successful Popup-->
+<div class="modal vue-modal authSuccessModal" id="authSuccessModal" tabindex="-1" role="dialog"
+    v-show="authSuccessModal">
+    <div class="modal-overlay" @click="authSuccessModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-wrapper">
+                <img class="title_icon" src="../../assets/images/icon-successful.svg" alt="">
+                <h4 class="modal_title">Authorization Successful</h4>
+
+                <p>Your CDSL PIN verification is successful</p>
+                <button type="button" class="btn btn-modal" data-dismiss="modal"
+                    @click="authSuccessModal = false">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Authorization Failed Popup-->
+<div class="modal vue-modal authFailModal" id="authFailModal" tabindex="-1" role="dialog" v-show="authFailModal">
+    <div class="modal-overlay" @click="authFailModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-wrapper">
+                <img class="title_icon" src="../../assets/images/icon-failed.svg" alt="">
+                <h4 class="modal_title">Authorization Failed</h4>
+
+                <p>Due to technical issues, unable to proceed ahead. <br>Kindly retry after some time</p>
+                <button type="button" class="btn btn-modal" data-dismiss="modal"
+                    @click="authFailModal = false">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Failed to generate PIN Popup-->
+<div class="modal vue-modal pinGenerateFailModal" id="pinGenerateFailModal" tabindex="-1" role="dialog"
+    v-show="pinGenerateFailModal">
+    <div class="modal-overlay" @click="pinGenerateFailModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-wrapper">
+                <img class="title_icon" src="../../assets/images/icon-failed.svg" alt="">
+                <h4 class="modal_title">Failed to generate PIN</h4>
+                <p>Due to technical issues, unable to generate CDSL PIN.<br>Kindly retry after some time</p>
+                <button type="button" class="btn btn-modal" data-dismiss="modal"
+                    @click="pinGenerateFailModal = false">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Server Error Popup-->
+<div class="modal vue-modal serverErrModal" id="serverErrModal" tabindex="-1" role="dialog" v-show="serverErrModal">
+    <div class="modal-overlay" @click="serverErrModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-wrapper">
+                <img class="title_icon" src="../../assets/images/icon-exclamation.svg" alt="">
+                <h4 class="modal_title">Server Error</h4>
+                <p>CDSL Servers are not responding. Kindly retry after sometime</p>
+                <button type="button" class="btn btn-modal" data-dismiss="modal"
+                    @click="serverErrModal = false">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Authorization Failed Popup-->
+<div class="modal vue-modal pinVerifyFailModal" id="pinVerifyFailModal" tabindex="-1" role="dialog"
+    v-show="pinVerifyFailModal">
+    <div class="modal-overlay" @click="pinVerifyFailModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-wrapper">
+                <img class="title_icon" src="../../assets/images/icon-failed.svg" alt="">
+                <h4 class="modal_title">Authorization Failed</h4>
+
+                <p>Your CDSL PIN verification failed.<br>Unable to verify your details</p>
+                <button type="button" class="btn btn-modal" data-dismiss="modal"
+                    @click="pinVerifyFailModal = false">RETRY</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Authorization Pending Popup-->
+<div class="modal vue-modal  authPendingModal" id="authPendingModal" tabindex="-1" role="dialog"
+    v-show="authPendingModal">
+    <div class="modal-overlay" @click="authPendingModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-wrapper">
+                <img class="title_icon" src="../../assets/images/icon-pending.svg" alt="">
+                <h4 class="modal_title">Authorization Pending</h4>
+                <p>Please Wait. We are verifying details. </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Complete E-DIS Authorization Popup-->
+<div class="modal completeEDisAuthModal  vue-modal type2" id="completeEDisAuthModal" tabindex="-1" role="dialog"
+    v-show="completeEDisAuthModal">
+    <div class="modal-overlay" @click="completeEDisAuthModal = false"></div>
+    <div class="modal-dialog modal-dialog-centered modal-full" role="document">
+        <div class="modal-content d-block text-center p-0">
+            <div class="modal-header">
+                <h5 class="modal-title">Complete E-DIS Authorization</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    @click="completeEDisAuthModal = false">
+                    <em class="custom-times-circle-solid"></em>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>CDSL Website iframe loads here</p>
+            </div>
+
+        </div>
+    </div>
+</div>

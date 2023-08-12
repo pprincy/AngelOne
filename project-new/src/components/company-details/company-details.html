@@ -1,0 +1,2167 @@
+<!-- :class="{leftPosition:buyContainer == true}" -->
+<!--visibleMob class add -->
+<div class="main-content compony-main-content">
+  <div class="main-content-in">
+    <article class="field_bg top-content">
+      <a href="#" class="btn btn-back" ><em class="icon-back" ></em></a>
+      <div class="row">
+        <div class="col-auto d-flex align-items-center">
+          <div class="company_name">
+            <h1 class="short_name">HEROMOTOCORP<span class="badge badge-secondary">NSE</span></h1>
+            <h2 class="full_name d-none d-lg-block d-md-none d-sm-none">Hero Motors Pvt. Limited</h2>
+          </div>
+          <div class="market_val">
+            <div class="amt txt-positive">2,509.00</div>
+            <div class="chg">+16.90<span class="per">(+8.10%)</span></div>
+          </div>
+        </div>
+        <div class=" col-auto d-flex ml-auto align-items-center action_btns_wrap">
+          <div class="d-flex align-items-end justify-content-end action_btns">
+            <button class="btn btn-time btn-outline-secondary btn-sm d-none d-lg-block d-md-none d-sm-none"><em class="icon-watch"></em></button>
+            <button class="btn btn-AddToWL btn-outline-secondary btn-sm d-none d-lg-block d-md-none d-sm-none"><em class="custom-addtowl"></em></button>
+            <!--responsive-->
+            <button class="btn btn-buy buyBtn ">Buy</button>
+            <button class="btn btn-sell " @click="sellErrorFunc()">Sell</button>
+          </div>
+        </div>
+      </div>
+    </article>
+    <div class="chart-info-wrap" >
+      <article class="field_bg p-0">
+        <div class="chart-top-info" :class="{open:openTabBtn == true}">
+          <div class="market-detail d-flex">
+            <div class="box d-flex" v-for="item in marketDetail">
+              <label>{{item.name}}</label>
+              <h5>{{item.value}}</h5>
+            </div>
+
+          </div>
+
+          <div class="watchlist_chart" id="iftradingview">
+            <img src="../../assets/images/chart.jpg" alt="">
+          </div>
+          <a href="#" class="mob-expand-view-btn"></a>
+        </div>
+      </article>
+      <div class="chart-info-sec" :class="{active:openTabBtn == false}">
+        <div class="tab-wrap">
+          <div class="chart_nav">
+            <ul class="nav nav-tabs">
+              <li class="nav-item"><a href="" data-target="#chartsec1" data-toggle="tab"
+                  class="nav-link small " :class="{active:firstActive == true}" @click=" openTab()">Overview</a></li>
+              <li class="nav-item"><a href="" data-target="#chartsec2" data-toggle="tab"
+                  class="nav-link small" :class="{active:secondActive == true}" @click=" openTab2()">Technical</a></li>
+              <li class="nav-item d-none d-lg-block d-md-none d-sm-none"><a href="" data-target="#chartsec3" data-toggle="tab"
+                  class="nav-link small" :class="{active:thirdActive == true}" @click=" openTab3()">Derivatives</a></li>
+              <li class="nav-item d-none d-lg-block d-md-none d-sm-none"><a href="" data-target="#chartsec4" data-toggle="tab"
+                  class="nav-link small" :class="{active:forthActive == true}" @click=" openTab4()">Fundamental</a></li>
+              <li class="nav-item"><a href="" data-target="#chartsec5" data-toggle="tab" class="nav-link small " :class="{active:fifthActive == true}" @click=" openTab5()">Option
+                  Chain</a></li>
+            </ul>
+
+            <a href="#" class="expand-view-btn open-tab btn btn-outline-secondary " @click="openTab()" :class="{hide:openTabBtn == false}"><em class="icon-expand"></em></a>
+            <a href="#" class="expand-view-btn close-tab btn btn-outline-secondary " @click="closeTab()" :class="{hide:openTabBtn == true}"><em class="icon-expand"></em></a>
+          </div>
+          <div id="tabsContent" class="tab-content">
+            <div id="chartsec1" class="tab-pane " :class="{active:firstActive == true}">
+              <div class="tab-content-in">
+                <div class="field_bg type2">
+                  <div class="market-detail m-0">
+                    <h3>Details</h3>
+                    <div class="row">
+                      <div class="col-xl-7">
+                        <div class="row">
+                          <div class="col-md-3 col-4 box">
+                            <label>Open</label>
+                            <h5>1453.90</h5>
+                          </div>
+                          <div class="col-md-3 col-4 box">
+                            <label>High</label>
+                            <h5>1501.52</h5>
+                          </div>
+                          <div class="col-md-3 col-4 box">
+                            <label>Low</label>
+                            <h5>1453.10</h5>
+                          </div>
+                          <div class="col-md-3 col-4 box">
+                            <label>Close</label>
+                            <h5>1498.53</h5>
+                          </div>
+                          <div class="col-md-3 col-4 box">
+                            <label>VOLUME</label>
+                            <h5>1498.53</h5>
+                          </div>
+                          <div class="col-md-3 col-4 box">
+                            <label>ATP</label>
+                            <h5>72498.53</h5>
+                          </div>
+                          <div class="col-md-3 col-4 box">
+                            <label>PE RATIO</label>
+                            <h5>1501.52</h5>
+                          </div>
+                          <div class="col-md-3 col-4 box">
+                            <label>INDUSTRY PE</label>
+                            <h5>1477.25</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-5 box">
+                        <div class="row">
+                          <div class="col-12 box">
+                            <label>LCL/UCL</label>
+                            <div class="d-flex flex-nowrap">
+                              <div>
+                                <h5>1401.60</h5>
+                              </div>
+                              <!-- <div class="select-range-wrap lclUclSliderWrap">
+                              <input type="text" class="lclUclSlider " name="my_range" value="" />
+                            </div> -->
+
+                              <div class="select-range-wrap static lcl-ucl">
+                                <span class="static-range-bar-wrap">
+                                  <span class="range-pointer"></span>
+                                </span>
+                              </div>
+                              <div>
+                                <h5>1527.60</h5>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 box">
+                            <label>52 Week High / Low</label>
+                            <div class="d-flex flex-nowrap">
+                              <div>
+                                <h5>7896.20</h5>
+                              </div>
+                              <!-- <div class="select-range-wrap highLowSliderWrap">
+                              <input type="text" class="highLowSlider " name="my_range" value="" />
+                            </div> -->
+                              <div class="select-range-wrap static week">
+                                <span class="static-range-bar-wrap">
+                                  <span class="range-pointer"></span>
+                                </span>
+                              </div>
+                              <div>
+                                <h5>2000.10</h5>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field_bg type2">
+                  <div class="market-know-ur-stock-sec">
+                    <div class="row row-lg">
+                      <div class="col-md-6">
+                        <div class="market-sec">
+                          <h3>Markets</h3>
+                          <p>Best 5 market ask and bid prices</p>
+                          <div class="table-wrap">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <!-- <td class="p-0 border-0"> -->
+                                  <td class="p-0 tblWrapCol   "  >
+
+                                    <table class="table tbl_best-bid m-0">
+                                      <thead>
+                                        <tr>
+                                          <th>Qty</th>
+                                          <th class="text-right buy-price">Buy Price</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+
+                                        <tr v-for="item in bidPrices">
+                                          <td><strong>{{item.qty}}</strong></td>
+                                          <td class="text-right buy-price">
+                                            <span class="price-wrap">
+                                              <span class="price txt-positive">{{item.price}}</span>
+                                              <span :style="{ width: (item.qty * 100 / bidTotalRequest) + '%' }"
+                                                class="selected"></span>
+                                            </span>
+                                          </td>
+                                        </tr>
+
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                  <td class="p-0 border-0 tblWrapCol" >
+                                    <table class="table tbl_best-ask m-0">
+                                      <thead>
+                                        <tr>
+                                          <th class="sell-price">Sell Price</th>
+                                          <th class="text-right">Qty</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+
+                                        <tr v-for="item in askPrices">
+                                          <td class="sell-price">
+                                            <span class="price-wrap">
+                                              <span class="price red">{{item.price}}</span>
+                                              <span :style="{ width: (item.qty * 100 / askTotalRequest) + '%' }"
+                                                class="selected"></span>
+                                            </span>
+                                          </td>
+                                          <td class="text-right"><strong>{{item.qty}}</strong></td>
+
+                                        </tr>
+
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table class="table m-0 tot-tbl">
+                              <tbody>
+                                <tr>
+                                  <td><strong>{{bidTotalRequest}}</strong></td>
+                                  <td class="text-center"><strong>Total Quantity</strong></td>
+                                  <td class="text-right"><strong>{{askTotalRequest}}</strong></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="know-ur-stock-sec">
+                          <h3>Know your stock</h3>
+                          <p>Performance overview of the company</p>
+                          <ul class="arrow-border-link-list">
+                            <li v-for="item in stockPerformance">
+                              <a href="#" :class="{disabled:item.val =='NA'}">
+                                <div class="d-flex align-items-center">
+                                  <span class="icon-wrap"
+                                    :class="{redBg:item.mainStatus== 'Negative' , greenBg:item.mainStatus== 'Excellent', orangeBg:item.mainStatus=='Very attractive'}"><em
+                                      :class="item.icon"></em></span>
+                                  <div>
+                                    <h5>{{item.mainTtl}}</h5>
+                                    <h6><span v-show="item.val != 'NA'">{{item.mainStatus}}</span><span
+                                        v-show="item.val == 'NA'">NA</span></h6>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                            <!-- <li>
+                              <a href="#">
+                                <div class="d-flex align-items-center">
+                                  <span class="icon-wrap green-bg"><em class="customShield"></em></span>
+                                  <div>
+                                    <h5>Quality</h5>
+                                    <h6><span>Excellent</span><span>NA</span></h6>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <div class="d-flex align-items-center">
+                                  <span class="icon-wrap orange-bg"><em class="customDiamond"></em></span>
+                                  <div>
+                                    <h5>Valuation</h5>
+                                    <h6><span>Very attractive</span><span>NA</span></h6>
+                                  </div>
+                                </div>
+                              </a>
+                            </li> -->
+                          </ul>
+
+                          <div class="performance-overview d-flex flex-wrap text-center">
+                            <div v-for="(item, index) in stockPerformance">
+                              <h6>{{item.ttl}}</h6>
+                              <strong
+                                :class="{txtPositive:item.status== 'positive' , txtNegative:item.status == 'negative', disabled:item.val =='NA'}">{{item.stockval}}<span
+                                  v-show="item.ttl=='1 YEAR RETURN' && item.stockval != 'NA'">%</span></strong>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <section class="price-summary-sec">
+                    <h3>Price Summary</h3>
+                    <div class="slider price-summary-carousal variable-width-carousel carousel-theme1">
+                      <div>
+                        <div class="border-box">
+                          <div class="icn-info">
+                            <span class="icn-wrap"><em class="customPositive"></em></span>
+                            <h4>Performance Today</h4>
+                            <p>Higher than 200 s</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="border-box">
+                          <div class="icn-info">
+                            <span class="icn-wrap"><em class="customNeutral"></em></span>
+                            <h4>Weighted Average Price</h4>
+                            <p>Higher than 5 day moving averages but lower than 20 day, 50 day, 100 day and 200 day
+                              moving averages</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="border-box">
+                          <div class="icn-info">
+                            <span class="icn-wrap"><em class="customNegative"></em></span>
+                            <h4>Performance Today</h4>
+                            <p>Higher than 200 day moving averages but lower than 5 day, 20 day, 50 day and 100 day
+                              moving averages</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="border-box">
+                          <div class="icn-info">
+                            <span class="icn-wrap "><em class="customNeutral"></em></span>
+                            <h4>Weighted Average Price</h4>
+                            <p>Higher than 5 day moving averages but lower than 20 day, 50 day, 100 day and 200 day
+                              moving averages</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="border-box">
+                          <div class="icn-info">
+                            <span class="icn-wrap"><em class="customNeutral"></em></span>
+                            <h4>Weighted Average Price</h4>
+                            <p>Higher than 5 day moving averages but lower than 20 day, 50 day, 100 day and 200 day
+                              moving averages</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="border-box">
+                          <div class="icn-info">
+                            <span class="icn-wrap neutral">6</span>
+                            <h4>Weighted Average Price</h4>
+                            <p>Higher than 5 day moving averages but lower than 20 day, 50 day, 100 day and 200 day
+                              moving averages</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="try-free-sec">
+                    <div class="media">
+                      <img class="" src="../../assets/images/prem-advisory-ser-img.png" alt="">
+                      <div class="media-body">
+                        <img src="../../assets/images/ARQ-prime.png" alt="">
+                        <h3>AI-Based Premium Advisory Services</h3>
+                        <p>Maximum Returns | Free to try - No Auto Renewal | Live Updates
+                          never miss a Buy or Sell.</p>
+                        <a href="#" class="btn btn-primary btn-md try-for-free-btn">TRY FOR FREE</a>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="recent-news-sec">
+                    <h3>Recent News</h3>
+                    <div class="slider recent-news-carousal variable-width-carousel  carousel-theme1">
+                      <div v-for="news in recentNews">
+                        <div class="media">
+                          <figure><img :src="news.figurePath" alt=""></figure>
+                          <div class="media-body">
+                            <span class="status"
+                              :class="{txtPositive:news.status == '+ POSITIVE' , txtNegative:news.status== '- NEGATIVE'}">{{news.status}}</span>
+                            <h5>{{news.ttl}}</h5>
+                            <ul class="border-list">
+                              <li><em class="icon-clock"></em> {{news.time}}</li>
+                              <li>{{news.newsFrom}}</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="security-info-sec">
+                    <div id="accordion">
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h3>Security info</h3>
+                          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne"></button>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            <div class="market-detail m-0">
+                              <div class="row row-sm">
+                                <div class="col-lg-2 col-md-3 col-6 box" v-for="item in securityInfo">
+                                  <label>{{item.ttl}}</label>
+                                  <h5>{{item.val}}</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </section>
+
+                  <section class="similar-stocks-sec">
+                    <div class="row row-sm">
+                      <div class="col-xl-3 col-md-6 col-6" v-for="item in similarStockLists">
+                        <div class="border-box">
+                          <div class="comp-info-sec">
+                            <h5 class="scrip_name">{{item.name}} <span
+                                class="badge badge-secondary exchage">{{item.exchange}}</span></h5>
+                            <h6 class="comp_name">{{item.compName}}</h6>
+                          </div>
+                          <div class="price-info-sec"
+                            :class="{positive:item.shareVal == 'positive' ,negative:item.shareVal == 'negative'}">
+                            <h5 class="price">{{item.price}}</h5>
+                            <div class="chg">{{item.per}}%
+                              <span class="per">({{item.chg}})</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div id="chartsec2" class="tab-pane" :class="{active:secondActive == true}">
+              <div class="tab-content-in"></div>
+              Technical
+            </div>
+            <div id="chartsec3" class="tab-pane" :class="{active:thirdActive == true}">
+              <div class="tab-content-in">
+                <Derivatives></Derivatives>
+              </div>
+            </div>
+            <div id="chartsec4" class="tab-pane" :class="{active:forthActive == true}">
+              <div class="tab-content-in">
+                      <Watchlistfundamental></Watchlistfundamental>     
+              </div>
+              
+            </div>
+            <div id="chartsec5" class="tab-pane" :class="{active:fifthActive == true}">
+              <div class="tab-content-in optionChainTabContent">
+                <div class="field_bg p-0">
+
+                  <div class="option-chain-sec">
+                    <div class="option-chain-top-sec">
+                      <div class="row justify-content-between align-items-center">
+                        <div class="col-sm-6">
+                          <form class="select-date">
+                            <div class="d-flex align-items-center">
+                              <label>EXPIRES ON</label>
+                              <select class="selectpicker">
+                                <option>05 March 2020</option>
+                                <option>06 March 2020</option>
+                                <option>07 March 2020</option>
+                                <option>08 March 2020</option>
+                                <option>09 March 2020</option>
+                                <option>10 March 2020</option>
+                              </select>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="col-sm-6 d-flex justify-content-sm-end">
+                          <form class="search-form">
+                            <input type="text" class="form-control" placeholder="Enter Strike Price">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="option-chain-tbl-sec">
+                      <div class="optionChainTblWrap">
+                        <div class="table_head_wrap">
+                          <div class="table_wrap">
+                            <table class="table table-striped red-striped m-0 callTable">
+                              <thead>
+                                <tr>
+                                  <th class="callLeftCol leftCol ">Delta</th>
+                                  <th class="callLeftCol leftCol ">Theta</th>
+                                  <th class="callLeftCol leftCol ">Gama</th>
+                                  <th class="callLeftCol leftCol ">Vega</th>
+                                  <th class="callLeftCol leftCol ">IV</th>
+                                  <th class="leftCol ">Volume</th>
+                                  <th class="leftCol ">Price Chge</th>
+                                  <th class="leftCol ">OI Change</th>
+                                  <th class="leftCol ">OI %Chge</th>
+                                  <th class="leftCol ">LTP/Change</th>
+                                  <th class="strikeCol">Strike Price</th>
+                                  <th class="rightCol">LTP/Change</th>
+                                  <th class="rightCol">OI %Chge</th>
+                                  <th class="rightCol">OI Change</th>
+                                  <th class="rightCol">Price Chge</th>
+                                  <th class="rightCol">Volume</th>
+                                  <th class="putRightCol rightCol">IV</th>
+                                  <th class="putRightCol rightCol">Vega</th>
+                                  <th class="putRightCol rightCol">Gama</th>
+                                  <th class="putRightCol rightCol">Theta</th>
+                                  <th class="putRightCol rightCol">Delta</th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="table_body_wrap" id="optionChain">
+                          <div class="top-sec"></div>
+                          <div class="table_wrap">
+                            <table class="table table-striped  m-0 callTable">
+
+                              <tbody>
+                                <tr v-for="item in optionChainTableList">
+                                  <td class="callLeftCol  leftCol deltaCol"><span>{{item.leftdeltaCol}}</span></td>
+                                  <td class="callLeftCol  leftCol thetaCol"><span>{{item.leftthetaCol}}</span></td>
+                                  <td class="callLeftCol  leftCol gamaCol"><span>{{item.leftgamaCol}}</span></td>
+                                  <td class="callLeftCol  leftCol vegaCol"><span>{{item.leftvegaCol}}</span></td>
+                                  <td class="callLeftCol  leftCol ivCol"><span>{{item.leftivCol}}</span></td>
+                                  <td class="volCol leftCol">
+                                    <span>{{item.leftvolCol}}</span>
+                                  </td>
+                                  <td class="priceChangeCol leftCol ">
+                                    <span>{{item.leftpriceChangeCol}}</span>
+                                  </td>
+                                  <td class="olChangeCol leftCol ">
+                                    <span>{{item.leftolChangeCol}}</span>
+                                  </td>
+                                  <td class="OlPerChgeCol leftCol ">
+                                    <div class="price-info-sec" :class="item.leftOlPerChgeColStatus">
+                                      <h5 class="price">{{item.leftOlPerChgeColPrice}}</h5>
+                                      <div class="chg">
+                                        <span class="per">{{item.leftOlPerChgeColPer}}</span>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="ltpChangeCol leftCol ">
+                                    <div class="price-info-sec" :class="item.leftltpChgeColStatus">
+                                      <h5 class="price"><em>₹</em>{{item.leftltpChangeCoPrice}}</h5>
+                                      <div class="chg">
+                                        <span class="per">{{item.leftltpChangeColPer}}%</span>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="strikeCol"><span>{{item.strikeCol}}</span></td>
+                                  <td class="ltpChangeCol rightCol">
+                                    <div class="price-info-sec" :class="item.rightltpChgeColStatus">
+                                      <h5 class="price"><em>₹</em>{{item.rightltpChangeCoPrice}}</h5>
+                                      <div class="chg">
+                                        <span class="per">{{item.rightltpChangeColPer}}%</span>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="OlPerChgeCol rightCol">
+                                    <div class="price-info-sec" :class="item.rightOlPerChgeColStatus">
+                                      <h5 class="price">{{item.rightOlPerChgeColPrice}}</h5>
+                                      <div class="chg">
+                                        <span class="per">{{item.rightOlPerChgeColPer}}%</span>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="olChangeCol rightCol">
+                                    <span>{{item.rightolChangeCol}}</span>
+                                  </td>
+                                  <td class="priceChangeCol rightCol">
+                                    <span>{{item.rightpriceChangeCol}}</span>
+                                  </td>
+                                  <td class="volCol rightCol">
+                                    <span>{{item.rightvolCol}}</span>
+                                  </td>
+                                  <td class="putRightCol ivCol rightCol"><span>{{item.rightivCol}}</span></td>
+                                  <td class="putRightCol vegaCol rightCol"><span>{{item.rightvegaCol}}</span></td>
+                                  <td class="putRightCol gamaCol rightCol"><span>{{item.rightgamaCol}}</span></td>
+                                  <td class="putRightCol thetaCol rightCol"><span>{{item.rightthetaCol}}</span></td>
+                                  <td class="putRightCol deltaCol rightCol"><span>{{item.rightdeltaCol}}</span></td>
+
+                                  <td class="hoverdCol" @mouseleave="item.activeClass = false, item.addToWatchlist = false">
+                                    <!-- <a href="#" class="more-option-btn"
+                                      @click="item.optionStockAction =! item.optionStockAction"><em
+                                        class="icon-more-dots"></em></a> v-show="item.optionStockAction"-->
+                                        <a  class="more-option-btn"><em
+                                          class="icon-more-dots"></em></a>
+                                    <div class="stock-action" >
+                                      <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                        <ul class="d-flex justify-content-end">
+                                          <li><a href="#" class="btn txt-positive">B</a></li>
+                                          <li><a href="#" class="btn txt-negative">S</a></li>
+                                          <li><a href="#" class="btn addWatchlistBtn"
+                                              @click="searchAddtoWatchlist($event, item.id)"
+                                              :class="{active:item.activeClass }"><em
+                                                class="add-to-watchlist-icn"></em></a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="search-watchlist optionChain-watchlist" v-show="item.addToWatchlist">
+                                      <div class="ttl-wrap">
+                                        <h6>Choose Watchlist</h6>
+                                      </div>
+
+                                      <ul class="check-list">
+                                        <li v-for="checkitem in watchList">
+                                          <div class="checkbox_option comp-info-sec">
+
+                                            <input type="checkbox"
+                                              :id="'compRow' + item.id + checkitem.name + checkitem.id"
+                                              v-model="tblselectedItems"
+                                              :value="'row' + item.id + item.id + checkitem.id" >
+                                            <label :for="'compRow' + item.id + checkitem.name + checkitem.id">
+
+                                              <h5 class="scrip_name">{{checkitem.name}} {{checkitem.id}}</h5>
+                                              <h6 class="comp_name">{{checkitem.stockNo}} Stocks</h6>
+                                            </label>
+
+
+                                          </div>
+
+                                        </li>
+                                      </ul>
+
+                                      <div class="seach-watchist-confirm text-center">
+                                        <a href="#" class="btn confirm  addDoneBtn"
+                                          @click="addFunc(item.id)" :class="{disabled:tblselectedItems.length == 0}">DONE</a>
+                                        <a href="#" class="btn confirm disabled removeDoneBtn"
+                                          @click="removeFunc(item.id) ">DONE</a>
+                                      </div>
+
+                                    </div>
+                                    <div class="stockSuccessMsg" v-show="addMsg">
+                                      <h5>Done</h5>
+                                      <p>Stock has been successfully added to watchlist</p>
+                                    </div>
+                                    <div class="stockSuccessMsg" v-show="removeMsg">
+                                      <h5>Done</h5>
+                                      <p>Stock has been successfully removed from watchlist</p>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <!-- <tr>
+                              <td class="callLeftCol  leftCol deltaCol"><span>0.098</span></td>
+                              <td class="callLeftCol  leftCol thetaCol"><span>-3.76</span></td>
+                              <td class="callLeftCol  leftCol gamaCol"><span>0.001</span></td>
+                              <td class="callLeftCol  leftCol vegaCol"><span>4.90</span></td>
+                              <td class="callLeftCol  leftCol ivCol"><span>5724</span></td>
+                              <td class="volCol leftCol ">
+                                <span>786</span>
+                              </td>
+                              <td class="priceChangeCol leftCol ">
+                                <span>12.70</span>
+                              </td>
+                              <td class="olChangeCol leftCol ">
+                                <span>5724</span>
+                              </td>
+                              <td class="OlPerChgeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">20.7L</h5>
+                                  <div class="chg"> 
+                                    <span class="per">4.43%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="ltpChangeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">₹28.56</h5>
+                                  <div class="chg"> 
+                                    <span class="per">15.44%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="strikeCol"><span>3500</span></td>
+                              <td class="ltpChangeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹730.25</h5>
+                                  <div class="chg"> 
+                                    <span class="per">58.92%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="OlPerChgeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">1224</h5>
+                                  <div class="chg"> 
+                                    <span class="per">6.98%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="olChangeCol rightCol">
+                                <span>4554</span>
+                              </td>
+                              <td class="priceChangeCol rightCol">
+                                <span>101.89</span>
+                              </td>
+                              <td class="volCol rightCol">
+                                <span>17.34K</span>
+                              </td>
+                              <td class="putRightCol ivCol rightCol"><span>5724</span></td>
+                              <td class="putRightCol vegaCol rightCol"><span>0.09</span></td>
+                              <td class="putRightCol gamaCol rightCol"><span>0.001</span></td>
+                              <td class="putRightCol thetaCol rightCol"><span>-1.09</span></td>
+                              <td class="putRightCol deltaCol rightCol"><span>0.097</span></td>
+                              <td class="hoverdCol">
+                                <a href="#" class="more-option-btn" @click="optionStockAction =! optionStockAction"><em class="icon-more-dots"></em></a>
+                                <div class="stock-action" v-show="optionStockAction">
+                                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                    <ul class="d-flex justify-content-end">
+                                      <li><a href="#" class="btn txt-positive">B</a></li>
+                                      <li><a href="#" class="btn txt-negative">S</a></li>
+                                      <li><a href="#" class="btn"><em class="add-to-watchlist-icn"></em></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="callLeftCol  leftCol deltaCol"><span>0.098</span></td>
+                              <td class="callLeftCol  leftCol thetaCol"><span>-3.76</span></td>
+                              <td class="callLeftCol  leftCol gamaCol"><span>0.001</span></td>
+                              <td class="callLeftCol  leftCol vegaCol"><span>4.90</span></td>
+                              <td class="callLeftCol  leftCol ivCol"><span>5724</span></td>
+                              <td class="volCol leftCol ">
+                                <span>786</span>
+                              </td>
+                              <td class="priceChangeCol leftCol ">
+                                <span>12.70</span>
+                              </td>
+                              <td class="olChangeCol leftCol ">
+                                <span>5724</span>
+                              </td>
+                              <td class="OlPerChgeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">20.7L</h5>
+                                  <div class="chg"> 
+                                    <span class="per">4.43%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="ltpChangeCol leftCol ">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹28.56</h5>
+                                  <div class="chg"> 
+                                    <span class="per">15.44%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="strikeCol"><span>3500</span></td>
+                              <td class="ltpChangeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹730.25</h5>
+                                  <div class="chg"> 
+                                    <span class="per">58.92%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="OlPerChgeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">1224</h5>
+                                  <div class="chg"> 
+                                    <span class="per">6.98%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="olChangeCol rightCol">
+                                <span>4554</span>
+                              </td>
+                              <td class="priceChangeCol rightCol">
+                                <span>101.89</span>
+                              </td>
+                              <td class="volCol rightCol">
+                                <span>17.34K</span>
+                              </td>
+                              <td class="putRightCol ivCol rightCol"><span>5724</span></td>
+                              <td class="putRightCol vegaCol rightCol"><span>0.09</span></td>
+                              <td class="putRightCol gamaCol rightCol"><span>0.001</span></td>
+                              <td class="putRightCol thetaCol rightCol"><span>-1.09</span></td>
+                              <td class="putRightCol deltaCol rightCol"><span>0.097</span></td>
+                              <td class="hoverdCol">
+                                <a href="#" class="more-option-btn" @click="optionStockAction =! optionStockAction"><em class="icon-more-dots"></em></a>
+                                <div class="stock-action" v-show="optionStockAction">
+                                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                    <ul class="d-flex justify-content-end">
+                                      <li><a href="#" class="btn txt-positive">B</a></li>
+                                      <li><a href="#" class="btn txt-negative">S</a></li>
+                                      <li><a href="#" class="btn"><em class="add-to-watchlist-icn"></em></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="callLeftCol  leftCol deltaCol"><span>0.098</span></td>
+                              <td class="callLeftCol  leftCol thetaCol"><span>-3.76</span></td>
+                              <td class="callLeftCol  leftCol gamaCol"><span>0.001</span></td>
+                              <td class="callLeftCol  leftCol vegaCol"><span>4.90</span></td>
+                              <td class="callLeftCol  leftCol ivCol"><span>5724</span></td>
+                              <td class="volCol leftCol ">
+                                <span>786</span>
+                              </td>
+                              <td class="priceChangeCol leftCol ">
+                                <span>12.70</span>
+                              </td>
+                              <td class="olChangeCol leftCol ">
+                                <span>5724</span>
+                              </td>
+                              <td class="OlPerChgeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">20.7L</h5>
+                                  <div class="chg"> 
+                                    <span class="per">4.43%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="ltpChangeCol leftCol ">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹28.56</h5>
+                                  <div class="chg"> 
+                                    <span class="per">15.44%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="strikeCol"><span>3500</span></td>
+                              <td class="ltpChangeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹730.25</h5>
+                                  <div class="chg"> 
+                                    <span class="per">58.92%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="OlPerChgeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">1224</h5>
+                                  <div class="chg"> 
+                                    <span class="per">6.98%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="olChangeCol rightCol">
+                                <span>4554</span>
+                              </td>
+                              <td class="priceChangeCol rightCol">
+                                <span>101.89</span>
+                              </td>
+                              <td class="volCol rightCol">
+                                <span>17.34K</span>
+                              </td>
+                              <td class="putRightCol ivCol rightCol"><span>5724</span></td>
+                              <td class="putRightCol vegaCol rightCol"><span>0.09</span></td>
+                              <td class="putRightCol gamaCol rightCol"><span>0.001</span></td>
+                              <td class="putRightCol thetaCol rightCol"><span>-1.09</span></td>
+                              <td class="putRightCol deltaCol rightCol"><span>0.097</span></td>
+                              <td class="hoverdCol">
+                                <a href="#" class="more-option-btn" @click="optionStockAction =! optionStockAction"><em class="icon-more-dots"></em></a>
+                                <div class="stock-action" v-show="optionStockAction">
+                                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                    <ul class="d-flex justify-content-end">
+                                      <li><a href="#" class="btn txt-positive">B</a></li>
+                                      <li><a href="#" class="btn txt-negative">S</a></li>
+                                      <li><a href="#" class="btn"><em class="add-to-watchlist-icn"></em></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="callLeftCol  leftCol deltaCol"><span>0.098</span></td>
+                              <td class="callLeftCol  leftCol thetaCol"><span>-3.76</span></td>
+                              <td class="callLeftCol  leftCol gamaCol"><span>0.001</span></td>
+                              <td class="callLeftCol  leftCol vegaCol"><span>4.90</span></td>
+                              <td class="callLeftCol  leftCol ivCol"><span>5724</span></td>
+                              <td class="volCol leftCol ">
+                                <span>786</span>
+                              </td>
+                              <td class="priceChangeCol leftCol ">
+                                <span>12.70</span>
+                              </td>
+                              <td class="olChangeCol leftCol ">
+                                <span>5724</span>
+                              </td>
+                              <td class="OlPerChgeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">20.7L</h5>
+                                  <div class="chg"> 
+                                    <span class="per">4.43%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="ltpChangeCol leftCol ">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹28.56</h5>
+                                  <div class="chg"> 
+                                    <span class="per">15.44%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="strikeCol"><span>3500</span></td>
+                              <td class="ltpChangeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹730.25</h5>
+                                  <div class="chg"> 
+                                    <span class="per">58.92%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="OlPerChgeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">1224</h5>
+                                  <div class="chg"> 
+                                    <span class="per">6.98%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="olChangeCol rightCol">
+                                <span>4554</span>
+                              </td>
+                              <td class="priceChangeCol rightCol">
+                                <span>101.89</span>
+                              </td>
+                              <td class="volCol rightCol">
+                                <span>17.34K</span>
+                              </td>
+                              <td class="putRightCol ivCol rightCol"><span>5724</span></td>
+                              <td class="putRightCol vegaCol rightCol"><span>0.09</span></td>
+                              <td class="putRightCol gamaCol rightCol"><span>0.001</span></td>
+                              <td class="putRightCol thetaCol rightCol"><span>-1.09</span></td>
+                              <td class="putRightCol deltaCol rightCol"><span>0.097</span></td>
+                              <td class="hoverdCol">
+                                <a href="#" class="more-option-btn" @click="optionStockAction =! optionStockAction"><em class="icon-more-dots"></em></a>
+                                <div class="stock-action" v-show="optionStockAction">
+                                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                    <ul class="d-flex justify-content-end">
+                                      <li><a href="#" class="btn txt-positive">B</a></li>
+                                      <li><a href="#" class="btn txt-negative">S</a></li>
+                                      <li><a href="#" class="btn"><em class="add-to-watchlist-icn"></em></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="callLeftCol  leftCol deltaCol"><span>0.098</span></td>
+                              <td class="callLeftCol  leftCol thetaCol"><span>-3.76</span></td>
+                              <td class="callLeftCol  leftCol gamaCol"><span>0.001</span></td>
+                              <td class="callLeftCol  leftCol vegaCol"><span>4.90</span></td>
+                              <td class="callLeftCol  leftCol ivCol"><span>5724</span></td>
+                              <td class="volCol leftCol ">
+                                <span>786</span>
+                              </td>
+                              <td class="priceChangeCol leftCol ">
+                                <span>12.70</span>
+                              </td>
+                              <td class="olChangeCol leftCol ">
+                                <span>5724</span>
+                              </td>
+                              <td class="OlPerChgeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">20.7L</h5>
+                                  <div class="chg"> 
+                                    <span class="per">4.43%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="ltpChangeCol leftCol ">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹28.56</h5>
+                                  <div class="chg"> 
+                                    <span class="per">15.44%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="strikeCol"><span>3500</span></td>
+                              <td class="ltpChangeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹730.25</h5>
+                                  <div class="chg"> 
+                                    <span class="per">58.92%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="OlPerChgeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">1224</h5>
+                                  <div class="chg"> 
+                                    <span class="per">6.98%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="olChangeCol rightCol">
+                                <span>4554</span>
+                              </td>
+                              <td class="priceChangeCol rightCol">
+                                <span>101.89</span>
+                              </td>
+                              <td class="volCol rightCol">
+                                <span>17.34K</span>
+                              </td>
+                              <td class="putRightCol ivCol rightCol"><span>5724</span></td>
+                              <td class="putRightCol vegaCol rightCol"><span>0.09</span></td>
+                              <td class="putRightCol gamaCol rightCol"><span>0.001</span></td>
+                              <td class="putRightCol thetaCol rightCol"><span>-1.09</span></td>
+                              <td class="putRightCol deltaCol rightCol"><span>0.097</span></td>
+                              <td class="hoverdCol">
+                                <a href="#" class="more-option-btn" @click="optionStockAction =! optionStockAction"><em class="icon-more-dots"></em></a>
+                                <div class="stock-action" v-show="optionStockAction">
+                                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                    <ul class="d-flex justify-content-end">
+                                      <li><a href="#" class="btn txt-positive">B</a></li>
+                                      <li><a href="#" class="btn txt-negative">S</a></li>
+                                      <li><a href="#" class="btn"><em class="add-to-watchlist-icn"></em></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="callLeftCol  leftCol deltaCol"><span>0.098</span></td>
+                              <td class="callLeftCol  leftCol thetaCol"><span>-3.76</span></td>
+                              <td class="callLeftCol  leftCol gamaCol"><span>0.001</span></td>
+                              <td class="callLeftCol  leftCol vegaCol"><span>4.90</span></td>
+                              <td class="callLeftCol  leftCol ivCol"><span>5724</span></td>
+                              <td class="volCol leftCol ">
+                                <span>786</span>
+                              </td>
+                              <td class="priceChangeCol leftCol ">
+                                <span>12.70</span>
+                              </td>
+                              <td class="olChangeCol leftCol ">
+                                <span>5724</span>
+                              </td>
+                              <td class="OlPerChgeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">20.7L</h5>
+                                  <div class="chg"> 
+                                    <span class="per">4.43%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="ltpChangeCol leftCol ">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹28.56</h5>
+                                  <div class="chg"> 
+                                    <span class="per">15.44%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="strikeCol"><span>3500</span></td>
+                              <td class="ltpChangeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹730.25</h5>
+                                  <div class="chg"> 
+                                    <span class="per">58.92%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="OlPerChgeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">1224</h5>
+                                  <div class="chg"> 
+                                    <span class="per">6.98%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="olChangeCol rightCol">
+                                <span>4554</span>
+                              </td>
+                              <td class="priceChangeCol rightCol">
+                                <span>101.89</span>
+                              </td>
+                              <td class="volCol rightCol">
+                                <span>17.34K</span>
+                              </td>
+                              <td class="putRightCol ivCol rightCol"><span>5724</span></td>
+                              <td class="putRightCol vegaCol rightCol"><span>0.09</span></td>
+                              <td class="putRightCol gamaCol rightCol"><span>0.001</span></td>
+                              <td class="putRightCol thetaCol rightCol"><span>-1.09</span></td>
+                              <td class="putRightCol deltaCol rightCol"><span>0.097</span></td>
+                              <td class="hoverdCol">
+                                <a href="#" class="more-option-btn" @click="optionStockAction =! optionStockAction"><em class="icon-more-dots"></em></a>
+                                <div class="stock-action" v-show="optionStockAction">
+                                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                    <ul class="d-flex justify-content-end">
+                                      <li><a href="#" class="btn txt-positive">B</a></li>
+                                      <li><a href="#" class="btn txt-negative">S</a></li>
+                                      <li><a href="#" class="btn"><em class="add-to-watchlist-icn"></em></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="callLeftCol  leftCol deltaCol"><span>0.098</span></td>
+                              <td class="callLeftCol  leftCol thetaCol"><span>-3.76</span></td>
+                              <td class="callLeftCol  leftCol gamaCol"><span>0.001</span></td>
+                              <td class="callLeftCol  leftCol vegaCol"><span>4.90</span></td>
+                              <td class="callLeftCol  leftCol ivCol"><span>5724</span></td>
+                              <td class="volCol leftCol ">
+                                <span>786</span>
+                              </td>
+                              <td class="priceChangeCol leftCol ">
+                                <span>12.70</span>
+                              </td>
+                              <td class="olChangeCol leftCol ">
+                                <span>5724</span>
+                              </td>
+                              <td class="OlPerChgeCol leftCol ">
+                                <div class="price-info-sec negative">
+                                  <h5 class="price">20.7L</h5>
+                                  <div class="chg"> 
+                                    <span class="per">4.43%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="ltpChangeCol leftCol ">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹28.56</h5>
+                                  <div class="chg"> 
+                                    <span class="per">15.44%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="strikeCol"><span>3500</span></td>
+                              <td class="ltpChangeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">₹730.25</h5>
+                                  <div class="chg"> 
+                                    <span class="per">58.92%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="OlPerChgeCol rightCol">
+                                <div class="price-info-sec positive">
+                                  <h5 class="price">1224</h5>
+                                  <div class="chg"> 
+                                    <span class="per">6.98%</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="olChangeCol rightCol">
+                                <span>4554</span>
+                              </td>
+                              <td class="priceChangeCol rightCol">
+                                <span>101.89</span>
+                              </td>
+                              <td class="volCol rightCol">
+                                <span>17.34K</span>
+                              </td>
+                              <td class="putRightCol ivCol rightCol"><span>5724</span></td>
+                              <td class="putRightCol vegaCol rightCol"><span>0.09</span></td>
+                              <td class="putRightCol gamaCol rightCol"><span>0.001</span></td>
+                              <td class="putRightCol thetaCol rightCol"><span>-1.09</span></td>
+                              <td class="putRightCol deltaCol rightCol"><span>0.097</span></td>
+                              <td class="hoverdCol">
+                                <a href="#" class="more-option-btn" @click="optionStockAction =! optionStockAction"><em class="icon-more-dots"></em></a>
+                                <div class="stock-action" v-show="optionStockAction">
+                                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                                    <ul class="d-flex justify-content-end">
+                                      <li><a href="#" class="btn txt-positive">B</a></li>
+                                      <li><a href="#" class="btn txt-negative">S</a></li>
+                                      <li><a href="#" class="btn"><em class="add-to-watchlist-icn"></em></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr> -->
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="no-result-found" v-show="searcgNoResult">
+                          <div>
+                            <figure><img src="../../assets/images/smart-search.png" alt=""></figure>
+                            <p>No results found.<br>Try searching using different strike price</p>
+                          </div>
+                        </div>
+                        <div class="strike-price-sec">
+                          <div class="d-flex flex-wrap align-items-center justify-content-between">
+                            <div class="call-sec">
+                              <a class="show-call-sec nav-arrow"></a>
+                              <a class="show-call-put-sec nav-arrow"></a>
+                              <h6>CALL</h6>
+                            </div>
+                            <div class="strike-price-cont longBuildUp">
+                              <a href="#" class="toUpArrow"></a>
+                              
+                              <h5 class="ttl"><em class="icon-strike-wrap"></em><span>LONG UNWINDING</span></h5>
+                              <div class="price-info-sec d-flex ">
+                                <h5 class="price positive">3,383.23</h5>
+                                <div class="chg">35.23 <span class="per">(<span>1.36%</span>)</span></div>
+                              </div>
+                              <a href="#" class="toDownArrow"></a>
+                              
+                            </div>
+                            <div class="put-sec">
+                              <a class="show-put-sec nav-arrow"></a>
+                              <a class="show-call-put-sec nav-arrow"></a>
+                              <h6>PUT</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="option-chain-tbl-sec">
+                   <div class="optionChainTblWrap">
+                    <div class="table-wrap">
+                      <table class="table no-border m-0">
+                        <tbody>
+                          <tr>
+                            <td class="left-tbl-col p-0">
+                              <div class="table_wrap">
+                              <table  class="table table-striped red-striped m-0 callTable">
+                                <thead>
+                                  <tr>
+                                    <th class="callLeftCol">Delta</th>
+                                    <th class="callLeftCol">Theta</th>
+                                    <th class="callLeftCol">Gama</th>
+                                    <th class="callLeftCol">Vega</th>
+                                    <th class="callLeftCol">IV</th>
+                                    <th>Volume</th>
+                                    <th>Price Chge</th>
+                                    <th>OI Change</th>
+                                    <th>OI %Chge</th>
+                                    <th>LTP/Change</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.098</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-3.76</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>4.90</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>786</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>12.70</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>5724</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">20.7L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">4.43%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹28.56</h5>
+                                        <div class="chg"> 
+                                          <span class="per">15.44%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.002</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-2.34</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.000</span></td>
+                                    <td class="callLeftCol vegaCol"><span>3.87</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>26.89L</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>78.95</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>789</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">1.7L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">3.89%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹36.78</h5>
+                                        <div class="chg"> 
+                                          <span class="per">3.22%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.000</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-2.12</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>3.43</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>3.56K</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>112.80</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>4670</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">2.4L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">15.60%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹46.00</h5>
+                                        <div class="chg"> 
+                                          <span class="per">5.56%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.097</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-3.89</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.000</span></td>
+                                    <td class="callLeftCol vegaCol"><span>2.90</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>12.90K</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>156.90</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>7890</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">2.6L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">16.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">₹121.70</h5>
+                                        <div class="chg"> 
+                                          <span class="per">56.56%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.097</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-2.87</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>1.03</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>15.89L</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>122.05</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>6554</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">23.3K</h5>
+                                        <div class="chg"> 
+                                          <span class="per">159.76%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">₹148.00</h5>
+                                        <div class="chg"> 
+                                          <span class="per">23.08%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.097</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-1.09</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>0.09</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>3.78K</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>90.66</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>899</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">1.5L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">4.56%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">₹186.90</h5>
+                                        <div class="chg"> 
+                                          <span class="per">35.05%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.098</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-3.76</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>4.90</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>786</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>12.70</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>5724</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">20.7L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">4.43%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹28.56</h5>
+                                        <div class="chg"> 
+                                          <span class="per">15.44%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.002</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-2.34</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.000</span></td>
+                                    <td class="callLeftCol vegaCol"><span>3.87</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>26.89L</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>78.95</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>789</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">1.7L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">3.89%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹36.78</h5>
+                                        <div class="chg"> 
+                                          <span class="per">3.22%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.000</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-2.12</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>3.43</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>3.56K</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>112.80</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>4670</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">2.4L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">15.60%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹46.00</h5>
+                                        <div class="chg"> 
+                                          <span class="per">5.56%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.097</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-3.89</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.000</span></td>
+                                    <td class="callLeftCol vegaCol"><span>2.90</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>12.90K</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>156.90</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>7890</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">2.6L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">16.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">₹121.70</h5>
+                                        <div class="chg"> 
+                                          <span class="per">56.56%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.097</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-2.87</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>1.03</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>15.89L</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>122.05</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>6554</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">23.3K</h5>
+                                        <div class="chg"> 
+                                          <span class="per">159.76%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">₹148.00</h5>
+                                        <div class="chg"> 
+                                          <span class="per">23.08%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="callLeftCol deltaCol"><span>0.097</span></td>
+                                    <td class="callLeftCol thetaCol"><span>-1.09</span></td>
+                                    <td class="callLeftCol gamaCol"><span>0.001</span></td>
+                                    <td class="callLeftCol vegaCol"><span>0.09</span></td>
+                                    <td class="callLeftCol ivCol"><span>5724</span></td>
+                                    <td class="volCol">
+                                      <span>3.78K</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>90.66</span>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>899</span>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">1.5L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">4.56%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec negative">
+                                        <h5 class="price">₹186.90</h5>
+                                        <div class="chg"> 
+                                          <span class="per">35.05%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              </div>
+                            </td>
+                            <td class="mid-col p-0 text-center">
+                              <div class="table_wrap">
+                              <table class="table table-no-striped m-0">
+                                <thead>
+                                  <th>Strike Price</th>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td><span>3500</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><span>3450</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>3400</td>
+                                  </tr>
+                                  <tr>
+                                    <td><span>3350</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><span>3300</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>3250</td>
+                                  </tr>
+                                  <tr>
+                                    <td><span>3500</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><span>3450</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>3400</td>
+                                  </tr>
+                                  <tr>
+                                    <td><span>3350</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><span>3300</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>3250</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              </div>
+                            </td>
+                            <td class="right-tbl-col p-0">
+                              <div class="table_wrap">
+                              <table  class="table table-striped blue-striped m-0 putTable">
+                                <thead>
+                                  <tr>
+                                    <th>LTP/Change</th>
+                                    <th>OI %Chge</th>
+                                    <th>OI Change</th>
+                                    <th>Price Chge</th>
+                                    <th>Volume</th>
+                                    <th class="putRightCol">IV</th>
+                                    <th class="putRightCol">Vega</th>
+                                    <th class="putRightCol">Gama</th>
+                                    <th class="putRightCol">Theta</th>
+                                    <th class="putRightCol">Delta</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹730.25</h5>
+                                        <div class="chg"> 
+                                          <span class="per">58.92%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">1224</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>4554</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>101.89</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>17.34K</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>0.09</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-1.09</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.097</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹657.00</h5>
+                                        <div class="chg"> 
+                                          <span class="per">23.77%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">678</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>879</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>121.50</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>3.89K</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>1.03</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-2.87</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.097</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹155.80</h5>
+                                        <div class="chg"> 
+                                          <span class="per">61.80%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">1.8K</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>5724</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>176.90</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>18.89L</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>2.90</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.000</span></td>
+                                    <td class="putRightCol thetaCol"><span>-3.89</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.097</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹97.70</h5>
+                                        <div class="chg"> 
+                                          <span class="per">22.50%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">10L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>8990</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>111.80</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>788</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>4.90</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-3.76</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.098</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹77.85</h5>
+                                        <div class="chg"> 
+                                          <span class="per">12.90%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">10L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">+6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>130</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>78.90</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>33.89L</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>3.87</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.000</span></td>
+                                    <td class="putRightCol thetaCol"><span>-2.34</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.002</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹58.05</h5>
+                                        <div class="chg"> 
+                                          <span class="per">45.90%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">10L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>6</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>15.89</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>2.78k</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>3.43</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-2.12</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.000</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹730.25</h5>
+                                        <div class="chg"> 
+                                          <span class="per">58.92%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">1224</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>4554</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>101.89</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>17.34K</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>0.09</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-1.09</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.097</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹657.00</h5>
+                                        <div class="chg"> 
+                                          <span class="per">23.77%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">678</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>879</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>121.50</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>3.89K</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>1.03</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-2.87</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.097</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹155.80</h5>
+                                        <div class="chg"> 
+                                          <span class="per">61.80%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">1.8K</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>5724</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>176.90</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>18.89L</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>2.90</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.000</span></td>
+                                    <td class="putRightCol thetaCol"><span>-3.89</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.097</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹97.70</h5>
+                                        <div class="chg"> 
+                                          <span class="per">22.50%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">10L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>8990</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>111.80</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>788</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>4.90</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-3.76</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.098</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹77.85</h5>
+                                        <div class="chg"> 
+                                          <span class="per">12.90%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">10L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">+6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>130</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>78.90</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>33.89L</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>3.87</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.000</span></td>
+                                    <td class="putRightCol thetaCol"><span>-2.34</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.002</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="ltpChangeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">₹58.05</h5>
+                                        <div class="chg"> 
+                                          <span class="per">45.90%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="OlPerChgeCol">
+                                      <div class="price-info-sec positive">
+                                        <h5 class="price">10L</h5>
+                                        <div class="chg"> 
+                                          <span class="per">6.98%</span>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="olChangeCol">
+                                      <span>6</span>
+                                    </td>
+                                    <td class="priceChangeCol">
+                                      <span>15.89</span>
+                                    </td>
+                                    <td class="volCol">
+                                      <span>2.78k</span>
+                                    </td>
+                                    <td class="putRightCol ivCol"><span>5724</span></td>
+                                    <td class="putRightCol vegaCol"><span>3.43</span></td>
+                                    <td class="putRightCol gamaCol"><span>0.001</span></td>
+                                    <td class="putRightCol thetaCol"><span>-2.12</span></td>
+                                    <td class="putRightCol deltaCol"><span>0.000</span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="strike-price-sec">
+                      <div class="d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="call-sec">
+                          <a class="show-call-sec nav-arrow"></a>
+                          <a class="show-call-put-sec nav-arrow"></a>
+                          <h6>CALL</h6>
+                        </div>
+                        <div class="strike-price-cont">
+                          <h5 class="ttl"><em class="icon-strike-wrap"></em><span>LONG UNWINDING</span></h5>
+                          <div class="price-info-sec d-flex positive">
+                            <h5 class="price">3,383.23</h5>
+                            <div class="chg">35.23 <span class="per">(<span>1.36%</span>)</span></div>
+                          </div>
+                        </div>
+                        <div class="put-sec">
+                          <a class="show-put-sec nav-arrow"></a>
+                          <a class="show-call-put-sec nav-arrow"></a>
+                          <h6>PUT</h6>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                 </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="chart-show-btn" :class="{hide: openTabBtn == true}"  @click="closeTab()"><em class="custom-chart-new"></em> <span>View Charts</span></a>
+       
+        <div class="chart-info-wrap">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="buy-sell-footer d-lg-none d-md-block d-sm-block">
+      <div class="row">
+        <div class="col-6 col-sm-6 col-md-6">
+          <button class="btn buyBtn">Buy</button>
+        </div>
+        <div class="col-6 col-sm-6 col-md-6">
+          <button class="btn sellBtn" @click="sellErrorFunc()">Sell</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sell-error-cont" v-if="sellError">
+    <p>Short selling is not allowed for this security</p>
+  </div>
+</div>
+
+
+<!--Subscription Details Modal  Popup Start-->
+<div class="modal fundamental-ratio" ref="modal" id="fundamental-ratio" tabindex="-1" role="dialog">
+  <div class="modal-overlay" ></div>
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content d-block text-center p-0">
+      <div class="modal-header">
+        <h5 class="modal-title">Fundamental Ratio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body text-left scrolldiv">
+        
+        <h4>Fundamental Ratios</h4>
+        <p>Fundamental Ratios is a part of company fundamentals. It is the financial information that is reported quarterly or annually.</p>
+        
+        <h4>P/E Ratio</h4>
+        <p>The price-earnings ratio is the ratio of a company's share (stock) price to the company's earnings per share. The ratio is used for valuing companies and to find out whether they are overvalued or undervalued.</p>
+        
+        <h4>P/B ratio</h4>
+        <p>The price-to-book ratio is a financial ratio used to compare a company's current market price to its book value. Any value under 1.0 is considered a good P/B value, indicating a potentially undervalued stock.</p>
+
+        <h4>Industry P/E</h4>
+        <p>Industry P/E ratio is the average of all the P/E ratio of the companies in the industry. It is used to compare the performance of the individual company with that of the industry.</p>
+        <h4>Industry P/E</h4>
+        <p>Industry P/E ratio is the average of all the P/E ratio of the companies in the industry. It is used to compare the performance of the individual company with that of the industry.</p>
+        <h4>Industry P/E</h4>
+        <p>Industry P/E ratio is the average of all the P/E ratio of the companies in the industry. It is used to compare the performance of the individual company with that of the industry.</p>
+        <h4>Industry P/E</h4>
+        <p>Industry P/E ratio is the average of all the P/E ratio of the companies in the industry. It is used to compare the performance of the individual company with that of the industry.</p>
+        
+      </div>
+      <div class="modal-footer">
+        <span class="closebtn" data-dismiss="modal">Close</span>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  <!--Subscription Details Modal Popup End-->

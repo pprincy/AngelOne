@@ -1,0 +1,294 @@
+
+<div class="main-content advisory-intraday-page advisory-inner-page">
+  <div class="main-content-in">
+    <article class="field_bg full-height p-0 mb-0">
+      <div class="sec_title_wrap" >
+        <router-link to="/Advisory" class="btn btn-back" ><em class="icon-dropdown-arrow" ></em><span >Intraday</span></router-link>
+        <div class="call-cont">
+          <label>Last 90 days Call Performance</label>
+          <ul>
+            <li>
+              <button class="customPopover left">
+                <em class="positive-call"></em>
+               
+                <div class="custompopoverCont">Positive Calls</div>
+              </button>
+              <span>332</span>
+            </li>
+            <li>
+              <button class="customPopover right">
+                <em class="negative-call"></em>
+               
+                <div class="custompopoverCont">Negative Calls</div>
+              </button>
+              <span>125</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="filter-by-sec">
+        <label>FILTER BY</label>
+          <ul>
+            <li>
+              <button class="btn-outline-secondary btn">Trending</button>
+            </li>
+            <li>
+              <button class="btn-outline-secondary btn">Future</button>
+            </li>
+            <li>
+              <button class="btn-outline-secondary btn active">Options</button>
+            </li>
+            <li>
+              <button class="btn-outline-secondary btn">Cash</button>
+            </li>
+          </ul>
+        
+      </div>
+      <div class="table-head-wrap">
+        <table class="table theme1 flexTable">
+          <thead>
+            <tr>
+              <th class="colName">Name</th>
+              <th class="colLtp">LTP</th>
+              <th class="colQuantiy ">Quantity</th>
+              <th class="colMaxLoss sort_enable">Max Loss</th>
+              <th class="colMaxProfit sort_enable">Max Profit</th>
+              <th class="colBtntext-right">&nbsp</th>
+              
+            </tr>
+          </thead>
+          </table>
+      </div>
+      
+      
+    </article>
+
+    <div class="scrollable-cont">
+      <div class="entries-cont" >
+        <article class="field_bg full-height p-0">
+        <div class="call-category-sec">
+          <label>Recommended Calls</label><span class="badge">3</span>
+        </div>
+        <div class="table-wrap">
+          <table class="table theme1 flexTable mainTable">
+            <tbody>
+              <tr  v-for="order in callLists" :class="{activeParentRow:order.details == true}" >
+                <td class="full-width-col">
+                <table class="table flexTable innerTbl">
+                  <tbody>
+                    <tr class="main-tr parent" :class="{activeRow:order.details == true}"   @click="order.details = !order.details">
+                    
+                      <td class="colName" >
+                        <div class="category"><span class="badge" :class="{bookProfit:order.category =='Book profit', open:order.category=='Open', stopLoss:order.category=='Stop loss', close:order.category=='Close',}">{{order.category}}</span></div>
+                        <div class="comp-info-sec">
+                          <a href="#" class="addToWishlist"   @click.stop="func()"><em class="custom-addtowl"></em></a>
+                          <h5 class="scrip_name">{{order.name}}</h5>
+                          <h6 class="comp_name">{{order.compName}}</h6>
+                        </div>
+                      </td>
+                      <td class="colLtp ">
+                        <div class="price-info-sec" :class="{positive:order.shareVal == 'positive' , negative:order.shareVal == 'negative'}">
+                          <h5 class="price">{{order.price}}</h5>
+                          <div class="chg"> +{{order.chg}}<span class="per">(<span>{{order.per}}%</span>)</span></div>
+                        </div>
+                      </td>
+                      <td class="colQuantiy ">
+                        <input type="text"  @click.stop="func()" class="quantityInput" :value="order.qtyAmount">
+                      </td>
+                      <td class="colMaxLoss ">
+                        <div class="price-info-sec negative">
+                          <h5 class="price">{{order.maxLoss}}</h5>
+                        </div>
+                      </td>
+                      <td class="colMaxProfit ">
+                        <div class="price-info-sec positive">
+                          <h5 class="price">{{order.maxProfit}}</h5>
+                        </div>
+                      </td>
+                      <td class="colBtn text-right">
+                        <div class="btn-wrap">
+                          <button class="btn btn-buy"  @click.stop="func()">BUY</button>
+                          <a href="#" class="arrow"  :class="{active: order.details == true }"><em class="custom-down-arrow"></em></a>
+                        </div>
+                      </td>
+                    
+                      
+                      <!-- <a  class="main-tr-clicked" ></a> -->
+                    </tr>
+                    <tr class="hovered-tr">
+                      <td class="full-width-col"  v-show="order.details">
+                      <div class="detailSec">
+                        <div class="detail-left-sec">
+                          <ul class="value-cont">
+                            <li>
+                              <label>Stop loss</label>
+                              <span class="price"><em class="rs">₹</em><span class="amt">1600.00</span></span>
+                            </li>
+                            <li>
+                              <label>Entry Price</label>
+                              <span class="price"><em class="rs">₹</em><span class="amt">2,474 - 2,500</span></span>
+                            </li>
+                            <li>
+                              <label>Target Price</label>
+                              <span class="price"><em class="rs">₹</em><span class="amt">2759.00</span></span>
+                            </li>
+                          </ul>
+                          <div class="detail-bar">
+
+                          </div>
+                        </div>
+                        <div class="detail-right-sec">
+                          <div class="cont">
+                            <ol class="orderList">
+                              <li>Short term trend remains positive.</li>
+                              <li>Stock is following the MACD Pattern for the week</li>
+                              <li>Short term trend remains positive.</li>
+                            </ol>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="detailSec withoutInfo">
+                        <ul class="value-cont">
+                          <li>
+                            <div class="stop-loss">
+                              <label>Stop loss</label>
+                              <span class="price"><em class="rs" >₹</em><span class="amt">1600.00</span></span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="entry-price">
+                              <label>Entry Price</label>
+                              <span class="price"><em class="rs" >₹</em><span class="amt">2,474 - 2,500</span></span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="target-price">
+                              <label>Target Price</label>
+                              <span class="price"><em class="rs" >₹</em><span class="amt">2,474 - 2,500</span></span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              </tr>
+          
+            </tbody>
+          </table>
+        </div>
+        </article>
+        <article class="field_bg full-height p-0">
+        <div class="call-category-sec">
+          <label>Other Calls</label><span class="badge">1</span>
+        </div>
+        <div class="table-wrap">
+          
+          <table class="table theme1 flexTable mainTable">
+            <tbody>
+              <tr  v-for="order in otherCallLists" :class="{activeParentRow:order.details == true}" >
+                <td class="full-width-col">
+                <table class="table flexTable innerTbl">
+                  <tbody>
+                    <tr class="main-tr parent" :class="{activeRow:order.details == true}"   @click="order.details = !order.details">
+                    
+                      <td class="colName" >
+                        <div class="category"><span class="badge" :class="{bookProfit:order.category =='Book profit', open:order.category=='Open', stopLoss:order.category=='Stop loss', close:order.category=='Close',}">{{order.category}}</span></div>
+                        <div class="comp-info-sec">
+                          <a href="#" class="addToWishlist" @click.stop="func()" ><em class="custom-addtowl"></em></a>
+                          <h5 class="scrip_name">{{order.name}}</h5>
+                          <h6 class="comp_name">{{order.compName}}</h6>
+                        </div>
+                      </td>
+                      <td class="colLtp ">
+                        <div class="price-info-sec" :class="{positive:order.shareVal == 'positive' , negative:order.shareVal == 'negative'}">
+                          <h5 class="price">{{order.price}}</h5>
+                          <div class="chg"> +{{order.chg}}<span class="per">(<span>{{order.per}}%</span>)</span></div>
+                        </div>
+                      </td>
+                      <td class="colQuantiy ">
+                        <input type="text" @click.stop="func()" class="quantityInput" :value="order.qtyAmount">
+                      </td>
+                      <td class="colMaxLoss ">
+                        <div class="price-info-sec negative">
+                          <h5 class="price">{{order.maxLoss}}</h5>
+                        </div>
+                      </td>
+                      <td class="colMaxProfit ">
+                        <div class="price-info-sec positive">
+                          <h5 class="price">{{order.maxProfit}}</h5>
+                        </div>
+                      </td>
+                      <td class="colBtn text-right">
+                        <div class="btn-wrap">
+                          <button class="btn btn-buy" @click.stop="func()">BUY11</button>
+                          <a href="#" class="arrow"  :class="{active: order.details == true }"><em class="custom-down-arrow"></em></a>
+                        </div>
+                      </td>
+                    
+                      
+                      <!-- <a  class="main-tr-clicked" ></a> -->
+                    </tr>
+                    <tr class="hovered-tr">
+                      <td class="full-width-col"  v-show="order.details">
+                        <div class="detailSec">
+                          <div class="detail-left-sec">
+                            <ul class="value-cont">
+                              <li>
+                                <label>Stop loss</label>
+                                <span class="price"><em class="rs">₹</em><span class="amt">1600.00</span></span>
+                              </li>
+                              <li>
+                                <label>Entry Price</label>
+                                <span class="price"><em class="rs">₹</em><span class="amt">2,474 - 2,500</span></span>
+                              </li>
+                              <li>
+                                <label>Target Price</label>
+                                <span class="price"><em class="rs">₹</em><span class="amt">2759.00</span></span>
+                              </li>
+                            </ul>
+                            <div class="detail-bar">
+    
+                            </div>
+                          </div>
+                          <div class="detail-right-sec">
+                            <div class="cont">
+                              <ol class="orderList">
+                                <li>Short term trend remains positive. Stock is following the MACD Pattern for the week. Short term trend remains positive.</li>
+                                <li>Short term trend remains positive. Stock is following the MACD Pattern for the week. Short term trend remains positive.</li>
+                                <li>Short term trend remains positive. Stock is following the MACD Pattern for the week. Short term trend remains positive.</li>
+                              </ol>
+                              </div>
+                          </div>
+                        </div>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              </tr>
+          
+            </tbody>
+          </table>
+        </div>
+        </article>
+      </div>
+       <!--No Table Entry found-->
+      <article class="field_bg full-height p-0 noHistoryWrap" style="display: none;">
+        <div class="noHistory" >
+          <img src="../../assets/images/result-not-found-illustration.svg" alt="">
+          <p>No active trade calls found.<br>Try using different filter category</p>
+        </div>
+      </article>
+      <!--No Table Entry found-->
+
+    </div>
+    
+  </div>
+</div>
+
+

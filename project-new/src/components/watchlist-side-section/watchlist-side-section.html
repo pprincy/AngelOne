@@ -1,0 +1,299 @@
+
+<section class="side-section watchlist-side-section" :class="{ slide : isActive == true, withShadow : isActive == false, hideThisSec:  hideInMob == true}" >
+  <button type="button" class="btn-sideToggle" @click="isActive = !isActive"></button>
+  <div class="tab-wrap side-section-wrap" v-show="mainWatchlist">
+    <div class="tab-header side-section-header">
+    <div class="nav-tabs-wrap">
+      <div class="watchlist-name-add">
+        <div class="nav-tabs-in">
+        <ul id="main-tabs" class="nav nav-tabs">
+           <li class="nav-item" v-for="item in watchlist"><a href="" :data-target="'#watchlist' + item.id"  data-toggle="tab" class="nav-link small" :class="{active:item.selected == true}"><span class="name">{{item.name}}</span> <span class="index">{{item.id}}</span> <div class="watchlist-full-name"><span class="name">{{item.name}}</span> <span class="index">{{item.id}}</span></div></a></li>
+          <!--<li class="nav-item"><a href="" data-target="#watchlist-two" data-toggle="tab" class="nav-link small  ">2</a></li>
+          <li class="nav-item"><a href="" data-target="#watchlist-three" data-toggle="tab" class="nav-link small  ">3</a></li> -->
+        </ul>
+      </div>
+        <a href="#" class="add-watchlist-btn" data-toggle="modal" data-target="#new-watchlist"><em class="icon-plus"></em></a>
+      </div>
+        <div class="action-btn">
+          <a href="#" class="sm-border-btn" @click="actionSeen = !actionSeen" :class="{active:actionSeen}"><em class="icon-more-dots"></em></a>
+          
+          <div class="action-dropdown stock-action-dropdown" v-show="actionSeen">
+            <div class="stock-action-dropdown-in">
+            <div class="pinned-indicies">
+              <h4>Pinned Indicies</h4>
+              
+              <div class="checkbox-btn-wrap">
+                <label class="btn btn-outline-secondary" v-for="item in pinnedIndices"  >
+                  <input class="form-check-input position-static" type="checkbox" :value="item.name" aria-label="..." v-model="indicesCheck" 
+                  :disabled="indicesCheck.length > 1 &&  indicesCheck.indexOf(item.name) === -1" @click="check($event)" >{{item.name}}
+                </label>
+                
+              </div>
+              <div class="error-info-msg pinned-indicies-error">
+                <em class="icon-info"></em>Select any two market indices
+                
+              </div>
+            </div>
+           <div class="manage-watchlist">
+             <h4>Manage Watchlist</h4>
+             <draggable
+             tag="ul"
+             :list="watchlist"
+             class="list-group"
+             handle=".handle"
+             item-key="name"
+           >
+             <template #item="{ element, index }">
+               <li class="list-group-item">
+                 <em class="drag-handle handle"></em>
+
+                 <span class="text">{{ element.name }}{{element.id}} </span>
+  
+                 <div class="btn-group">
+                   <a href="#" class="btn btn-sm edit-btn" @click="editWatchlistfunc(index)"><em class="icon-edit edit-list"></em></a>
+                   <a href="#" class="btn btn-sm close-btn close" @click="deleteWatchlistfunc(index)"><em class="icon-delete edit-list"></em></a>
+                   <!-- <a href="#" class="btn btn-sm close-btn close" @click="removeAt(index)"><em class="icon-delete edit-list"></em></a> -->
+                 </div>
+               </li>
+             </template>
+           </draggable>
+           </div>
+          
+           <div class="dropdown-footer">
+              <!-- <a href="#" class="create-watchlist" @click="add()"><span class="circle"><em class="icon-plus"></em></span>Create Watchlist</a> -->
+              <a href="#" class="create-watchlist" data-toggle="modal" data-target="#new-watchlist">
+                <span class="circle"><em class="icon-plus"></em></span>
+                Create Watchlist
+              </a>
+           </div>
+          </div>
+          </div>
+
+        </div>
+    </div>
+    
+    </div>
+    <div class="tab-content-wrap">
+    <div class="overlay" @click="actionSeen = false" :class="{active:actionSeen}"></div>
+    <!--Share Indices Section-->
+    <div class="shares_indices">
+      <div class="box">
+          <h5 class="share_name">Sensex</h5>
+          <div>
+            <h6 class="txt-positive share-value">40,651.58</h6>
+            <div class="chg">+ 181.90<span class="per">(+ 0.72%)</span></div>
+          </div>
+      </div>
+      <div class="box">
+        <h5 class="share_name">Bank Nifty</h5>
+        <div>
+          <h6 class="txt-negative share-value">40,651.58</h6>
+          <div class="chg">- 181.90<span class="per">(- 0.72%)</span></div>
+        </div>
+    </div>
+    </div>
+    <!--Share Indices Section-->
+
+  <!--Tab Section--> 
+  <div id="tabsContent" class="tab-content side-section-cont stock-sec-wrap">
+    <div class="watchlist-header">
+      <div class="row">
+        <div class="col-6">
+          <a href="#" class="sort-link">Stock Name <span class="up-down-arrow"><span class="up"><em class="icon-down-arrow"></em></span> <span class="down"><em class="icon-down-arrow"></em></span></span></a>
+        </div>
+        <div class="col-6 text-right">
+          <a href="#" class="sort-link">Price / Change <span class="up-down-arrow"><span class="up"><em class="icon-down-arrow"></em></span> <span class="down"><em class="icon-down-arrow"></em></span></span></a>
+        </div>
+      </div>
+    </div>
+     <div id="watchlist1" class="tab-pane  active show">
+      <div class="startPoint"></div>
+       <div class="stock-listing-wrap" >
+          <draggable
+          tag="div"
+          :list="stocklists"
+          class="stock-listing"
+          handle=".handle-new"
+          item-key="name"
+          id="stock-listing-wrap"
+        >
+          <template #item="{ element, index }">
+           
+            <div class="stock-sec"  :class="{active:element.id == selected}" @click="selected = element.id, hideInMob = true">
+              <em class="drag-handle handle-new"></em>
+              <div class="stock-sec-in">
+                <div class="row low-space-column watchlist-row">
+                    <div class="col-7 comp-info-sec">
+                      <h5 class="scrip_name">{{element.name}}<span class="badge badge-secondary exchage">{{element.exchage}}</span></h5>
+                      <h6 class="comp_name">{{element.compName}}</h6>
+                    </div>
+                    <div class="col-5 text-right price-info-sec" :class="{positive:element.shareVal == 'positive' ,negative:element.shareVal == 'negative'}">
+                      <h5 class="price" >{{element.price}}</h5>
+                      <div class="chg">{{element.chg}}
+                        <span class="per">(<span>{{element.per}}%</span>)</span>
+                      </div>
+                    </div>
+                </div>
+                <div class="stock-action">
+                  <div class="stock-action-in d-flex justify-content-end align-items-center">
+                    <ul class="d-flex justify-content-end" >
+                      <li><a href="#" class="btn txt-positive buyBtn">B</a></li>
+                      <li><a href="#" class="btn txt-negative">S</a></li>
+                      <li><a href="#" class="btn" @click="removeRow(index)"><em class="icon-delete"></em></a></li>
+                    </ul>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+           
+          </template>
+        </draggable>
+      </div>
+      <div class="endPoint"></div>
+      </div>
+      <div id="watchlist2" class="tab-pane fade ">
+        <a href="#" class="btn btn-outline-primary mr-2" @click="createWatchList()"><em class="icon-plus"></em> Crete Watchlist</a>
+        <a href="#" class="btn btn-outline-primary"  @click="deleteStockfun()"><em class="icon-delete"></em> Delete Stock</a>
+      </div>
+      <div id="watchlist3" class="tab-pane fade ">
+        
+        
+      </div>
+  </div>
+  <!--Tab Section-->
+</div>
+  <!--Empty Watchlist State Section v-show="stocklists.length < 1 "-->
+ 
+   <div class="empty-watchlist-state "  v-show="emptyWatch" >
+    
+      <div class="empty-watchlist-cont">
+        <!-- <a href="#" class="btn-close" @click="hideEmpty()"><em class="icon-close"></em></a> -->
+        <figure>
+          <img src="../../assets/images/empty-watchlist.svg" alt="">
+        </figure>
+        <p>Watchlist is empty, tap to add stocks to watchlist.</p>
+        <a  href="#" class="btn btn-outline-primary"><em class="icon-plus"></em>
+          ADD STOCK</a>
+       </div>
+     
+     
+   </div>
+   
+   <!--Empty Watchlist State Section-->
+  </div>
+  
+  <!--Edit Watchlist Section-->
+  <div class="edit-stock-sec" v-show="editWatchlist">
+      <Managewatchlist :parent="mainWatchlist" :child="editWatchlist" @parent="showParent" @child="hideChild"></Managewatchlist>
+  </div>
+   <!--Edit Watchlist Section-->
+  
+    <!--Create Watchlist Section-->
+  <div class="create-watchlist-screen watchlist-error-case" v-show="createWatchlist">
+    <div class="error-case-wrap">
+      <div class="error-case-cont">
+        <div class="error-case-cont-in">
+          <a href="#" class="btn-close" @click="hidecreateWatchlist()"><em class="icon-close"></em></a>
+          <figure>
+            <img src="../../assets/images/stock-exceed.svg" alt="">
+          </figure>
+          <h3>Whoops!</h3>
+          <p>You have reached  the maximum limit of adding stocks to Watchlist. Kindly remove some stocks or create a new watchlist.</p>
+          <a  href="#" class="btn btn-outline-primary"><em class="icon-plus"></em>
+            NEW WATCHLIST</a>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+ <!--Create Watchlist Section-->
+
+    <!--Delete Stock Section-->
+    <div class="delete-stock-screen watchlist-error-case" v-show="deleteStock" >
+      <div class="error-case-wrap">
+        <div class="error-case-cont">
+          <div class="error-case-cont-in">
+            <a href="#" class="btn-close" @click="hidedeleteStock()"><em class="icon-close"></em></a>
+            <figure>
+              <img src="../../assets/images/stock-exceed.svg" alt="">
+            </figure>
+            <h3>Whoops!</h3>
+            <p>Watchlist has reached the maximum limit of adding stocks. Kindly remove some stocks to make space for new stocks.</p>
+            <a  href="#" class="btn btn-outline-primary"><em class="icon-plus"></em>
+              DELETE STOCKS</a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+   <!--Delete Stock Section-->
+  
+  <!--Delete Watchlist Section-->
+  <div class="delete-watchlist" v-show="deleteWatchlist">
+    <div class="delete-watchlist-cont">
+      <a href="#" class="btn-close" @click="cancelDelete()"><em class="icon-close"></em></a>
+      <h3>Delete Watchlist 1?</h3>
+      <p>Deleting will erase the watchlist and all stocks inside the list. Are you sure you want to delete?</p>
+      <div class="btn-wrap text-right">
+        <a href="#" class="btn btn-cancel" @click="cancelDelete()">CANCEL</a>
+        <a href="#" class="btn btn-delete" @click="confirmDelete()">DELETE</a>
+      </div>
+    </div>
+  </div>
+  <!--Delete Watchlist Section-->
+
+  <!--Trade Toast-->
+  <div class="undo-deleted-stocks" v-show="undoDelete">
+    <div class="d-flex justify-content-between">
+      <span><em class="icon-delete"></em>Stocks Deleted</span>
+      <a href="#" class="undo" @click="deleteundo()">UNDO</a>
+    </div>
+  </div>
+  <!--Trade Toast-->
+
+
+ 
+  
+</section>
+
+ <!--Create New Watchlish New  Popup Start-->
+ <div class="modal new-watchlist" ref="modal" id="new-watchlist" tabindex="-1" role="dialog">
+  <div class="modal-overlay" ></div>
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content d-block text-center p-0">
+      <div class="modal-header">
+        <h5 class="modal-title">Create Watchlist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body text-left">
+        <div>
+          <div class="form-group">
+            
+            <float-label>
+              <input type="text" placeholder="List Name" value="Watchlish 5" class="form-control" >
+            </float-label>
+            <label class="err-msg" >Watchlist name already exists</label>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <div class="btn-wrap d-flex justify-content-between">
+          <button type="button" class="btn btn-primary btn-block" @click="add()" data-dismiss="modal">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--Create New Watchlish New Modal Popup End-->
+
+   <div class="alertblock" v-if="watchlistcreatealert">
+    <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Done</strong>
+      <div class="txt">Watchlist created successfully.</div>
+    </div>
+  </div>

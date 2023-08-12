@@ -1,0 +1,973 @@
+@import '../../assets/scss/styles';
+
+.pledge-sec {
+    background: $white;
+    padding: 2rem 0.5rem 0rem 0.5rem;
+
+    h2 {
+        font-family: $font-base-med;
+        letter-spacing: -0.4px;
+        text-align: center;
+        margin-bottom: 1.2rem;
+    }
+
+    img {
+        width: 28.25rem;
+        height: 14.063rem;
+        object-fit: contain;
+    }
+
+    .pledge-steps {
+        margin: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 37px;
+            display: block;
+            width: calc(100% - 200px);
+            background: url(../../assets/images/border.png) left top repeat-x;
+            height: 1px;
+            border: none;
+        }
+
+        >div {
+            padding-top: 1.5rem;
+            padding-bottom: 3.3rem;
+        }
+
+        .pledge-list {
+            label {
+                position: relative;
+                font-family: $font-base-med;
+                font-size: $font-12;
+                letter-spacing: -0.2px;
+                color: $grey-med;
+                width: 1.5rem;
+                height: 1.5rem;
+                padding: 0.3rem 0.5rem 0.3rem 0.6rem;
+                border-radius: 0.75rem;
+                background-color: $border-type4;
+                margin-bottom: 1.5rem;
+
+                .step-count::after {
+                    // position: absolute;
+                    // top: 13px;
+                    // content: "";
+                    // display: inline-block;
+                    // width: 26.875rem;
+                    // border: 1px solid $light-border-color;
+                    // // border-style: dotted;
+
+                    // position: absolute;
+                    // top: 15px;
+                    // content: "";
+                    // display: inline-block;
+                    // border: 1px solid $light-border-color;
+                    // border-style: dotted;
+                    // width: 26.775rem;
+                    // border-style: dashed;
+                    position: absolute;
+                    left: 100%;
+                    top: 13px;
+                    content: "";
+                    //display: inline-block;
+                    width: 26.175rem;
+                    background: url(../../assets/images/border.png) left top repeat-x;
+                    height: 1px;
+                    border: none;
+                    display: none;
+                }
+            }
+
+            h3 {
+                font-family: $font-base-med;
+                letter-spacing: -0.2px;
+                margin-bottom: 0.7rem;
+            }
+
+            p {
+                font-family: $font-base-reg;
+                font-size: $font-14;
+                line-height: 1.188rem;
+                letter-spacing: -0.13px;
+                color: $grey-med;
+                width: 12.563rem;
+            }
+        }
+
+        .mtf-para {
+            width: 13.563rem;
+        }
+    }
+}
+
+.icon-info-list {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: block;
+    background-color: $grey-bg;
+    border-radius: 0.25rem;
+
+    @include small {
+        margin: 1rem 0.5rem 0 0.5rem;
+        // width: 344px;
+        height: 190px;
+        border: solid 1px #e0e0ec;
+        background-color: #f9faff;
+    }
+
+    li {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include small {
+            display: block;
+            text-align: center;
+            padding: 1.5rem 1.25rem;
+            height: 190px;
+        }
+
+        .price {
+            color: $base-text;
+            font-family: $font-base-semibold;
+            line-height: 2.688rem;
+
+            @include small {
+                line-height: 0;
+            }
+
+            i, em {
+                font-family: $font-pingFangSC-medium;
+                font-style: normal;
+                font-size: $font-26;
+                padding-right: 0.3rem;
+                vertical-align: super;
+
+                @include small {
+                    font-size: $font-14;
+                    color: $base-text;
+                    font-weight: 500;
+                    padding-right: 4px;
+                }
+            }
+
+            .amt {
+                font-family: $font-base-semibold;
+                font-size: $font-36;
+
+                @include small {
+                    font-size: $font-24;
+                }
+            }
+        }
+
+        p {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            line-height: 1.5rem;
+            color: $grey-med;
+
+            @include small {
+                line-height: 24px;
+                margin-top: 8px;
+                font-size: $font-14;
+                font-weight: 500;
+            }
+
+            .icon-info {
+                margin-left: 0.3rem;
+                vertical-align: text-bottom;
+            }
+        }
+
+        button {
+            background: $disabled;
+            font-family: $font-base-semibold;
+            font-size: $font-14;
+            color: $grey-med;
+            border-radius: 0.25rem;
+            text-transform: uppercase;
+            height: 3.063rem;
+            width: 12.188rem;
+        }
+
+        .withdraw-increase-btn {
+            @include small {
+                padding-top: 2rem;
+            }
+
+            .withdraw {
+                background: $grey-bg;
+                color: $highlighted;
+                font-family: $font-base-semibold;
+                font-size: $font-14;
+                border-radius: 0.25rem;
+                height: 3.063rem;
+                width: 9rem;
+
+                @include xmobile {
+                    width: 7rem;
+                }
+            }
+
+            .increase {
+                height: 3.063rem;
+                width: 9rem;
+
+                @include xmobile {
+                    width: 7rem;
+                    margin-left: 1rem !important;
+                }
+
+                @include small {
+                    margin-left: 1rem !important;
+                }
+            }
+        }
+    }
+}
+
+.field_bg {
+    border-radius: 0;
+}
+
+.fundsBtmSecPledge {
+    margin: 0 -1.5rem;
+
+    .tab-wrap {
+        .nav-tabs {
+            padding: 0 1.250rem;
+
+            .nav-link {
+                color: $grey-med;
+            }
+        }
+
+        .table.theme1 {
+            tbody {
+                tr {
+
+                    td {
+
+
+                        &.refCol {
+                            .refNo {
+                                font-size: 1rem;
+                                font-family: $font-base-med;
+
+                                @include ipad {
+                                    font-size: 0.875rem;
+                                }
+                            }
+                        }
+
+                        &.amtCol {
+                            .price {
+                                font-size: 1rem;
+                                font-family: $font-base-med;
+                                @include flex(flex-start, center);
+                                // font-family: $font-base-med;
+
+                                @include ipad {
+                                    font-size: 0.875rem;
+                                }
+
+                                i, em {
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    font-family: $font-pingFangSC-medium;
+                                }
+
+                                span {
+                                    line-height: 22px;
+                                }
+                            }
+                        }
+
+                        &.dateTimeCol {
+                            ul {
+                                list-style: none !important;
+                                margin: 0px;
+                                padding: 0px;
+                                font-size: 1rem;
+                                font-family: $font-base-med;
+
+                                @include ipad {
+                                    font-size: 0.875rem;
+                                }
+
+                                li {
+                                    display: inline-block;
+                                    padding-right: 0.2em;
+                                    position: relative;
+
+                                    &::after {
+                                        content: "";
+                                        display: block;
+                                        width: 4px;
+                                        height: 4px;
+                                        background: transparent;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        right: 5px;
+                                        top: 5px;
+                                    }
+
+                                    &:last-child {
+                                        padding-right: 0px;
+                                    }
+
+                                }
+                            }
+                        }
+
+                        &.statusCol {
+
+                            &.text-right {
+                                .status {
+                                    @include flex(flex-end, center);
+                                    @include wrap(nowrap);
+                                }
+                            }
+
+                            .status {
+                                @include flex(flex-start, center);
+                                @include wrap(nowrap);
+                                font-size: 1rem;
+                                font-family: $font-base-med;
+
+                                @include ipad {
+                                    font-size: 0.875rem;
+                                }
+
+                                i, em {
+                                    font-family: $font-icomoon !important;
+                                    font-style: normal;
+                                    margin-right: 0.2rem;
+                                    font-size: 0.750rem;
+
+                                    &.failed {
+                                        &:before {
+                                            content: "\e91f";
+
+                                        }
+                                    }
+
+                                    &.success {
+                                        &:before {
+                                            content: "\e920";
+                                        }
+                                    }
+
+                                    &.pending {
+                                        &:before {
+                                            content: "\e921";
+                                        }
+                                    }
+                                }
+
+                                span {
+                                    line-height: 12px;
+                                }
+                            }
+                        }
+
+                        &.stockCol {
+                            font-size: $font-14;
+                            font-family: $font-base-reg;
+                            letter-spacing: -0.2px;
+
+                            .stock {
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+                            }
+                        }
+
+                        &.cmpnyCol {
+                            font-size: $font-14;
+                            font-family: $font-base-reg;
+                            letter-spacing: -0.2px;
+
+                            .cmpny {
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+                            }
+                        }
+
+                        &.priceQtyCol {
+                            font-size: $font-14;
+                            font-family: $font-base-reg;
+                            letter-spacing: -0.2px;
+
+                            ul {
+                                list-style: none;
+                                margin: 0px;
+                                padding: 0px;
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+
+                                li {
+                                    display: inline-block;
+                                    padding-right: 0.2em;
+                                    position: relative;
+
+                                    &::after {
+                                        content: "";
+                                        display: block;
+                                        width: 4px;
+                                        height: 4px;
+                                        background: transparent;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        right: 5px;
+                                        top: 5px;
+                                    }
+
+                                    &:last-child {
+                                        padding-right: 0px;
+                                    }
+
+                                    i, em {
+                                        font-family: $font-pingFangSC-medium;
+                                        font-style: normal;
+                                        font-size: $font-14;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .refCol {
+                width: 25%;
+
+                @include small {
+                    width: 50%;
+                }
+            }
+
+            .amtCol {
+                width: 25%;
+
+                @include small {
+                    width: 50%;
+                }
+            }
+
+            .dateTimeCol {
+                width: 25%;
+            }
+
+            .statusCol {
+                width: 25%;
+            }
+
+            &.flexTable {}
+        }
+
+        #addPledgeDetail,
+        #addUnPledgeDetail {
+            th {
+                &.statusCol {
+                    padding-right: 2.3rem;
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+
+                        &.full-width-col {
+                            width: 100%;
+                        }
+
+                        &.statusCol {
+
+                            position: relative;
+                            padding-right: 2.5rem;
+
+                            @include midDesktop {
+                                padding-right: 1.5rem;
+                            }
+
+                            .arrow {
+                                position: absolute;
+                                right: 0rem;
+                                top: 50%;
+                                margin-top: -$font-12;
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                cursor: pointer;
+                                transform: rotate(180deg);
+                                background: url(../../assets/images/dropdown-arrow-thin.svg) center center no-repeat;
+
+                                &.collapsed {
+                                    transform: none;
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    &.hovered-tr {
+                        .full-width-col {
+                            &.collapse {
+                                display: block;
+                                height: 0px;
+                                overflow: hidden;
+
+                                &.show {
+                                    height: auto;
+                                }
+                            }
+                        }
+
+                        td {
+                            &:after {
+                                right: 1.25rem;
+                                width: calc(100% - 2.5rem);
+                            }
+
+                            padding-top: 0px;
+                            padding-bottom: 0px;
+
+                            .request-wrap {
+                                background: $hoveredTdBg;
+                                margin-bottom: 1.25rem;
+                                border-radius: 0.25rem;
+                                overflow: hidden;
+
+                                thead {
+                                    background-color: $grey-bg;
+                                    padding: 0rem 1.25rem;
+
+
+                                    tr {
+                                        border: none;
+                                    }
+
+                                    th {
+
+                                        &.statusCol {
+                                            padding-right: 1.4rem;
+
+                                            @include midDesktop {
+                                                padding-right: 0.5rem;
+                                            }
+                                        }
+
+                                        &.cmpnyCol {
+                                            padding-left: 0rem;
+                                        }
+
+                                        &.priceQtyCol {
+                                            padding-left: 0rem;
+                                        }
+                                    }
+                                }
+
+                                .top-sec {
+                                    padding: 1rem 1.25rem;
+                                    background-color: $grey-bg;
+                                    border-top: 1px solid $border-type2;
+
+                                    .status {
+                                        font-size: $font-14;
+                                    }
+
+                                    td {
+                                        font-family: $font-base-med;
+                                        font-size: $font-14;
+                                    }
+
+                                    tr td.statusCol {
+                                        padding-right: 1.4rem;
+
+                                        @include midDesktop {
+                                            padding-right: 0.5rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.main-tr {
+                        &.collapsed {
+                            td.statusCol {
+                                .arrow {
+                                    transform: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .stockCol {
+                width: 26%;
+            }
+
+            .cmpnyCol {
+                // width: 33%;
+                width: 51%;
+            }
+
+            .priceQtyCol {
+                // width: 16%;
+                width: 24%;
+            }
+
+            .statusCol {
+                width: 25%;
+            }
+        }
+
+        .noHistory {
+            text-align: center;
+            padding: 5.313rem 1.25rem;
+
+            img {
+                display: block;
+                margin: 0 auto 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.188rem;
+                color: $base-text;
+
+                @include ipad {
+                    font-size: 0.875rem;
+                }
+            }
+        }
+    }
+
+}
+
+.pledge-holding-modal-sec {
+    .modal {
+        .modal-header {
+            border-bottom-color: transparent;
+        }
+
+        .modal-body {
+            padding: 0rem;
+
+            .pledge-sec {
+                background: $white;
+                padding: 0rem 1.5rem 0rem 1.5rem;
+                border-radius: 0.5rem;
+
+                h2 {
+                    font-family: $font-base-med;
+                    letter-spacing: -0.4px;
+                    text-align: center;
+                    margin-bottom: 1.2rem;
+                }
+
+                img {
+                    width: 28.25rem;
+                    height: 14.063rem;
+                    object-fit: contain;
+                }
+
+                .pledge-steps {
+                    margin: 0 1rem;
+                    display: flex;
+                    justify-content: space-between;
+
+                    &:before {
+                        display: none;
+                    }
+
+                    >div {
+                        padding-top: 1rem;
+                        padding-bottom: 4rem;
+                    }
+
+                    label {
+                        position: relative;
+                        font-family: $font-base-med;
+                        font-size: $font-12;
+                        letter-spacing: -0.2px;
+                        color: $grey-med;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        padding: 0.3rem 0.5rem 0.3rem 0.6rem;
+                        border-radius: 0.75rem;
+                        background-color: $border-type4;
+                        margin-bottom: 1.5rem;
+
+                        .step-count::after {
+                            position: absolute;
+                            left: 100%;
+                            top: 13px;
+                            content: "";
+                            display: inline-block;
+                            width: 15.875rem;
+                            //border: 1px solid $light-border-color;
+                            //border-style: dotted;
+                            width: 19.2rem;
+                            //border-style: dashed;
+                            background: url(../../assets/images/border.png) left top repeat-x;
+                            height: 1px;
+                            border: none;
+
+                            @include tablet {
+                                width: 13rem;
+                            }
+                        }
+                    }
+
+                    h3 {
+                        font-family: $font-base-med;
+                        letter-spacing: -0.2px;
+                        margin-bottom: 0.7rem;
+                        font-size: $font-18;
+                        color: $base-text;
+                    }
+
+                    p {
+                        font-family: $font-base-reg;
+                        font-size: $font-14;
+                        line-height: 1.188rem;
+                        letter-spacing: -0.13px;
+                        color: $grey-med;
+                        width: 12.563rem;
+                    }
+                }
+            }
+        }
+
+        .modal-lg {
+            max-width: 936px;
+
+            @include tablet {
+                max-width: 730px;
+            }
+        }
+    }
+}
+
+.noTransaction {
+    text-align: center;
+    padding: 7.500rem 1.25rem;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+
+    img {
+        display: block;
+        margin: 0 auto 2rem;
+    }
+
+    p {
+        font-family: $font-base-reg;
+        font-size: $font-18;
+        line-height: 1.625rem;
+        color: $grey-med;
+        margin: 0 auto 2.500rem;
+        width: 18rem;
+        max-width: 100%;
+    }
+}
+
+
+.table {
+    &.mainTable {
+        tbody {
+            tr {
+
+                &.main-tr {
+                    padding: 0 1.25rem;
+                    margin: 0 -1.25rem;
+                    width: calc(100% + 2.5rem);
+                    cursor: pointer;
+
+                    &.collapsed {
+                        &:hover {
+                            background: $tbl-hoverd-bg;
+                        }
+                    }
+
+                    td.statusCol {
+                        .arrow {
+                            transform: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.stickyTabWrap.fundsTabWrap.stickyTop .tab-wrap.innerTab .nav-tabs {
+    @include small {
+        width: 100%;
+        top: 21.15rem;
+    }
+}
+
+.stickyTabWrap.fundsTabWrap.stickyTop table.stickyonScroll>thead {
+    @include small {
+        width: 100%;
+        top: 25.2rem;
+    }
+}
+
+.pledge-sec-mob {
+    @include tabletPro {
+        padding: 0 1rem;
+
+        .nav-tabs {
+            @include tabletPro {
+                border: none;
+                position: sticky !important;
+                width: 100% !important;
+                // top: 12rem !important;
+                top: 8rem !important;
+                background: $white;
+            }
+
+            .nav-item {
+                .nav-link {
+                    @include tabletPro {
+                        font-size: $font-14 !important;
+                        font-family: $font-base-med !important;
+                        border-bottom: 4px solid transparent;
+                        padding: 1rem 2rem 1rem 0;
+                    }
+
+                    &.active {
+                        @include tabletPro {
+                            font-size: $font-14 !important;
+                            font-family: $font-base-med !important;
+                            border-bottom: 4px solid $highlighted;
+                        }
+                    }
+                }
+            }
+        }
+
+        .table-wrap-mob {
+            .table {
+                thead {
+                    th {
+                        @include tabletPro {
+                            padding: 19px 0 9px 0;
+                            border: none;
+                            font-family: $font-base-reg;
+                            font-size: 11px;
+                            position: sticky !important;
+                            width: 100% !important;
+                            // top: 16rem !important;
+                            top: 11rem !important;
+                            background: $white;
+                            color: $base-text;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            @include tabletPro {
+                                padding: 1rem 0;
+                                border-top: solid 1px #e8ebf1;
+                            }
+                        }
+                    }
+
+                    .ref {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-14;
+                            color: $base-text;
+                        }
+                    }
+
+                    .date {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-12;
+                            color: $grey-med;
+                            padding-top: 8px;
+                        }
+                    }
+
+                    .amt {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-14;
+                            color: $base-text;
+                        }
+                    }
+
+                    .status {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-12;
+                            padding-top: 7px;
+                            width: 6.25rem;
+                        }
+                    }
+
+                    .status {
+                        @include tabletPro {
+                            i, em {
+                                font-family: $font-icomoon !important;
+                                font-style: normal;
+                                margin-right: 0.2rem;
+                                font-size: 0.750rem;
+
+                                &.failed {
+                                    &:before {
+                                        content: "\e91f";
+
+                                    }
+                                }
+
+                                &.success {
+                                    &:before {
+                                        content: "\e920";
+                                    }
+                                }
+
+                                &.pending {
+                                    &:before {
+                                        content: "\e921";
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .page-navigate {
+                        @include tabletPro {
+                            display: contents;
+                            color: $base-text;
+                        }
+                    }
+                    .rupee-sign {
+                        @include tabletPro {
+                            font-family: $font-pingFangSC-medium;
+                            font-style: normal;
+                            font-size: $font-14;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

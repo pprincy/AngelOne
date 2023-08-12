@@ -1,0 +1,198 @@
+<div class="main-content increase-margin-page">
+  <div class="main-content-in">
+    <article class="field_bg full-height p-0">
+      <div class="pledge-increase-margin stickyTabWrap">
+        <div class="tab-wrap theme3">
+          <div class="sec-title">
+            <router-link to="/funds" class="btn btn-back"><em class="icon-dropdown-arrow"></em><span>Increase
+                Margin</span></router-link>
+          </div>
+          <div id="tabsContent1">
+            <div id="addPledgeIncrease">
+              <div class="table-wrap table-wrapper">
+                <table class="table theme1 flexTable mainTable stickyonScroll">
+                  <thead class="d-none d-lg-block d-md-none d-sm-none">
+                    <tr>
+                      <th class="stockCol">
+                        <label class="container">
+                          <span>Stock Name</span>
+                          <input type="checkbox"  checked="checked">
+                          <span class="checkmark"></span>
+                        </label>
+                      </th>
+                      <th class="pledgeQtyCol">Total Qty</th>
+                      <th class="qtyCol">Enter Qty</th>
+                      <th class="amtCol text-right">Amount</th>
+                    </tr>
+                  </thead>
+                  <thead class="d-lg-none d-md-block d-sm-block">
+                    <tr>
+                      <th class="stockCol">
+                        <label class="container">
+                          <span>Select all stocks</span>
+                          <input type="checkbox"  checked="checked">
+                          <span class="checkmark"></span>
+                        </label>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="d-none d-lg-block d-md-none d-sm-none">
+                    <tr v-for="item in pledgeIncreaseMargin">
+                      <td class="stockCol">
+                        <label class="container" :for="item.id">
+                          <span>{{item.stock}}</span>
+                          <input type="checkbox" v-model="item.accept" :id="item.id" checked="checked">
+                          <p>{{ item.stocksub }}</p>
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td class="pledgeQtyCol">
+                        <span class="pledgeQty">{{item.pledgeQty}}</span>
+                      </td>
+                      <td class="qtyCol">
+                        <input type="text" class="qty form-control" name="qty" id="qty" v-model="item.qty">
+                          <span class="text-red" data-v-4395b1bf="">Entered quantity can not be greater than available quantity.</span>
+                      </td>
+                      <td class="amtCol text-right">
+                        <!-- <em class="icon-rupee"></em> -->
+                        <em>₹</em>
+                        <span class="amt">{{item.amount}}</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody class="d-lg-none d-md-block d-sm-block">
+                    <div v-for="item in pledgeIncreaseMargin">
+                      <tr>
+                        <td class="stockCol" width="100%">
+                          <label class="container" :for="item.id">
+                            <span>{{item.stock}}</span>
+                            <input type="checkbox" v-model="item.accept" :id="item.id" checked="checked">
+                            <p>{{ item.stocksub }}</p>
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pledgeQtyCol">
+                          <div class="pledge-table-title">Total Qty</div>
+                          <div class="pledgeQty">{{item.pledgeQty}}</div>
+                        </td>
+                        <td class="qtyCol">
+                          <div class="pledge-table-title enter-qty">Enter Qty</div>
+                          <input type="text" class="qty form-control" name="qty" id="qty" v-model="item.qty">
+                        </td>
+                        <td class="amtCol text-right">
+                          <div class="pledge-table-title">Amount</div>
+                          <em>₹</em>
+                          <span class="amt">{{item.amount}}</span>
+                        </td>
+                      </tr>
+                    </div>
+                    <!-- <tr v-for="item in pledgeIncreaseMargin">
+                      <td class="stockCol">
+                        <label class="container" :for="item.id">
+                          <span>{{item.stock}}</span>
+                          <input type="checkbox" v-model="item.accept" :id="item.id" checked="checked">
+                          <p>{{ item.stocksub }}</p>
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td class="pledgeQtyCol">
+                        <span class="pledgeQty">{{item.pledgeQty}}</span>
+                      </td>
+                      <td class="qtyCol">
+                        <input type="text" class="qty form-control" name="qty" id="qty" v-model="item.qty">
+                          <span class="text-red" data-v-4395b1bf="">Entered quantity can not be greater than available quantity.</span>
+                      </td>
+                      <td class="amtCol text-right">
+                        <em>₹</em>
+                        <span class="amt">{{item.amount}}</span>
+                      </td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+              <!--No Table Entry found-->
+              <div class="noHistory" style="display: none;">
+                <img src="../../assets/images/funds-no-history.png" alt="">
+                <p>You have no add funds history</p>
+              </div>
+              <!--No Table Entry found-->
+            </div>
+          </div>
+        </div>
+        <ul class="icon-info-list">
+          <li>
+            <div>
+              <span class="price">
+                <em>₹</em>
+                <span class="amt">23,00,000</span>
+              </span>
+              <p class="d-none d-lg-block d-md-none d-sm-none">Additional Margin
+                <span>*Terms & Conditions Apply</span>
+              </p>
+              <p class="d-lg-none d-md-block d-sm-block">Margin to Unpledge</p>
+            </div>
+            <button type="button" class="btn btn-primary">INCREASE MARGIN</button>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- Pledge Increase Margin Popup Start -->
+<div class="modal vue-modal pledgeIncreaseMarginModal" id="pledgeIncreaseMarginModal" tabindex="-1" role="dialog"
+  v-show="pledgeIncreaseMarginModal">
+  <div class="modal-overlay"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <img class="title_icon" src="../../assets/images/icon-successful.svg" alt="">
+        <h4>Thank you for your request</h4>
+        <p class="pt-2">Post approval from CDSL, your margin will be updated within 5mins.</p>
+        <button type="button" class="btn btn-modal mt-70" data-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Pledge Increase Margin Popup End -->
+
+<!--Change number Authorization Popup Start-->
+<div class="modal vue-modal otpVerificationModal" ref="modal" id="otpVerificationModal" tabindex="-1" role="dialog"
+  v-show="otpVerificationModal">
+  <div class="modal-overlay" @click="otpVerificationModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content d-block text-center p-0">
+      <div class="modal-header">
+        <h5 class="modal-title">OTP Verification</h5>
+        <button type="button" class="close d-none d-lg-block d-md-block d-sm-none" data-dismiss="modal" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body text-left">
+        <p class="otpMsg">OTP has been generated and sent to your registered mobile number / email ID</p>
+        <form action="" class="formTheme1">
+          <div class="form-group otp-form-group pt-4">
+            <float-label>
+              <input type="text" placeholder="Enter OTP" class="form-control" v-model="inputOtp"
+                :class="{error:errorClass == true}" @keyup.enter="checkOtp()">
+              <span class="countdown" v-show="countdownVisible"><label>Resend in</label> 00:{{ countDown }}</span>
+              <a class="otp-link" v-show="otpLinkVisible">Resend OTP</a>
+            </float-label>
+            <label class="err-msg" :class="{visible:otperrmsg == true}">Enter valid OTP</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-wrap d-flex justify-content-between">
+          <button type="button" data-dismiss="modal" class="btn btn-primary btn-lg" data-toggle="modal"
+            data-target="#pledgeIncreaseMarginModal" @click="otpVerificationModal = false">Submit</button>
+
+          <!-- <button type="button" data-dismiss="modal" :disabled="inputOtp.length === 0 || inputMob.length === 0 ? true : false" class="btn btn-primary btn-lg" :class="{disabled:inputOtp.length === 0 || inputMob.length === 0 ? true : false}" data-toggle="modal" data-target="#pledgeIncreaseMarginModal" @click="otpVerificationModal = false">Submit</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Change number Authorization Popup End-->

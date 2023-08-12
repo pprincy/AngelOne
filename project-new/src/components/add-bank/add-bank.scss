@@ -1,0 +1,185 @@
+
+@import '../../assets/scss/styles';
+.addBankModal{
+    .formTheme1 {
+        .form-group{
+            &.ifsc-form-group{
+                position: relative;
+                .search-ifsc-link{
+                    position: absolute;
+                    right: 0px;
+                    bottom: 0.35rem;
+                    font-size: 0.875rem;
+                    line-height: 1.063rem;
+                    font-family: $font-base-semibold;
+                }
+               
+                .form-lbl{
+                    font-size:0.875rem;
+                    color: $grey2;
+                    margin: 0; 
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    z-index: 9;
+                    opacity: 0;
+                    transition: all 0.2s ease-out;
+                    &.visible{
+                        opacity: 1;
+                    }
+                }
+               
+            }
+        }
+        .ifscResultBank{
+            background: $bg;
+            padding: 1rem;
+            label{
+                font-size: 0.876rem;
+                line-height: 1.063rem;
+                color: $grey-med;
+                margin: 0 0 0.750rem;
+            }
+            h4{
+                margin: 0px;
+            }
+        }
+
+        .searchIFSC-cont{
+            background: $bg;
+            border-radius: 0.25rem;
+            padding: 1.5rem 1.5rem 0.813rem;
+            position: relative;
+            left: 0px;
+            width: 100%;
+            margin-top: 7px;
+            .close{
+                opacity: 1;
+                right: 0.750rem;
+                top: 0.750rem;
+                position: absolute;
+            }
+            .form-control{
+                background: transparent;
+            }
+
+        }
+    }
+
+    .modal-body{
+        min-height: 25.125rem;
+    }
+
+    .searchData{
+        border-radius: 0.25rem;
+        box-shadow: 0 8px 12px 0 rgba(231, 233, 243, 0.58);
+        border: solid 1px $border-type3;
+        background-color: $white;
+        position: absolute;
+        left: 0px;
+        top: calc(100% + 3px);
+        width: 100%;
+        z-index: 5;
+        &.selectBankList {
+            height: 15.125rem;
+        }
+       
+       .searchDataIn{
+           padding: 1.5rem 1.5rem 0;
+           h6{
+               color: $grey-med;
+               font-size: 0.875rem;
+               font-family: $font-base-reg;
+               line-height: 1.063rem;
+               margin-bottom: 1rem;
+           }
+           ul{
+               list-style: none;
+               margin: 0px;
+               padding: 0px;
+               li{
+                   a{
+                       color: $base-text;
+                       font-size:0.876rem;
+                       font-family: $font-base-med;
+                       display: block;
+                       cursor: pointer;
+                   }
+                   margin: 0 0 1.5rem;
+                   figure{
+                       @include flex(flex-start , center);
+                       margin: 0px;
+                       img{
+                           margin-right: 12px;
+                       }
+                   }
+               }
+           }
+           .recently-used{
+               ul{
+                   li{
+                    @include inlineFlex(flex-start, center);
+                    margin-right: 1rem;
+                    figure{
+                        margin: 0px;
+                        img{
+                            margin-right: 0px;
+                        }
+                    }
+                    &:last-child{
+                        margin-right: 0px;
+                    }
+                   }
+               }
+           }
+       }
+      
+       }
+       
+    .modal-footer{
+        .btn{
+            margin: 0px;
+           
+            &.btn-lg{
+                font-size: 0.875rem;
+                line-height: 0.875rem;
+                height: 3.000rem;
+                min-width: 11.875rem;
+                border-radius: 0.25rem;
+            }
+            &.disabled , &:disabled{
+                background:$disabled ;
+                border-color: $disabled;
+                opacity: 1;
+                color: $grey-med;
+                cursor: not-allowed;
+                box-shadow: none !important;
+                
+            }
+        }
+    }
+  
+}
+.verifyAccountModal, .requestSuccessModal{
+    .modal-content{
+        padding: 3rem 3.125rem;
+        min-height: 500px;
+        @include xmobile {
+            padding: 0.5rem 0rem;
+            min-height: 445px;
+        }
+    }
+    .modal-body{
+        p{
+            color: $grey-med;
+        }
+    }
+}
+
+.verifyAccountModal{
+    .modal-content{
+        .modal-body{
+            padding-bottom: 0;
+        }
+    }
+}

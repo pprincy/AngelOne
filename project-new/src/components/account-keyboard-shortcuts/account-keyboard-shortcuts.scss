@@ -1,0 +1,74 @@
+@import '../../assets/scss/styles';
+
+.keyboard_shortcuts_sec{
+    padding: 60px 40px;
+    .tab_title{
+        font-size: 20px;
+        font-family: $font-base-semibold;
+        padding: 32px 24px;
+        margin: 0;
+        color: $base-text;
+    }
+    .block {
+        border: 1px solid $light-border-color;
+        @include borderradius(0.5rem);
+        overflow: hidden;
+        margin-bottom: 48px;
+        .d-flex {
+            width: 100%;
+        }
+    }
+    .block_title {
+        font-size: 1rem;
+        font-family: $font-base-med;
+        color: $grey-med;
+        padding: $font-24 $font-24 0 $font-24;
+        margin: 0;
+    }
+    .inner_block{
+        padding: 12px;
+    }
+    .main-row{
+        column-count: 2;
+        @include small{
+            column-count: 1;
+        }
+    }
+}
+
+.shortcut{
+    padding: 12px;
+    -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+    .shortcut_name{
+        font-size: 16px;
+        font-family: $font-base-med;
+        color: $base-text;
+        padding-right: 1rem;
+    }
+    .shortcut_key{
+        margin-left: auto;
+        font-size: 11px;
+        font-family: $font-base-reg;
+        color: $grey-med;
+        display: inline-flex;
+        vertical-align: middle;
+        align-items: center;
+    }
+    span{
+        display: inline-block; margin-left: 6px;
+    }
+    .code{
+        min-width: 32px; height: 32px;
+        border: 1.5px solid $grey3;
+        padding: 0 4px;
+        border-radius: 4px;
+        color: $grey;
+        font-size: 14px;
+        line-height: 28px;
+        font-family: $font-base-semibold;
+        text-align: center;
+        margin-left: 6px;
+    }
+}

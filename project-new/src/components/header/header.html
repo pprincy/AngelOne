@@ -1,0 +1,385 @@
+<section class="header">
+  <div class="headerTopSec">
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-sm-auto col-left d-flex">
+          <a href="#" id="logo" class="logo"><img src="../../assets/images/logo.svg"></a>
+          <div class="header_search header-search-mob d-lg-inline-block">
+            <div class="form-group search-group" id="searchMob">
+              <div class="input-group-append">
+                <span class="input-group-icon icon-search d-none d-lg-block d-md-none d-sm-none"></span>
+              </div>
+              <span class="icon-dropdown-arrow d-lg-none d-md-block d-sm-block" @click="backArrowMob"></span>
+
+              <input type="text" class="form-control" placeholder="Search stocks, options & futures"
+                v-model="searchInput" @click="search()" @keyup="searchChange()">
+              <a href="#" class="clear-search" v-show="clearSearch" @click="clearSearch()">CLEAR</a>
+
+            </div>
+            <div class="form-group search-group d-lg-none d-md-block d-sm-block">
+                <span class="icon-dropdown-arrow" v-if="backArrow" @click="backArrowMob"></span>
+              <input type="text" class="form-control" placeholder="Search stocks, options & futures"
+                v-model="searchInput" @click="search" @keyup="searchChange" v-if="searchInputListMob">
+              <a href="#" class="clear-search" v-show="clearSearch" @click="clearSearch()">CLEAR</a>
+  
+            <div class="search-popup-cont" id="first-time-search" v-show="firstTimeSearch">
+              <div class="search-info-box">
+                <figure><img src="../../assets/images/smart-search.png" alt=""></figure>
+                <h4>Smart Search</h4>
+                <p>Search quickly using any of these keywords Script / Symbol Name like <strong>Nifty -</strong>
+                  Nifty50, <strong>CE -</strong> Call, <strong>PE -</strong> Put, <strong>12000 -</strong> Strike price,
+                  <strong>27Jun -</strong> Expiry </p>
+              </div>
+            </div>
+            <div class="search-popup-cont" id="no-result-found" v-show="noResultFound">
+              <div class="search-info-box">
+                <figure><img src="../../assets/images/smart-search.png" alt=""></figure>
+                <p>No Results Found. Try Searching using different keyword</p>
+              </div>
+            </div>
+
+            <div class="search-popup-cont" id="search-result-wrap" v-show="searchResult">
+              <div class="tab-wrap theme2">
+                <div class="search-result">
+                <ul id="main-tabs" class="nav nav-tabs ">
+                  <li class="nav-item" v-for="item in searchList">
+                    <a :href="'#' +item.name" data-toggle="tab" class="nav-link small"
+                      :class="{active:item.selected == true }">{{item.name}}</a>
+                  </li>
+                </ul>
+              </div>
+                <!-- @click="actionSeen = !actionSeen" :class="{active:actionSeen} -->
+                <div id="tabsContent" class="tab-content">
+                  <div id="All" class="tab-pane  active show">
+                    <div class="stock-listing-wrap">
+                      <ul class="stock-listing">
+                        <li class="stock-sec" v-for="item in stocklists" :key="item" :tabindex="item.id" ref="items">
+                          <a href="#" class="blank_anchor"></a>
+                          <div class="stock-sec-in"
+                            :class="{cash:item.tag == 'EQ' , fn:item.tag == 'FUT' ,  currency:item.tag == 'FX' , commodity:item.tag == 'CMD' , option:item.tag == 'OPT', active:item.activeClass }">
+
+                            <span class="stock-tag">{{item.tag}}</span>
+                            <div class="row low-space-column">
+                              <div class="col-7 ">
+                                <div class="comp-info-sec" @click="searchAddtoWatchlist($event, item.id)">
+                                  <h5 class="scrip_name">{{item.name}} <span
+                                      class="badge badge-secondary exchage">{{item.exchage}}</span></h5>
+                                  <h6 class="comp_name">{{item.compName}}</h6>
+                                </div>
+                              </div>
+                              <div class="col-5 stock-action theme2">
+                                <ul class="d-flex justify-content-end">
+                                  <li><a href="#" class="btn txt-positive">B</a></li>
+                                  <li><a href="#" class="btn txt-negative">S</a></li>
+                                  <!-- <li><a href="#" class="btn" @click="addToWatchlist = !addToWatchlist" :class="{active:addToWatchlist}"><em class="icon-plus"></em></a></li> -->
+                                  <li><a href="#" class="btn check-btn" @click="searchAddtoWatchlist($event, item.id)"
+                                      :class="{active:item.activeClass }"><em class="icon-plus"></em></a></li>
+                                  <!-- <li><a href="#" class="btn" @click="addtoWatch(item.id)"><em class="icon-plus"></em></a></li> -->
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="search-watchlist header-watchlist" v-show="item.addToWatchlist">
+                            <div class="ttl-wrap">
+                              <h6>Choose Watchlist</h6>
+                            </div>
+
+                            <ul class="check-list">
+                              <li v-for="checkitem in watchList">
+                                <div class="checkbox_option comp-info-sec">
+
+                                  <!-- <input type="checkbox" :id="'row' + item.id + checkitem.name + checkitem.id" v-model="selectedItems "  :value="'row' + item.id + checkitem.id" :disabled="selectedItems.length > 0 &&  selectedItems.indexOf(checkitem.id) === -1"> -->
+                                  <input type="checkbox" :id="'row' + item.id + checkitem.name + checkitem.id"
+                                    v-model="selectedItems" :value="'row' + item.id + checkitem.id">
+                                  <label :for="'row' + item.id + checkitem.name + checkitem.id">
+
+                                    <h5 class="scrip_name">{{checkitem.name}} {{checkitem.id}}</h5>
+                                    <!-- <h6 class="comp_name">{{checkitem.stockNo}} Stocks</h6> -->
+                                  </label>
+
+
+                                </div>
+
+                              </li>
+                            </ul>
+
+                            <div class="seach-watchist-confirm text-center">
+                              <a href="#" class="btn confirm disabled addDoneBtn" @click="addFunc(item.id)">DONE</a>
+                              <a href="#" class="btn confirm disabled removeDoneBtn"
+                                @click="removeFunc(item.id) ">DONE</a>
+                            </div>
+
+
+                          </div>
+                          <div class="stockSuccessMsg" v-show="addMsg">
+                            <h5>Done</h5>
+                            <p>Stock has been successfully added to watchlist</p>
+                          </div>
+                          <div class="stockSuccessMsg" v-show="removeMsg">
+                            <h5>Done</h5>
+                            <p>Stock has been successfully removed from watchlist</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+                  <div id="Cash" class="tab-pane  fade">
+                    <div class="stock-listing-wrap">
+                      <div class="stock-listing">
+                        <div class="stock-sec" v-for="item in stocklists" :class="item.tag" v-show="item.tag  == 'EQ'">
+                          <div class="stock-sec-in"
+                            :class="{cash:item.tag == 'EQ' , fn:item.tag == 'FUT' ,  currency:item.tag == 'FX' , commodity:item.tag == 'CMD', option:item.tag == 'OPT', }">
+
+                            <span class="stock-tag">{{item.tag}}</span>
+                            <div class="row low-space-column">
+                              <div class="col-7 comp-info-sec">
+                                <h5 class="scrip_name">{{item.name}} <span
+                                    class="badge badge-secondary exchage">{{item.exchage}}</span></h5>
+                                <h6 class="comp_name">{{item.compName}}</h6>
+                              </div>
+                              <div class="col-5 stock-action theme2">
+                                <ul class="d-flex justify-content-end">
+                                  <li><a href="#" class="btn txt-positive">B</a></li>
+                                  <li><a href="#" class="btn txt-negative">S</a></li>
+                                  <li><a href="#" class="btn btn-add"><em class="icon-plus"></em></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="FnO" class="tab-pane  fade">
+                    <div class="stock-listing-wrap">
+                      <div class="stock-listing">
+                        <div class="stock-sec" v-for="item in stocklists" :class="item.tag"
+                          v-show="item.tag  == 'FUT' || item.tag =='OPT'">
+                          <div class="stock-sec-in"
+                            :class="{cash:item.tag == 'EQ' , fn:item.tag == 'FUT' ,  currency:item.tag == 'FX' , commodity:item.tag == 'CMD', option:item.tag == 'OPT'}">
+
+                            <span class="stock-tag">{{item.tag}}</span>
+                            <div class="row low-space-column">
+                              <div class="col-7 comp-info-sec">
+                                <h5 class="scrip_name">{{item.name}} <span
+                                    class="badge badge-secondary exchage">{{item.exchage}}</span></h5>
+                                <h6 class="comp_name">{{item.compName}}</h6>
+                              </div>
+                              <div class="col-5 stock-action theme2">
+                                <ul class="d-flex justify-content-end">
+                                  <li><a href="#" class="btn txt-positive">B</a></li>
+                                  <li><a href="#" class="btn txt-negative">S</a></li>
+                                  <li><a href="#" class="btn"><em class="icon-plus"></em></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="Currency" class="tab-pane  fade">
+                    <div class="stock-listing-wrap">
+                      <div class="stock-listing">
+                        <div class="stock-sec" v-for="item in stocklists" :class="item.tag" v-show="item.tag  == 'FX'">
+                          <div class="stock-sec-in"
+                            :class="{cash:item.tag == 'EQ' , fn:item.tag == 'FUT' ,  currency:item.tag == 'FX' , commodity:item.tag == 'CMD', option:item.tag == 'OPT'}">
+
+                            <span class="stock-tag">{{item.tag}}</span>
+                            <div class="row low-space-column">
+                              <div class="col-7 comp-info-sec">
+                                <h5 class="scrip_name">{{item.name}} <span
+                                    class="badge badge-secondary exchage">{{item.exchage}}</span></h5>
+                                <h6 class="comp_name">{{item.compName}}</h6>
+                              </div>
+                              <div class="col-5 stock-action theme2">
+                                <ul class="d-flex justify-content-end">
+                                  <li><a href="#" class="btn txt-positive">B</a></li>
+                                  <li><a href="#" class="btn txt-negative">S</a></li>
+                                  <li><a href="#" class="btn"><em class="icon-plus"></em></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="Commodity" class="tab-pane  fade">
+                    <div class="stock-listing-wrap">
+                      <div class="stock-listing">
+                        <div class="stock-sec" v-for="item in stocklists" :class="item.tag" v-show="item.tag  == 'CMD'">
+                          <div class="stock-sec-in"
+                            :class="{cash:item.tag == 'EQ' , fn:item.tag == 'FUT' ,  currency:item.tag == 'FX' , commodity:item.tag == 'CMD' , option:item.tag == 'OPT'}">
+
+                            <span class="stock-tag">{{item.tag}}</span>
+                            <div class="row low-space-column">
+                              <div class="col-7 comp-info-sec">
+                                <h5 class="scrip_name">{{item.name}} <span
+                                    class="badge badge-secondary exchage">{{item.exchage}}</span></h5>
+                                <h6 class="comp_name">{{item.compName}}</h6>
+                              </div>
+                              <div class="col-5 stock-action theme2">
+                                <ul class="d-flex justify-content-end">
+                                  <li><a href="#" class="btn txt-positive">B</a></li>
+                                  <li><a href="#" class="btn txt-negative">S</a></li>
+                                  <li><a href="#" class="btn"><em class="icon-plus"></em></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="search-popup-cont" id="resentSearch-result-wrap" v-show="resentSearch">
+              <h4>Recent Searches</h4>
+              <a href="#" class="clearAll">Clear all</a>
+              <div class="stock-listing-wrap">
+                <div class="stock-listing">
+                  <div class="stock-sec" v-for="item in recentstocklists">
+                    <div class="stock-sec-in"
+                      :class="{cash:item.tag == 'EQ' , fn:item.tag == 'FUT' ,  currency:item.tag == 'FX' , commodity:item.tag == 'CMD', option:item.tag == 'OPT'}">
+
+                      <span class="stock-tag">{{item.tag}}</span>
+                      <div class="row low-space-column">
+                        <div class="col-12 comp-info-sec">
+                          <h5 class="scrip_name">{{item.name}} <span
+                              class="badge badge-secondary exchage">{{item.exchage}}</span></h5>
+                          <h6 class="comp_name">{{item.compName}}</h6>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-sm-auto ml-auto col-right d-flex align-items-center">
+          <div class="form-group search-group d-lg-none d-md-block d-sm-block">
+            <div class="input-group-append" @click="headerSearchShowMob()">
+              <span class="input-group-icon icon-search"></span>
+            </div>
+
+          </div>
+          <div class="header_notification d-none d-lg-block d-md-none d-sm-none">
+            <button class="btn-bell"><em class="icon-bell"></em><span class="count">1</span></button>
+          </div>
+          <div class="header_feedback d-none d-lg-block d-md-none d-sm-none">
+            <button class="btn-feedback" data-toggle="modal" @click="feedbackModal = true"><em
+                class="custom-message"></em></button>
+          </div>
+          <div class="login_user_name dropdown">
+            <router-link to="/account">
+              <figure class="user_pic d-lg-none d-md-block d-sm-block" id="userpic">
+                <figcaption data-v-5e628c52="">NK</figcaption>
+              </figure>
+            </router-link>
+            <figure class="user_pic d-none d-lg-block d-md-none d-sm-none">
+              <!-- <img src="../../assets/images/user-pic.png" alt=""> -->
+              <figcaption data-v-5e628c52="">NK</figcaption>
+            </figure>
+            <button class="btn dropdown-toggle d-none d-lg-block d-md-none d-sm-none" type="button"
+              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="user_name">John Doe</span>
+
+            </button>
+            <!--05-05-2021-->
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <ul>
+                <li><a class="item" href="#"><em class="custom-user"></em><span>Profile</span></a></li>
+                <li><a class="item" href="#"><em class="custom-settings"></em><span>Settings</span></a></li>
+                <li><a class="item" href="#"><em class="custom-about-us"></em><span>About Us</span></a></li>
+                <li><a class="item" href="#"><em class="icon-language"></em><span>Language</span></a></li>
+                <li><a class="item" href="#"><em class="custom-refer-earn"></em><span>Refer & Earn</span></a></li>
+                <li><a class="item" href="#"><em class="custom-report"></em><small>REPORTS</small></a></li>
+                <li><a class="item" href="#"><em class="custom-support"></em><small>SUPPORT</small></a></li>
+                <li><a class="item" href="#"><em class="icon-baseline-chart"></em><small>Keyboard Shortcuts</small></a></li>
+              </ul>
+              <a href="#" class="logout"><span>LOGOUT</span><em class="custom-logout"></em></a>
+            </div>
+            <!--05-05-2021-->
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <!-- <div class="switchbackSec">
+    <p><em class="sm-logo"></em><span>Switch Back to existing online trading platform.</span><a>Switch Back <em class="custom-right-arrow"></em></a></p>
+  </div> -->
+</section>
+
+
+
+
+
+
+
+<div class="modal vue-modal feedbackModal modal-md" id="feedbackModal" tabindex="-1" role="dialog"
+  v-show="feedbackModal">
+  <div class="modal-overlay" @click="feedbackModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <button type="button" class="close" @click="feedbackModal = false" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://mf.angelmf.com/Survey/TabCustFeedback?id=UDk5NDAw" class="feedbackIframe"></iframe>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade userFeedbackModal" ref="modal" id="userFeedbackModal" tabindex="-1" role="dialog"
+  aria-labelledby="userFeedbackModal" aria-hidden="true" v-show="userFeedbackModal">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-zero">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h5 class="user-modal-title">Do you like our new design?</h5>
+        <p class="content">Help us to serve you better by sharing <br> your valuable feedback</p>
+
+        <div class="emoji py-4">
+          <span @click="showSadEmoji()">
+            <img src="../../assets/images/sad.svg" alt="" v-if="showSad">
+            <img src="../../assets/images/sad-bg.svg" alt="" v-if="!showSad">
+          </span>
+          <span class="px-4" @click="showConfusedEmoji()">
+            <img src="../../assets/images/confused.svg" alt="" v-if="showConfused">
+            <img src="../../assets/images/confused-bg.svg" alt="" v-if="!showConfused">
+          </span>
+          <span @click="showLoveEmoji()">
+            <img src="../../assets/images/in-love.svg" alt="" v-if="showLove">
+            <img src="../../assets/images/in-love-bg.svg" alt="" v-if="!showLove">
+          </span>
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-center" v-if="showContinue">
+        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">CONTINUE</button>
+      </div>
+    </div>
+  </div>
+</div>

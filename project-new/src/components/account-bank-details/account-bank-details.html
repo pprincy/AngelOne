@@ -1,0 +1,32 @@
+<div class="acc-bank-sec">
+    <div class="borderedBox p-0">
+        <h4>Bank Details</h4>
+        <ul class="icon-info-list" id="bank-list-details">
+            <li v-for="item in bankDetails">
+                <label class="container">
+                    <span class="bank-logo"><img :src="item.logo" alt=""></span>
+                    <span class="bank-name">{{ item.bankName }}</span>
+                    <input type="radio" :checked="item.isChecked" name="bank-details" id="bank-details">
+                    <span class="checkmark"></span>
+                    <p>&bull; &bull; &bull; &bull; {{ item.accNo }}</p>
+                </label>
+            </li>
+        </ul>
+        <div class="add-bank-details">
+            <a href="#" data-toggle="modal" data-target="#addBankModal">
+                <span class="add-bank">
+                    <img src="../../assets/images/accounts-imgs/bank-details/icn-add.svg" alt="">
+                </span>
+                <span class="ml-2">ADD BANK ACCOUNT</span>
+            </a>
+            <Addbank></Addbank>
+        </div>
+        <div id="view-more-btn">
+            <button class="btn btn-block" v-bind:class="{disabled: disableButton}"
+                v-on="disableButton == false ? { click: () => showDetailList() } : {click: ($event) => $event.preventDefault() }">
+                <span>VIEW MORE</span>
+                <em class="icon-dropdown-arrow"></em>
+            </button>
+        </div>
+    </div>
+</div>

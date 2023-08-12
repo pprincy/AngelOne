@@ -1,0 +1,438 @@
+
+   
+        <div class="mtf-pledge-sec">
+            <div class="text-center">
+                <h2>What is MTF, How does it work?</h2>
+                <img src="../../assets/images/mtf.jpg" alt="">
+            </div>
+            <div class="pledge-steps">
+                <div class="pledge-list">
+                    <label>1
+                        <span class="step-count"></span>
+                    </label>
+                    <h3>Send Notifications</h3>
+                    <p>You will receive a link from CDSL to authenticate on your registered email id & SMS after 4:30 pm on
+                        T-Day, which will be valid till 12 noon on T+2 day.</p>
+                </div>
+                <div class="pledge-list">
+                    <label>2
+                        <span class="step-count"></span>
+                    </label>
+                    <h3>Generate OTP</h3>
+                    <p>Use your PAN to access the link & authenticate the transaction by using OTP.</p>
+                </div>
+                <div class="pledge-list">
+                    <label>3</label>
+                    <h3>Validate</h3>
+                    <p>On successful validation pledge will be created and we will intimate you by Email & notification on
+                        T+2 day after receiving payout from the exchange.</p>
+                </div>
+            </div>
+        </div>
+        <div class="field_bg btm">
+            <div class="fundsBtmSecMTFPledge ">
+                <div class="tab-wrap theme3 innerTab">
+
+                    <div id="tabsContent1" class="tab-content">
+                        <div id="addMTFPledgeDetail" class="tab-pane active">
+                            <div class="table-wrap">
+                                <table class="table theme1 flexTable mainTable stickyonScroll">
+                                    <thead>
+                                        <tr>
+                                            <th class="refCol">Reference No.</th>
+                                            <th class="dateTimeCol">Date of Trade</th>
+                                            <th class="statusCol text-right">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td class="full-width-col">
+                                            <table class="table flexTable innerTbl">
+                                                <tbody>
+                                                    <tr class="main-tr collapsed" data-toggle="collapse"
+                                                    data-target="#row1"
+                                                    @click="showAuthenticationList()">
+                                                        <td class="refCol">
+                                                            <span class="refNo">7528372917382913</span><br>
+                                                            <span class="status1 txtWarning mt-1">
+                                                                <em class="pending"></em>
+                                                                Authenticate the request using a link sent by CDSL
+                                                            </span>
+                                                        </td>
+                                                        <td class="dateTimeCol">
+                                                            <span v-if="showAuthentication">06 Jan 2020</span>
+                                                        </td>
+                                                        <td class="statusCol text-right">
+                                                            <span class="status"
+                                                                v-if="showAuthentication">Authentication Pending</span>
+                                                            <span class="authorize-sec" v-if="!showAuthentication">
+                                                                <button type="button" class="square-off">SQUARE
+                                                                    OFF</button>
+                                                                <button type="button"
+                                                                    class="authorize">AUTHORIZE</button>
+                                                            </span>
+                                                            <a href="#" class="arrow " ></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="hovered-tr">
+                                                        <td class="full-width-col">
+                                                            <div class="request-wrap collapse" id="row1">
+                                                                <div class="d-flex trade-status">
+                                                                    <label>Date of Trade :</label>
+                                                                    <p>06 Jan 2020</p>
+                                                                    <label class="ml-3">Status :</label>
+                                                                    <p>Authentication Pending</p>
+                                                                </div>
+                                                                <table class="table flexTable innerTbl">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="stockCol">Stock</th>
+                                                                            <th class="cmpnyCol">Company</th>
+                                                                            <th class="qtyCol">Qty</th>
+                                                                            <th class="statusCol text-right">Status</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <div class="top-sec" v-show="topSec">
+                                                                        <tr>
+                                                                            <td class="stockCol">
+                                                                                <span class="stock">SBIN</span>
+                                                                            </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">State Bank of
+                                                                                        India</span>
+                                                                                </td>
+
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Authentication
+                                                                                        Pending</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">ICICIBank</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">ICICI Bank
+                                                                                        Ltd.</span>
+                                                                                </td>
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Authentication
+                                                                                        Pending</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">HeroMotoco</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">Hero Motocorp
+                                                                                        Ltd.</span>
+                                                                                </td>
+
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Authentication
+                                                                                        Pending</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                    </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="full-width-col">
+                                                <table class="table flexTable innerTbl">
+                                                    <tbody>
+                                                        <tr class="main-tr collapsed" data-toggle="collapse"
+                                                        data-target="#row2" @click="showCompletedList()">
+                                                            <td class="refCol">
+                                                                <span class="refNo">7528372917382913</span><br>
+                                                                <span class="status1 txtPositive mt-1">
+                                                                    <em class="success"></em>
+                                                                    Pledge request successfully authenticated at CDSL
+                                                                </span>
+                                                            </td>
+                                                            <td class="dateTimeCol">
+                                                                <span v-if="showCompleted">06 Jan 2020</span>
+                                                            </td>
+                                                            <td class="statusCol text-right">
+                                                                <span class="status" v-if="showCompleted">Completed</span>
+                                                                <a href="#" class="arrow " ></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="hovered-tr">
+                                                            <td class="full-width-col">
+                                                                <div class="request-wrap collapse" id="row2">
+                                                                    <div class="d-flex trade-status">
+                                                                        <label>Date of Trade :</label>
+                                                                        <p>06 Jan 2020</p>
+                                                                        <label class="ml-3">Status :</label>
+                                                                        <p>Completed</p>
+                                                                    </div>
+                                                                    <table class="table flexTable innerTbl">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th class="stockCol">Stock</th>
+                                                                                <th class="cmpnyCol">Company</th>
+                                                                                <th class="qtyCol">Qty</th>
+                                                                                <th class="statusCol text-right">Status</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">SBIN</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">State Bank of
+                                                                                        India</span>
+                                                                                </td>
+
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Completed</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">ICICIBank</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">ICICI Bank
+                                                                                        Ltd.</span>
+                                                                                </td>
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Completed</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">HeroMotoco</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">Hero Motocorp
+                                                                                        Ltd.</span>
+                                                                                </td>
+
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Completed</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                    </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="full-width-col">
+                                                <table class="table flexTable innerTbl">
+                                                    <tbody>
+                                                        <tr class="main-tr collapsed" data-toggle="collapse"
+                                                        data-target="#row3" @click="showPendingList()">
+                                                            <td class="refCol">
+                                                                <span class="refNo">7528372917382913</span><br>
+                                                                <span class="status1 txtNegative mt-1">
+                                                                    <em class="failed"></em>
+                                                                    No authentication done till 10:00pm
+                                                                </span>
+                                                            </td>
+                                                            <td class="dateTimeCol">
+                                                                <span v-if="showPending">06 Jan 2020</span>
+                                                            </td>
+                                                            <td class="statusCol text-right">
+                                                                <span class="status" v-if="showPending">Pending</span>
+                                                                <a href="#" class="arrow " ></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="hovered-tr">
+                                                            <td class="full-width-col">
+                                                                <div class="request-wrap collapse" id="row3">
+                                                                    <div class="d-flex trade-status">
+                                                                        <label>Date of Trade :</label>
+                                                                        <p>06 Jan 2020</p>
+                                                                        <label class="ml-3">Status :</label>
+                                                                        <p>Pending</p>
+                                                                    </div>
+                                                                    <table class="table flexTable innerTbl">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th class="stockCol">Stock</th>
+                                                                                <th class="cmpnyCol">Company</th>
+                                                                                <th class="qtyCol">Qty</th>
+                                                                                <th class="statusCol text-right">Status</th>
+                                                                            </tr>
+                                                                        </thead>
+
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">SBIN</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">State Bank of
+                                                                                        India</span>
+                                                                                </td>
+
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Cancelled</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">ICICIBank</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">ICICI Bank
+                                                                                        Ltd.</span>
+                                                                                </td>
+
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Cancelled</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                        <div class="top-sec" v-show="topSec">
+                                                                            <tr>
+                                                                                <td class="stockCol">
+                                                                                    <span class="stock">HeroMotoco</span>
+                                                                                </td>
+
+                                                                                <td class="cmpnyCol">
+                                                                                    <span class="cmpny">Hero Motocorp
+                                                                                        Ltd.</span>
+                                                                                </td>
+
+                                                                                <td class="qtyCol">
+                                                                                    <span class="qty">10</span>
+                                                                                </td>
+                                                                                <td class="statusCol text-right">
+                                                                                    <span class="status">Cancelled</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
+                                                                    </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="noHistory" style="display: none;">
+                                <img src="../../assets/images/funds-no-history.png" alt="">
+                                <p>You have no pledge history</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mtf-info pointer" v-if="hide">
+                    <em class="icon-info white font-18" data-toggle="modal" data-target="#MtfPledgeModal"></em>
+                    <label>What is MTF, How does it Work?</label>
+                    <em class="custom-close-white" @click="closeMtf()"></em>
+                </div>
+            </div>
+        </div>
+    
+
+
+<div class="mtf-pledge-modal-sec">
+    <div class="modal" id="MtfPledgeModal" tabindex="-1" role="dialog" aria-labelledby="MtfPledgeModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <em class="custom-times-circle-solid"></em>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="pledge-sec">
+                        <div class="text-center">
+                            <h2>What is MTF, How does it work?</h2>
+                            <img src="../../assets/images/mtf.jpg" alt="">
+                        </div>
+                        <div class="pledge-steps">
+                            <div class="pledge-list">
+                                <label>1
+                                    <span class="step-count"></span>
+                                </label>
+                                <h3>Send Notifications</h3>
+                                <p>You will receive a link from CDSL to authenticate on your registered email id & SMS
+                                    after 4:30 pm on T-Day, which will be valid till 12 noon on T+2 day.</p>
+                            </div>
+                            <div class="pledge-list">
+                                <label>2
+                                    <span class="step-count"></span>
+                                </label>
+                                <h3>Generate OTP</h3>
+                                <p>Use your PAN to access the link & authenticate the transaction by using OTP.</p>
+                            </div>
+                            <div class="pledge-list">
+                                <label>3</label>
+                                <h3>Validate</h3>
+                                <p>On successful validation pledge will be created and we will intimate you by Email &
+                                    notification on T+2 day after receiving payout from the exchange.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

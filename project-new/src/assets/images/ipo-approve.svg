@@ -1,0 +1,6 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fill-rule="evenodd">
+        <path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12z" fill="#F9BA4D"/>
+        <path d="M12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm0 1.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6zm.598 1.8v3h2.4v1.2h-3.6V9h1.2z" fill="#FFF"/>
+    </g>
+</svg>

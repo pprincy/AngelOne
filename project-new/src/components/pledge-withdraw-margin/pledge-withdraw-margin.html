@@ -1,0 +1,95 @@
+<div class="main-content withdraw-margin-page">
+  <div class="main-content-in">
+    <article class="field_bg full-height p-0">
+      <div class="pledge-withdraw-margin stickyTabWrap">
+        <div class="tab-wrap theme3">
+          <div class="sec-title">
+            <router-link to="/funds" class="btn btn-back"><em class="icon-dropdown-arrow"></em><span>Withdraw
+                Margin</span></router-link>
+          </div>
+          <div id="tabsContent1">
+            <div id="addPledgeWithdraw">
+              <div class="table-wrap table-wrapper">
+                <table class="table theme1 flexTable mainTable stickyonScroll">
+                  <thead>
+                    <tr>
+                      <th class="stockCol">
+                        <label class="container">
+                          <span>Stock Name</span>
+                          <input type="checkbox"  checked="checked">
+                          <span class="checkmark"></span>
+                        </label>
+                      </th>
+                      <th class="pledgeQtyCol">Pledge Qty</th>
+                      <th class="qtyCol">Enter Qty</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="item in pledgeWithdrawMargin">
+                      <td class="stockCol">
+                        <!-- <div class="form-check">
+                          <input type="checkbox" v-model="item.accept" :id="item.id" class="form-check-input">
+                          <label class="form-check-label pl-4" :for="item.id">{{item.stock}}
+                            <p>{{ item.stocksub }}</p>
+                          </label>
+                        </div> -->
+                        <label class="container" :for="item.id">
+                          <span>{{item.stock}}</span>
+                          <input type="checkbox" v-model="item.accept" :id="item.id" checked="checked">
+                          <p>{{ item.stocksub }}</p>
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td class="pledgeQtyCol">
+                        <span class="pledgeQty">{{item.pledgeQty}}</span>
+                      </td>
+                      <td class="qtyCol">
+                        <input type="text" class="qty form-control" name="qty" id="qty" v-model="item.qty">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--No Table Entry found-->
+              <div class="noHistory" style="display: none;">
+                <img src="../../assets/images/funds-no-history.png" alt="">
+                <p>You have no add funds history</p>
+              </div>
+              <!--No Table Entry found-->
+            </div>
+          </div>
+        </div>
+        <ul class="icon-info-list">
+          <li>
+            <div class="d-none d-lg-block d-md-none d-sm-none">
+              <span class="price">
+                <em>₹</em>
+                <span class="amt">23,00,000</span>
+              </span>
+              <p>Margin to Unpledge</p>
+            </div>
+            <button type="button" class="btn btn-primary">WITHDRAW MARGIN</button>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- Pledge Withdraw Margin Popup Start -->
+<div class="modal vue-modal pledgeWithdrawMarginModal" ref="modal" id="pledgeWithdrawMarginModal" tabindex="-1" role="dialog"
+  v-show="pledgeWithdrawMarginModal">
+  <div class="modal-overlay" @click="pledgeWithdrawMarginModal = false"></div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <img class="title_icon" src="../../assets/images/icon-successful.svg" alt="">
+        <h4>Request Submitted</h4>
+        <p class="pt-2">Your request to withdraw securities has been received. We will process it in T+1 days subject to
+          risk management.</p>
+        <button type="button" class="btn btn-modal mt-70" data-dismiss="modal" @click="pledgeWithdrawMarginModal = false">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Pledge Withdraw Margin Popup End -->

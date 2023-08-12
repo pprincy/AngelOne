@@ -1,0 +1,131 @@
+/* body.body{
+    margin: 0px;
+    position: relative;
+    min-height: 100vh;
+    font-family:"barlow-regular" ;
+    color: #1d1e20;
+    background:#f5f6fa;
+}  */
+body .container-fluid{
+    padding: 0 1.5rem;
+    color: #1d1e20;
+}
+.side-quick-links .mCSB_inside > .mCSB_container{
+    margin-right: 0px ;
+}
+.mCSB_inside > .mCSB_container{
+    margin-right: 0 !important;
+}
+.mCSB_scrollTools{
+    width:4px !important;
+}
+.mCSB_inside > .mCSB_container {
+    margin-right: 0;
+}
+.mCustomScrollbar .mCustomScrollBox .mCSB_scrollTools.mCSB_scrollTools_vertical {
+    /* width: 3px !important; */
+    width: 6px !important;
+    right: 1px;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    background-color: transparent;
+    /* border-radius: 5px; */
+    border-radius: 4.5px;
+}
+.mCustomScrollbar .mCustomScrollBox .mCSB_scrollTools.mCSB_scrollTools_vertical .mCSB_dragger_bar {
+    /* width: 3px; */
+    width: 6px;
+    /* background-color: #4f5164 !important; */
+    background-color: #e8eaf5 !important;
+}
+.mCustomScrollbar .mCustomScrollBox .mCSB_scrollTools.mCSB_scrollTools_vertical .mCSB_draggerRail {
+    background: transparent;
+}
+
+.mCSB_horizontal.mCSB_inside > .mCSB_container{
+    margin-bottom: 0px !important;
+}
+.mCSB_scrollTools.mCSB_scrollTools_horizontal{
+    height: 5px !important;
+    z-index: 9;
+}
+
+.stock-listing-wrap.mCustomScrollbar .mCustomScrollBox .mCSB_scrollTools{
+    z-index: 3;
+    right: -1px;
+}
+.mCustomScrollbar .mCustomScrollBox .mCSB_scrollTools_horizonta .mCSB_dragger_bar {
+    height:6px;
+    /* background-color: #4f5164 !important; */
+}
+.mCSB_scrollTools.mCSB_scrollTools_horizontal{
+    width: auto !important;
+}
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar{
+    margin: 0 !important;
+}
+
+@-webkit-keyframes loader{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes mymove {
+    0%   {background-color: rgba(232, 233, 236, 1)}
+    50%  {background-color: rgba(232, 233, 236, .4)}
+    100% {background-color: rgba(232, 233, 236, 1)}
+  }
+  
+  @-webkit-keyframes mymove {
+    0%   {background-color: rgba(232, 233, 236, 1)}
+    50%  {background-color: rgba(232, 233, 236, .4)}
+    100% {background-color: rgba(232, 233, 236, 1)}
+  }
+
+  .outerbox { border: 1px solid #c3c3c3; border-radius: 5px; display: flex; justify-content: space-between; position: relative;}
+        .item1 {  width: 200px; height: 16px; margin: 8px; animation: mymove 1s infinite ease-in-out; -webkit-animation: mymove 1s infinite ease-in-out;}
+
+.img-loader{
+    -webkit-animation:  loader 1.5s infinite forwards linear;
+    animation: loader 1.5s infinite forwards linear;
+}
+
+
+.liveipo-table-wrapper table.closeipotable tbody tr.loader td.companyname div:first-child { width: 70%; height: 1.5rem; margin-bottom: 15px; border-radius: .25rem;  animation: mymove 1s infinite ease-in-out; -webkit-animation: mymove 1s infinite ease-in-out;}
+.liveipo-table-wrapper table.closeipotable tbody tr.loader td.companyname div { width: 60%; height: 1.5rem; 
+    animation: mymove 1s infinite ease-in-out; -webkit-animation: mymove 1s infinite ease-in-out; border-radius: .25rem;
+}
+.liveipo-table-wrapper table.closeipotable tbody tr.loader td.issueprice div{ width: 60%; height: 2.25rem; 
+animation: mymove 1s infinite ease-in-out; -webkit-animation: mymove 1s infinite ease-in-out; border-radius: .25rem;
+}
+.liveipo-table-wrapper table.closeipotable tbody tr.loader td.pricegain div { width: 60%; height: 2.25rem; 
+animation: mymove 1s infinite ease-in-out; -webkit-animation: mymove 1s infinite ease-in-out; border-radius: .25rem;
+}
+.liveipo-table-wrapper table.closeipotable tbody tr.loader td.predict div { width: 80%; height: 2.25rem;
+animation: mymove 1s infinite ease-in-out; -webkit-animation: mymove 1s infinite ease-in-out; border-radius: .25rem;
+}
+.liveipo-table-wrapper table.closeipotable tbody tr.loader td.subscription div{ width: 60%; height: 2.25rem; 
+animation: mymove 1s infinite ease-in-out; -webkit-animation: mymove 1s infinite ease-in-out; border-radius: .25rem;
+}
+
+
+
+
+
+body.modal-open .modal-backdrop{ display: block; }
+.modal-backdrop{ display: none; }

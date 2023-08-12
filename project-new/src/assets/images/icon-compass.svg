@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <g>
+                                <g>
+                                    <path d="M0 0H24V24H0z" transform="translate(-544 -568) translate(520 142) translate(24) translate(0 207) translate(0 43) translate(0 170) translate(0 6)"/>
+                                    <g stroke="#1D1E20" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="translate(-544 -568) translate(520 142) translate(24) translate(0 207) translate(0 43) translate(0 170) translate(0 6) translate(4 4)">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        <path d="M11.392 4.608L9.696 9.696 4.608 11.392 6.304 6.304z"/>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

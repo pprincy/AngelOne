@@ -1,0 +1,136 @@
+<div class="advisory-tab">
+  <div class="tabContentWrap">
+  <div class="advisory-category-wrap">
+    <h3>All Categories</h3>
+    <p>Call Performance of last <span>90</span> days</p>
+    <div class="row">
+      <div class="col-lg-3">
+        
+        <router-link  to="AdvisoryShortTerm" class="borderedBox" >
+          <h4>Short Term</h4>
+          <div class="icoinfo">
+            <em class="custom-trade-icn"></em>
+            <span><strong>14</strong>Trade calls</span>
+          </div>
+          <div class="progressBarWrap">
+            <div class="valueWrap">
+              <strong :class="{success:shortTermVal >= 61 && shortTermVal <=100, warning:shortTermVal >= 41 && shortTermVal <=60, error:shortTermVal  <= 40}">{{shortTermVal}}<small>%</small></strong>
+              <span>Positive Calls</span>
+            </div>
+            <div class="progress" style="height: 4px;" :class="{success:shortTermVal >= 61 && shortTermVal <=100, warning:shortTermVal >= 41 && shortTermVal <=60, error:shortTermVal  <= 40}">
+              <div class="progress-bar" role="progressbar"  :style="{width:shortTermVal + '%'}"  aria-valuemin="0" :aria-valuenow=shortTermVal aria-valuemax="100" ></div>
+             
+            </div>
+          </div>
+
+        </router-link>
+        
+      </div>
+      <div class="col-lg-3">
+        <router-link to="AdvisoryIntraday" class="borderedBox">
+          <h4>Intraday</h4>
+          <div class="icoinfo">
+            <em class="custom-trade-icn"></em>
+            <span><strong>14</strong>Trade calls</span>
+          </div>
+          <div class="progressBarWrap">
+            <div class="valueWrap">
+              <strong :class="{success:intraDayVal >= 61 && intraDayVal <=100, warning:intraDayVal >= 41 && intraDayVal <=60, error:intraDayVal  <= 40}">{{intraDayVal}}<small>%</small></strong>
+              <span>Positive Calls</span>
+            </div>
+            <div class="progress" style="height: 4px;" :class="{success:intraDayVal >= 61 && intraDayVal <=100, warning:intraDayVal >= 41 && intraDayVal <=60, error:intraDayVal  <= 40}">
+              <div class="progress-bar" role="progressbar"  :style="{width:intraDayVal + '%'}"  aria-valuemin="0" :aria-valuenow=intraDayVal aria-valuemax="100" ></div>
+             
+            </div>
+          </div>
+          
+        </router-link>
+        
+      </div>
+      <div class="col-lg-3">
+        <router-link to="AdvisoryCommodity" class="borderedBox">
+          <h4>Commodity</h4>
+          <div class="icoinfo">
+            <em class="custom-trade-icn"></em>
+            <span><strong>14</strong>Trade calls</span>
+          </div>
+          <div class="progressBarWrap">
+            <div class="valueWrap">
+              <strong :class="{success:commodityVal >= 61 && commodityVal <=100, warning:commodityVal >= 41 && commodityVal <=60, error:commodityVal  <= 40}">{{commodityVal}}<small>%</small></strong>
+              <span>Positive Calls</span>
+            </div>
+            <div class="progress" style="height: 4px;" :class="{success:commodityVal >= 61 && commodityVal <=100, warning:commodityVal >= 41 && commodityVal <=60, error:commodityVal  <= 40}">
+              <div class="progress-bar" role="progressbar"  :style="{width:commodityVal + '%'}"  aria-valuemin="0" :aria-valuenow=commodityVal aria-valuemax="100" ></div>
+             
+            </div>
+          </div>
+          
+        </router-link>
+        
+      </div>
+      <div class="col-lg-3">
+        <router-link to="AdvisoryCurrency" class="borderedBox">
+          <h4>Currency</h4>
+          <div class="icoinfo">
+            <em class="custom-trade-icn"></em>
+            <span><strong>14</strong>Trade calls</span>
+          </div>
+          <div class="progressBarWrap">
+            <div class="valueWrap">
+              <strong :class="{success:currencyVal >= 61 && currencyVal <=100, warning:currencyVal >= 41 && currencyVal <=60, error:currencyVal  <= 40}">{{currencyVal}}<small>%</small></strong>
+              <span>Positive Calls</span>
+            </div>
+            <div class="progress" style="height: 4px;" :class="{success:currencyVal >= 61 && currencyVal <=100, warning:currencyVal >= 41 && currencyVal <=60, error:currencyVal  <= 40}">
+              <div class="progress-bar" role="progressbar"  :style="{width:currencyVal + '%'}"  aria-valuemin="0" :aria-valuenow=currencyVal aria-valuemax="100" ></div>
+             
+            </div>
+          </div>
+          
+        </router-link>
+        
+      </div>
+      <div class="col-lg-6">
+        <router-link to="AdvisoryLongTerm" class="borderedBox">
+          <h4>Long Term Investment</h4>
+          <div class="icoinfo">
+            <em class="custom-trade-icn"></em>
+            <span><strong>14</strong>Trade calls</span>
+          </div>
+          <div class="progressBarWrap horizontal">
+           
+            <div class="d-flex align-items-end">
+              <div class="left">
+                <p>Angel Top-pick Returns</p>
+                <div class="progress top" style="height: 4px;">
+                  <div class="progress-bar " role="progressbar"  :style="{width:topPickUpVal + '%'}"  aria-valuemin="0" :aria-valuenow=topPickUpVal aria-valuemax="100"></div>
+                </div>
+              </div>
+              
+              <div class="valueWrap">
+                <strong class="top">{{topPickUpVal}}<small>%</small></strong>
+              </div>
+            </div>
+          </div>
+          <div class="progressBarWrap horizontal">
+           
+            <div class="d-flex align-items-end">
+              <div class="left">
+                <p>Nifty Mid Cap Returns</p>
+                <div class="progress mid" style="height: 4px;">
+                  <div class="progress-bar " role="progressbar"  :style="{width:midCapReturn + '%'}"  aria-valuemin="0" :aria-valuenow=midCapReturn aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="valueWrap">
+                <strong class="mid">{{midCapReturn}}<small>%</small></strong>
+              </div>
+            </div>
+          </div>
+        </router-link>
+        
+      </div>
+    </div>
+  </div> 
+</div>           
+</div>
+
+

@@ -1,0 +1,66 @@
+@import '../../assets/scss/styles';
+
+.main-content {
+    &.leftPosition {
+        width: calc(100% - 6rem);
+    }
+}
+
+// .watchlist-side-section{ z-index: -1 !important; }
+
+.tab-content{
+    .tab-pane{
+        display: none;
+        &.active{
+            display: block;
+           // height: 100vh;
+        }
+    }
+}
+
+.reportsTabWrap {
+   
+    .tab-wrap {
+        &.greyBg {
+            background: $bg;
+
+            >.nav-tabs {
+                background: $white;
+                position: relative;
+                z-index: 10;
+            }
+
+            >.tab-content {
+                height: calc(100vh - 118px);
+                .field_bg {
+                    &.btm {
+                        padding-top: 2px !important;
+                    }
+                }
+            }
+        }
+
+        .nav-tabs {
+            height: 3.375rem; //new structure css
+            .nav-item {
+                border-right: none; //new structure css
+                .nav-link {
+                    font-family: $font-base-med; //new structure css
+                    font-size: $font-18;
+                    color: $base-text;
+                    letter-spacing: -0.23px;
+
+                    &.active {
+                        font-family: $font-base-med; //new structure css
+                        font-size: $font-18;
+                        color: $base-text;
+                        letter-spacing: -0.23px;
+                        &::after {
+                            background: transparent; //new structure css
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

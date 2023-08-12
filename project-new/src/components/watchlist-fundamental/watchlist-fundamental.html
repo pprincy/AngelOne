@@ -1,0 +1,895 @@
+<div class="field_bg type2 fundamental">
+  <section class="know-your-stock">
+    <h3>Know Your Stock</h3>
+    <p>Performance overview of the company</p>
+    <div class="tab-wrapper">
+     
+      <ul class="tab-links-wrap" :class="{active:qualityfocus == true || financialfocus == true || valuationfocus == true}">
+      
+        <li>
+            <div class="icon-info-wrap"  :class="{active:qualityfocus == true}" @click="showQuality()">
+              <span class="icon-wrap" :class="{success:qualityVal >= 4 , warning:qualityVal == 3 , error:qualityVal < 3 && qualityVal > 0}">
+                <em class="custom-quality-icn"></em>
+              </span>
+              <div class="info-wrap">
+                <div class="stock-category">
+                  <h6>
+                    <span v-show="qualityVal >= 4">Excellent</span>
+                    <span v-show="qualityVal == 3">Attractive</span>
+                    <span v-show="qualityVal < 3 && qualityVal > 0">Negative</span>
+                    <span v-show="qualityVal == 0">NA</span></h6>
+                  <h4><strong>Quality</strong></h4>
+                </div>
+                <div class="progress-info-wrap" v-show="qualityVal > 0" >
+                  <div class="progress-bar-wrap">
+                    <div class="progress" style="height: 4px;" :class="{success:qualityVal >= 4 , warning:qualityVal == 3 , error:qualityVal < 3 && qualityVal > 0}">
+                      <div class="progress-bar" role="progressbar"  :style="{width:qualityVal  * 20 + '%'}"  aria-valuemin="0" :aria-valuenow=qualityVal aria-valuemax="100" ></div>
+                    
+                    </div>
+                  </div>
+                  <div class="progress-info">
+                    <span><strong :class="{success:qualityVal >= 4 , warning:qualityVal == 3 , error:qualityVal < 3 && qualityVal > 0}">{{qualityVal}}</strong>/5</span>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+        </li>
+        <li>
+          <div class="icon-info-wrap"  :class="{active:valuationfocus == true}" @click="showValuation()">
+            <span class="icon-wrap" :class="{success:valuationVal >= 4 , warning:valuationVal == 3 , error:valuationVal < 3 && valuationVal > 0}">
+              <em class="custom-valuation-icn"></em>
+            </span>
+            <div class="info-wrap">
+              <div class="stock-category">
+                <h6>
+                  <span v-show="valuationVal >= 4">Excellent</span>
+                  <span v-show="valuationVal == 3">Attractive</span>
+                  <span v-show="valuationVal < 3 && valuationVal > 0">Negative</span>
+                  <span v-show="valuationVal < 1">NA</span></h6>
+                <h4><strong>Valuation</strong></h4>
+              </div>
+              <div class="progress-info-wrap" v-show="valuationVal > 0" >
+                <div class="progress-bar-wrap">
+                  <div class="progress" style="height: 4px;" :class="{success:valuationVal >= 4 , warning:valuationVal == 3 , error:valuationVal < 3 && valuationVal > 0}">
+                    <div class="progress-bar" role="progressbar"  :style="{width:valuationVal  * 20 + '%'}"  aria-valuemin="0" :aria-valuenow=valuationVal aria-valuemax="100" ></div>
+                  
+                  </div>
+                </div>
+                <div class="progress-info">
+                  <span><strong :class="{success:valuationVal >= 4 , warning:valuationVal == 3 , error:valuationVal < 3 && valuationVal > 0}">{{valuationVal}}</strong>/5</span>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="icon-info-wrap"  :class="{active:financialfocus == true}" @click="showFinancial()">
+            <span class="icon-wrap" :class="{success:financialVal >= 4 , warning:financialVal == 3 , error:financialVal < 3 && financialVal > 0}">
+              <em class="custom-financial-icn"></em>
+            </span>
+            <div class="info-wrap">
+              <div class="stock-category">
+                <h6>
+                  <span v-show="financialVal >= 4">Excellent</span>
+                  <span v-show="financialVal == 3">Attractive</span>
+                  <span v-show="financialVal < 3 && financialVal > 0">Negative</span>
+                  <span v-show="financialVal < 1">NA</span></h6>
+                <h4><strong>Financial</strong></h4>
+              </div>
+              <div class="progress-info-wrap" v-show="financialVal > 0" >
+                <div class="progress-bar-wrap">
+                  <div class="progress" style="height: 4px;" :class="{success:financialVal >= 4 , warning:financialVal == 3 , error:financialVal < 3 && financialVal > 0}">
+                    <div class="progress-bar" role="progressbar"  :style="{width:financialVal  * 20 + '%'}"  aria-valuemin="0" :aria-valuenow=financialVal aria-valuemax="100" ></div>
+                  
+                  </div>
+                </div>
+                <div class="progress-info">
+                  <span><strong :class="{success:financialVal >= 4 , warning:financialVal == 3 , error:financialVal < 3 && financialVal > 0}">{{financialVal}}</strong>/5</span>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="tab-content-wrap" id="quality-content"  :class="{active:qualityfocus == true}">
+        <Fundamentalquality></Fundamentalquality>
+      </div>
+      <div class="tab-content-wrap" id="valuation-content" :class="{active:valuationfocus == true}">
+        <Fundamentalvaluation></Fundamentalvaluation>
+      </div>
+      <div class="tab-content-wrap" id="financial-content" :class="{active:financialfocus == true}">
+        <Fundamentalfinancial></Fundamentalfinancial>
+      </div>
+  </div>
+  </section>
+  
+  
+  <section class="fundamental-ratio m-0">
+    <h3>Fundamental Ratios
+      <em data-toggle="modal" data-target="#fundamental-ratio" class="info16">
+      
+      </em>
+    </h3>
+    <div class="ratio-box">
+      <div class="ratio-item">
+        <label>PE Ratio</label>
+        <h5>1501.52</h5>
+      </div>
+      <div class="ratio-item">
+        <label>Industry PE</label>
+            <h5>1498.53</h5>
+      </div>
+      <div class="ratio-item">
+        <label>D/EBITDA</label>
+            <h5>1558.23</h5>
+      </div>
+      <div class="ratio-item">
+        <label>CFPS</label>
+            <h5>1453.10</h5>
+      </div>
+      <div class="ratio-item">
+        <label>ROE</label>
+            <h5>1477.25</h5>
+      </div>
+      <div class="ratio-item">
+        <label>EPS</label>
+            <h5>1453.10</h5>
+      </div>
+      <div class="ratio-item">
+        <label>PE RATIO</label>
+            <h5>1477.25</h5>
+      </div>
+      <div class="ratio-item">
+        <label>Dividend Yield (%)</label>
+            <h5>1501.52</h5>
+      </div>
+      <div class="ratio-item">
+        <label>EV/EBITDA</label>
+            <h5>1490.89</h5>
+      </div>
+      <div class="ratio-item">
+        <label>Revenue</label>
+              <h5>1498.53</h5>
+      </div>
+    </div>
+
+    <div class="ratio-nav">
+      <ul>
+        <li><em class="icon-marketcap"></em> <strong>Market Cap</strong> <span>₹ 590 B</span></li>
+        <li><em class="icon-sectorreturn"></em> <strong>Sector Return</strong> <span class="positive">4.54%</span></li>
+        <li><em class="icon-marketreturn"></em> <strong>Market Return</strong> <span class="negative">-1.62%</span></li>
+        <li><em class="icon-return"></em> <strong>1 Year Return</strong> <span class="positive">21.91%</span></li>
+      </ul>
+    </div>
+    
+  </section>
+  <div class="chart-hold">
+        <div class="cnt">
+          <div class="d-flex">
+            <h3>Finanacial</h3>
+            <div class="drop-cnt ml-auto">
+              <select class="form-control">
+                <option>ANUUAL</option>
+                <option>QUATER</option>
+                <option>YEARLY</option>
+              </select>
+            </div>
+          </div>
+          <div id="tabsContent" class="tab-content">
+            <div id="chartplstatement" class="tab-pane active">
+              <div class="tabContentWrap">
+                <div class="">
+                  <img src="../../assets/images/financial-chart.jpg" alt="chart" />
+                </div>
+              </div>
+            </div>
+            <div id="chartbalancesheet" class="tab-pane">
+              <div class="tabContentWrap">
+                <div class="">
+                  <img src="../../assets/images/financial-chart.jpg" alt="chart" />
+                </div>
+              </div>
+            </div>
+            <div id="chartcashflow" class="tab-pane">
+              <div class="tabContentWrap">
+                <div class="">
+                  <img src="../../assets/images/financial-chart.jpg" alt="chart" />
+                </div>
+              </div>
+            </div>
+           
+          </div>
+
+          <ul class="nav nav-tabs " id="tab-links">
+            <li class="nav-item"><a href="" data-target="#chartplstatement" data-toggle="tab"
+                class="nav-link small active">P/L Statment</a></li>
+            <li class="nav-item"><a href="" data-target="#chartbalancesheet" data-toggle="tab" class="nav-link small">Balance Sheet</a></li>
+            <li class="nav-item"><a href="" data-target="#chartcashflow" data-toggle="tab" class="nav-link small">Cash Flow</a></li>
+          </ul>
+          
+        </div>
+        <div class="cnt">
+          <h3>Shareholding Patterns</h3>
+          <div class="chart-block">
+            <ul class="legends">
+              <li class="legends1">
+                Dec 2019
+              </li>
+              <li class="legends2">
+                Aug 2019
+              </li>
+            </ul>
+
+            <ul class="shareholding-cnt">
+              <li>
+                <div class="titletxt">Promoters</div>
+                <div class="progress-hold">
+
+                  <div class="d-flex align-items-center mb-1">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress top" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:54.78%" aria-valuemin="0" aria-valuenow="54.78%" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">99.99%</strong>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress mid" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:60.18%" aria-valuemin="0" aria-valuenow="60.18" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">60.18%</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="status">
+                  <span class="share-value negative">-4.91%</span>
+                </div>
+              </li>
+
+              <li>
+                <div class="titletxt">Other DIIs</div>
+                <div class="progress-hold">
+
+                  <div class="d-flex align-items-center mb-1">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress top" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:54.78%" aria-valuemin="0" aria-valuenow="54.78%" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">99.99%</strong>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress mid" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:60.18%" aria-valuemin="0" aria-valuenow="60.18" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">60.18%</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="status">
+                  <span class="share-value positive">+1.17%</span>
+                </div>
+              </li>
+              <li>
+                <div class="titletxt">Non-Institution</div>
+                <div class="progress-hold">
+
+                  <div class="d-flex align-items-center mb-1">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress top" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:54.78%" aria-valuemin="0" aria-valuenow="54.78%" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">99.99%</strong>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress mid" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:60.18%" aria-valuemin="0" aria-valuenow="60.18" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">60.18%</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="status">
+                  <span class="share-value negative">-4.91%</span>
+                </div>
+              </li>
+              <li>
+                <div class="titletxt">Mutual Funds</div>
+                <div class="progress-hold">
+
+                  <div class="d-flex align-items-center mb-1">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress top" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:54.78%" aria-valuemin="0" aria-valuenow="54.78%" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">99.99%</strong>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress mid" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:60.18%" aria-valuemin="0" aria-valuenow="60.18" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">60.18%</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="status">
+                  <span class="share-value disabled">NA</span>
+                </div>
+              </li>
+              <li>
+                <div class="titletxt">Insurance Co.</div>
+                <div class="progress-hold">
+
+                  <div class="d-flex align-items-center mb-1">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress top" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:54.78%" aria-valuemin="0" aria-valuenow="54.78%" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">99.99%</strong>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center">
+                    <div class="progress-cnt">
+                      
+                      <div class="progress mid" style="height: 8px;">
+                        <div class="progress-bar " role="progressbar"  style="width:60.18%" aria-valuemin="0" aria-valuenow="60.18" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="valuetxt">
+                      <strong class="top">60.18%</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="status">
+                  <span class="share-value positive">+1.17%</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  <section class="financials-statements">
+      <h3>Financials Statements</h3>
+      <!-- <div class="threeblock">
+        <div class="btn-group">
+          <a href="#" class="active">Income Statment asdf</a>
+          <a href="#">Balance Sheet</a>
+          <a href="#">Cash Flow</a>
+        </div>
+        <div class="notetxt">
+          <strong>Note:</strong>Consolidated Figures in ₹ Crores 
+        </div>
+        <div class="drop-cnt">
+          <select class="form-control">
+            <option>Anuual</option>
+            <option>Quater</option>
+            <option>Yearly</option>
+          </select>
+        </div>
+      </div> -->
+      <div class="tab-wrap">
+        <div class="threeblock">
+          <ul class="nav nav-tabs " id="tab-links">
+            <li class="nav-item"><a href="" data-target="#incomestatement" data-toggle="tab"
+                class="nav-link small active">Income Statements</a></li>
+            <li class="nav-item"><a href="" data-target="#balancesheet" data-toggle="tab" class="nav-link small">Balance Sheet</a></li>
+            <li class="nav-item"><a href="" data-target="#cashflow" data-toggle="tab" class="nav-link small">Cash Flow</a></li>
+          </ul>
+          <div class="notetxt">
+            <strong>Note:</strong>Consolidated Figures in ₹ Crores 
+          </div>
+          <div class="drop-cnt">
+            <select class="form-control">
+              <option>ANUUAL</option>
+              <option>QUATER</option>
+              <option>YEARLY</option>
+            </select>
+          </div>
+        </div>
+        <div id="tabsContent" class="tab-content">
+          <div id="incomestatement" class="tab-pane active">
+            <div class="tabContentWrap">
+              <div class="table-cnt">
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th colspan="2">STATEMENT</th>
+                      <th>FY 2017</th>
+                      <th>FY 2018</th>
+                      <th>FY 2019</th>
+                      <th>FY 2020</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-toggle="collapse" data-target="#sales" class="accordion-toggle">
+                      <td>
+                        <span class="expand"></span>
+                      </td>
+                      <td>Sales</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                    </tr>
+                    <tr>
+                      <td colspan="12" class="hiddenRow">
+                        <div class="accordian-body collapse" id="sales"> 
+                          
+                          <table class="table innertable">
+                            <tr>
+                              <td>Sales Growth %</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                            </tr>
+                          </table>
+                        
+                        </div> 
+                      </td>
+                    </tr>
+                    <tr data-toggle="collapse" data-target="#expenses" class="accordion-toggle">
+                      <td>
+                        <span class="expand"></span>
+                      </td>
+                      <td>Expenses</td>
+                      <td>230,845</td>
+                      <td>230,845</td>
+                      <td>230,845</td>
+                      <td>230,845</td>
+                    </tr>
+                    <tr>
+                      <td colspan="12" class="hiddenRow">
+                        <div class="accordian-body collapse" id="expenses"> 
+                          
+                          <table class="table innertable">
+                            <tr>
+                              <td>Material Cost %</td>
+                              <td>69.27%</td>
+                              <td>69.27%</td>
+                              <td>69.27%</td>
+                              <td>69.27%</td>
+                            </tr>
+                            <tr>
+                              <td>Manufacturing Cost %</td>
+                              <td>6.98%</td>
+                              <td>6.98%</td>
+                              <td>6.98%</td>
+                              <td>6.98%</td>
+                            </tr>
+                            <tr>
+                              <td>Employee Cost %</td>
+                              <td>2.72%</td>
+                              <td>2.72%</td>
+                              <td>2.72%</td>
+                              <td>2.72%</td>
+                            </tr>
+                            <tr>
+                              <td>Other Cost %</td>
+                              <td>5.73%</td>
+                              <td>5.73%</td>
+                              <td>5.73%</td>
+                              <td>5.73%</td>
+                            </tr>
+                          </table>
+                        
+                        </div> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Operating Profit</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>OPM %</td>
+                      <td>15%</td>
+                      <td>15%</td>
+                      <td>15%</td>
+                      <td>15%</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Other income</td>
+                      <td>12,255</td>
+                      <td>12,255</td>
+                      <td>12,255</td>
+                      <td>12,255</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Interest</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Depreciation</td>
+                      <td>11,565</td>
+                      <td>11,565</td>
+                      <td>11,565</td>
+                      <td>11,565</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Profit before tax</td>
+                      <td>38,737</td>
+                      <td>38,737</td>
+                      <td>38,737</td>
+                      <td>38,737</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Tax %</td>
+                      <td>23%</td>
+                      <td>23%</td>
+                      <td>23%</td>
+                      <td>23%</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Net Profit</td>
+                      <td>23,566</td>
+                      <td>23,566</td>
+                      <td>23,566</td>
+                      <td>23,566</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>EPS in Rs</td>
+                      <td>42.56</td>
+                      <td>42.56</td>
+                      <td>42.56</td>
+                      <td>42.56</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Dividend Payout %</td>
+                      <td>12%</td>
+                      <td>12%</td>
+                      <td>12%</td>
+                      <td>12%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div id="balancesheet" class="tab-pane">
+            <div class="tabContentWrap">
+              <div class="table-cnt">
+                <!-- <div class="nodata-cnt">
+                  <img src="../../assets/images/nodata.png" alt="no data avaliable" />
+                  <p>No Data is available</p>
+                </div> -->
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th colspan="2">PARTICULARS</th>
+                      <th>MAR 2015</th>
+                      <th>MAR 2016</th>
+                      <th>MAR 2017</th>
+                      <th>MAR 2018</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-toggle="collapse" data-target="#shares" class="accordion-toggle">
+                      <td>
+                        <span class="expand"></span>
+                      </td>
+                      <td>Share Capital</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                    </tr>
+                    <tr>
+                      <td colspan="12" class="hiddenRow">
+                        <div class="accordian-body collapse" id="shares"> 
+                          
+                          <table class="table innertable">
+                            <tr>
+                              <td>Share Capital 1</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                            </tr>
+                            <tr>
+                              <td>Share Capital 2</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                            </tr>
+                            <tr>
+                              <td>Share Capital 3</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                            </tr>
+                            <tr>
+                              <td>Share Capital 4</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                              <td>9,272,583</td>
+                            </tr>
+                          </table>
+                        
+                        </div> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Reserves</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Borrowings</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Other Liabilities </td>
+                      <td>15%</td>
+                      <td>15%</td>
+                      <td>15%</td>
+                      <td>15%</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Total Liabilities</td>
+                      <td>12,255</td>
+                      <td>12,255</td>
+                      <td>12,255</td>
+                      <td>12,255</td>
+                    </tr>
+                    
+                    <tr data-toggle="collapse" data-target="#assets" class="accordion-toggle">
+                      <td>
+                        <span class="expand"></span>
+                      </td>
+                      <td>Fixed Assets</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                      <td>3,691</td>
+                    </tr>
+                    <tr>
+                      <td colspan="12" class="hiddenRow">
+                        <div class="accordian-body collapse" id="assets"> 
+                          
+                          <table class="table innertable">
+                            <tr>
+                              <td>Assets 1</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                            </tr>
+                            <tr>
+                              <td>Assets 2</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                            </tr>
+                            <tr>
+                              <td>Assets 3</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                            </tr>
+                            <tr>
+                              <td>Assets 4</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                              <td>5,620</td>
+                            </tr>
+                          </table>
+                        
+                        </div> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>CWIP</td>
+                      <td>11,565</td>
+                      <td>11,565</td>
+                      <td>11,565</td>
+                      <td>11,565</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Investments</td>
+                      <td>38,737</td>
+                      <td>38,737</td>
+                      <td>38,737</td>
+                      <td>38,737</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Other Assets</td>
+                      <td>23%</td>
+                      <td>23%</td>
+                      <td>23%</td>
+                      <td>23%</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Total Assets</td>
+                      <td>23,566</td>
+                      <td>23,566</td>
+                      <td>23,566</td>
+                      <td>23,566</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>EPS in Rs</td>
+                      <td>42.56</td>
+                      <td>42.56</td>
+                      <td>42.56</td>
+                      <td>42.56</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Dividend Payout %</td>
+                      <td>12%</td>
+                      <td>12%</td>
+                      <td>12%</td>
+                      <td>12%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div id="cashflow" class="tab-pane">
+            <div class="tabContentWrap">
+              
+              <div class="table-cnt">
+                <!-- <table class="table ">
+                  <thead>
+                    <tr>
+                      <th colspan="2">PARTICULARS</th>
+                      <th>MAR 2015</th>
+                      <th>MAR 2016</th>
+                      <th>MAR 2017</th>
+                      <th>MAR 2018</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    <tr>
+                      <td></td>
+                      <td>Cash from Operating Activity</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Cash from Investing Activity</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                      <td>9,272,583</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Cash from Investing Activity</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                      <td>41,738</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Net Cash Flow </td>
+                      <td>15%</td>
+                      <td>15%</td>
+                      <td>15%</td>
+                      <td>15%</td>
+                    </tr>
+                    
+                  </tbody>
+                </table> -->
+
+                <div class="nodata-cnt">
+                  <img src="../../assets/images/nodata.png" alt="no data avaliable" />
+                  <p>No Data is available</p>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+
+      
+  </section>
+
+  
+  <!-- <div class="nodata-cnt">
+    <div class="text-center">
+      <figure class="">
+          <img src="../../assets/images/no-open-issue.svg" alt="" />
+          <figcaption>
+            Fundamental analysis is not available for this stock
+          </figcaption>
+        </figure>
+    </div>
+  </div> -->
+</div>    

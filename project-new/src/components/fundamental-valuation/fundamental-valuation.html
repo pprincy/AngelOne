@@ -1,0 +1,56 @@
+
+<section class="fundamental-valuation" :class="{withErr:errorState == true}">
+ <div class="chart-sec" v-show="errorState == false">
+  <div class="chart" v-show="noScoreChart != true">
+    <img src="../../assets/images/speedometer.png" alt="">
+  </div>
+  <div class="chart without-score" v-show="noScoreChart == true">
+    <img src="../../assets/images/speedometer-without-score.png" alt="">
+  </div>
+ </div>
+ <div class="info-sec" v-show="errorState == false">
+    <div class="legend-info-sec" v-if="noScoreChart != true">
+      <ul>
+        <li >
+          <div class="attractive">
+            <label>Attractive</label>
+            <span class="price">Below&nbsp;<em>₹ </em>1350</span>
+          </div>
+        </li>
+        <li >
+          <div class="expensive">
+            <label>Expensive</label>
+            <span class="price"><em>₹ </em>1351&nbsp;-&nbsp;<em>₹ </em>1465 </span>
+          </div>
+        </li>
+        <li >
+          <div class="overPriced">
+            <label>Over - Priced</label>
+            <span class="price">Above&nbsp;<em>₹ </em>1465</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="val-info-sec">
+      <ul>
+        <li>
+          <label>Price Change</label>
+          <strong class="txtNegative">-24.98%</strong>
+          <!-- <strong >NA</strong> -->
+        </li>
+        <li>
+          <label>Earnings</label>
+          <strong class="txtPositive">+12.45%</strong>
+          <!-- <strong >NA</strong> -->
+        </li>
+      </ul>
+      <div class="note"><strong>Note </strong>% changes are for the period of 1 year.</div>
+    </div>
+    
+ </div>
+
+ <div class="error-state" v-show="errorState == true">
+   <p><em class="custom-error-icn"></em>Reliance Communi has negative Operating Profits (EBITDA)</p>
+ </div>
+</section>
+

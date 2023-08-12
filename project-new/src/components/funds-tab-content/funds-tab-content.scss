@@ -1,0 +1,802 @@
+@import '../../assets/scss/styles';
+
+
+.fundsTopSec {
+    .fundsTopLeftSec {
+        padding-right: 35px;
+
+        @include minidesktop {
+            padding-right: 15px;
+        }
+
+        .grey-box {
+            background: $grey-bg;
+            border-radius: 4px;
+            border: 1px solid $border-type3;
+            padding: 1.2rem 2rem;
+            @include flex(center, center);
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            height: 100%;
+
+            @include minidesktop {
+                padding: 2rem 1.25rem;
+            }
+
+            @include tablet {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .ttl-sec {
+                padding-bottom: 1.75rem;
+
+                h4 {
+                    color: $grey-med;
+                    margin-top: -1.5px;
+
+                    @include tablet {
+                        font-size: $font-14;
+                        font-family: $font-base-med;
+                        margin-bottom: 6px;
+                    }
+                }
+
+                .price {
+                    @include flex(center, center);
+                    color: $base-text;
+                    font-size: 2.250rem;
+                    font-family: $font-base-semibold;
+                    line-height: 2.688rem;
+
+                    @include tablet {
+                        line-height: 0;
+                    }
+
+                    i, em {
+                        font-family: $font-pingFangSC-medium;
+                        font-style: normal;
+                        font-size: 1.625rem;
+                        font-weight: 700;
+                        margin-right: 0.2rem;
+
+                        @include tablet {
+                            font-size: $font-14;
+                        }
+                    }
+
+                    .amt {
+                        font-family: $font-base-semibold;
+
+                        @include tablet {
+                            font-size: $font-24;
+                        }
+                    }
+                }
+            }
+
+            .btn-wrap {
+                @include flex(space-between, center);
+                padding-bottom: 1.250rem;
+                width: 100%;
+
+                .btn {
+                    width: calc(50% - 0.725rem);
+                    padding: 0.9rem 1rem 0.938rem;
+
+                    @include tablet {
+                        height: 3rem;
+                        width: 9.25rem;
+                    }
+
+                    @include xmobile {
+                        height: 3rem;
+                        width: 7.25rem;
+                    }
+
+                    &.btn-outline-secondary {
+                        border-color: $datatable-input;
+                        color: $grey-med;
+                    }
+                }
+            }
+
+            .payable-amt {
+                background: $white;
+                padding: 1.250rem;
+                border-radius: 4px;
+                box-shadow: 0 8px 12px 0 rgba(231, 233, 243, 0.58);
+                border: solid 1px $border-type3;
+
+                @include tablet {
+                    width: 100%;
+                    padding: 1.25rem 1rem;
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0px;
+                    padding: 0px;
+
+                    li {
+                        @include flex(space-between, center);
+                        font-size: 0.875rem;
+                        line-height: 1.063rem;
+                        padding-bottom: 0.938rem;
+                        color: $grey-med;
+
+                        >div {
+                            padding: 0 0.625rem;
+
+                            &:first-child {
+                                padding-left: 0px;
+                            }
+
+                            &:last-child {
+                                padding-right: 0px;
+                            }
+
+                            strong {
+                                font-family: $font-base-med;
+                            }
+
+                        }
+
+                        &:last-child {
+                            padding-bottom: 0px;
+                        }
+
+                        strong {
+                            font-family: $font-base-med;
+                            font-weight: normal;
+                        }
+
+                        .price {
+                            font-size: 1rem;
+                            line-height: 1.063rem;
+                            @include flex(flex-end, center);
+
+                            i, em {
+                                font-style: normal;
+                                font-weight: 500;
+                                font-family: $font-pingFangSC-medium;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .fundsTopRightSec {
+        padding-left: 6px;
+
+        @include tablet {
+            margin-top: 1.5rem;
+            padding: 0 0.75rem;
+        }
+
+        .accWrap {
+            .card {
+                .card-header {
+                    @include flex(space-between, center);
+
+                    @include tablet {
+                        padding: 1.25rem 1rem;
+                    }
+
+                    &#headinTwo {
+                        @include tablet {
+                            padding: 1.438rem 1rem 1.25rem 1rem !important;
+                        }
+                    }
+
+                    .btn {
+                        @include tablet {
+                            font-size: $font-16;
+                            font-family: $font-base-reg;
+                        }
+                    }
+
+                    .arrow {
+                        @include tablet {
+                            font-size: 1rem;
+                            position: absolute;
+                            right: 0px;
+                            top: 0.16rem;
+
+                            i, em {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .price {
+                        line-height: 1.188rem;
+                        color: $base-text;
+                        @include flex(flex-end, center);
+
+                        @include tablet {
+                            font-size: $font-16;
+                            font-family: $font-base-med;
+                        }
+
+                        i , em{
+                            font-style: normal;
+                            font-weight: 500;
+                            font-family: $font-pingFangSC-medium;
+                            margin-right: 0.05rem;
+                            position: relative;
+                        }
+                    }
+                }
+
+                .card-body {
+                    ul {
+                        list-style: none;
+                        margin: 0px;
+                        padding: 0px;
+
+                        li {
+                            @include flex(space-between, center);
+                            font-size: 1rem;
+                            line-height: 1.188rem;
+                            padding-bottom: 0.625rem;
+                            color: $grey-med;
+
+                            >div {
+                                padding: 0 0.625rem;
+
+                                &:first-child {
+                                    padding-left: 0px;
+                                }
+
+                                &:last-child {
+                                    padding-right: 0px;
+                                }
+
+                                strong {
+                                    font-family: $font-base-med;
+                                }
+
+                            }
+
+                            &:last-child {
+                                padding-bottom: 0px;
+                            }
+
+                            strong {
+                                font-family: $font-base-med;
+                                font-weight: normal;
+                            }
+
+                            .name-sec {
+                                @include tablet {
+                                    font-size: $font-14;
+                                    font-family: $font-base-reg;
+                                }
+                            }
+
+                            .price {
+                                line-height: 1.188rem;
+                                color: $base-text;
+                                @include flex(flex-end, center);
+
+                                @include tablet {
+                                    font-size: $font-14;
+                                }
+
+                                i , em{
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    font-family: $font-pingFangSC-medium;
+
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.fundsBtmSec {
+    margin: 0 -1.5rem;
+
+    .tab-wrap {
+        .nav-tabs {
+            padding: 0 1.250rem;
+        }
+
+        .table.theme1 {
+            tbody {
+                tr {
+                    &.main-tr {
+                        td {
+                            &:first-child {
+                                padding-left: 0px;
+                            }
+
+                            &:last-child {
+                                padding-right: 0px;
+                            }
+                        }
+                    }
+
+                    td {
+                        font-family: $font-base-med;
+                        color: $base-text;
+
+                        .accInfo {
+                            @include flex(flex-start, center);
+
+                            figure {
+                                margin: 0 1rem 0 0;
+                                min-width: 40px;
+                                text-align: center;
+                            }
+
+                            .accNo {
+                                font-size: 1rem;
+                                font-family: $font-base-med;
+                                @include flex(flex-start, center);
+                                color: $base-text;
+
+                                em {
+                                    width: 5px;
+                                    height: 5px;
+                                    background: $grey-med;
+                                    border-radius: 50%;
+                                    display: inline-block;
+                                    margin-right: 3px;
+                                }
+                            }
+                        }
+
+                        &.bankCol {
+                            .bankName {
+                                font-size: 1rem;
+                                font-family: $font-base-med;
+                                color: $base-text;
+                            }
+                        }
+
+                        &.amtCol {
+
+                            .price {
+                                font-size: 1rem;
+                                @include flex(flex-start, center);
+                                font-family: $font-base-med;
+                                color: $base-text;
+
+                                i , em{
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    font-family: $font-pingFangSC-medium;
+
+
+
+                                }
+                            }
+                        }
+
+                        &.dateTimeCol {
+                            ul {
+                                list-style: none;
+                                margin: 0px;
+                                padding: 0px;
+
+                                li {
+                                    display: inline-block;
+                                    padding-right: 0.9em;
+                                    position: relative;
+                                    color: $base-text;
+
+                                    &::after {
+                                        content: "";
+                                        display: block;
+                                        width: 4px;
+                                        height: 4px;
+                                        background: #a4a5a8;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        right: 4px;
+                                        top: 9px;
+                                    }
+
+                                    &:last-child {
+                                        padding-right: 0px;
+
+                                        &:after {
+                                            display: none;
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                        &.statusCol {
+
+                            &.text-right {
+                                .status {
+                                    @include flex(flex-end, center);
+                                    @include wrap(nowrap);
+                                }
+                            }
+
+                            .status {
+                                @include flex(flex-end, center);
+                                @include wrap(nowrap);
+
+                                i, em {
+                                    font-family: $font-icomoon !important;
+                                    font-style: normal;
+                                    margin-right: 0.2rem;
+                                    font-size: 0.750rem;
+
+                                    &.failed {
+                                        &:before {
+                                            content: "\e91f";
+
+                                        }
+                                    }
+
+                                    &.success {
+                                        &:before {
+                                            content: "\e920";
+                                        }
+                                    }
+
+                                    &.pending {
+                                        &:before {
+                                            content: "\e921";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .accCol {
+                width: 21%;
+            }
+
+            .bankCol {
+                width: 23%;
+            }
+
+            .dateTimeCol {
+                width: 22%;
+            }
+
+            .amtCol {
+                width: 18%;
+            }
+
+            .statusCol {
+                width: 16%;
+            }
+
+            &.flexTable {}
+        }
+
+        #WithdrawFundsDetail {
+            tbody {
+                tr {
+                    td {
+                        font-family: $font-base-med;
+
+                        &.full-width-col {
+                            width: 100%;
+                        }
+
+                        &.statusCol {
+
+                            position: relative;
+                            padding-right: 2.5rem;
+
+                            .arrow {
+                                position: absolute;
+                                right: 0rem;
+                                top: 50%;
+                                margin-top: -$font-12;
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                cursor: pointer;
+                                transform: rotate(180deg);
+                                background: url(../../assets/images/dropdown-arrow-thin.svg) center center no-repeat;
+
+                                &.collapsed {
+                                    transform: none;
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    &.hovered-tr {
+                        .full-width-col {
+                            &.collapse {
+                                display: block;
+                                height: 0px;
+                                overflow: hidden;
+
+                                &.show {
+                                    height: auto;
+                                }
+                            }
+                        }
+
+                        td {
+                            &:after {
+                                right: 1.25rem;
+                                width: calc(100% - 2.5rem);
+                            }
+
+                            padding-top: 0px;
+                            padding-bottom: 0px;
+
+                            .request-wrap {
+                                padding: 1.5rem 1.25rem 0;
+                                background: $hoveredTdBg;
+                                border: 1px solid $border-type3;
+                                margin-bottom: 1.25rem;
+
+                                .top-sec {
+                                    padding: 0 0 1.5rem;
+
+                                    label {
+                                        margin: 0 0.875rem 0 0;
+                                        font-size: 0.875rem;
+                                        color: $base-text;
+                                        font-family: $font-base-reg;
+                                        line-height: 1.063rem;
+                                    }
+
+                                    strong {
+                                        line-height: 1.063rem;
+                                        color: $base-text;
+                                        font-size: 1rem;
+                                        font-family: $font-base-med;
+                                        font-weight: normal;
+                                    }
+
+                                    .txt-link {
+                                        font-size: 0.875rem;
+                                        font-family: $font-base-semibold;
+                                        text-transform: uppercase;
+                                    }
+                                }
+
+                                .btm-sec-wrap {
+                                    margin: 0 -1.25rem;
+                                }
+
+                                .btm-sec {
+                                    width: calc(100% + 0.16px);
+
+                                    .boxwrap {
+                                        padding: 0 1.25rem 1.5rem;
+                                    }
+
+                                    .whiteBox {
+                                        min-width: 17.625rem;
+                                        margin-right: 8px;
+                                        @include flex(space-between, center);
+
+                                        label {
+                                            margin: 0px;
+                                            padding-right: 1rem;
+                                            font-size: 0.875rem;
+                                            color: $grey-med;
+                                            font-family: $font-base-reg;
+                                            line-height: 1.063rem;
+                                            @include inlineFlex(flex-start, center);
+
+                                            .custom-check {
+                                                margin-top: -2px;
+                                                margin-right: 0.750rem;
+
+                                            }
+
+                                            strong {
+                                                color: $base-text;
+                                                font-family: $font-base-med;
+                                                font-weight: normal;
+                                                margin-left: 4px;
+                                            }
+                                        }
+
+                                        .price {
+                                            font-size: 1rem;
+                                            line-height: 1.063rem;
+                                            @include flex(flex-end, center);
+                                            color: $base-text;
+
+                                            i, em {
+                                                font-style: normal;
+                                                font-weight: 500;
+                                                font-family: $font-pingFangSC-medium;
+                                            }
+                                        }
+
+                                        &:last-child {
+                                            margin-right: 0px;
+                                        }
+                                    }
+
+                                    .boxCheckbox {
+                                        min-width: 17.625rem;
+                                        margin-right: 8px;
+
+                                        .date {
+                                            margin: 0px;
+                                            padding-right: 1rem;
+                                            font-size: 0.875rem;
+                                            color: $grey-med;
+                                            font-family: $font-base-reg;
+                                            line-height: 1.063rem;
+                                            @include inlineFlex(flex-start, center);
+
+                                            strong {
+                                                color: $base-text;
+                                                font-family: $font-base-med;
+                                                font-weight: normal;
+                                                margin-left: 4px;
+                                            }
+                                        }
+
+                                        .price {
+                                            font-size: 1rem;
+                                            line-height: 1.063rem;
+                                            @include flex(flex-end, center);
+                                            color: $base-text;
+
+                                            i , em{
+                                                font-style: normal;
+                                                font-weight: 500;
+                                                font-family: $font-pingFangSC-medium;
+                                            }
+                                        }
+
+                                    }
+                                }
+
+                                .cancel-request-sec {
+                                    padding: 1.5rem;
+                                    background: $white;
+                                    border-radius: 0.5rem;
+                                    box-shadow: 0 8px 12px 0 rgba(231, 233, 243, 0.58);
+                                    border: solid 1px $border-type3;
+                                    margin-bottom: 1.5rem;
+
+                                    h4 {
+                                        margin-bottom: 0.750rem;
+                                    }
+
+                                    p {
+                                        color: $grey-med;
+                                    }
+
+                                    .btn-wrap {
+                                        .btn {
+                                            font-family: $font-base-semibold;
+                                            padding: 0.58rem 1rem 0.5rem;
+                                            margin-right: 0.5rem;
+
+                                            &.btn-outline-secondary {
+                                                color: $highlighted;
+                                            }
+
+                                            &:last-child {
+                                                margin-right: 0px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.main-tr {
+                        &.collapsed {
+                            td.statusCol {
+                                .arrow {
+                                    transform: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+
+            .statusCol {
+                text-align: right !important;
+                padding-right: 2.5rem;
+            }
+        }
+
+        .noHistory {
+            text-align: center;
+            padding: 5.313rem 1.25rem;
+
+            img {
+                display: block;
+                margin: 0 auto 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.188rem;
+                color: $base-text;
+            }
+        }
+    }
+
+    @include laptop {
+        margin: 0 -1rem;
+    }
+
+}
+
+.stickyTabWrap.stickElements {
+    .tab-wrap {
+        .nav-tabs {
+            background: $white;
+            z-index: 9;
+            position: fixed;
+            top: 4rem;
+            width: calc(100% - 27.938rem);
+        }
+    }
+
+    .tab-wrap.innerTab .nav-tabs {
+        top: 7.625rem;
+    }
+
+    table.stickyonScroll>thead {
+        background: $white;
+        z-index: 9;
+        position: fixed;
+        top: 11.7rem;
+        width: calc(100% - 27.938rem);
+    }
+
+    .innerTab {
+        .table-wrap {
+            padding-top: 6.5rem;
+        }
+    }
+}
+
+
+
+.table {
+    &.mainTable {
+        tbody {
+            tr {
+                cursor: pointer;
+
+                &:hover {
+                    background: $tbl-hoverd-bg;
+                }
+
+                &.main-tr {
+                    padding: 0 1.25rem;
+                    margin: 0 -1.25rem;
+                    width: calc(100% + 2.5rem);
+                }
+            }
+        }
+    }
+}

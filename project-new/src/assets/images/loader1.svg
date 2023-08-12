@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g fill="none" fill-rule="evenodd">
+        <g fill="#3F5BD9" fill-rule="nonzero">
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <g transform="translate(-571 -562) translate(247 452) translate(40) translate(0 29) translate(17 81) translate(267)">
+                                <ellipse cx="10.609" cy="2.283" rx="2.371" ry="2.283"/>
+                                <ellipse cx="10.609" cy="18.149" rx="1.422" ry="1.37"/>
+                                <ellipse cx="4.784" cy="4.606" rx="2.134" ry="2.055"/>
+                                <ellipse cx="16.435" cy="15.824" rx="1.185" ry="1.141"/>
+                                <ellipse cx="2.371" cy="10.216" rx="1.896" ry="1.826"/>
+                                <circle cx="18.847" cy="10.216" r="1"/>
+                                <path d="M3.61 14.696c-.648.625-.648 1.635 0 2.26.648.624 1.7.624 2.347 0 .648-.625.648-1.635 0-2.26-.648-.625-1.698-.63-2.346 0z"/>
+                                <circle cx="16.434" cy="4.606" r="1"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

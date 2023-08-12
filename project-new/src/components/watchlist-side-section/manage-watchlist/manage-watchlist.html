@@ -1,0 +1,63 @@
+
+<section class="edit-watchlist">
+  <div class="edit-watchlist-header">
+    <a href="#" class="back-btn" @click="backFunc()"><em class="icon-back"></em></a>
+    <div class="form-group">
+      <div class="d-flex">
+          <div class="input-sec">
+            <input type="text" class="form-control" :disabled="!emailEnabled" :value="watchlistName+ watchlistId" >
+          </div>
+          <div class="btn-sec">
+            <!-- <a href="#" class="btn-edit btn-pencil" v-show="!emailEnabled" @click="rename($event)"><em class="icon-edit"></em></a> -->
+            <a href="#" class="btn-edit btn-pencil" v-show="!emailEnabled" @click="rename($event)">RENAME</a>
+            
+            <div class="btn-wrap" v-show="emailEnabled">
+              <a href="#" class="btn-close " @click="cancel()"><em class="icon-close"></em></a>
+              <a href="#" class="btn-save " @click="save()"><em class="icon-check"></em></a>
+            </div>
+          </div>
+      </div>
+
+  </div>
+  </div>
+  <div class="edit-watchlist-content">
+      <div class="select-all-check">
+        <div class="checkbox_option">
+          <input type="checkbox"  id="all" v-model="selectAll">
+          <label for="all">Select all stocks</label>
+        </div>
+        
+      </div>
+      <div class="select-check-list">
+        <draggable
+        tag="ul"
+        :list="checkList"
+        class="check-list"
+        handle=".stock-handle"
+        item-key="name"
+      >
+        <template #item="{ element, index }">
+          <li>
+            <div class="checkbox_option comp-info-sec">
+              <input type="checkbox" :id="element.name" v-model="selected" @click="select" :value="element.id" >
+              <label :for="element.name">
+                <h5 class="scrip_name">{{element.name}}</h5>
+                <h6 class="comp_name">{{element.compName}}</h6>
+              </label>
+            </div>
+            <em class="drag-handle stock-handle" ></em>
+            
+          </li>
+        </template>
+      </draggable>
+         
+      </div>
+  </div>
+  <div class="edit-watchlist-footer"  v-show="selected.length > 0"  >
+    <div class="d-flex justify-content-between align-items-center">
+      <h5>Selected Stock<span class="badge">{{selected.length}}</span></h5>
+      <a href="#" class="btn btn-primary">DELETE</a>
+    </div>
+  </div>
+</section>
+

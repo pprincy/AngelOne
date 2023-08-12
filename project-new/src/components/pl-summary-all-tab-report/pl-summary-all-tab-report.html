@@ -1,0 +1,37 @@
+<!-- <section>
+    <div class="d-flex pl-tab">
+        <label v-for="(item, index) in tabs" :key="item.key" @click="submit(item.clickName, index)"
+            :class="[ item.className, { 'active': mainTab == index }]">{{ item.name }}</label>
+    </div>
+</section> -->
+<div class="mb-5 allTblWrap">
+    <!-- P&L Summary Equity Report Start -->
+    <div id="pl_summary_equity_report " v-if="pl_summary_equity_report" class="allTbl">
+        <PLSummaryEquityReport></PLSummaryEquityReport>
+    </div>
+    <!-- P&L Summary Equity Report End -->
+
+    <!-- P&L Summary FO Report Start -->
+    <div id="pl_summary_fo_report " v-if="pl_summary_fo_report" class="allTbl">
+        <PLSummaryFOReport></PLSummaryFOReport>
+    </div>
+    <!-- P&L Summary FO Report End -->
+
+    <!-- P&L Summary Currency Report Start -->
+    <div id="pl_summary_currency_report " v-if="pl_summary_currency_report" class="allTbl">
+        <PLSummaryCurrencyReport></PLSummaryCurrencyReport>
+    </div>
+    <!-- P&L Summary Currency Report End -->
+
+    <!-- P&L Summary Commodity Report Start -->
+    <div id="pl_summary_commodity_report " v-if="pl_summary_commodity_report" class="allTbl">
+        <PLSummaryCommodityReport></PLSummaryCommodityReport>
+    </div>
+    <!-- P&L Summary Commodity Report End -->
+
+    <!-- P&L Summary Mf Report Start -->
+    <div id="pl_summary_mf_report " v-if="pl_summary_mf_report" class="allTbl">
+        <PLSummaryMfReport></PLSummaryMfReport>
+    </div>
+    <!-- P&L Summary Mf Report End -->
+</div>

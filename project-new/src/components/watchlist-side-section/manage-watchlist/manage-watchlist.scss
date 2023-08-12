@@ -1,0 +1,135 @@
+// @import '../../../assets/scss/styles';
+// .edit-watchlist{
+//     position: relative;
+//     height: calc(100vh - 4rem);
+//     @include laptop{
+//         height: calc(100vh - 7.9rem);
+//     }
+//     .edit-watchlist-header{
+//         position: relative;
+//         padding:0.9rem 1.500rem 0.9rem 3.500rem;
+//         border-bottom: 1px solid $light-border-color;
+//         .back-btn{
+//             position: absolute;
+//             left: 1.5rem;
+//             top: 50%;
+//             transform: translateY(-50%);
+//             width: 1.500rem;
+//             height: 1.500rem;
+//             font-size: 1.500rem;
+//             color:$dark-grey1;
+//             i,em{
+//                 display: block;
+//             }
+//         }
+//         .form-group{
+//             margin: 0px;
+//             .d-flex{
+//                 .input-sec{
+//                     width: calc(100% - 5.5rem);
+//                     .form-control{
+//                         background: $light-grey;
+//                         border-radius: 0px;
+//                         border-color: $light-grey;
+//                         font-size:0.938rem;
+//                         font-family: $font-base-semibold;
+//                         color: $base-text;
+//                         &:disabled{
+//                             background-color: transparent;
+//                             border-color: transparent;
+//                         }
+//                     }
+//                 }
+//                 .btn-sec{
+//                     width: 5.5rem;
+//                     text-align: right;
+//                     .btn-edit{
+//                         width: 1.500rem;
+//                         height: 1.500rem;
+//                         font-size: 1.500rem;
+//                         color: $base-text;
+//                     }
+//                     .btn-wrap {
+//                         margin-top: 0.1rem;
+//                         a{
+//                             width: 1.500rem;
+//                             height: 1.500rem;
+//                             font-size: 1.500rem;
+//                             color: $base-text;
+//                             &.btn-save{
+//                                 color: $highlighted;
+//                             }
+//                             +a{
+//                                 margin-left: 1rem;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     .edit-watchlist-content{
+//         .select-all-check{
+//             padding: 0.65rem 1.5rem;
+//             border-bottom: 1px solid $light-border-color;
+//             .checkbox_option {
+//                 label{
+//                     font-size:0.938rem;
+//                     font-family: $font-base-med;
+//                 }
+//             }
+//         }
+//         .select-check-list{
+//             height: calc(100vh - 13.75rem);
+//             @include laptop{
+//                 height: calc(100vh - 17.5rem);
+//             }
+//             .check-list{
+//                 list-style: none;
+//                 margin: 0px;
+//                 padding: 0px;
+//                 li{
+//                     padding: 1rem 3.750rem 1rem 1.5rem;
+//                     position: relative;
+//                     .stock-handle{
+//                         position: absolute;
+//                         right: 1.25rem;
+//                         font-size:1.125rem;
+//                         top: 50%;
+//                         margin-top: -0.625rem;
+//                         &:before{
+//                             width: 1.250rem;
+//                             height: 1.263rem;
+//                             background-size: 100% auto;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     .edit-watchlist-footer{
+//         position: absolute;
+//         left: 0px;
+//         bottom: 0px;
+//         width: 100%;
+//         padding: 0.5rem 1.5rem;
+//         background: $hovered-bg;
+//         h5{
+//             margin:0px;
+//             font-size: 0.875rem;
+//             font-family: $font-base-med;
+//             .badge{
+//                 padding: 0px;
+//                 margin: 0px;
+//                 width: 1.250rem;
+//                 height: 1.250rem;
+//                 line-height: 1.250rem;
+//                 border-radius: 50%;
+//                 text-align: center;
+//                 background: $border-color;
+//                 font-size: 0.688rem;
+//                 margin-left: 0.5rem;
+//             }
+//         }
+//     }
+// }

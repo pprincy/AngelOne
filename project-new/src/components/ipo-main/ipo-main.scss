@@ -1,0 +1,507 @@
+@import '../../assets/scss/styles';
+
+.ipowrap {}
+
+
+.tab-wrap .nav-tabs .nav-item .nav-link.active, .tab-wrap .nav-tabs .nav-item .nav-link { padding-top: 1.25rem; padding-bottom: 1.188rem;}
+
+.stickyTabWrap {
+	&.ipowrap {
+		.tab-wrap {
+			.liveupcoming-tab {
+				height: calc(100vh - 178px); background: #fff;
+			}
+            position: relative;
+            .faq-link{
+                position: absolute;
+                right: 1.5rem;
+                top: 1rem;
+                line-height: 1.5rem;
+                @include flex(flex-start, center);
+                font-size: 1rem;
+                font-family: $font-base-med;
+                cursor: pointer;
+                i, em{
+                    margin-right: 4px;
+                }
+            }
+		}
+		&.stickyTop {
+			.tab-wrap {
+				.liveupcoming-tab {
+					height: calc(100vh - 120px);
+                    @include ipad {
+                        height: calc(100vh - 170px);
+                    }
+				}
+			}
+		}
+	}
+}
+
+.stickyTabWrap {
+	&.ipowrap {
+		&.stickyTop {
+			.tab-wrap {
+				.nav-tabs {
+					background: $white;
+					z-index: 9;
+					position: fixed;
+					top: 120px;
+					width: calc(100% - 27.938rem);
+                    @include laptop {
+                        width: calc(100% - 21.938rem);
+                    }
+                    @include tablet {
+                        width: 100%;
+                        
+                    }
+				}
+			}
+			table {
+				&.stickyonScroll {
+					& > thead {
+						background: $white;
+						z-index: 9;
+						position: fixed;
+						top: 178px;
+						width: calc(100% - 27.938rem);
+                        @include laptop {
+                            width: calc(100% - 21.938rem);
+                        }
+                        
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.ipowrap {
+    .tab-wrap.greyBg {
+        >.nav-tabs {
+
+            border-bottom: none;
+            padding-bottom: 1px; position: relative;
+            @include tablet{
+                border-bottom: none;
+                padding-bottom: 1px;
+                width: 100% !important;
+                justify-content: start;
+                height: 61px;
+               }
+            &:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                background: $light-border-color;
+            }
+
+            .nav-item {
+                .nav-link {
+                    font-size: 1rem;
+                    line-height: 1rem;
+                    font-family: $font-base-med;
+                    padding: 1.375rem 1.188rem 1.250rem;
+                    color: $base-text;
+                    position: relative;
+                    height: calc(100% + 1px);
+                    @include tablet {
+                        padding: 1.375rem 1rem;
+                    }
+                    @include small{
+                        font-size: 0.875rem !important;
+                    }
+                    @include xmobile {
+                        padding: 1rem 0rem;
+                    }
+                    &.active {
+                        color: $highlighted;
+                        pointer-events: none;
+                        &:before {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            left: 0px;
+                            bottom: 0px;
+                            width: 100%;
+                            height: 1px;
+                            background: $white;
+                            z-index: 2;
+                        }
+                        &:after {
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            width: 100%;
+                            height: 3px;
+                            content: "";
+                            display: block;
+                            background: transparent;
+
+                            @include tablet {
+                                top: auto !important;
+                                left: 50% !important;
+                                transform: translateX(-50%);
+                                width: 80%;
+                                height: 3px;
+                                bottom: 2px;
+                                font-size: $font-14;
+                                @include small{
+                                    top: auto;
+                                    bottom: 0px;
+                                    height: 4px;
+                                    left: 0; right: 0; margin: 0 auto;
+                                }
+                            }
+                        }
+                        
+                        &.active {
+                            &::after {
+                                background: $highlighted;
+                            }
+                            @include small{
+                            color: $highlighted;
+                            font-family: $font-base-semibold;
+                            font-size: $font-14;
+
+                            &::after {
+                                background: $highlighted;
+                            }
+                        }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.liveipos-section {
+    margin-top: 0;
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        background: $white;
+        padding: 2rem 1.5rem;
+
+        .headtxt {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+            color: $grey1;
+
+            .counttxt {
+                font-family: $font-base-reg;
+                font-size: $font-16;
+                color: $base-text;
+                letter-spacing: -0.23px;
+                background: #f5f6fa; padding: 5px; border-radius: 50%; margin-left: 10px;
+            }
+        }
+
+        .updatetxt {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            color: $grey-med;
+            margin-bottom: 0rem;
+
+            .ago {
+                font-family: $font-base-semibold;
+                font-size: $font-16;
+                color: $grey1;
+            }
+        }
+    }
+
+    .liveipo-table-wrapper {
+        table.ipotable {
+            background: $white;
+
+            thead {
+                th {
+                    padding: 1rem .5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px;
+                    @include ipad {
+                        font-size: $font-13;
+                    }
+                }
+
+                .companyname { width: 21%;}
+                .closingdate { width: 14%;}
+                .mininvest { width: 20%;}
+                .pricerange { width: 16%;}
+                .predict { width: 18%;
+                    .icon-info.pointer { line-height: 11px;}
+                }
+                .subscription { width: 7%;}
+                .arrow { width: 4%;}
+                
+            }
+            tbody{
+                tr {
+                    padding: 0 0.5rem;
+                    align-items: flex-end;
+                    position: relative;
+                    
+                }
+                tr:after {
+                    content: "";
+                    display: block;
+                    width: 96%;
+                    max-width: calc(100% - 40px);
+                    height: 1px;
+                    border-bottom: 1px solid #ebecf3;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                }
+                tr:last-child:after {
+                   display: none;
+                }
+                tr:hover {
+                    background-color: $tbl-hoverd-bg;
+                }
+                
+            td {
+                padding: 1.2rem 0.5rem 1.8rem;
+                font-family: $font-base-med;
+                font-size: $font-16;
+                vertical-align: bottom;
+                color: $base-text;
+                @include ipad {
+                    font-size: $font-14;
+                }
+                &.arrow {
+					.icon-dropdown-arrow {
+						width: 1.5rem;
+						height: 1.5rem;
+						background: url(../../assets/images/right-arrow.svg) left top no-repeat;
+						background-size: 100% auto;
+						transform: none;
+						&:before {
+							content: "";
+						}
+					}
+				}
+            }
+
+                .companyname { width: 21%;
+                    .daytxt { background: $bg; font-size: $font-14; color: $base-text; margin-bottom: 15px; text-transform: uppercase; display: inline-block; padding: 4px 8px;}
+                }
+                .closingdate { width:14%;}
+                .mininvest { width: 20%;
+                    span { color: $grey-med; font-size: $font-14;
+                        @include ipad {
+                            font-size: $font-12;
+                        }
+                    }
+                }
+                .pricerange { width: 16%; }
+                .predict { width: 18%;
+                    .highspd { background: url(../../assets/images/high.svg) 15px center no-repeat $bg; display: inline-block; padding: 7px 15px 7px 50px; border-radius: 20px; color: $green; position: relative; top: 6px; }
+
+                    .medspd { background: url(../../assets/images/medium.svg) 15px center no-repeat $bg; display: inline-block; padding: 7px 15px 7px 50px; border-radius: 20px; color: $orange; position: relative; top: 6px;}
+                }
+                .subscription { width: 7%; }
+                .arrow { width: 4%;}
+            
+            
+
+            
+        }
+        }
+        .table.tbl-theme thead {
+            border-top: none;
+        }
+    }
+}
+
+.upcomingipos-section {
+    margin-top: 0; 
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        background: $white;
+        padding: 2rem 1.5rem;
+
+        .headtxt {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+            color: $grey1;
+
+            .counttxt {
+                font-family: $font-base-reg;
+                font-size: $font-16;
+                color: $base-text;
+                letter-spacing: -0.23px;
+                background: #f5f6fa; padding: 5px; border-radius: 50%; margin-left: 10px;
+            }
+        }
+
+        .updatetxt {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            color: $grey-med;
+            margin-bottom: 0rem;
+
+            .ago {
+                font-family: $font-base-semibold;
+                font-size: $font-16;
+                color: $grey1;
+            }
+        }
+    }
+
+    .upcomingipo-table-wrapper {
+        table.ipotable {
+            background: $white;
+
+            thead {
+                th {
+                    padding: 1rem .5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px;
+                    @include ipad {
+                        font-size: $font-13;
+                    }
+                }
+
+                .companyname { width: 25%;}
+                .closingdate { width: 25%;}
+                .mininvest { width: 25%;}
+                .pricerange { width: 25%;}
+                
+            }
+            tbody{
+                tr {
+                    padding: 0 0.5rem;
+                    
+                }
+                tr:hover {
+                    background-color: $tbl-hoverd-bg;
+                }
+            td {
+                padding: 1.2rem 0.5rem 1.8rem;
+                font-family: $font-base-med;
+                font-size: $font-16;
+                vertical-align: bottom;
+                color: $base-text;
+                @include ipad {
+                    font-size: $font-14;
+                }
+                &.arrow {
+					.icon-dropdown-arrow {
+						width: 1.5rem;
+						height: 1.5rem;
+						background: url(../../assets/images/right-arrow.svg) left top no-repeat;
+						background-size: 100% auto;
+						transform: none;
+						&:before {
+							content: "";
+						}
+					}
+				}
+            }
+
+                .companyname { width: 24%;
+                    .daytxt { background: $bg; font-size: $font-14; color: $base-text; margin-bottom: 15px; text-transform: uppercase; display: inline-block; padding: 4px 8px;}
+                }
+                .closingdate { width: 24%;}
+                .mininvest { width: 24%;
+                    span { color: $grey-med; font-size: $font-14;
+                        @include ipad {
+                            font-size: $font-12;
+                        }
+                    }
+                }
+                .pricerange { width: 24%;}
+                .arrow { width: 4%;}
+                
+            
+            
+
+            
+        }
+        }
+        .table.tbl-theme thead {
+            border-top: none;
+        }
+    }
+}
+
+.btn-hold { background: $white; padding: 3rem 0; margin-top: 2px;
+    .viewClosedIPOyBtn { min-width: 300px;}
+}
+
+
+.cardDiv {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.card {
+		border-radius: 12px;
+		width: 30.33%;
+		padding: 1rem 1rem 6.88rem 1rem;
+		position: relative;
+		border: 1px solid #c3c3c3;
+		align-self: stretch;
+		.imghold {
+			border: 0px solid red;
+		}
+		&:after {
+			content: "";
+			display: inline-block;
+			font-size: 82px;
+			color: #3f5bd9;
+			opacity: 0.1;
+			position: absolute;
+			bottom: -16px;
+			font-family: $font-base-bold;
+		}
+		&.numone {
+			&:after {
+				content: "1";
+			}
+		}
+		&.numtwo {
+			&:after {
+				content: "2";
+			}
+		}
+		&.numthree {
+			&:after {
+				content: "3";
+			}
+		}
+        h4 {font-size: $font-20; font-family: $font-base-med; color: $base-text;}
+        p { font-size: $font-14; color: $grey-med;}
+	}
+}
+
+.modal#threestep .modal-xl { max-width: 1080px;}
+.modal#threestep .modal-header { padding:3.5rem 5rem 1.25rem 5rem;}
+.modal#threestep .modal-header h2 { font-size: $font-28; font-family: $font-base-med; margin-bottom:0.875rem;}
+.modal#threestep .modal-header h4 {font-size: $font-20; font-family: $font-base-med; color: $grey-med;}
+.modal#threestep .modal-body { padding: 3.5rem 5rem;}
+.modal#threestep .modal-header .close { right: 5.125rem; top: 3.5rem;}

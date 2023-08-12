@@ -1,0 +1,56 @@
+@import '../../assets/scss/styles';
+
+.blockpage {
+  background: $white;
+  height: calc(100vh - 4rem); 
+  @include laptop{
+    height: calc(100vh - 8.2rem);
+  }
+  @include tablet{
+    height: calc(100vh - 7.55rem);
+  }
+  @include small{
+    height: calc(100vh - 6.85rem);
+  }
+  .blockpage-content{
+    padding: 1.5rem;
+    min-height: calc(100vh - 4rem);
+    @include flex(center, center);
+    @include laptop{
+      min-height: calc(100vh - 8.2rem);
+    }
+    @include tablet{
+      min-height: calc(100vh - 7.55rem);
+    }
+    @include small{
+      min-height: calc(100vh - 6.85rem);
+    }
+  }
+  figure {
+    max-width: 400px;
+    text-align: center;
+    img { padding-bottom: 1.25rem; display: inline-block;}
+    figcaption {
+      color: $grey1;
+      font-size: $font-24;
+      line-height: 2.25rem;
+      span { display: block;}
+      @include small{
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+      }
+    }
+  }
+}
+
+.logedIn {
+  .blockpage{
+    height: calc(100vh - 65px - 40px);
+  }
+}
+
+.main-content{
+  @include tablet{
+    padding-top: 3.375rem;
+  }
+}

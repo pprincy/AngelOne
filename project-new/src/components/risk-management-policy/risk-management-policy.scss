@@ -1,0 +1,322 @@
+@import '../../assets/scss/styles';
+.header-sec{
+    padding:0.938em 1.5rem;
+    background: $white;
+    z-index: 99;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    .select-section{
+        position: relative;
+        .select-sec-btn{
+            height: 3rem;
+            @include flex(flex-start, center);
+            border: 1px solid $light-border-color;
+            border-radius: 0.25rem;
+            width: 20.500rem;
+            font-size: $font-18;
+            color: $icon-color;
+            font-family: $font-base-med;   
+            padding: 0 3rem 0 1.5rem; 
+            position: relative;
+            span{
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .icon-down-arrow{
+                position: absolute;
+                right: 1.5rem;
+                font-size: 1rem;
+                top: 50%;
+                margin-top: -0.5rem;
+            }
+        }
+        .select-list{
+            position: absolute;
+            display: none;
+            right: 0px;
+            top:calc(100% + 15px);
+            border: 1px solid $border-color;
+            width: 21.688rem;
+            max-height: calc(100vh - 5rem);
+            border-radius: 0.25rem;
+            background: $white;
+            padding: 2rem 0 1.5rem;
+            ul{
+                padding: 0;
+                list-style: none;
+                margin: 0px;
+                li{
+                    a{
+                        display: block;
+                        font-size: $font-14;
+                        line-height: $font-20;
+                        padding: $font-20 2rem;
+                        font-family: $font-base-med;
+                        color: $base-text;
+                        &:hover, &.active{
+                            background: $highlighted-bg;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.main-container-sec{
+   
+    margin-top: 4.875rem;
+    padding:2rem ;
+    .inner-cont{
+        width: 1176px;
+       
+        max-width: 100%;
+        padding:3rem 3.500rem ;
+        background: $white;
+        margin:0 auto;
+
+        h1{
+            font-size: 1.5rem;
+            line-height: 1.813rem;
+            font-family: $font-base-bold;
+            text-transform: uppercase;
+            margin-bottom: 2.500rem;
+        }
+        .index-header{
+            font-size: 1.5rem;
+            line-height: 1.813rem;
+            font-family: $font-base-semibold;
+            margin: 0 0 1.5rem;
+            text-transform: uppercase;
+            &.lowerCase{
+                text-transform: none;
+            }
+        }
+        .img-responsive{
+            width: 100%;
+            height: auto;
+            margin-top: 0.5rem;
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+        .roman_list{
+            list-style-type: upper-roman;
+            padding-left: 13px;
+           > li{
+               margin-bottom:2rem;
+                &::marker{
+                    font-size: $font-14;
+                    line-height: 1.063rem;
+                    text-transform: uppercase;
+                    font-family: $font-base-med;
+                }
+                .sec-ttl{
+                    font-size: $font-14;
+                    line-height: 1.063rem;
+                    text-transform: uppercase;
+                    font-family: $font-base-med;
+                    margin: 0 0 1rem;
+                    display: block;
+                    &.lowerCase{
+                        text-transform: none  !important;
+                    }
+                    &.big{
+                        text-transform: none;
+                        font-size: $font-18;
+                        font-family: $font-base-semibold;
+                    }
+                }
+            }
+            
+           
+        }
+        .upper-alpha_list{
+            list-style-type: upper-latin;
+            padding-left: 13px;
+            >li{
+                font-size: $font-14;
+                line-height: 1.5rem;
+                margin-bottom: 2rem;
+                &::marker{
+                    font-size: $font-14;
+                    line-height: 1.063rem;
+                    
+                    font-family: $font-base-med;
+                }
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        .number_list {
+            list-style-type: decimal;
+            padding-left: 13px;
+            > li{
+                margin-bottom:1rem;
+                font-size: $font-14;
+                line-height: 1.5rem;
+                 &::marker{
+                     font-size: $font-14;
+                     line-height: 1.063rem;
+                     text-transform: uppercase;
+                     font-family: $font-base-med;
+                 }
+                 &:last-child{
+                     margin-bottom: 0px;
+                 }
+                }
+                &.theme2{
+                    // margin-bottom: 0.5rem;
+                    li{
+                        margin-bottom: 2rem;
+                        &:last-child{
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+        }
+        .lower-roman_list{
+            list-style-type: lower-roman;
+            padding-left: 13px;
+            margin-bottom:1rem;
+            > li{
+                margin-bottom:1rem;
+                font-size: $font-14;
+                line-height: 1.5rem;
+                 &::marker{
+                     font-size: $font-14;
+                     line-height: 1.063rem;
+                    
+                     font-family: $font-base-med;
+                 }
+                 &:last-child{
+                     margin-bottom: 0px;
+                 }
+                }
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                .sec-ttl{
+                   
+                    
+                }
+        }
+        .lower-alpha_list {
+            list-style-type: lower-alpha;
+            padding-left: 13px;
+            margin-bottom: 2rem;
+            > li{
+                margin-bottom:1rem;
+                font-size: $font-14;
+                line-height: 1.5rem;
+                 &::marker{
+                     font-size: $font-14;
+                     line-height: 1.063rem;
+                    
+                     font-family: $font-base-med;
+                 }
+                 &:last-child{
+                     margin-bottom: 0px;
+                 }
+                }
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+        }
+        p{
+            font-size: $font-14;
+            line-height: 1.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.29px;
+            a, strong, b{
+                font-family: $font-base-med;
+            }
+        }
+        a, strong, b{
+            font-family: $font-base-med;
+            font-weight: normal;
+        }
+        h6{
+            font-size: $font-14;
+            line-height: 1.5rem;
+            margin-bottom:$font-12;
+            letter-spacing: -0.29px; 
+            font-family: $font-base-reg;
+            + .upper-alpha_list{
+                padding-top: 1rem;
+            }
+        }
+        .sep{
+            border-radius: 50%;
+            box-shadow: 0 1px 28px 0 rgba(43, 47, 63, 0.1);
+            background-color: $white;
+            width: 2rem;
+            height: 2rem;
+            @include flex(center, center);
+            font-size: $font-14;
+            font-family: $font-base-med;
+            margin: 0 auto 2rem;
+        }
+        .table-responsive{
+            margin-bottom: 2rem;
+            .table{
+                border-bottom: 1px solid $light-border-color;
+                thead{
+                    tr{
+                       th{
+                           font-size: $font-14;
+                           line-height: 1.063rem;
+                           font-family: $font-base-med;
+                           padding: $font-12 1rem;
+                           border-top: 1px solid $light-border-color;
+                           border-bottom: 1px solid $light-border-color;
+                       }
+                    }
+                    &.noBorder{
+                        th{
+                            border: none;
+                        }
+                        
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                           border-bottom:none;
+                           border-top: 1px solid $light-border-color;
+                           font-size: $font-14;
+                           line-height: 1.5rem;
+                           vertical-align: middle;
+                        }
+                        &:first-child{
+                            td{
+                                border-top: none;
+                            }
+                        }
+                    }
+                }
+                &.noBorder{
+                    border-bottom: none;
+                }
+            }
+        }
+        .bulletList{
+            li{
+                line-height: 1.5rem;
+                margin-bottom: 1rem;
+                padding-left: 1rem;
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                &:before{
+                    width: 0.25rem;
+                    height: 0.25rem;
+                    top: 0.65rem;
+                }
+            }
+        }
+    }
+}

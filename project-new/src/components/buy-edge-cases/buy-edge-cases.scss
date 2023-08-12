@@ -1,0 +1,1666 @@
+@import '../../assets/scss/styles';
+
+.buySideBar {
+    .resize {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        resize: both;
+        background-color: #C3E2CE;
+    }
+
+    .buy-edge-cases {
+        height: 100%;
+        @include small{
+            max-height: 100vh;
+        }
+    }
+
+    .buyEdgeHeader {
+        padding: 1rem;
+        z-index: 10;
+        position: relative;
+        background: $white;
+        border-radius: 4px 4px 0 0;
+
+        @include tablet {
+            background: transparent;
+            box-shadow: 0 2px 4px 0 rgba(145, 145, 145, 0.24);
+            padding: 1.5rem;
+        }
+
+        @include small {
+            padding: 1.2rem 1.5rem;
+        }
+
+        .minClosebtn {
+            display: flex;
+
+            @include small {
+                z-index: -1;
+                opacity: 0;
+            }
+
+            .btn {
+                padding: 0px;
+                background: $bg;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                margin-right: 0.625rem;
+                font-size: 1rem;
+                line-height: 1rem;
+                transition: none;
+                @include inlineFlex(center, center);
+                color: $base-text;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &.btnMin {
+                    &:focus {
+                        i, em {
+                            background: url(../../assets/images/icon-minimize-focus.svg) no-repeat;
+                        }
+                    }
+                }
+
+                &.btnMax {
+                    display: none;
+                    border: none;
+                }
+
+                &.btnClose {
+                    display: flex !important;
+                }
+
+                &:focus {
+                    color: $bg;
+                    background: $base-text;
+                    ;
+                }
+            }
+        }
+
+        &.stickyHeader {
+            box-shadow: 0 11px 12px 0 rgba(29, 30, 32, 0.03);
+        }
+
+        .btn-back {
+            display: none;
+            padding: 0px;
+
+            @include tablet {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0.5rem;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .more-horizontal {
+        background: url(../../assets/images/more-horizontal.svg) no-repeat center;
+        height: 10px;
+        margin: 2px 0 16px;
+        padding: 4px 168px 4px 169px;
+        border-radius: 4px;
+        background-color: $bg;
+        cursor: pointer;
+    }
+
+    .buyEdgeBody {
+        padding: 1rem;
+        height: calc(100% - 3.563rem);
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+
+        @include small {
+            height: calc(100vh - 180px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            overflow: auto;
+        }
+
+        .icon-back {
+            position: fixed;
+            top: 1rem;
+            left: 0.5rem;
+        }
+
+        .stock-sec {
+            margin: 0 -1rem;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+            background: $white;
+
+            @include tablet {
+                position: fixed;
+                top: 0rem;
+                left: 2.8rem;
+                padding-top: 8px;
+            }
+
+            .scrip_name {
+                >span {
+                    margin-right: 5px;
+                }
+
+                .dropdown.bootstrap-select {
+                    position: relative;
+                    top: 1px;
+                }
+            }
+
+            &.withShadow {
+                box-shadow: 0 11px 12px 0 rgba(29, 30, 32, 0.03);
+
+                @include small {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .comp-info-sec {
+            .scrip_name {
+                font-size: 1.125rem;
+                line-height: 1.375rem;
+                margin: 0 0 4px;
+            }
+        }
+
+        .price-info-sec {
+            padding: 0 0 1rem;
+            @include flex(flex-start, flex-end);
+
+            @include small {
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .price {
+                padding: 0px 0.5rem 0 0;
+                font-size: 1rem;
+                line-height: 1.375rem;
+            }
+
+            .chg {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                line-height: 1.375rem;
+                color: $grey-med;
+
+                @include small {
+                    position: relative;
+                    top: -1px;
+                }
+            }
+        }
+
+        .investmentWrap {
+            padding-bottom: 0;
+            height: calc(100vh - 11.5rem);
+
+            @include tablet {
+                height: calc(100vh - 200px);
+            }
+
+            >.mCustomScrollBox {
+                max-height: 100% !important;
+            }
+
+            &.marginBottom {
+                margin-bottom: 2.5rem;
+            }
+
+            .investmentTypeBtnWrap {
+                padding: 4px;
+                border-radius: 4px;
+                background-color: rgba(33, 183, 168, 0.1);
+                margin: 0 0 1rem;
+
+                ul {
+                    list-style: none;
+                    margin: 0px;
+                    padding: 0px;
+                    border: none;
+
+                    li {
+                        width: 100%;
+                        >span {
+                            width: 100%;
+                        }
+
+                        .btn {
+                            padding: 0.5rem;
+                            text-align: center;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: $base-text;
+                            font-family: $font-base-med;
+
+                            &:focus {
+                                border-color: $white;
+                            }
+
+                            .badge {
+                                font-size: 0.625rem;
+                                background: $white;
+                                padding: 2px;
+                                position: relative;
+                                top: 1px;
+                                margin-left: 6px;
+                            }
+
+                            &.active {
+                                background: $white;
+
+                                .badge {
+                                    background: $bg;
+                                }
+                            }
+
+                            &.disabled {
+                                opacity: 0.4;
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+
+            .investmentContentWrap {
+                padding-bottom: 1rem;
+
+                .maxQty {
+                    margin: 0 0 0.625rem;
+
+                    h6 {
+                        color: $grey-med;
+                        font-size: 0.750rem;
+                        font-family: $font-base-reg;
+                        line-height: 14px;
+                        margin: 0px;
+
+                        span {
+                            font-family: $font-base-med;
+                            color: $base-text;
+                        }
+                    }
+                }
+
+                .noOfShares {
+                    margin: 0 0 1.5rem;
+                    position: relative;
+
+                    h6 {
+                        color: $grey-med;
+                        font-size: 0.750rem;
+                        font-family: $font-base-reg;
+                        line-height: 14px;
+
+                        span {
+                            font-family: $font-base-med;
+                            color: $base-text;
+                        }
+                    }
+
+                    h4 {
+                        font-size: 1.563rem;
+                        line-height: normal;
+                        font-family: $font-base-semibold;
+                        margin: 0px;
+                        padding-top: 2px;
+                    }
+
+                    input {
+                        font-size: 1.563rem;
+                        line-height: normal;
+                        font-family: $font-base-semibold;
+                        margin: 0px;
+                        margin-top: 2px;
+                        height: 30px;
+                        text-align: center;
+                        border-color: transparent;
+                        width: 125px;
+                        border: none;
+                        padding: 0px;
+                        background: transparent;
+                    }
+
+                    .lotSize {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        padding-right: 0.75rem;
+                        padding-bottom: 10px;
+
+                        h6 {
+                            font-size: 0.688rem;
+                            line-height: 0.75rem;
+                            color: $grey-med;
+                        }
+
+                        .lotSizeInfo {
+                            font-size: 0.688rem;
+                            line-height: 0.75rem;
+                            color: $base-text;
+                            margin: 0px;
+                            display: flex;
+                            @include flex(flex-end, center);
+
+                            .infoIcon {
+                                margin-left: 5px;
+                                position: relative;
+                                top: -1px;
+                            }
+
+                            img {
+                                width: 10px;
+                                height: auto;
+                            }
+                        }
+
+                    }
+
+                    .err-msg {
+                        color: $red;
+                        font-size: 0.75rem;
+                        font-family: $font-base-med;
+                        margin: 0px;
+                        width: 100%;
+                        left: 0px;
+                        position: relative;
+                        padding: 4px 0 0;
+                    }
+
+                    &.err {
+                        border-color: $red !important;
+
+                        input {
+                            color: $disabled1;
+                        }
+                    }
+
+                    &.focused {
+                        border-color: $highlighted;
+                    }
+
+                }
+
+                .squareOrderLink {
+                    padding: 0.5rem 0;
+
+                    h5 {
+                        font-size: 0.875rem;
+                        color: $grey-med;
+                        margin: 0px;
+                        font-family: $font-base-reg;
+
+                        a {
+                            color: $positive;
+                            font-family: $font-base-med;
+                        }
+                    }
+                }
+
+                .orderTypePriceWrap {
+                    .priceWrap {
+                        input {
+                            &::before {
+                                content: "rs";
+                            }
+
+                            &:disabled {
+                                color: $disabled;
+                                background: transparent;
+                            }
+                        }
+                    }
+
+                    .form-group {
+                        .bootstrap-select {
+                            .btn {
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+                                color: $base-text;
+                            }
+                        }
+
+                        .form-control {
+                            font-size: $font-14;
+                            font-family: $font-base-med;
+                            color: $base-text;
+                        }
+
+                        .priceErrMsg {
+                            position: absolute;
+                            top: calc(100% + 16px);
+                            right: 0px;
+                            background: $base-text;
+                            color: $white;
+                            width: 15.625rem;
+                            padding: 0.625rem 0.5rem;
+                            border-radius: 4px;
+                            z-index: 6;
+                            text-align: center;
+
+                            p {
+                                font-size: $font-12;
+                                line-height: $font-14;
+                                margin: 0px;
+                                font-family: $font-base-med;
+                            }
+
+                            &.from-left {
+                                left: 0;
+                                right: auto;
+
+                                &::before {
+                                    left: 2rem;
+                                    right: auto;
+                                }
+                            }
+
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                right: 2rem;
+                                top: -7px;
+                                width: 0;
+                                height: 0;
+                                border-style: solid;
+                                border-width: 0 9px 7px 9px;
+                                border-color: transparent transparent $base-text transparent;
+                            }
+                        }
+
+                        .form-lbl {
+                            font-family: $font-base-reg;
+                            min-height: 1rem;
+                            margin-bottom: 0.2rem;
+                        }
+                    }
+                }
+
+                .squreOrderContent {
+                    h5 {
+                        margin: 0px;
+                        @include flex(center, center);
+
+                        i, em {
+                            margin-left: 0.35rem;
+                            display: block;
+                            height: 1rem;
+                            width: 1rem;
+                            line-height: 1rem;
+                        }
+                    }
+
+                    .border-box {
+                        margin-bottom: 1rem;
+                        border-color: $light-border-color;
+                        padding: 1.125rem 1rem 1.188rem;
+
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    .secWrap {
+                        .secInfo {
+                            padding: 1.250rem 0 0;
+
+                            .form-group {
+                                .form-lbl {
+                                    margin-bottom: 0.625rem;
+                                    font-family: $font-base-reg;
+                                }
+                            }
+
+                            &.coverOrderInfo {
+                                padding-top: 0.938rem;
+
+                                .form-group {
+                                    margin-bottom: 0.625rem;
+                                }
+                            }
+
+                            .form-group {
+                                .form-group-in {
+                                    .form-control {
+                                        border-radius: 4px 0 0 4px;
+                                    }
+
+                                    .selectedVal {
+                                        padding: 0 10px;
+                                        height: 2.313rem;
+                                        background: $bg;
+                                        border-radius: 0 4px 4px 0;
+                                        font-family: $font-base-med;
+                                        color: $grey-med;
+                                        font-size: 0.875rem;
+                                        line-height: 2.313rem;
+                                    }
+                                }
+                            }
+
+                            .jumpPrice {
+                                padding-top: 0px;
+
+                                &.cancel {
+                                    margin-top: -0.5rem;
+                                }
+
+                                h5 {
+                                    margin: 0px;
+                                    font-size: 0.750rem;
+                                    color: $grey-med;
+                                }
+
+                                .addBtn {
+                                    font-size: 1.25rem;
+                                    color: $green;
+                                }
+
+                                .form-group {
+                                    width: 7.500rem;
+
+                                    .form-control {
+                                        text-align: right;
+                                        font-family: $font-base-med;
+                                    }
+                                }
+                            }
+
+                            .coverRange {
+                                margin-bottom: -4px;
+
+                                label {
+                                    margin: 0px;
+                                    font-size: 0.75rem;
+                                    color: $grey-med;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .popoverWrap {
+                    .secTtl {
+                        margin: 0px;
+
+                        >div {
+                            height: 1.063rem;
+                        }
+
+                        .toggle-switch {
+                            @include flex(flex-start, center)
+                        }
+                    }
+
+                    .popoverBtn {
+                        cursor: pointer;
+                        font-size: $font-14;
+                        line-height: 1.063rem;
+                        color: $base-text;
+                    }
+
+                    .popoverContent {
+                        .popoverHeader {
+                            padding-right: 30px;
+                            position: relative;
+                            margin-bottom: 1rem;
+
+                            .stepCount {
+                                position: absolute;
+                                right: 0px;
+                                top: 0px;
+                                font-size: 0.875rem;
+                                font-family: $font-base-med;
+                                color: $disabled;
+                            }
+
+                            .popoverTtl {
+                                font-size: 0.875rem;
+                                font-family: $font-base-semibold;
+                                margin: 0px;
+                            }
+                        }
+
+                        .popoverBody {
+                            margin-bottom: 1.5rem;
+
+                            p {
+                                line-height: 1.125rem;
+
+                                &:last-child {
+                                    margin: 0px;
+                                }
+
+                                strong {
+                                    font-family: $font-base-semibold;
+                                }
+                            }
+                        }
+
+                        .popoverFooter {
+                            .btn-wrap {
+                                .btn {
+                                    text-transform: uppercase;
+                                    letter-spacing: -0.3px;
+                                    color: $white;
+                                    line-height: 1.063rem;
+                                    padding: 0.688rem 2rem 0.625rem;
+
+                                    &.btn-link {
+                                        font-family: $font-base-semibold;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.coverOrderInfoWrap {
+                        .popoverContent {
+                            top: -2rem;
+
+                            &:after {
+                                top: 30%;
+                            }
+
+                            &#coverStep2 {
+                                top: -3rem;
+
+                                &:after {
+                                    top: 4.7rem;
+                                }
+                            }
+
+                            &#coverStep3 {
+                                top: -1.2rem;
+
+                                &:after {
+                                    top: 4.7rem;
+                                }
+                            }
+
+                            &#coverStep4 {
+                                top: -4.9rem;
+
+                                &:after {
+                                    top: 6.5rem;
+                                }
+                            }
+                        }
+                    }
+
+                    &.bracketOrderInfoWrap {
+                        .popoverContent {
+                            top: -2rem;
+
+                            &:after {
+                                top: 3.7rem;
+                            }
+
+                            &#orderStep2 {
+                                top: -0.75rem;
+
+                                &:after {
+                                    top: 4.7rem;
+                                }
+                            }
+
+                            &#orderStep3 {
+                                top: -0.75rem;
+
+                                &:after {
+                                    top: 4.7rem;
+                                }
+                            }
+
+                            &#orderStep4 {
+                                top: 4.2rem;
+
+                                &:after {
+                                    top: 4.7rem;
+                                }
+                            }
+
+                            &#orderStep5 {
+                                top: auto;
+                                bottom: 0rem;
+
+                                &:after {
+                                    top: auto;
+                                    bottom: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .tradeNotAvail,
+                .btmErrCont {
+                    position: fixed;
+                    bottom: 125px;
+                    right: 5.688rem;
+                    width: 21.438rem;
+
+                    padding: 0.625rem;
+                    background: $base-text;
+                    color: $white;
+                    text-align: center;
+                    border-radius: 4px;
+
+                    p {
+                        line-height: 1.063rem;
+                    }
+                }
+
+                .form-group {
+                    margin-bottom: 1.5rem;
+                    position: relative;
+
+                    .err-msg {
+                        position: static;
+                        font-size: 0.813rem;
+                        line-height: 1.250rem;
+                        font-family: $font-base-reg;
+                        text-align: right;
+                        margin: 0.5rem 0 0;
+
+                        &.align-left {
+                            text-align: left;
+                        }
+                    }
+
+                    .form-group-err {
+                        &.btmErrCont {
+                            position: absolute;
+                            left: -1rem;
+                            margin-top: 1.5rem;
+                            top: 100%;
+                            right: auto;
+                            width: calc(100% + 2rem);
+                            z-index: 5;
+                            bottom: auto;
+                        }
+                    }
+                }
+
+                .borderedBox {
+                    &.noOfShares {
+                        padding: 0.938rem;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .buyEdgeBody::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .buyEdgeBody {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .buyEdgeFooter {
+        padding: 1rem;
+        background: $white;
+        z-index: 5;
+        position: relative;
+        position: absolute;
+        right: 0;
+        width: 21.438rem;
+        bottom: 0;
+        -webkit-box-shadow: 0 -2px 6px 0 rgba(184, 190, 202, 0.25);
+        box-shadow: 0 -2px 6px 0 rgba(184, 190, 202, 0.25);
+
+        @include laptop {
+            right: 0px;
+            width: 20.65rem;
+        }
+
+        @include tablet {
+            right: 0;
+            width: 100%;
+            padding: 2rem 1rem;
+        }
+
+        @include small {
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+        }
+
+        .marginOrderValueWrap {
+            padding: 0px;
+            margin: 0 -1rem 0.75rem;
+
+            h6 {
+                font-size: 0.750rem;
+                line-height: 0.875rem;
+                color: $grey-med;
+                margin: 0 0 0.25rem;
+                font-family: $font-base-reg;
+            }
+
+            h5 {
+                font-size: 0.813rem;
+                line-height: $font-14;
+                font-family: $font-base-med;
+                margin: 0px;
+            }
+
+            .row {
+                margin: 0;
+
+                >div {
+                    padding: 0 1rem;
+                }
+            }
+        }
+
+        .placeOrderBtn {
+            padding: 0.75rem;
+
+            &.btn-sell {
+                display: none;
+                box-shadow: 0 12px 16px -2px rgba(239, 88, 84, 0.1) !important;
+            }
+
+            &.btn-buy {
+                box-shadow: 0 12px 16px -2px rgb(30 199 181 / 10%) !important;
+            }
+        }
+
+        .inclusive {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: $grey-med;
+
+            a {
+                text-transform: uppercase;
+                font-size: 90%;
+                font-family: $font-base-semibold;
+            }
+        }
+
+        .insufficientFundsError {
+            position: absolute;
+            left: 0px;
+            bottom: 2px;
+            width: 100%;
+            padding: 0.625rem;
+            background: $base-text;
+            color: $white;
+            border-radius: 4px;
+            padding-left: 3.125rem;
+
+            .closeBtn {
+                color: $white;
+                font-size: 1.5rem;
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+
+                i,em {
+                    display: block;
+                }
+            }
+
+            h6 {
+                margin: 0px;
+                font-size: 0.75rem;
+            }
+
+            .addFundBtn {
+                padding: 0.75rem;
+                padding: 0.8rem 0.75rem 0.701rem;
+            }
+        }
+    }
+
+    .amoErrorSec {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(43, 47, 63, 0.8);
+        border-radius: 4px 4px 0 0;
+        z-index: 10;
+
+        .amoErrorCont {
+            background: $white;
+            padding: 1rem;
+            border-radius: 6px 6px 0 0;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+
+            h5 {
+                font-size: 0.875rem;
+                line-height: 1.063rem;
+                color: $base-text;
+                margin-bottom: 0.625rem;
+            }
+
+            p {
+                line-height: 1.063rem;
+                color: $grey-med;
+            }
+
+            .btn-wrap {
+                .btn {
+                    color: $white;
+                    text-transform: uppercase;
+                    padding: 0.75rem;
+                    width: 6.125rem;
+                    font-family: $font-base-semibold;
+                    margin-right: 0.5rem;
+
+                    &.btn-link {
+                        color: $base-text;
+                    }
+
+                    &:last-child {
+                        margin-right: 0px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .selectInvestSec {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(43, 47, 63, 0.8);
+        border-radius: 4px 4px 0 0;
+        z-index: 10;
+        @include small{
+            display: none;
+        }
+        .selectInvestCont {
+            background: $white;
+            padding: 0;
+            border-radius: 1rem 1rem 0 0;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            
+            .selectInvestHeader {
+                border-bottom: 1px solid $light-border-color;
+                padding: 1rem;
+                padding-bottom: 1.156rem;
+                position: relative;
+
+                h5 {
+                    font-size: 0.875rem;
+                    color: $base-text;
+                    line-height: 1.063rem;
+                    margin: 0px;
+                }
+
+                .close {
+                    position: absolute;
+                    right: 1rem;
+                    top: 1rem;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    text-align: center;
+                    background: $bg;
+                    color: $base-text;
+                    border-radius: 50%;
+                    line-height: 1rem;
+                    @include flex(center, center);
+
+                    i, em {
+                        font-size: 1rem;
+                        font-weight: normal;
+                        color: $base-text;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .selectInvestBody {
+                padding: 1rem;
+                max-height: calc(100vh - 8rem);
+
+                @include laptop {
+                    max-height: calc(100vh - 12rem);
+                }
+
+                @include tablet {
+                    max-height: calc(100vh - 17rem);
+                }
+
+                .topsec {
+                    padding: 0 0 1.5rem;
+
+                    h6 {
+                        font-size: 00.75rem;
+                        line-height: 0.875rem;
+                        color: $grey-med;
+                        font-family: $font-base-reg;
+                        margin: 0px;
+                    }
+
+                    .toggle-switch {
+                        padding-left: 30px;
+
+                        input:checked+label {
+                            background: $highlighted;
+                        }
+                    }
+                }
+
+                .investTypeList {
+                    margin-bottom: 28px;
+
+                    .investTypeBox {
+
+                        margin-bottom: 0.625rem;
+
+                        >span {
+                            width: 100%;
+                        }
+
+                        .investTypeBoxIn {
+                            padding: 1rem 1rem 1.5rem;
+                            border-radius: 4px;
+                            width: 311px;
+                            height: 123px;
+                            @include small{
+                                width: 100%;
+                            }
+                        }
+
+                        &.purpleBg {
+                            .investTypeBoxIn {
+                                background: $purple-bg;
+
+                                &.disabled {
+                                    background: $disabled;
+
+                                    * {
+                                        color: rgba(29, 30, 32, 0.4);
+                                    }
+
+                                    .topSec {
+                                        .left {
+                                            h4 {
+                                                i, em {
+                                                    filter: grayscale(100%);
+                                                    opacity: 0.6;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+
+                        &.blueBg {
+                            .investTypeBoxIn {
+                                background: #dae1ff;
+
+                                &.disabled {
+                                    background: $disabled;
+
+                                    * {
+                                        color: rgba(29, 30, 32, 0.4);
+                                    }
+
+                                    .topSec {
+                                        .left {
+                                            h4 {
+                                                i, em {
+                                                    filter: grayscale(100%);
+                                                    opacity: 0.6;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.pinkBg {
+                            .investTypeBoxIn {
+                                background: #fff2d8;
+
+                                &.disabled {
+                                    background: $disabled;
+
+                                    * {
+                                        color: rgba(29, 30, 32, 0.4);
+                                    }
+
+                                    .topSec {
+                                        .left {
+                                            h4 {
+                                                i, em {
+                                                    filter: grayscale(100%);
+                                                    opacity: 0.6;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                        .topSec {
+                            padding-bottom: 1.5rem;
+
+                            .left {
+                                h4 {
+                                    margin: 0px;
+                                    font-size: 0.875rem;
+                                    line-height: 1.063rem;
+                                    text-transform: uppercase;
+                                    display: flex;
+                                    align-items: center;
+
+                                    i, em {
+                                        margin-right: 0.5rem;
+                                    }
+                                }
+                            }
+
+                            .right {
+                                h6 {
+                                    font-size: 0.75rem;
+                                    margin: 0px;
+                                }
+                            }
+                        }
+
+                        .btmSec {
+                            margin: 0 -5px;
+
+                            >div {
+                                width: 33.3333%;
+                                padding: 0 5px;
+
+                                h6 {
+                                    font-size: 0.688rem;
+                                    line-height: 0.813rem;
+                                    color: $grey-med;
+                                    font-family: $font-base-reg;
+                                    margin-bottom: 5px;
+                                }
+
+                                h5 {
+                                    font-size: 0.875rem;
+                                    line-height: 1.063rem;
+                                    margin: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .orderPlacedWrap {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        background: $white;
+        border-radius: 4px 4px 0 0;
+        z-index: 6;
+
+        .orderPlacedCont {
+            padding: 1rem;
+            width: 14.375rem;
+            margin: 0 auto;
+            @include flex(center, center);
+            height: 100%;
+
+            img {
+                margin: 0 0 1.5rem;
+            }
+
+            h5 {
+                font-size: 0.875rem;
+                line-height: 1.063rem;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                font-size: 0.75rem;
+                line-height: normal;
+                color: $grey-med;
+
+                strong {
+                    font-family: $font-base-med;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    &.minimized {
+        box-shadow: -1px 1px 12px 0 #e5e7ef;
+        border-radius: 0.25rem;
+        height: calc(100vh - 5rem);
+        z-index: 999;
+
+        .buyEdgeHeader {
+            border-radius: 0.25rem 0.25rem 0 0;
+        }
+    }
+
+    &.sellCont {
+        .buyEdgeFooter {
+            .placeOrderBtn {
+                &.btn-buy {
+                    display: none;
+                }
+
+                &.btn-sell {
+                    display: block;
+                }
+            }
+        }
+
+        .toggle-switch.sm {
+            input:checked {
+                +label {
+                    background: $red;
+                }
+            }
+        }
+
+        .buyEdgeBody {
+            .investmentWrap {
+                .investmentContentWrap {
+                    padding-bottom: 2rem;
+
+                    .squareOrderLink {
+                        h5 {
+
+                            a {
+                                color: $red;
+                            }
+                        }
+                    }
+
+                    .squreOrderContent {
+                        .secWrap {
+                            .secInfo {
+                                .jumpPrice {
+                                    .addBtn {
+                                        color: $red;
+
+                                        .custom-plus {
+                                            background-image: url(../../assets/images/custom-plus-sell.svg);
+                                        }
+                                    }
+                                }
+
+                                .custom-close {
+                                    background-image: url(../../assets/images/close-circle-red.svg);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .investmentTypeBtnWrap {
+                    background: #fff4f3;
+                }
+            }
+        }
+    }
+}
+
+/*buy indices*/
+
+.vue-modal {
+    .modal-overlay {
+    }
+
+    .modal_title {
+        font-size: $font-18;
+        line-height: $font-20;
+        letter-spacing: 0;
+    }
+
+    p {
+        color: $grey-med;
+        line-height: 1.438rem;
+
+    }
+
+    .btn.btn-modal {
+        margin-top: 3rem;
+    }
+
+    .modal-content {
+        min-height: 26.875rem;
+    }
+
+    .modal-full {
+        max-width: calc(100% - 3.438rem);
+        margin: 1.25rem 0 1.25rem 1.25rem;
+        min-height: calc(100% - 2.5rem);
+
+        .modal-content {
+            min-height: calc(100vh - 2.5rem);
+        }
+
+        .modal-body {
+            min-height: calc(100vh - 6.5rem);
+            background: $border-color;
+            border-radius: 0 0 0.5rem 0.5rem;
+            @include flex(center, center)
+        }
+    }
+}
+
+.eDisAuthorizationModal {
+    @include small {
+        z-index: 100001;
+
+        .modal-overlay {
+            width: 100% !important;
+            display: block !important;
+        }
+    }
+
+    .modal-body {
+        p {
+            font-size: $font-14;
+
+            strong {
+                color: $base-text;
+                font-family: $font-base-semibold;
+                font-weight: normal;
+            }
+        }
+
+    }
+
+    .modal-footer {
+        padding-top: 2rem;
+
+        .btn-wrap {
+            button.btn {
+                @include small {
+                    min-width: 50%;
+                }
+            }
+        }
+    }
+}
+
+.knowMorePopup {
+    .back-btn {
+        font-size: 1.5rem;
+        color: $base-text;
+        margin-right: $font-12;
+    }
+
+    ul {
+        li {
+            strong {
+                color: $base-text;
+                font-family: $font-base-semibold;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+.orderPreviewPopup {
+
+    .modal-header {
+        padding-bottom: 1rem;
+
+        .modal-title {
+            margin: 0 0 0.5rem;
+        }
+    }
+
+    .modal-body {
+        min-height: 17.188rem;
+
+        p {
+            font-size: $font-13;
+            color: $grey-med;
+
+            strong {
+                color: $base-text;
+                font-family: $font-base-semibold;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+.completeEDisModal {
+    .modal-body {
+        p {
+            font-size: $font-14;
+            line-height: $font-20;
+            color: $grey-med;
+
+            strong {
+                color: $base-text;
+                font-family: $font-base-semibold;
+                font-weight: normal;
+            }
+
+            small {
+                font-size: $font-13;
+            }
+        }
+
+        .title_icon {
+            margin: 4rem auto 3rem;
+        }
+    }
+}
+
+.completeEDisModal {
+    .modal-body {
+        p {
+            font-size: $font-14;
+            line-height: $font-20;
+            color: $grey-med;
+
+            strong {
+                color: $base-text;
+                font-family: $font-base-semibold;
+                font-weight: normal;
+            }
+
+            small {
+                font-size: $font-13;
+            }
+        }
+
+        .title_icon {
+            margin: 4rem auto 3rem;
+        }
+    }
+}
+
+
+.serverErrModal {
+    p {
+        width: 300px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.authPendingModal {
+    .modal-content {
+        min-height: 335px;
+    }
+}
+
+.modal {
+    &.vue-modal {
+        @include small {
+            z-index: 100001;
+
+            .modal-overlay {
+                width: 100% !important;
+                display: block !important;
+            }
+        }
+    }
+}
+
+.err-msg {
+    color: $red;
+    font-size: 0.75rem;
+    font-family: $font-base-med;
+}
+
+.form-group {
+    &.popoverWrap {
+        .popoverContent {
+            &.leftPopover {
+                &::after {
+                    margin-top: -22px;
+                }
+            }
+        }
+    }
+}
+
+
+.buySideBar {
+    .price-info-sec {
+        &.positive {
+            .price {
+                color: $positive;
+
+                &:after {
+                    font-size: 0;
+                    position: relative;
+                    top: -0.2rem;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 4px 6px 4px;
+                    border-color: transparent transparent $positive transparent;
+                    display: inline-block;
+                    margin-left: 0.3rem;
+                }
+            }
+        }
+
+        &.negative {
+            .price {
+                color: $negative;
+
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 6px 4px 0 4px;
+                    border-color: $red transparent transparent transparent;
+                    margin-left: 0.3rem;
+                    font-size: 0;
+                    position: relative;
+                    top: -0.15rem;
+                }
+            }
+        }
+    }
+}
+
+.buySideBar {
+    z-index: 9;
+    min-height: 550px;
+    min-width: 343.5px;
+    max-height: 700px;
+    max-width: 343.5px;
+
+    @include tablet {
+        min-height: 100%;
+        min-width: 100%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+
+/*Drgable */
+
+.buySideBar {
+    position: absolute;
+    @include small{
+        position: fixed;
+        right: 0 !important;
+        z-index: 1001;
+        bottom: 0 !important; top: 0 !important;
+        overflow: hidden;
+    }
+}
+
+.buySideBar .buy-edge-cases .popup-header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+}
+
+
+/*NOSELECT*/
+
+.buySideBar .buy-edge-cases .popup-header.noselect * {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}

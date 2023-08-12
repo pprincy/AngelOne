@@ -1,0 +1,205 @@
+@import '../../assets/scss/styles';
+
+.acc-personal-sec {
+    padding-top: 3rem;
+    @include tablet {
+        padding-top: 1.25rem;
+    }
+    .borderedBox {
+        border-color: $light-border-color;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+
+        h4 {
+            font-family: $font-base-med;
+            color: $grey-med;
+            padding: 1.5rem 1.5rem 0rem;
+        }
+
+        .icon-info-list {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            display: block;
+
+            li {
+                padding: 1.5rem;
+                @include flex(flex-start, flex-end);
+                align-items: center;
+                border-bottom: 1px solid $light-border-color;
+                position: relative;
+                @include tablet {
+                    height: 4.875rem;
+                    padding: 0 1.5rem;
+                }
+                &:last-child {
+                    border-bottom: none;
+                    @include tablet {
+                        min-height: 6.813rem;
+                        padding: 0 1.5rem;
+                    }
+                    @include small{
+                        min-height: 6.813rem;
+                        padding: 1rem 1.5rem 1.4rem;
+                        height: auto;
+                    }
+                }
+
+                >div {
+                    padding-left: 1rem;
+                    width: calc(100% - 2rem);
+                    word-wrap: break-word;
+                }
+                .editLink{
+                    position: absolute;
+                    right: 1.5rem;
+                    padding: 0;
+                    margin-top: 1.5rem;
+                }
+                .updated{
+                    position: absolute;
+                    right: 1.5rem;
+                    padding: 0;
+                    margin-top: 1.5rem;
+                    color: $green;
+                    font-size: $font-14;
+                    font-family: $font-base-semibold;
+                    @include flex(flex-start, center);
+                   
+                    i, em{
+                        margin-right: 0.1rem;
+                        font-size: $font-12;
+                    }
+                }
+
+                label {
+                    font-size: $font-12;
+                    font-family: $font-base-reg;
+                    color: $grey-med;
+                    cursor: auto;
+                }
+
+                p {
+                    font-size: $font-16;
+                    font-family: $font-base-med;
+                    @include tablet {
+                        font-size: $font-14;
+                    }
+                }
+
+                a {
+                    font-size: $font-14;
+                    font-family: $font-base-semibold;
+                    color: $highlighted;
+                    padding-top: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+.editinfoPopup{
+    .custom-times-circle-solid {
+        background-image: url(../../assets/images/times-circle-solid1.svg);
+    }
+    .modal-body{
+        min-height: 220px;
+        .otpMsg{
+            font-size: $font-14;
+            color: $grey-med;
+            margin-bottom: 1.5rem;
+            strong{
+                font-family: $font-base-med;
+                font-weight: normal;
+                display: inline-block;
+                line-height: 1.063rem;
+                span{
+                    color: $highlighted;
+                }
+                em{
+                    font-style: normal;
+                    margin-right: 0.25rem;
+                }
+            }
+        }
+
+        .otp-form-group{
+            .countdown{
+                position: absolute;
+                right: 0px;
+                bottom: 0.5rem;
+                font-size: $font-12;
+                color: $red;
+                font-family:$font-base-med;
+                label{
+                    margin: 0px;
+                    color: $grey-med;
+                    font-family:$font-base-med;
+                    margin-right: 0.1rem;
+                }
+                span{
+                   
+                }
+            }
+            .otpMatch{
+                position: absolute;
+                right: 0px;
+                bottom: 0.5rem;
+                font-size: 1.1rem;
+                color: $green;
+            }
+            .otp-link{
+                position: absolute;
+                right: 0px;
+                bottom: 0.5rem;
+                font-size: $font-12;
+                font-family: $font-base-med;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+        }
+        .form-group {
+            .err-msg{
+                line-height: 1.063rem;
+                font-family: $font-base-reg;
+                display: block;
+                &.two-lines{
+                    bottom: -2.7rem;
+                }
+            }
+        }
+    }
+
+    .modal-footer{
+      .btn{
+          &.btn-primary{
+            font-size: $font-14;
+            text-transform: uppercase;
+            &.disabled , &:disabled{
+                background:$disabled ;
+                border-color: $disabled;
+                opacity: 1;
+                color: $grey-med;
+                cursor: not-allowed;
+                box-shadow: none !important;
+               
+               }
+          }
+      }  
+    }
+   &.changeEmailModal {
+    .modal-body {
+        .otpMsg {
+            strong {
+                span{
+                    color: $grey-med;
+                }
+            }
+        }
+    }
+   }
+}
+
+

@@ -1,0 +1,94 @@
+@import '../../assets/scss/styles';
+.side-quick-links {
+    width:5.438rem;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    padding-top: 4rem;
+    box-shadow: 0 0 0.2rem 0.1rem rgba(108, 148, 184, 0.21);
+    background:$white ;
+    z-index: 9;
+    text-align: center;
+    background: $bg;
+    box-shadow: none;
+    z-index: 99;
+    @include laptop{
+        width: 100%;
+        top: auto;
+        bottom: 0px;
+        height: auto;
+        padding: 0px;
+    }
+   ul{
+       list-style: none;
+       margin: 0px;
+       padding: 0px;
+       @include laptop{
+            display: flex;
+       }
+       li{
+           border-bottom: 1px solid $light-grey;
+           @include laptop{
+               width: 16.6666%;
+            }
+           a{
+               height: 5.813rem;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               color: $base-text;
+               font-size: 0.875rem;
+               position: relative;
+               @include laptop{
+                    width: 16.6666%;
+                    height: auto;
+                    padding: 0.65rem;
+                }
+               i, em{
+                   font-size: 1.125rem;
+                   margin-bottom: 0.625rem;
+               }
+               &::after{
+                   content: "";
+                   position: absolute;
+                   right: 0px;
+                   top: 0px;
+                   bottom: 0px;
+                   width: 0.250rem;
+                   display: block;
+                   background: transparent;
+                   @include laptop{
+                    top: auto;
+                    bottom: 0px;
+                    width:100%;
+                    height: auto;
+                   }
+                   @include tablet{
+                       display: none;
+                   }
+                   
+               }
+               &:hover{
+                   color: $highlighted;
+               }
+               &.active, .router-link-active{
+                    color: $highlighted;
+                    font-family: $font-base-med;
+                    span{
+                        font-family: $font-base-med;
+                    }
+                    &:after{
+                        background: $highlighted;
+                    }
+               }
+
+           }
+           &:last-child{
+               border-bottom: none;
+           }
+       }
+   } 
+   
+}

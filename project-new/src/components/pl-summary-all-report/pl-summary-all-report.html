@@ -1,0 +1,150 @@
+<section>
+    <div class="pl-all-report-section leftPosition ">
+        <div class="title-wrap border-bottom">
+            <h3 class="balance">P&L Summary from : <span class="date">01 Feb 2020 - 28 Feb 2021</span></h3>
+            <h3 class="ledger">Total Realised G/L : <span class="date txtPositive">₹40,651.58</span></h3>
+        </div>
+        <div class="pl-top-section">
+            <div class="d-flex">
+                <div class="pl-content">
+                    <!-- <label>
+                        <span class="name">Equity</span>
+                         <span class="realised pl-2">Realised G/L</span>
+                    </label>
+                    <p>
+                        <span class="amt txtNegative">-₹32,651.58</span>
+                        <span class="percent pl-2">(-230.43%)</span>
+                    </p> -->
+                    <div class="category">
+                        <label>Equity</label>
+                        <span class="amt txtNegative">-₹32,651.58</span>
+                    </div>
+                    <div class="realisedGL">
+                        <label>Realised G/L</label>
+                        <span class="percent">(-230.43%)</span>
+                    </div>
+                </div>
+                <div class="pl-content">
+                    <!-- <label>
+                        <span class="name">F&O</span>
+                         <span class="realised pl-2">Realised G/L</span>
+                    </label>
+                    <p>
+                        <span class="amt txtPositive">₹41,651.58</span>
+                        <span class="percent pl-2">(230.43%)</span>
+                    </p> -->
+                    <div class="category">
+                        <label>F&O</label>
+                        <span class="amt txtPositive">₹41,651.58</span>
+                    </div>
+                    <div class="realisedGL">
+                        <label>Realised G/L</label>
+                        <span class="percent">(230.43%)</span>
+                    </div>
+                </div>
+                <div class="pl-content">
+                    <!-- <label>
+                        <span class="name">Currency</span>
+                         <span class="realised pl-2">Realised G/L</span>
+                    </label>
+                    <p>
+                        <span class="amt txtNegative">-₹10,651.58</span>
+                        <span class="percent pl-2">(-230.43%)</span>
+                    </p> -->
+                    <div class="category">
+                        <label>Currency</label>
+                        <span class="amt txtNegative">-₹10,651.58</span>
+                    </div>
+                    <div class="realisedGL">
+                        <label>Realised G/L</label>
+                        <span class="percent">(-230.43%)</span>
+                    </div>
+                </div>
+                <div class="pl-content">
+                    <!-- <label>
+                        <span class="name">Commodity</span>
+                         <span class="realised pl-2">Realised G/L</span>
+                    </label>
+                    <p>
+                        <span class="amt txtNegative">₹40,651.58</span>
+                        <span class="percent pl-2">(230.43%)</span>
+                    </p> -->
+                    <div class="category">
+                        <label>Commodity</label>
+                        <span class="amt txtPositive">₹40,651.58</span>
+                    </div>
+                    <div class="realisedGL">
+                        <label>Realised G/L</label>
+                        <span class="percent">(230.43%)</span>
+                    </div>
+                </div>
+                <div class="pl-content">
+                    <!-- <label>
+                        <span class="name">MF</span>
+                         <span class="realised pl-2">Realised G/L</span>
+                    </label>
+                    <p>
+                        <span class="amt txtPositive">₹40,651.58</span>
+                        <span class="percent pl-2">(230.43%)</span>
+                    </p> -->
+                    <div class="category">
+                        <label>MF</label>
+                        <span class="amt txtPositive">₹40,651.58</span>
+                    </div>
+                    <div class="realisedGL">
+                        <label>Realised G/L</label>
+                        <span class="percent">(230.43%)</span>
+                    </div>
+                </div>
+                <div class="pl-content select-type">
+                    <select class="form-control selectpicker" id="summaryType" >
+                        <option value="equity" >Equity</option>
+                        <option value="fo">F & O</option>
+                        <option value="currency">Currency</option>
+                        <option value="commodity">Commodity</option>
+                        <option value="mf">MF</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="field_bg p-0">
+    <!-- P&L Summary ALL Tab Report Start -->
+    <div id="pl_summary_all_tab_report">
+       
+   
+<div class="mb-5 allTblWrap">
+    <!-- P&L Summary Equity Report Start -->
+    <div id="pl_summary_equity_report_all"  class="allTbl">
+        <PLSummaryEquityReport></PLSummaryEquityReport>
+    </div>
+    <!-- P&L Summary Equity Report End -->
+
+    <!-- P&L Summary FO Report Start -->
+    <div id="pl_summary_fo_report_all"  class="allTbl">
+        <PLSummaryFOReport></PLSummaryFOReport>
+    </div>
+    <!-- P&L Summary FO Report End -->
+
+    <!-- P&L Summary Currency Report Start -->
+    <div id="pl_summary_currency_report_all"  class="allTbl">
+        <PLSummaryCurrencyReport></PLSummaryCurrencyReport>
+    </div>
+    <!-- P&L Summary Currency Report End -->
+
+    <!-- P&L Summary Commodity Report Start -->
+    <div id="pl_summary_commodity_report_all "  class="allTbl">
+        <PLSummaryCommodityReport></PLSummaryCommodityReport>
+    </div>
+    <!-- P&L Summary Commodity Report End -->
+
+    <!-- P&L Summary Mf Report Start -->
+    <div id="pl_summary_mf_report_all "  class="allTbl">
+        <PLSummaryMfReport></PLSummaryMfReport>
+    </div>
+    <!-- P&L Summary Mf Report End -->
+</div>
+</div>
+<!-- P&L Summary ALL Tab Report End -->
+</div>

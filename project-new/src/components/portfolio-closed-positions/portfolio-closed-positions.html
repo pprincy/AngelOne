@@ -1,0 +1,107 @@
+<div class="main-content page-closed_position" >
+  <div class="main-content-in">
+    <div class="stickyTabWrap">
+      <div class="sec_title_wrap" data-v-522b238a="">
+        <router-link to="/portfolio" class="btn btn-back"><em class="icon-dropdown-arrow" data-v-522b238a=""></em><span data-v-522b238a="">Closed Postition</span></router-link>
+      </div>
+     
+      <div class="field_bg p-0 ">
+         <!--No Table Entry found-->
+      <div class="noHistory" style="display:none" >
+        <img src="../../assets/images/funds-no-history.png" alt="">
+        <p>Your have not closed any positions today</p>
+        
+      </div>
+        <!--No Table Entry found-->
+        <div class="realisedGainSec d-flex justify-content-between align-items-center">
+          <label>Today’s Realised Gain :</label>
+          <span class="price">
+            <em>₹</em>
+            <span class="amt">14,987.50</span>
+          </span>
+        </div>
+        <div class="closeOrderPositionTable">
+          <div class="table-wrap d-xs-none">
+            <table class="table theme1 flexTable mainTable orderTable stickyonScroll">
+              <thead >
+                <tr >
+                  <th class="colName" >Name</th>
+                  <th class="colOrderType" >Order Type</th>
+                  <th class="colQuantiy" >Quantity</th>
+                  <th class="colBuyAvgPrc" >Buy Avg. Price</th>
+                  <th class="colSellAvgPrc" >Sell Avg. Price </th>
+                  <th class="colGainLoss text-right" >Gain and Loss</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="order in positionLists" >
+                  <td class="colName" >
+                    <div class="comp-info-sec">
+                      <h5 class="scrip_name">{{order.name}}<span class="badge badge-secondary exchage">{{order.exchange}}</span></h5>
+                      <h6 class="comp_name">{{order.compName}}</h6>
+                    </div>
+                  </td>
+                  <td class="colOrderType" >
+                    <span class="badge badge-secondary">{{order.orderType}}</span>
+                  </td>
+                  <td class="colQuantiy" >
+                    <span class="quantity"> <strong>{{order.qtyAmount}}</strong>{{order.qtyType}}</span>
+                  </td>
+                  <td class="colBuyAvgPrc" >
+                    <p><span :class="{txtPositive: order.priceType == 'positive' , txtNegative: order.priceType == 'negative' }">{{order.buyPrice}}</span><small>{{order.buyAvgPer}}</small></p>
+                  </td>
+                  <td class="colSellAvgPrc" >
+                    <p><span>{{order.sellPrice}}</span></p>
+                  </td>
+                  <td class="colGainLoss text-right" >
+                    <span class="gain-loss-price" :class="{txtPositive: order.gainLossType == 'positive' , txtNegative: order.gainLossType == 'negative' }">{{order.gainLossVal}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!--MOBILE VIEW start-->
+          <div class="table-wrapper d-md-none mobile_table">
+            <table class="table mobTable mainTable">
+              <thead>
+                <tr>
+                  <th class="col-stockName">Stock Name</th>
+                  <th class="col-qty_ltp">Qty/Buy Avg Price</th>
+                  <th class="col-gainloss text-right">P&L/Sell Avg Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-toggle="modal" data-target="#positionDetailModal">
+                  <td class="col-stockName">
+                    <div class="comp-info-sec">
+                      <h5 class="scrip_name">SBIN</h5>
+                      <h6 class="comp_name">State Bank of India</h6>
+                    </div>
+                  </td>
+                  <td class="col-qty_ltp">
+                    <div class="qty"><strong>70</strong> Share</div>
+                    <div class="ltp">
+                      <span class="value positive mr-1">2393.60</span>
+                    </div>
+                  </td>
+                  <td class="col-gainloss text-right">
+                    <div class="gainloss positive">+12435.30</div>
+                    <div class="atp">2393.20</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--MOBILE VIEW end-->
+
+        </div>
+        
+      </div>
+      
+    </div>
+
+
+  </div>
+</div>
+

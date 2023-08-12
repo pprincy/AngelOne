@@ -1,0 +1,90 @@
+@import '../../assets/scss/styles';
+
+.acc-language-sec {
+    .borderedBox {
+        border-color: $light-border-color;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+
+        .icon-info-list {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            display: block;
+
+            li {
+                padding: 1.5rem 3.5rem 1.5rem 0.5rem;
+                @include flex(flex-start, flex-end);
+                border-bottom: 1px solid $light-border-color;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                label {
+                    p {
+                        font-size: $font-12;
+                        font-family: $font-base-med;
+                        color: $grey-med;
+                        text-transform: capitalize;
+                        padding-top: 0.5rem;
+                    }
+
+                    .translate {
+                        font-size: $font-16;
+                        font-weight: bolder;
+                    }
+                }
+
+                .eng-font {
+                    font-family: $font-base-med;
+                    font-size: $font-16;
+                    color: $base-text;
+                    padding: 0.5rem 0rem;
+                }
+
+                .container {
+                    position: relative;
+                    margin-bottom: 0rem;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+
+                .container input {
+                    position: absolute;
+                    opacity: 0;
+                }
+
+                .checkmark {
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    height: 1rem;
+                    width: 1rem;
+                    border-radius: 50%;
+                }
+
+                .container input:checked~.checkmark {
+                    background: url(../../assets/images/icon-checked.svg) $checked no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+    }
+
+    .lang-desc {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem 1.5rem;
+
+        p {
+            font-family: $font-base-reg;
+            font-size: $font-14;
+            color: $grey-med;
+            width: 32rem;
+            word-wrap: break-word;
+        }
+    }
+}

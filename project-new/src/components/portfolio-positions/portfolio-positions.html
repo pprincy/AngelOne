@@ -1,0 +1,675 @@
+
+<div class="tabContentWrap positionTabContent" v-if="positionMain">
+<div class="positionTopSec d-xs-none">
+  <div class="d-flex positionTopInnerSec">
+    <div class="todaysGainSec">
+      <em class="custom-gain"></em>
+      <label>Today’s Gain</label>
+      <span class="price txtPositive"><em>₹</em>12,880.22</span>
+    </div>
+    <div class="unrealisedGainLossSec">
+      <em class="custom-gain-icon"></em>
+      <label>Unrealised gain & loss</label>
+      <span class="price txtPositive"><em>₹</em>14,987.50</span>
+    </div>
+    <div class="realisedGainLossSec">
+      <em class="custom-gain-icon"></em>
+      <label>Realised gain & loss</label>
+      <span class="price txtNegative"><em>₹</em>-3938.51</span>
+    </div>
+  </div>
+</div>
+
+<div class="field_bg p-0">
+  <!--No Table Entry found-->
+  <div class="noHistory" style="display: none;">
+   <img src="../../assets/images/no-history.svg" alt="">
+   <p>No pending orders. Place an order from Angel Recommendation</p>
+   <a href="#" class="btn btn-outline-primary btn-xl">VIEW ORDER HISTORY</a>
+ </div>
+   <!--No Table Entry found-->
+
+  
+<div class="table-wrap main-table-wrap positionTableWrap d-xs-none" >
+ <table class="table theme1 flexTable mainTable stickyonScroll orderTable" id="positionTable">
+   <thead>
+     <tr>
+       <th class="colName">Name</th>
+       <th class="colOrderType">Order Type</th>
+       <th class="colQuantiy">Quantity</th>
+       <th class="colAtp">ATP</th>
+       <th class="colLtp">LTP</th>
+       <th class="colGainLoss text-right">Gain and Loss</th>
+       <th class="text-right colDropdown"></th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr v-for="order in positionLists" :class="{activeParentRow:order.details == true, hideBtns:order.clicked == true}"  >
+       <td class="full-width-col">
+       <table class="table flexTable innerTbl">
+         <tbody>
+           <tr class="main-tr" :class="{activeRow:order.details == true, hideBtns:order.clicked == true}" >
+            
+             <td class="colName">
+               <div class="comp-info-sec">
+                 <h5 class="scrip_name">{{order.name}}<span class="badge badge-secondary exchage">{{order.exchange}}</span></h5>
+                 <h6 class="comp_name">{{order.compName}}</h6>
+               </div>
+             </td>
+             <td class="colOrderType colActiveHide ">
+              <span class="badge badge-secondary">{{order.orderType}}</span>
+            </td>
+            
+             <td class="colQuantiy colActiveHide">
+               <span class="quantity"> <strong>{{order.qtyAmount}}</strong>{{order.qtyType}}</span>
+             </td>
+             <td class="colAtp colActiveHide">
+               <span class="atp">{{order.atp}}</span>
+             </td>
+             <td class="colLtp colActiveHide">
+              <div class="price-info-sec" :class="{positive:order.shareVal == 'positive' , negative:order.shareVal == 'negative'}">
+                <h5 class="price">{{order.price}}</h5>
+                <div class="chg"> +{{order.chg}}<span class="per">(<span>{{order.per}}%</span>)</span></div>
+              </div>
+            </td>
+             <td class="colGainLoss colActiveHide text-right">
+               <!-- <div class="actionInfo">
+                 <span class="badge" :class="{txtPositive: order.actionVal == 'positive' , txtNegative: order.actionVal == 'negative' }">{{order.action}}</span>
+                 <span class="price"  :class="{txtPositive: order.actionVal == 'positive' , txtNegative: order.actionVal == 'negative' }">{{order.actionPrice}}</span>
+               </div> -->
+               <span class="gain-loss-price" :class="{txtPositive: order.gainLossType == 'positive' , txtNegative: order.gainLossType == 'negative' }">{{order.gainLossVal}}</span>
+             </td>
+             
+             <td class="colBtns"> 
+               <!--v-show="order.details"-->
+               <div class="btnWrap" :class="{hideBtns: order.convertInvestmentType == true || order.squareoffOrder == true}">
+                 <a href="#" class="btn btn-outline-secondary btnEditOrder" @click="order.convertInvestmentType = true"><em class="custom-edit-order"></em></a>
+                 <!-- <a href="#" class="btn btn-outline-secondary butBuyMore" ><em class="custom-buy-more"></em> Buy More</a> -->
+                 <a href="#" class="btn btn-outline-secondary butSellMore" ><em class="custom-sell-more"></em> Sell More</a>
+                 <a href="#" class="btn btn-outline-secondary btnStopLoss" ><em class="custom-stop-loss"></em> Stop loss</a>
+                 <a href="#" class="btn btn-outline-secondary btnSquareOff" @click=" order.squareoffOrder = true"><em class="custom-square-off"></em> SQUARE OFF</a>
+               </div>
+             </td>
+             <td class="text-right colDropdown">
+               <a href="#" class="arrow"  :class="{active: order.details == true }"><em class="custom-down-arrow"></em></a>
+               <div class="orderHoverCont">
+                 <div class="btn-wrap">
+                   <span  class="btn btn-edit-order" @click="order.details = true , order.convertInvestmentType = true, order.clicked = true">
+                     <em class="custom-edit-order"></em>
+                     <span class="orderPopover leftPopover">
+                      Convert Investment Type
+                     </span>
+                   </span>
+                   <!-- <span  class="btn butBuyMore" ><em class="custom-buy-more"></em>
+                     <span class="orderPopover centerPopover" >
+                      Buy More
+                     </span>
+                   </span> -->
+                   <span  class="btn butSellMore" ><em class="custom-sell-more"></em>
+                    <span class="orderPopover centerPopover" >
+                     Sell More
+                    </span>
+                  </span>
+                   <!-- <span  class="btn btn-stop-loss-order" ><em class="custom-stop-loss"></em>
+                    <span class="orderPopover leftPopover" >
+                      Stop Loss
+                    </span>
+                  </span> -->
+                  <span  class="btn btn-square-off-order" @click="order.details = true , order.squareoffOrder = true, order.clicked = true"><em class="custom-square-off"></em>
+                    <span class="orderPopover rightPopover" >
+                      Square Off
+                    </span>
+                  </span>
+                 </div>
+               </div>
+             </td>
+             <a  class="main-tr-clicked" @click='order.details = !order.details , order.editCancelBtns = !order.editCancelBtns, order.clicked = false, order.squareoffOrder = false, order.convertInvestmentType = false'></a>
+           </tr>
+           <tr class="hovered-tr">
+             <td class="full-width-col"  v-show="order.details">
+               <div class="orderDetail">
+                 <!-- <div class="field_bg squareoffOrderSec" v-show="order.squareoffOrder">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="left-info">
+                      <h3>Square Off Order</h3>
+                      <p>Squaring off will square off the remaining executed quantity at market price.
+                        Are you sure you want to square off?</p>
+                    </div>
+                    <div class="btnWrap">
+                      <a href="#" class="btn btn-outline-secondary" @click="order.squareoffOrder = false">NO</a>
+                      <a href="#" class="btn btn-outline-secondary"  @click="order.squareoffOrder = false, order.details = false, squareoffSuccessMsg = true , successMsg()">YES</a>
+                    </div>
+                  </div>
+                 </div> -->
+                 <div class="field_bg editOrderSec squareoffOrderSec" v-show="order.squareoffOrder">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h3>Square Off Order</h3>
+                    </div>
+                    <div class="btnWrap">
+                      <a href="#" class="btn btn-outline-secondary" @click="order.squareoffOrder = false">Cancel</a>
+                      <a href="#" class="btn btn-primary"  @click="order.squareoffOrder = false, order.details = false, squareoffSuccessMsg = true , successMsg()">CONFIRM</a>
+                    </div>
+                  </div>
+
+                  <div class="editOrderBtmSec">
+                    <div class="d-flex">
+                      <div>
+                        <div class="form-group">
+                          <label class="form-lbl">Quantity</label>
+                          <input type="text" class="form-control" value="40">
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group">
+                          <label class="form-lbl">Price type</label>
+                          <div class="checkbox-btn-wrap type2">
+                            <label class="btn btn-outline-secondary" :class="{active:priceType == 'Market'}">
+                              <input class="form-check-input position-s tatic" v-model="priceType" type="radio" value="Market" name="priceType" checked >Market</label>
+                            <label class="btn btn-outline-secondary" :class="{active:priceType == 'Limit'}">
+                              <input class="form-check-input position-static" v-model="priceType" type="radio" value="Limit" name="priceType" >Limit</label>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      <div>
+                        <div class="form-group">
+                          <div class="marketPrice" v-show="priceType == 'Market'">
+                            <label class="form-lbl">Market Price</label>
+                            <input type="text" class="form-control" value="10,000.25" disabled>
+                          </div>
+                          <div class="limitPrice" v-show="priceType == 'Limit'">
+                            <label class="form-lbl">Limit Price</label>
+                            <input type="text" class="form-control" value="10,000.25">
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               <div class="field_bg cancelOrderSec" v-show="order.cancelOrder">
+                 <div class="d-flex justify-content-between align-items-center">
+                   <div>
+                     <h3>Cancel Order</h3>
+                     <p>Are you sure you want to cancel the order?</p>
+                   </div>
+                   <div class="btnWrap">
+                     <a href="#" class="btn btn-outline-secondary" @click="order.cancelOrder = false">NO</a>
+                     <a href="#" class="btn btn-outline-secondary">YES</a>
+                   </div>
+                 </div>
+               </div>
+               <div class="field_bg editOrderSec" v-show="order.convertInvestmentType">
+                 <div class="d-flex justify-content-between align-items-center">
+                   <div>
+                     <h3>Convert Investment Type</h3>
+                   </div>
+                   <div class="btnWrap">
+                     <a href="#" class="btn btn-outline-secondary" @click="order.convertInvestmentType = false">CANCEL</a>
+                     <a href="#" class="btn btn-primary" @click="order.convertInvestmentType = false">CONFIRM</a>
+                   </div>
+                 </div>
+
+                 <div class="editOrderBtmSec">
+                   <div class="d-flex">
+                     <div>
+                       <div class="form-group">
+                         <label class="form-lbl">Quantity</label>
+                         <input type="text" class="form-control" value="40" disabled>
+                       </div>
+                     </div>
+                     <div>
+                       <div class="form-group">
+                         <label class="form-lbl">Investment Type</label>
+                         <div class="checkbox-btn-wrap type2">
+                           <label class="btn btn-outline-secondary" :class="{active:investmentType == 'Delivery'}">
+                             <input class="form-check-input position-static" v-model="investmentType" type="radio" value="Delivery" name="investmentType">Delivery</label>
+                           <label class="btn btn-outline-secondary" :class="{active:investmentType == 'Intraday'}">
+                             <input class="form-check-input position-static" v-model="investmentType" type="radio" value="Intraday" name="investmentType">Intraday</label>
+                         </div>
+                       </div>
+                     </div>
+                     
+                   </div>
+                 </div>
+               </div>
+               <div class="orderInfo">
+                 <table class="table flexTable innerTbl">
+                   <tbody>
+                     <tr>
+                       <td class="colName">
+                         <label class="colLbl">LTP</label>
+                         <div class="price-info-sec positive">
+                           <h5 class="price">{{order.price}}</h5>
+                          </div>
+                       </td>
+                       <td class="colOrderType colActiveHide ">
+                        <label class="colLbl">Order Type</label>
+                        <span class="badge badge-secondary">{{order.orderType}}</span>
+                      </td>
+                       <td class="colQuantiy colActiveHide">
+                        <label class="colLbl">Quantity</label>
+                        <span class="quantity"> <strong>{{order.qtyAmount}}</strong>{{order.qtyType}}</span>
+                      </td>
+                      <td class="colAtp colActiveHide">
+                        <label class="colLbl">ATP</label>
+                        <span class="atp">{{order.atp}}</span>
+                      </td>
+                      
+                      <td class="colLtp">
+                        <label class="colLbl">LTP Change</label>
+                        <div class="price-info-sec positive">
+                          
+                          <div class="chg"> +{{order.chg}}<span class="per">(<span>{{order.per}}%</span>)</span></div>
+                        </div>
+                      </td>
+                      <td class="colGainLoss colActiveHide text-right">
+                        <label class="colLbl">Gain and Loss</label>
+                        <span class="gain-loss-price" :class="{txtPositive: order.gainLossType == 'positive' , txtNegative: order.gainLossType == 'negative' }">{{order.gainLossVal}}</span>
+                      </td>
+                       <td class="col1">
+                         <label class="colLbl">Investment Type</label>
+                         <p>{{order.orderType}}</p>
+                       </td>
+                       <td class="col2">
+                         <label class="colLbl">Exchange</label>
+                         <p>{{order.exchange}}</p>
+                       </td>
+                       <td class="col3">
+                         <label class="colLbl">Market Value</label>
+                         <p>{{order.marketVal}}</p>
+                       </td>
+                     </tr>
+                     </tbody>
+                     </table>
+               </div>
+             </div>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </td>
+     </tr>
+ 
+     <!-- <tr>
+       <td class="full-width-col">
+       <table class="table flexTable innerTbl">
+         <tbody>
+           <tr class="main-tr">
+             <td class="colName">
+               <div class="comp-info-sec">
+                 <h5 class="scrip_name">RELIANCE<span class="badge badge-secondary exchage">NSE</span></h5>
+                 <h6 class="comp_name">Reliance Industries</h6>
+               </div>
+             </td>
+             <td class="colLtp">
+               <div class="price-info-sec positive">
+                 <h5 class="price">1074.50</h5>
+                 <div class="chg"> +21.40<span class="per">(<span>0.74%</span>)</span></div>
+               </div>
+             </td>
+             <td class="colOrderType">
+               <span class="badge badge-secondary">Delivery</span>
+             </td>
+             <td class="colAction">
+               <div>
+                 <span class="badge txtNegative">Sell</span>
+                 <span class="price txtNegative">15,802.25</span>
+               </div>
+             </td>
+             <td class="colQty text-right">
+               <span class="qty"><strong>60</strong>/100</span>
+             </td>
+             <td class="text-right colDropdown">
+               <a href="#" class="arrow" data-toggle="collapse" data-target="#orderRow2" ><em class="custom-down-arrow"></em></a>
+             </td>
+           </tr>
+           <tr class="hovered-tr">
+             <td class="full-width-col collapse" id="orderRow2">
+              
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </td>
+     </tr>
+     <tr>
+       <td class="full-width-col">
+       <table class="table flexTable innerTbl">
+         <tbody>
+           <tr class="main-tr">
+             <td class="colName">
+               <div class="comp-info-sec">
+                 <h5 class="scrip_name">SBIN<span class="badge badge-secondary exchage">NSE</span></h5>
+                 <h6 class="comp_name">State Bank of India</h6>
+               </div>
+             </td>
+             <td class="colLtp">
+               <div class="price-info-sec positive">
+                 <h5 class="price">1074.50</h5>
+                 <div class="chg"> +21.40<span class="per">(<span>0.74%</span>)</span></div>
+               </div>
+             </td>
+             <td class="colOrderType">
+               <span class="badge badge-secondary">Intraday</span>
+             </td>
+             <td class="colAction">
+               <div>
+                 <span class="badge txtPositive">Buy</span>
+                 <span class="price">20,408.25</span>
+               </div>
+             </td>
+             <td class="colQty text-right">
+               <span class="qty"><strong>60</strong>/100</span>
+             </td>
+             <td class="text-right colDropdown">
+               <a href="#" class="arrow" data-toggle="collapse" data-target="#orderRow3" ><em class="custom-down-arrow"></em></a>
+             </td>
+           </tr>
+           <tr class="hovered-tr">
+             <td class="full-width-col collapse" id="orderRow3">
+              
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </td>
+     </tr>
+     <tr>
+       <td class="full-width-col">
+       <table class="table flexTable innerTbl">
+         <tbody>
+           <tr class="main-tr">
+             <td class="colName">
+               <div class="comp-info-sec">
+                 <h5 class="scrip_name">HEROMOTOCORP<span class="badge badge-secondary exchage">NSE FO</span></h5>
+                 <h6 class="comp_name">31 Mar 2020</h6>
+               </div>
+             </td>
+             <td class="colLtp">
+               <div class="price-info-sec positive">
+                 <h5 class="price">1074.50</h5>
+                 <div class="chg"> +21.40<span class="per">(<span>0.74%</span>)</span></div>
+               </div>
+             </td>
+             <td class="colOrderType">
+               <span class="badge badge-secondary">Intraday</span>
+             </td>
+             <td class="colAction">
+               <div>
+                 <span class="badge txtPositive">Sell</span>
+                 <span class="price">14,507.25</span>
+               </div>
+             </td>
+             <td class="colQty text-right">
+               <span class="qty"><strong>60</strong>/100</span>
+             </td>
+             <td class="text-right colDropdown">
+               <a href="#" class="arrow" data-toggle="collapse" data-target="#orderRow1" ><em class="custom-down-arrow"></em></a>
+             </td>
+           </tr>
+           <tr class="hovered-tr">
+             <td class="full-width-col collapse" id="orderRow1">
+              
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </td>
+     </tr> -->
+     </tbody>
+ </table>
+
+ 
+</div>
+
+<!--MOBILE VIEW start-->
+<div class="table-wrapper d-md-none mobile_table">
+  <table class="table mobTable mainTable">
+    <thead>
+      <tr>
+        <th class="col-stockName">Stock Name</th>
+        <th class="col-qty_ltp">Qty/LTP</th>
+        <th class="col-gainloss text-right">Gain & Loss / ATP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-toggle="modal" data-target="#positionDetailModal">
+        <td class="col-stockName">
+          <div class="comp-info-sec">
+            <h5 class="scrip_name">SBIN</h5>
+            <h6 class="comp_name">State Bank of India</h6>
+          </div>
+        </td>
+        <td class="col-qty_ltp">
+          <div class="qty"><strong>70</strong> Share</div>
+          <div class="ltp">
+            <span class="value positive mr-1">2393.60</span>
+            <span class="chg">(+52.60)</span>
+          </div>
+        </td>
+        <td class="col-gainloss text-right">
+          <div class="gainloss positive">+12435.30</div>
+          <div class="atp">2393.20</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--MOBILE VIEW end-->
+
+<!--STOCK DETAIL MODAL start-->
+<div class="modal fade mobile_modal positionDetailModal" id="positionDetailModal" tabindex="-1" aria-labelledby="" aria-hidden="true" v-show="StockDetailModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal_header">
+        <div class="row">
+          <div class="col-6">
+            <div class="comp-info-sec">
+              <h5 class="scrip_name"><span class="name">HEROMOTOCORP</span>
+                <span class="badge badge-secondary exchage">NSE</span></h5>
+              <h6 class="comp_name">31 Mar 2020 CE1400</h6>
+            </div>
+          </div>
+          <div class="col-6 text-right">
+            <div>
+              <h5 class="amt positive"><em class="icon-rupee-bold"></em> 1074.50 <em class="indicator positive"></em></h5>
+              <div class="parameters">
+                <span class="chg">+21.40</span><span class="chg_per">(0.74%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="tile-panel">
+          <table class="label_value-table">
+            <tr>
+              <td class="label_heading">Quantity</td>
+              <td class="label_value">5000 <span>Shares</span></td>
+            </tr>
+            <tr>
+              <td class="label_heading">Gain & Loss</td>
+              <td class="label_value positive">+89.36L</td>
+            </tr>
+            <tr>
+              <td class="label_heading">Avg. Traded Price</td>
+              <td class="label_value">292.56</td>
+            </tr>
+            <tr>
+              <td class="label_heading">Market Value</td>
+              <td class="label_value">37,702.50</td>
+            </tr>
+            <tr>
+              <td class="label_heading">Exchange</td>
+              <td class="label_value">NSE</td>
+            </tr>
+            <tr>
+              <td class="label_heading">Order Type</td>
+              <td class="label_value">Normal</td>
+            </tr>
+            <tr>
+              <td class="label_heading">Investment Type <em class="icon-edit" data-dismiss="modal" data-toggle="modal" data-target="#convertInvModal"></em></td>
+              <td class="label_value">Intraday</td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal_actions text-center">
+          <div class="row">
+            <div class="col-4">
+              <a href="#" class="btn btnCancelOrder" data-dismiss="modal">
+                <em class="icon-buy-more"></em>BUY MORE</a>
+            </div>
+            <div class="col-4">
+              <a href="#" class="btn btnEditOrder" data-dismiss="modal" data-toggle="modal" data-target="#editSquareOffModal">
+                <em class="icon-square-off"></em>SQUARE OFF</a>
+            </div>
+            <div class="col-4">
+              <a href="#" class="btn btnEditOrder" data-dismiss="modal">
+                <em class="icon-stop-loss"></em>STOP LOSS</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--STOCK DETAIL MODAL end-->
+
+<!--CONFIRMATION MODAL start-->
+<div class="modal fade mobile_modal confirmationModal" id="confirmationModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2 class="modal_title">Square Off Order</h2>
+        <p>Squaring off will square off the remaining executed quantity at market price. Are you sure you want to square off?</p>
+      </div>
+      <div class="modal-footer justify-content-end">
+        <button type="button" class="btn text-btn btn-no" data-dismiss="modal">NO</button>
+        <button type="button" class="btn text-btn btn-yes" data-dismiss="modal">YES</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--CONFIRMATION MODAL end-->
+
+<!--EDIT ORDER MODAL start-->
+<div class="modal fade mobile_modal editSquareOffModal" id="editSquareOffModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2 class="modal_title">Edit Order</h2>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-lbl">Quantity</label>
+              <input type="text" class="form-control" value="40">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-lbl">Price type</label>
+              <div class="checkbox-btn-wrap type2">
+                <label class="btn btn-outline-secondary" :class="{active:priceType == 'Market'}">
+                  <input class="form-check-input position-static" v-model="priceType" type="radio" value="Market" name="priceType" checked >Market</label>
+                <label class="btn btn-outline-secondary" :class="{active:priceType == 'Limit'}">
+                  <input class="form-check-input position-static" v-model="priceType" type="radio" value="Limit" name="priceType" >Limit</label>
+              </div>
+             
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group half-width">
+              <div class="form-control-wrap marketPrice" v-show="priceType == 'Market'">
+                <label class="form-lbl">Market Price</label>
+                <input type="text" class="form-control error" value="10,000.25" disabled>
+              </div>
+              <div class="form-control-wrap limitPrice" v-show="priceType == 'Limit'">
+                <label class="form-lbl">Limit Price</label>
+                <input type="text" class="form-control" value="10,000.25">
+              </div>
+              <p class="err-msg">Price should be in multiple of tick size 0.5  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-block btn-actions">
+        <div class="row">
+          <div class="col-6">
+            <a href="#" class="btn btn-outline-secondary cancel-btn" data-dismiss="modal">CANCEL</a>
+          </div>
+          <div class="col-6">
+            <a href="#" class="btn btn-primary confirm-btn" data-dismiss="modal" @click="squareoffSuccessMsg = true, successMsg()">CONFIRM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--EDIT ORDER MODAL start-->
+<div class="modal fade mobile_modal convertInvModal" id="convertInvModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2 class="modal_title">Convert Investment Type</h2>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-lbl">Quantity</label>
+              <input type="text" class="form-control" value="40">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-lbl">Price type</label>
+              <div class="checkbox-btn-wrap type2">
+                <label class="btn btn-outline-secondary" :class="{active:priceType == 'Market'}">
+                  <input class="form-check-input position-static" v-model="priceType" type="radio" value="Market" name="priceType" checked >Delivery</label>
+                <label class="btn btn-outline-secondary" :class="{active:priceType == 'Limit'}">
+                  <input class="form-check-input position-static" v-model="priceType" type="radio" value="Limit" name="priceType" >Intraday</label>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-block btn-actions">
+        <div class="row">
+          <div class="col-6">
+            <a href="#" class="btn btn-outline-secondary cancel-btn" data-dismiss="modal">CANCEL</a>
+          </div>
+          <div class="col-6">
+            <a href="#" class="btn btn-primary confirm-btn" data-dismiss="modal">CONFIRM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=" text-center btn-wrap">
+  <router-link to="/closed-position" class="btn btn-outline-primary btn-xl viewOrderHistoryBtn"><span >VIEW Closed Positions <span class="count_circle" >0</span></span></router-link>
+  
+  <!-- <a class="btn btn-outline-primary btn-xl viewOrderHistoryBtn" @click="showDetail()">VIEW Closed Positions</a> -->
+</div>
+</div>
+
+<div class="btmSuccessMsg squareoffSuccess" v-show="squareoffSuccessMsg">
+  <h4>Done</h4>
+  <p>Order squared off successfully</p>
+</div>
+</div>
+
+<div class="todays_gain_bar d-flex d-md-none justify-content-between align-items-center">
+  <label>Today’s Realised Gain :</label>
+  <span class="price">
+    <em>₹ </em>
+    <span class="amt">14,987.50</span>
+  </span>
+</div>
+
+<!-- <div class="closed-position-wrap" v-if="closedPosition">
+  <Portfolioclosedpositions></Portfolioclosedpositions>
+</div> -->

@@ -1,0 +1,233 @@
+@import '../../assets/scss/styles';
+
+.acc-profile-sec {
+    width: 37.5rem;
+    height: 16.375rem;
+
+    @include tablet {
+        width: 100%;
+        margin-top: 1.5rem;
+        height: auto;
+    }
+
+    .profile-sec {
+        figure {
+            margin: 0 0 0.5rem;
+
+            .profile-user-pic {
+                margin-bottom: 1rem;
+
+                .user-pic {
+                    width: 6rem;
+                    height: 6rem;
+                    margin: 0px auto;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+                    border: solid 3px $white;
+                    background-color: $grey1;
+                    border-radius: 50%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .photo-pic {
+                    position: absolute;
+                    bottom: 0%;
+                    left: 53%;
+                    width: 2rem;
+                    height: 2rem;
+                    padding: 0.5rem;
+                    border-radius: 50%;
+                    background: $highlighted;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        left: 50%;
+                        transform: translate(5%, -25%);
+                        object-fit: contain;
+                    }
+                }
+
+                .user-name {
+                    width: 6rem;
+                    height: 6rem;
+                    font-family: $font-base-med;
+                    font-size: $font-32;
+                    letter-spacing: -0.67px;
+                    color: $red;
+                    background: rgba(239, 88, 84, 0.12);
+
+                    margin: 0px auto;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+                    border: solid 3px $white;
+                    border-radius: 50%;
+                    line-height: 5.5rem;
+
+                    @include tablet {
+                        width: 5rem;
+                        height: 5rem;
+                        font-size: $font-16;
+                        line-height: 4.5rem;
+                    }
+
+                }
+            }
+
+            figcaption {
+                h3 {
+                    font-family: $font-base-med;
+                    font-size: $font-20;
+                    margin: 0 0 1rem;
+                    letter-spacing: -0.42px;
+
+                    @include tablet {
+                        font-size: $font-16;
+                        letter-spacing: -0.33px;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                p {
+                    font-family: $font-base-reg;
+                    font-size: $font-13;
+                    color: $grey-med;
+                    letter-spacing: -0.27px;
+
+                    @include tablet {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                .c1 {
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    color: $grey-med;
+                }
+
+                .c2 {
+                    font-family: $font-base-med;
+                    font-size: $font-14;
+                }
+                label{
+                    @include small{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.modal.upload_file_modal {
+    .btn-upload {
+        margin-bottom: 1.625rem;
+
+        &:after {
+            width: 5.250rem;
+            height: 5.250rem;
+        }
+
+        img {
+            width: 2.25rem;
+        }
+    }
+
+    .btn-choose-file {
+        min-width: 10rem;
+        height: 2.5rem;
+        color: $white;
+        background-color: $highlighted;
+        text-align: center;
+        font-family: $font-base-semibold;
+        margin-bottom: 0;
+        padding: 0.645rem 0.75rem 0.6rem;
+
+        i, em {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -0.3rem;
+        }
+    }
+
+    .upload_check_div {
+        .cheque_img {
+            width: 4.500rem;
+            height: 3.500rem;
+            margin-right: 0.75rem;
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        .filename {
+            font-size: $font-12;
+            color: $grey-med;
+            font-family: $font-base-reg;
+
+            strong {
+                font-family: $font-base-med;
+            }
+        }
+
+        >.d-flex {
+            padding: 1.5rem 1.5rem 1.5rem 2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+            border: 0;
+            position: relative;
+            z-index: 1;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='black' stroke-width='1' stroke-dasharray='5%2c 7' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+                border-radius: 8px;
+                z-index: -1;
+                opacity: 0.2;
+            }
+
+            >.row {
+                margin: 0px;
+            }
+        }
+
+        .btn-reset {
+            right: 1.5rem;
+            top: 1.25rem;
+
+            i, em {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
+
+    .modal-dialog {
+        .modal-body {
+            padding: 2rem 2rem 2.5rem 2rem;
+        }
+    }
+
+    .custom-times-circle-solid {
+        background-color: $light-grey-bg1;
+        border-radius: 50%;
+    }
+
+    .upload_area {
+        padding: 2.125rem 1.25rem 1.5rem;
+    }
+}
+
+
+.changeNumberModal {}

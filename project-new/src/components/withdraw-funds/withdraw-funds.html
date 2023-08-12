@@ -1,0 +1,172 @@
+<!-- <header class="header header--ver2">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto">
+        <a href="#" class="logo"><img src="../../assets/images/logo.png"></a>
+      </div>
+    </div>
+  </div>
+</header> -->
+
+<section class="main-content section main_section withdraw_funds-section min_full_height">
+  <div class="sec_title_wrap">
+    <router-link to="/funds" class="btn btn-back"><em class="icon-dropdown-arrow"></em><span>Withdraw Funds</span>
+    </router-link>
+  </div>
+  <div class="main-content-wrapper">
+    <article class="article">
+      <!-- <article class="article article_wrapper todays_order-article mb-0"> -->
+
+      <div class="form-group balance_row">
+        <div class="row extra-space-columns border-right-columns">
+          <div class="col-4 col-sm-auto">
+            <h6 class="label_heading_top">Total Balance</h6>
+            <div class="balance_amt"><em class="icon-rupee-bold"></em>45,000</div>
+          </div>
+          <div class="col-4 col-sm-auto">
+            <h6 class="label_heading_top">Releasable Balance</h6>
+            <div class="balance_amt"><em class="icon-rupee-bold"></em>40,000</div>
+          </div>
+          <div class="col-4 col-sm-auto">
+            <h6 class="label_heading_top">Unsettled Balance <div class="custom_tooltip d-inline-block"
+                data-placement="bottom">
+                <em class="icon-info"></em>
+                <div class="tooltip_popup balance_tooltip">
+                  <h5>Unsettled balance</h5>
+                  <h6 class="opacity-6">To be credited by</h6>
+                  <!-- <h6 class="opacity-6">You have no balances to be settled</h6> -->
+                  <ul class="date_list">
+                    <li>August 1, 2020</li>
+                    <li>August 2, 2020</li>
+                  </ul>
+                </div>
+              </div>
+            </h6>
+            <div class="balance_amt"><em class="icon-rupee-bold"></em>5000</div>
+          </div>
+        </div>
+        <div class="notification mt-4 d-inline-block d-none d-lg-block d-md-none d-sm-none"><em class="icon-bell-notification"></em>Your amount will be credited
+          by <strong>3.00PM , 31 Aug 2020</strong></div>
+      </div>
+
+      <div class="form-group enter_amount">
+        <h6 class="label_heading"><em class="icon-rupee-bold"></em>Enter Amount</h6>
+        <div class="form-control-wrap">
+          <em class="icon-rupee-bold"></em>
+          <input type="text" class="form-control amt_form-control" placeholder="0">
+          <!--add class "has_error" for input error-->
+        </div>
+        <div class="field_error d-none">
+          Please enter amount.
+          <!-- Please enter a minimum of <em class="icon-rupee-bold"></em>50 for bank transfer. -->
+        </div>
+        <div class="notification-mob mt-4 d-lg-none d-md-block d-sm-block mb-5">Your amount will be credited
+          by <strong>3.00PM , 31 Aug 2020</strong></div>
+      </div>
+      
+      <div class="form-group select_account dropdown">
+        <h6 class="label_heading"><em class="icon-bank"></em>Select Account</h6>
+        <div class="form-control-wrap d-flex align-items-center">
+          <div class="bank_logo">
+            <img src="../../assets/images/logo-hdfc.png" alt="">
+          </div>
+          <div class="bank_info">
+            <h5 class="bank_name">HDFC Bank</h5>
+            <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+          </div>
+          <div class="change_action dropdown-toggle" id="selectBankDropdown" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <a href="#" class="change_bank">CHANGE</a>
+          </div>
+          <div class="dropdown-menu bank-dropdown" aria-labelledby="selectBankDropdown">
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-hdfc.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">HDFC Bank</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-1" class="radio-input" checked>
+                  <label for="Bank-1" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-statebank.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">State Bank of India</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-2" class="radio-input">
+                  <label for="Bank-2" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-axis.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">Axis Bank</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-3" class="radio-input">
+                  <label for="Bank-3" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+            <div class="form-control-wrap d-flex align-items-center">
+              <div class="bank_logo">
+                <img width="20" src="../../assets/images/logo-kotak.png" alt="">
+              </div>
+              <div class="bank_info">
+                <h5 class="bank_name">Kotak Mahindra Bank</h5>
+                <h6 class="acc_no">&bull; &bull; &bull; &bull; 2435</h6>
+              </div>
+              <div class="change_action">
+                <span class="radio_bullets">
+                  <input type="radio" name="bankRadio" id="Bank-4" class="radio-input">
+                  <label for="Bank-4" class="radio-label"></label>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-proceed" :class="{ btn_disable: btnDisable }" data-toggle="modal"
+          data-target="#withdrawInitiatedModal">PROCEED</button>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<div class="modal vue-modal withdrawInitiatedModal" id="withdrawInitiatedModal" tabindex="-1" role="dialog"
+  v-show="withdrawInitiatedModal">
+  <div class="modal-overlay" @click="withdrawInitiatedModal = false"></div>
+  <div class="modal-dialog d-flex align-items-center" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-wrapper">
+        <img class="title_icon" src="../../assets/images/icon-successful.svg" alt="">
+        <h4 class="modal_title">Withdrawal Initiated</h4>
+        <div class="amt">
+          <em class="icon-rupee-bold"></em>10,000
+        </div>
+        <p>Your bank account will be credited shortly. Amount is usually reflected within 48hrs</p>
+        <button type="button" class="btn btn-modal mt-70" data-dismiss="modal"
+          @click="withdrawInitiatedModal = false">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>

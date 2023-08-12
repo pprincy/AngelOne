@@ -1,0 +1,329 @@
+@import '../../assets/scss/styles';
+
+.ipowrap {}
+.liveupcoming-tab { height: calc(100vh - 180px);}
+.stickyTabWrap {
+	&.ipowrap {
+		&.stickyTop {
+			.tab-wrap {
+				.nav-tabs {
+					background: $white;
+					z-index: 9;
+					position: fixed;
+					top: 124px;
+					width: calc(100% - 27.938rem);
+                    @include laptop {
+                        width: calc(100% - 21.938rem);
+                    }
+				}
+			}
+			table {
+				&.stickyonScroll {
+					& > thead {
+						background: $white;
+						z-index: 9;
+						position: fixed;
+						top: 171px;
+						width: calc(100% - 27.938rem);
+                        @include laptop {
+                            width: calc(100% - 21.938rem);
+                        }
+                        @include tablet {
+                            width: 100%;
+                            top: 181px;
+                        }
+					}
+                    padding-top: 0rem;
+				}
+			}
+		}
+	}
+}
+
+.liveipos-section {
+    margin-top: 0;
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        background: $white;
+        padding: 2rem 1.5rem;
+
+        .headtxt {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+            color: $grey1;
+
+            .counttxt {
+                font-family: $font-base-med;
+                font-size: $font-14;
+                color: $grey1;
+                letter-spacing: -0.23px;
+                background: $bg; padding: 5px; border-radius: 50%; margin-left: 10px; width: 24px; height: 24px; display: inline-flex; justify-content: center;
+            }
+        }
+
+        
+    }
+
+    .liveipo-table-wrapper {
+        table.ipotable {
+            background: $white;
+
+            thead {
+                tr { padding: 0rem 1rem;
+                    th {
+                        padding: 1rem .5rem;
+                        border: none;
+                        font-family: $font-base-reg;
+                        font-size: $font-14;
+                        letter-spacing: -0.2px; 
+                        color: $grey-med;
+                        @include ipad {
+                            font-size: $font-13;
+                        }
+                    }
+                }
+
+                .companyname { width: 30%;}
+                .investamt { width: 30%;}
+                .bipprice { width: 17%;}
+                .listingon { width: 17%;}
+                .arrow { width: 6%;}
+                
+            }
+            tbody{
+                tr {
+                    padding: 0 1rem;
+                    align-items: flex-end;
+                    position: relative;
+
+                    + {
+                        tr.seprator {
+                            &:after {
+                                content: "";
+                                display: block;
+                                height: 1px;
+                                width: 100%;
+                                background: #e0e0ec;
+                            }
+                            td { font-family: $font-base-reg;
+                                b, strong { font-family: $font-base-med; font-weight: normal;}
+                                
+                            }
+                            td[colspan] {
+                                width: 94%;
+                            }
+                            .ipo-aprrove { background: url(../../assets/images/ipo-approve.svg) 18px center #f5f6fa no-repeat ; width: 100%; padding: 0.625rem 1rem 0.625rem 3.5rem;}
+                            .ipo-alot { background: url(../../assets/images/ipo-alot.svg) 18px center #f5f6fa no-repeat ; width: 100%; padding: 0.625rem 1rem 0.625rem 3.5rem;}
+                            .ipo-cancel { background: url(../../assets/images/ipo-cancel.svg) 18px center #f5f6fa no-repeat ; width: 100%; padding: 0.625rem 1rem 0.625rem 3.5rem;}
+                            .ipo-failed { background: url(../../assets/images/ipo-failed.svg) 18px center #f5f6fa no-repeat ; width: 100%; padding: 0.625rem 1rem 0.625rem 3.5rem;}
+                            .ipo-will { background: url(../../assets/images/ipo-will.svg) 18px center #f5f6fa no-repeat ; width: 100%; padding: 0.625rem 1rem 0.625rem 3.5rem;}
+                            .ipo-listing { background: url(../../assets/images/ipo-listing.svg) 18px center #f5f6fa no-repeat ; width: 100%; padding: 0.625rem 1rem 0.625rem 3.5rem;}
+                        }
+                        
+                        tr.seprator.last {
+                            &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                    &:hover {
+                        background-color: $tbl-hoverd-bg;
+
+                        & + tr.seprator {background-color: $tbl-hoverd-bg;}
+                    }
+                    
+                }
+                tr.changebg { background-color: $tbl-hoverd-bg;}
+                
+                
+                
+            td {
+                padding: 1rem 0.5rem 1.5rem .5rem;
+                font-family: $font-base-med;
+                font-size: $font-16;
+                vertical-align: bottom;
+                color: $base-text;
+                @include ipad {
+                    font-size: $font-14;
+                }
+                &.arrow {
+					.icon-dropdown-arrow {
+						width: 1.5rem;
+						height: 1.5rem;
+						background: url(../../assets/images/right-arrow.svg) left top no-repeat;
+						background-size: 100% auto;
+						transform: none;
+						&:before {
+							content: "";
+						}
+					}
+				}
+            }
+
+                .companyname { width: 30%;}
+                .investamt { width:30%;
+                    span { font-family: $font-base-reg; font-size: $font-14; color: $grey1;}
+                }
+                .bipprice { width: 17%;}
+                .listingon { width: 17%; }
+                .arrow { width: 6%;}
+            
+            
+
+            
+        }
+        }
+        .table.tbl-theme thead {
+            border-top: none;
+        }
+    }
+}
+
+.liveipos-section + .liveipos-section.py-2 { border-top:4px solid #f5f6fa; padding: 0;}
+
+.upcomingipos-section {
+    margin-top: 0;
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        background: $white;
+        padding: 2rem 1.5rem;
+
+        .headtxt {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+            color: $grey1;
+
+            .counttxt {
+                font-family: $font-base-med;
+                font-size: $font-14;
+                color: $grey1;
+                letter-spacing: -0.23px;
+                background: $bg; padding: 5px; border-radius: 50%; margin-left: 10px; width: 24px; height: 24px; display: inline-flex; justify-content: center;
+            }
+        }
+
+        .updatetxt {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            color: $grey-med;
+            margin-bottom: 0rem;
+
+            .ago {
+                font-family: $font-base-semibold;
+                font-size: $font-16;
+                color: $grey1;
+            }
+        }
+    }
+
+    .upcomingipo-table-wrapper {
+        table.ipotable {
+            background: $white;
+
+            thead {
+                th {
+                    padding: 1rem .5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px; 
+                    color: $grey-med;
+                    @include ipad {
+                        font-size: $font-13;
+                    }
+                }
+
+                .companyname { width: 25%;}
+                .closingdate { width: 25%;}
+                .mininvest { width: 25%;}
+                .pricerange { width: 25%;}
+                
+            }
+            tbody{
+                tr {
+                    padding: 0 1rem;
+                    
+                }
+                tr:hover {
+                    background-color: $tbl-hoverd-bg;
+                }
+            td {
+                padding: 1.2rem 0.5rem 1.8rem;
+                font-family: $font-base-med;
+                font-size: $font-16;
+                vertical-align: bottom;
+                color: $base-text;
+                @include ipad {
+                    font-size: $font-14;
+                }
+                &.arrow {
+					.icon-dropdown-arrow {
+						width: 1.5rem;
+						height: 1.5rem;
+						background: url(../../assets/images/right-arrow.svg) left top no-repeat;
+						background-size: 100% auto;
+						transform: none;
+						&:before {
+							content: "";
+						}
+					}
+				}
+            }
+
+                .companyname { width: 24%;
+                    .daytxt { background: $bg; font-size: $font-14; color: $base-text; margin-bottom: 15px; text-transform: uppercase; display: inline-block; padding: 4px 8px;}
+                }
+                .closingdate { width: 24%;}
+                .mininvest { width: 24%;
+                    span { color: $grey-med; font-size: $font-14;
+                        @include ipad {
+                            font-size: $font-12;
+                        }
+                    }
+                }
+                .pricerange { width: 24%;}
+                .arrow { width: 4%;}
+                
+            
+        }
+        }
+        .table.tbl-theme thead {
+            border-top: none;
+        }
+    }
+}
+
+.btn-hold { background: $white; padding: 3rem 0; margin-top: 0px; border-top: 4px solid #f5f6fa;
+    .viewClosedIPOyBtn { min-width: 300px;}
+}
+
+.noissue-cnt { background: $white; display: flex; align-items: center; justify-content: center; height: 100%;
+    figure {
+        max-width: 400px;
+        text-align: center; margin: 0;
+        img { padding-bottom: 1.25rem; display: inline-block;}
+        figcaption {
+          color: $grey-med;
+          font-size: $font-18;
+          line-height: 1.75rem;
+          span { display: block;}
+          @include small{
+            font-size: 1.2rem;
+            line-height: 1.7rem;
+          }
+        }
+    
+        & .btn-hold { border-top: 0;}}
+}
+
+

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <path d="M0 0L16 0 16 16 0 16z" transform="translate(-972.000000, -83.000000) translate(918.000000, 63.000000) translate(16.000000, 16.000000) translate(34.000000, 0.000000) translate(4.000000, 4.000000)"/>
+                            <g fill="#f5f6fa" fill-rule="nonzero">
+                                <path d="M6.5 6H1c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h5.5c.553 0 1-.447 1-1V7c0-.553-.447-1-1-1zm-.25 5h-5c-.138 0-.25-.112-.25-.25V8h5.5v2.75c0 .138-.112.25-.25.25z" transform="translate(-972.000000, -83.000000) translate(918.000000, 63.000000) translate(16.000000, 16.000000) translate(34.000000, 0.000000) translate(4.000000, 4.000000) translate(2.000000, 2.000000)"/>
+                                <path d="M10.5 0h-9C.673 0 0 .673 0 1.5v4.39c.266-.24.615-.39 1-.39v-3h10v7c0 .276-.225.5-.5.5H8v1h2.5c.827 0 1.5-.673 1.5-1.5v-8c0-.827-.673-1.5-1.5-1.5z" transform="translate(-972.000000, -83.000000) translate(918.000000, 63.000000) translate(16.000000, 16.000000) translate(34.000000, 0.000000) translate(4.000000, 4.000000) translate(2.000000, 2.000000)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,142 @@
+<div class="acc-personal-sec">
+    <div class="borderedBox p-0">
+        <h4>Personal Details</h4>
+        <ul class="icon-info-list">
+            <li>
+                <em class="custom-phone"></em>
+                <div>
+                    <label>Mobile Number</label>
+                    <p>+91 {{ personalDetail.mno }}</p>
+                </div>
+                <!-- <a href="#" class="editLink"  data-toggle="modal" data-target="#changeNumberModal" @click="sendOtp();" v-show="updatedNumber == false">EDIT</a> -->
+                <a href="#" class="editLink"  data-toggle="modal" data-target="#changeNumberModal" @click="sendOtp();" v-show="updatedNumber == false" >EDIT</a>
+                <span class="updated" v-show="updatedNumber"><em class="icon-exeuted-sm-icon"></em> UPDATED</span>
+            </li>
+            <li>
+                <em class="custom-email"></em>
+                <div>
+                    <label>Email</label>
+                    <p>{{ personalDetail.email }}</p>
+                </div>
+                <a href="#" class="editLink" data-toggle="modal" data-target="#changeEmailModal" @click="sendOtpNew();" v-show="updatedEmail == false">EDIT</a>
+                <span class="updated" v-show="updatedEmail"><em class="icon-exeuted-sm-icon"></em> UPDATED</span>
+            </li>
+            <li>
+                <em class="custom-pan-no"></em>
+                <div>
+                    <label>PAN Number</label>
+                    <p>{{ personalDetail.panNo }}</p>
+                </div>
+            </li>
+            <li>
+                <em class="custom-location"></em>
+                <div>
+                    <label>Location</label>
+                    <p>{{ personalDetail.location }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--Change number Authorization Popup Start-->
+<div class="modal fade changeNumberModal editinfoPopup" id="changeNumberModal" tabindex="-1" role="dialog">
+  
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content d-block text-center p-0">
+        <div class="modal-header">
+            <h5 class="modal-title">Update Mobile Number</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+              <em class="custom-times-circle-solid"></em>
+            </button>
+          </div>
+          <div class="modal-body text-left">
+            
+            <form action="" class="formTheme1">
+              <div class="new-number" v-show="newNumber">
+                <div class="form-group otp-form-group">
+                  <float-label>
+                    <input type="text" ref="inputMob" placeholder="Enter New Mobile Number" class="form-control" v-model="inputMob"  autofocus>
+                  </float-label>
+                  <label class="err-msg two-lines"   >Mobile number already registered with Angel Broking. <br>Try alternate number</label>
+                </div>
+                <!-- <a href="#" class="btn btn-primary btn-block btn-lg"  :class="{disabled:inputMob.length === 0  ? true : false}">PROCEED</a> -->
+              </div>
+              <div class="otp-cont" v-show="optCont">
+                <p class="otpMsg">OTP has been sent to <strong><em>+91</em><span>9123456783</span></strong></p>
+                <div class="form-group otp-form-group">
+                  <float-label>
+                    <input type="text"  placeholder="Enter OTP" class="form-control" v-model="inputOtp" :class="{error:errorClass == true}"  @keyup.enter="checkOtp()" >
+                    <span class="countdown" v-show="countdownVisible"><label>Resend in</label> 00:{{ countDown }}</span>
+                    <span class="otpMatch" v-show="otpMatch"><em class="icon-bullet-check"></em></span>
+                    <a class="otp-link" v-show="otpLinkVisible">Resend OTP</a>
+                  </float-label>
+                  <label class="err-msg"  :class="{visible:otperrmsg == true}" >Enter valid OTP</label>
+                </div>
+                <!-- <a href="#" class="btn btn-primary btn-block btn-lg" @click="checkOtp()" :class="{disabled:inputOtp.length === 0  ? true : false}">PROCEED</a> -->
+                
+              </div>
+              
+            </form>
+          </div>
+          <div class="modal-footer">
+              <div class="btn-wrap d-flex justify-content-between">
+                <!-- <button type="button" data-dismiss="modal" :disabled="inputOtp.length === 0 || inputMob.length === 0 ? true : false" class="btn btn-primary btn-lg" :class="{disabled:inputOtp.length === 0 || inputMob.length === 0 ? true : false}" @click="updateNumber()">Submit</button> -->
+                <button type="button"  :disabled="inputMob.length === 0 ? true : false" class="btn btn-primary btn-lg" :class="{disabled:inputMob.length === 0 ? true : false}" @click="showOtpCont()" v-show="showOtpBtn">Submit</button>
+                <button type="button"   data-dismiss="modal" :disabled="inputOtp.length === 0 ? true : false" class="btn btn-primary btn-lg" :class="{disabled:inputOtp.length === 0 ? true : false}" v-show="submitBtn" @click="updateNumber()" >Submit</button>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+<!--Change number Authorization Popup End-->
+
+
+<!--Change Email Authorization Popup Start-->
+<div class="modal fade changeEmailModal editinfoPopup" id="changeEmailModal" tabindex="-1" role="dialog">
+  
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content d-block text-center p-0">
+        <div class="modal-header">
+            <h5 class="modal-title">Update Email Address</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+              <em class="custom-times-circle-solid"></em>
+            </button>
+          </div>
+          <div class="modal-body text-left">
+            
+            <form action="" class="formTheme1">
+              <div class="new-email" v-show="newEmail">
+              <div class="form-group otp-form-group">
+                <float-label>
+                  <input type="text"  placeholder="New Email Address" class="form-control" v-model="inputEmail" >
+                </float-label>
+               
+              </div>
+              </div>
+              <div class="otp-cont" v-show="optContNew">
+              <p class="otpMsg">OTP has been sent to <strong><span>harshit@angelbroking.com</span></strong></p>
+              <div class="form-group otp-form-group">
+                <float-label>
+                  <input type="text"  placeholder="Enter OTP" class="form-control" v-model="inputOtpNew" :class="{error:errorClass == true}"  @keyup.enter="checkOtpNew()" >
+                  <span class="countdown" v-show="countdownVisibleNew"><label>Resend in</label> 00:{{ countDownNew }}</span>
+                  <span class="otpMatch" v-show="otpMatchNew"><em class="icon-bullet-check"></em></span>
+                  <a class="otp-link" v-show="otpLinkVisibleNew">Resend OTP</a>
+                </float-label>
+                <label class="err-msg"  :class="{visible:otperrmsgNew == true}" >Enter valid OTP</label>
+              </div>
+             </div>
+              <!-- <a href="#" class="btn btn-primary btn-block btn-lg" @click="checkOtp()" :class="{disabled:inputOtp.length === 0  ? true : false}">PROCEED</a> -->
+            </form>
+          </div>
+          <div class="modal-footer">
+              <div class="btn-wrap d-flex justify-content-between">
+                <!-- <button type="button" class="btn btn-primary btn-lg" :disabled="inputOtpNew.length === 0 || inputEmail.length === 0 ? true : false" data-dismiss="modal" :class="{disabled:inputOtpNew.length === 0 || inputEmail.length === 0 ? true : false}" @click="updateEmail()">Submit</button> -->
+                <button type="button"  :disabled="inputEmail.length === 0 ? true : false" class="btn btn-primary btn-lg" :class="{disabled:inputEmail.length === 0 ? true : false}" @click="showOtpContNew()" v-show="showOtpBtnNew">Submit</button>
+                <button type="button"   data-dismiss="modal" :disabled="inputOtpNew.length === 0 ? true : false" class="btn btn-primary btn-lg" :class="{disabled:inputOtpNew.length === 0 ? true : false}" v-show="submitBtnNew" @click="updateEmail()" >Submit</button>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+<!--Change Email Authorization Popup End-->

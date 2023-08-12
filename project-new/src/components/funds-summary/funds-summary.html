@@ -1,0 +1,75 @@
+<div class="main-content funds-summary-section">
+  <div class="main-content-in">
+    <article class="field_bg full-height p-0">
+      <div class="stickyTabWrap fundsTabWrap">
+        <div class="tab-wrap greyBg ">
+          <ul class="nav nav-tabs tab-links-wrap" id="tab-links">
+            <li class="nav-item"><a href="" data-target="#fundssec" data-toggle="tab"
+                class="nav-link small active">Funds</a></li>
+            <li class="nav-item"><a href="" data-target="#pledgesec" data-toggle="tab" class="nav-link small">Pledge
+                Holding</a></li>
+            <li class="nav-item d-none d-lg-block d-md-none d-sm-none"><a href="" data-target="#mtfsec"
+                data-toggle="tab" class="nav-link small">MTF Pledge</a>
+            </li>
+          </ul>
+          <div id="tabsContent" class="tab-content">
+            <div id="fundssec" class="tab-pane active">
+              <div class="funds-tab tabContentWrap ">
+                <Fundstabcontent></Fundstabcontent>
+              </div>
+            </div>
+            <div id="pledgesec" class="tab-pane">
+              <div class="pledge-holding-tab tabContentWrap">
+                <PledgeHolding></PledgeHolding>
+              </div>
+            </div>
+            <div id="mtfsec" class="tab-pane">
+              <div class="mtf-pledge-tab tabContentWrap">
+                <MTFPledge></MTFPledge>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- <div class="modal fade show addBankModal" id="addBankModal" tabindex="-1" role="dialog" aria-labelledby="addBankModalLabel" aria-hidden="true" style="display: block;">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Bank Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="formTheme1">
+          <div class="form-group">
+            <float-label>
+              <input type="text" placeholder="Bank Account Number" class="form-control" v-model="accNumber">
+            </float-label>
+            <label class="err-msg">Enter valid account number</label>
+          </div>
+          
+         
+          <div class="form-group ifsc-form-group">
+            <label class="form-lbl" :class="{visible:ifseLbl== true}">IFSC Code</label>
+            <VueAutosearch v-model="selectedOption"  v-bind:options="branchNames" placeholder="BIFSC Code"   :searchFunction="searchFunction" />
+            <a href="#" class="search-ifsc-link">SEARCH IFSC</a>
+            <label class="err-msg">Enter valid IFSC code</label>
+          </div>
+          <div class="ifscResultBank" v-show="selectedOption">
+            <label>Bank Name</label>
+            <h4>HDFC Bank</h4>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+        
+      </div>
+    </div>
+  </div>
+</div> -->

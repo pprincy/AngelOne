@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <filter id="r250uya43a" width="180.8%" height="180.8%" x="-40.4%" y="-32.7%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+            <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.904244112 0 0 0 0 0.908421054 0 0 0 0 0.927139946 0 0 0 1 0"/>
+        </filter>
+        <circle id="42awm4clxb" cx="13" cy="16" r="13"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <g>
+                                <g transform="translate(-947.000000, -154.000000) translate(362.000000, 116.000000) translate(20.000000, 16.000000) translate(24.000000, 0.000000) translate(548.000000, 0.000000) translate(0.000000, 24.000000)">
+                                    <use fill="#000" filter="url(#r250uya43a)" xlink:href="#42awm4clxb"/>
+                                    <use fill="#FFF" stroke="#F2F6FD" xlink:href="#42awm4clxb"/>
+                                </g>
+                                <path fill="#5D5E63" fill-rule="nonzero" d="M13.504 21.456c.16 0 .24-.08.24-.24v-3.888c0-.064.032-.096.096-.096h3.984c.16 0 .24-.08.24-.24v-1.008c0-.16-.08-.24-.24-.24H13.84c-.064 0-.096-.032-.096-.096v-4.08c0-.16-.08-.24-.24-.24h-1.008c-.16 0-.24.08-.24.24v4.08c0 .064-.032.096-.096.096H8.176c-.16 0-.24.08-.24.24v1.008c0 .16.08.24.24.24h3.984c.064 0 .096.032.096.096v3.888c0 .16.08.24.24.24h1.008z" transform="translate(-947.000000, -154.000000) translate(362.000000, 116.000000) translate(20.000000, 16.000000) translate(24.000000, 0.000000) translate(548.000000, 0.000000) translate(0.000000, 24.000000)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

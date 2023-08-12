@@ -1,0 +1,88 @@
+<section class="main-content section ">
+    <div class="sec_title_wrap">
+      <router-link to="/funds" class="btn btn-back"><em class="icon-dropdown-arrow"></em><span>IPO</span>
+      </router-link>
+    </div>
+    <div class="main-content-in">
+      <article class="article">
+        
+  
+        
+  
+        <div class="stickyTabWrap ipowrap">
+            <div class="tab-wrap greyBg ">
+              <ul class="nav nav-tabs" id="tab-links">
+                <li class="nav-item"><a href="" data-target="#liveupcomingsec" data-toggle="tab"
+                    class="nav-link small active">Live and Upcoming</a></li>
+                <li class="nav-item"><a href="" data-target="#ipoordersec" data-toggle="tab" class="nav-link small">IPO Orders</a></li>
+                
+              </ul>
+              <router-link to="/ipo-faqs" class="faq-link"><em class="faq-icon"></em>FAQs</router-link>
+              <div id="tabsContent" class="tab-content">
+                <div id="liveupcomingsec" class="tab-pane active">
+                  <div class="liveupcoming-tab tabContentWrap ">
+                    <liveupcoming></liveupcoming>                    
+                  </div>
+                </div>
+                <div id="ipoordersec" class="tab-pane">
+                  <div class="liveupcoming-tab tabContentWrap">
+                    <ipoorders></ipoorders>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        
+  
+        
+  
+      </article>
+    </div>
+  </section>
+
+
+  <div class="modal threestep" id="threestep" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-wrapper">
+            <div class="modal-header border-bottom-zero" >
+                <div>
+                    <h2>3 easy steps</h2>
+                <h4>Will make investing in IPOs simple and quick.</h4>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <em class="custom-times-circle-solid"></em>
+                </button></div>
+          <div class="modal-body pt-0">
+            <div class="cardDiv">
+                <div class="card numone">
+                    <div class="imghold">
+                        <img src="../../assets/images/easystep-img1.svg" alt="" />
+                    </div>
+                    <h4>Place your Order</h4>
+                    <p>Select the IPO and view details of the IPO issue </p>
+                </div>
+                <div class="card numtwo">
+                    <div class="imghold">
+                        <img src="../../assets/images/easystep-img2.svg" alt="" />
+                    </div>
+                    <h4>Payment Mode</h4>
+                    <p>Enter verified UPI ID and ensure it is linked with bank account registerd with Angel Broking</p>
+                </div>
+                <div class="card numthree">
+                    <div class="imghold">
+                        <img src="../../assets/images/easystep-img3.svg" alt="" />
+                    </div>
+                    <h4>Allotment Successful</h4>
+                    <p>On successful IPO allotment, shares will be credited to demat account, else blocked funds will be released to your bank account.
+                    </p>
+                </div>
+            </div>
+          </div>
+          <!-- <button type="button" class="btn btn-modal mt-70" data-dismiss="modal" @click="requestSuccessModal = false">CLOSE</button> -->
+        </div>
+      </div>
+    </div>
+  </div>

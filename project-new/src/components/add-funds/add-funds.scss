@@ -1,0 +1,343 @@
+@import '../../assets/scss/styles';
+
+.funds-page{
+    .main-content {
+        @include tablet {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            z-index: 999;
+        }
+    }
+    .main_section{
+        border-radius: 4px;
+        background: $white;
+        .main-content-wrapper{
+            max-height: calc(100vh - 125px);
+            background-color: $white;
+            border-radius: 0 0 4px 4px;
+            @include tablet {
+                height: calc(100vh - 80px);
+                max-height: none;
+            }
+            .note_bar {
+                text-align: center;
+                @include tablet {
+                    text-align: left;
+                    padding-left: 1.3rem;
+                }
+            }
+        }
+        .article{
+            padding: 2rem 4rem 3.5rem;
+            @include tablet {
+                padding: 1rem 1rem 3rem 1rem;
+            }
+        }
+        .row{
+            margin: 0 -12px;
+            >div{ padding: 0 12px; }
+        }
+        .form-group{
+            position: relative;
+            margin-bottom: 2.5rem;
+            @include tablet {
+                margin-bottom: 0;
+            }
+            .label_heading{
+                font-size: 0.875rem; font-family: $font-base-reg;
+                position: relative;
+                color: $base-text;
+                @include tablet {
+                    padding-left: 3rem;
+                    margin-bottom: 12px;
+                }
+                i, em{
+                    width: 4rem;
+                    text-align: center;
+                    position: absolute;
+                    font-size: 1rem;
+                    left: -4rem; top: 0rem;
+                    color: $icon-color;
+                    @include tablet {
+                        left: -1rem;
+                    }
+                }
+            }
+            .field_error{
+                position: absolute;
+                bottom: -1.2rem; left: 0;
+
+                .rs{
+                    font-family:$font-pingFangSC-medium;
+                    margin-right:0;
+                    font-style: normal;
+                }
+                &.large_error{
+                    width: 425px;
+                }
+            }
+        }
+        .enter_amount{
+            width: 100%;
+            max-width: 20rem;
+            @include tablet {
+                max-width: 100%;
+                padding-top: 1.5rem;
+            }
+            .form-control-wrap{
+                position: relative;
+                border-radius: 0.25rem;
+                i, em{
+                    font-size: 0.7rem;
+                    position: absolute;
+                    left: 1rem; top: 1.35rem;
+                }
+            }
+            .form-control{
+                width: 100%;
+                height: 3.625rem;
+                font-size: 1.5rem;
+                color: $base-text;
+                font-family: $font-base-med;
+                border-radius: 0.25rem;
+                background-color: $input-bg;
+                padding-left: 1.8rem;
+                -moz-appearance: textfield;
+                @include placeholder{
+                    opacity: 0.3; color: $grey1;
+                }
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            }
+        }
+        .select_account{
+            @include tablet {
+                margin-top: 40px;
+            }
+            .label_heading{
+                i, em{
+                    font-size: 1.5rem; top: -0.3rem;
+                    @include tablet {
+                        font-size: $font-20;
+                    }
+                    @include small{
+                        top: -0.2rem
+                    }
+                }
+                .icon-rupee-bold {
+                    @include tablet {
+                        font-size: $font-20;
+                    }
+                }
+            }
+            .form-control-wrap{
+                width: 100%;
+                max-width: 20rem;
+                border: solid 1px $input-border;
+                border-radius: 0.25rem;
+                padding: 1rem;
+                position: relative;
+                @include tablet {
+                    max-width: 100%;
+                }
+                .bank_logo{
+                    width: 13%;
+                }
+                .bank_info{
+                    width: 65%;
+                    .bank_name{
+                        font-size: 0.875rem; font-family: $font-base-med;
+                        margin-bottom: 0.25rem;
+                    }
+                    .acc_no{
+                        font-size: 0.6875rem; font-family: $font-base-med;
+                        color: $grey-med;
+                        margin: 0;
+                    }
+                }
+                .change_action{
+                    width: 22%;
+                    text-align: right;
+                    a{
+                        font-size: 0.875rem;
+                        font-family: $font-base-semibold;
+                        color: $highlighted;
+                    }
+                }
+            }
+            .dropdown-toggle{
+                &::after{ display: none; }
+            }
+            .bank-dropdown{
+                width: 100%;
+                position: absolute;
+                background-color: $white;
+                margin: 0;
+                border: solid 1px $input-border;
+                border-top: 0;
+                left: 0 !important; top: 100% !important;
+                transform: none !important; -webkit-transform: none !important;
+                border-radius: 0 0 1px 1px;
+                box-shadow: 0 8px 12px 0 rgba(231, 233, 243, 0.58);
+                padding: 0 1rem;
+                .add_bank_account{
+                    background-color: rgba($input-border,0.5);
+                    .add{
+                        display: inline-block; vertical-align: middle; margin-right: 0.875rem;
+                    }
+                    a{
+                        padding: 1rem;
+                        font-size: 0.875rem; font-family: $font-base-semibold; color: $highlighted;
+                        display: block;
+                    }
+                }
+                .form-control-wrap{
+                    border: 0;
+                    border-bottom: 1px solid $input-border;
+                    padding: 1rem;
+                    border-radius: 0;
+                }
+            }
+        }
+        .form-control-wrap{
+            &.active{
+                background-color: $input-bg;
+            }
+        }
+        .choose_transfer_mode{
+            margin-bottom: 1.5rem!important;
+            @include tablet {
+                margin-top: 40px;
+            }
+
+            .label_heading{
+                i, em{
+                    font-size: 1.5rem; top: -0.3rem;
+                    @include tablet {
+                        font-size: $font-20;
+                    }
+                    @include small{
+                        top: -0.1rem;
+                    }
+                }
+            }
+            .xs-order-1 {
+                @include tablet {
+                    order: 1;
+                    margin-bottom: 1rem;
+                }
+            }
+            .xs-order-2 {
+                @include tablet {
+                    order: 2;
+                }
+            }
+            .net-banking-mode {
+                @include tablet {
+                    width: 100%;
+                }
+            }
+            .form-control-wrap{
+                width: 20rem;
+                border: solid 1px $input-border;
+                border-radius: 0.25rem;
+                padding: 1rem;
+                position: relative;
+                @include tablet {
+                    width: 100%;
+                }
+                label{
+                    &.absolute{ width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1; }
+                }
+                .mode_logo{
+                    width: 15%; line-height: 1px; text-align: center;
+                    @include small{
+                        width: 7%;
+                    }
+                }
+                .mode_info{
+                    width: 63%;
+                    padding-left: 1rem;
+                    .mode_name{
+                        font-size: 1rem; font-family: $font-base-med;
+                        margin-bottom: 0rem;
+                    }
+                }
+                .select_option{
+                    width: 22%;
+                    text-align: right; position: relative; z-index: 2;
+                }
+                &.active{
+                    .radio-label{ background-color: $white; border: 1px solid $input-border; border: 0; }
+                }
+            }
+        }
+        .pay_with{
+            margin-top: 0.8rem;
+            span{
+                font-size: 0.8125rem;
+                display: inline-block;
+                vertical-align: middle;
+                padding-right: 0.5rem;
+            }
+            img{
+                max-height: 0.8rem;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 0.6rem;
+            }
+        }
+        .upi_id_slot{
+            width: 100%;
+            position: static !important;
+            margin: 0;
+            border: 1px solid $input-border;
+            transform: none !important; -webkit-transform: none !important;
+            .form-group{
+                .img-loader{
+                    position: absolute;
+                    right: 1rem; top: 50%;
+                    margin-top: -10px;
+                }
+            }
+            .form-control{
+                height: 4rem;
+                font-size: 1rem;
+                border-radius: 0 0 0.2rem 0.2rem;
+                margin-top: -2px;
+                border: 0;
+                &:focus{
+                    border-color: transparent;
+                }
+            }
+            .field_error{
+                position: static;
+                margin: 0;
+                padding: 0 0.8rem 1rem;
+            }
+        }
+        .btn_disable{
+            min-width: 17rem;
+            height: 3rem;
+        }
+        .balance_row{
+            .balance_amt{
+                i, em{
+                    font-size: 60%;
+                }
+            }
+        }
+        .btn.btn-proceed{
+            min-width: 15rem;
+            @include tablet {
+                min-width: 100%;
+            }
+        }
+    }
+    .full-width {
+        width: 100%;
+    }
+}

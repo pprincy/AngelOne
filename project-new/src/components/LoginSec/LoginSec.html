@@ -1,0 +1,629 @@
+<section class="login-sec d-flex">
+  <section class="login-left-sec text-center">
+    <div class="left-cont-in">
+      <a href="#" class="logo"><img src="../../assets/images/logo.svg" alt=""></a>
+      <div class="select-lang">
+        <select class="selectpicker">
+          <option data-content="<span>English</span>"></option>
+          <option data-content="<span class='hindi'>हिन्दी</span><small>(Hindi)</small>"></option>
+          <option data-content="<span class='English'>বাংলা</span><small>(Bangla)</small>"></option>
+          <option data-content="<span class='English'>తెలుగు</span><small>(Telugu)</small>"></option>
+          <option data-content="<span class='marathi'>मराठी</span><small>(Marathi)</small>"></option>
+        </select>
+
+
+      </div>
+      <div class="slider single-item-carousel">
+        <div>
+          <figure>
+            <img src="../../assets/images/trade-in-hour.png" alt="">
+          </figure>
+          <div class="slide-info">
+            <h3>Start trading in one hour</h3>
+            <p>Trade hassle-free in Stocks, Futures & Options and Currencies of NSE, BSE & MCX</p>
+          </div>
+        </div>
+        <div>
+          <figure>
+            <img src="../../assets/images/recommendation.png" alt="">
+          </figure>
+          <div class="slide-info">
+            <h3>Expert in stock recommendation</h3>
+            <p>Trade hassle-free in Stocks, Futures & Options and Currencies of NSE, BSE & MCX</p>
+          </div>
+        </div>
+        <div>
+          <figure>
+            <img src="../../assets/images/brokerage-2.png" alt="">
+          </figure>
+          <div class="slide-info">
+            <h3>Start trading in one hour</h3>
+            <p>Trade hassle-free in Stocks, Futures & Options and Currencies of NSE, BSE & MCX</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <section class="login-right-sec with-language-msg">
+    <div class="right-cont-in">
+      <!--Phone Number Starts-->
+      <div class="user-login login-cont" v-show="mobNo">
+        <div class="ttl-wrap first">
+          <h3>Login / Register</h3>
+          <p>Login using either mobile number or user id</p>
+        </div>
+        <form action="">
+          <ul class="radioholder">  
+            <!-- <li>
+                <input type="radio"  name="rd" id="rd1" @click="regiMobileno()" >
+                <label for="rd1">Mobile Number </label>
+            </li>
+            <li>
+                <input type="radio"  name="rd" id="rd2" checked @click="regiUsedID()">
+                <label for="rd2">User ID/Email ID</label>
+            </li> -->
+            <li>
+              <label class="radio" @click="regiMobileno()">
+                <input name="radio" type="radio" >
+                <span>Mobile Number</span>
+              </label></li>
+            <li>
+              <label class="radio" @click="regiUsedID()">
+                <input name="radio" type="radio" checked>
+                <span>User ID/Email ID</span>
+              </label>
+            </li>
+          </ul>
+          <div class="mobileregister" v-if="regitype1">
+            <div class="form-group phone-no">
+              <em class="lbl-icon icon-phone"></em>
+              <float-label>
+                <input type="text" placeholder="Mobile Number" class="form-control" v-model="inputMob">
+                <span class="phone-pre">+91</span>
+              </float-label>
+            </div>
+            <a class="btn btn-primary btn-block btn-lg " @click="sendOtp()"
+            :class="{disabled:inputMob.length === 0  ? true : false}">PROCEED</a>
+          </div>
+          <div class="useridregister" v-if="regitype2">
+            <div class="form-group user-id uppercase">
+              <em class="lbl-icon icon-user"></em>
+              <float-label>
+                <input type="text" placeholder="User Id/Email ID" class="form-control" v-model="emailUserid">
+              </float-label>
+              <label class="err-msg" >Invalid User ID / Email ID</label>
+            </div>
+            <div class="form-group Password" :class="{disabled:emailUserid.length === 0  ? true : false}">
+              <em class="lbl-icon icon-lock"></em>
+              <float-label>
+                <input  placeholder="Password" class="form-control" v-model="emailUseridPassword"  :type="passwordFieldType3" :disabled="emailUserid.length < 1" @click="viewpass3">
+                <span><a href="#" @click="verifyuser()" class="forgotDiv" :class="{disabled:emailUserid.length === 0  ? true : false}">Forgot Password</a></span>
+                <a class="view-password" :class="{disabled:emailUseridPassword.length < 1 ? true : false, hide:hidePassword3}"><em
+                  class="icon-eye" v-if="showPassVisible" @click="switchVisibility3()"></em></a>
+              </float-label>
+              <label class="err-msg" >Invalid Password. Enter valid Password</label>
+            </div>
+             <!-- <a class="btn btn-primary btn-block btn-lg ">PROCEED</a> -->
+             <router-link to="/watchlist" class="btn btn-primary btn-block btn-lg" :class="{disabled: emailUserid != '' && emailUseridPassword != '' ? false : true}" @click="checkuserLogin()" >PROCEED</router-link>
+       
+            <!-- <a class="btn btn-primary btn-block btn-lg " @click="verifyuser()"
+            :class="{disabled:inputUser.length === 0  ? true : false}">PROCEED</a> -->
+          </div>
+          
+        </form>
+      </div>
+      <!--Phone Number Ends-->
+
+      <!--User Verify Sec Start-->
+      <div class="login-cont " v-if="useridVerify">
+        <div class="verify-mob-no forgotblock">
+          <div class="ttl-wrap">
+            <h3>Forgot Password</h3>
+            
+            <p class="">Enter your User ID and Mobile Number / PAN to reset the password</p>
+          </div>
+          <form action="">
+
+            <!-- <div class="form-group otp-form-group Password">
+              <em class="lbl-icon icon-otp"></em>
+              <float-label>
+                <input :type="passwordFieldType1" placeholder="OTP" class="form-control" v-model="inputOtp"
+                  :class="{error:errorClass == true}" @click="viewpass()">
+                <span class="countdown" v-show="countdownVisible">00:{{ countDown }}</span>
+                <a class="otp-link" v-show="otpLinkVisible">Resend OTP</a>
+
+                <a class="view-password" :class="{disabled:inputOtp.length < 1 ? true : false, hide:hidePassword}"><em
+                    class="icon-eye" v-if="showPassVisible" @click="switchVisibility1()"></em></a>
+              </float-label>
+              <label class="err-msg" v-show="otperrmsg">Invalid OTP. Enter Vaild OTP</label>
+            </div> -->
+
+            <div class="form-group user-id uppercase">
+              <em class="lbl-icon icon-user"></em>
+              <float-label>
+                <input type="text" placeholder="User Id" class="form-control" v-model="validUserid">
+              </float-label>
+              <!-- <label class="err-msg" >Invalid User ID / Email ID</label> -->
+            </div>
+            <div class="form-group ">
+              <em class="lbl-icon icon-phone"></em>
+              <float-label>
+                <input type="text" placeholder="Mobile Number / PAN number" class="form-control" v-model="validMobPan">
+                
+              </float-label>
+            </div>
+            
+
+            <a href="#" class="btn btn-primary btn-block btn-lg" @click="forgotPass()"
+            :class="{disabled: validUserid != '' && validMobPan != '' ? false : true}">PROCEED</a>
+          </form>
+          <p class="remembertxt">Remember your password? <router-link to="/watchlist" class="" >Back to Login</router-link></p>
+        </div>
+      </div>
+      <!--User Verify Sec End-->
+
+      <!--Otp Verify Sec Start-->
+      <div class="login-cont otp-verify-sec" v-show="otpVerify">
+        <div class="verify-mob-no">
+          <div class="ttl-wrap">
+            <h3>Verify Mobile Number</h3>
+            <h4>OTP has been sent to +91 <a href="tel:8328084797">8328084797</a></h4>
+          </div>
+          <form action="">
+
+            <div class="form-group otp-form-group Password">
+              <em class="lbl-icon icon-otp"></em>
+              <float-label>
+                <input :type="passwordFieldType1" placeholder="OTP" class="form-control" v-model="inputOtp"
+                  :class="{error:errorClass == true}" @click="viewpass()">
+                <span class="countdown" v-show="countdownVisible">00:{{ countDown }}</span>
+                <a class="otp-link" v-show="otpLinkVisible">Resend OTP</a>
+
+                <a class="view-password" :class="{disabled:inputOtp.length < 1 ? true : false, hide:hidePassword}"><em
+                    class="icon-eye" v-if="showPassVisible" @click="switchVisibility1()"></em></a>
+              </float-label>
+              <label class="err-msg" v-show="otperrmsg">Invalid OTP. Enter Vaild OTP</label>
+            </div>
+            <a href="#" class="btn btn-primary btn-block btn-lg" @click="checkOtp()"
+              :class="{disabled:inputOtp.length === 0  ? true : false}">PROCEED</a>
+          </form>
+        </div>
+      </div>
+      <!--Otp Verify Sec End-->
+
+      <!-- Password Confirmation Sec Start-->
+      <div class="login-cont create-pass-sec" v-if="passwordConfirmation">
+        <div class="ttl-wrap">
+          <h3>Password Confirmation</h3>
+        </div>
+        <form action="">
+
+          <div class="form-group Password">
+            <em class="lbl-icon icon-lock"></em>
+            <float-label>
+              <input type="password" placeholder="Create Password" class="form-control" v-model="inputpass"
+                @keyup="CheckPassword()">
+
+            </float-label>
+          </div>
+          <div class="form-group Password">
+            <em class="lbl-icon icon-lock"></em>
+            <float-label>
+              <input :type="passwordFieldType" placeholder="Confirm Password" class="form-control"
+                v-model="inputconfpass" @keyup="passwordMatch()" @click="viewpass()">
+              <a class="view-password" :class="{disabled:inputconfpass.length < 1 ? true : false}"><em class="icon-eye"
+                  v-if="showPassVisible" @click="switchVisibility()"></em></a>
+            </float-label>
+            <label class="err-msg" v-show="matchPasswordErr">Password Didn’t Match</label>
+          </div>
+          <div class="password-conditions-checklist">
+            <ul>
+              <li :class="{checked:passAlphaNumeric == true}"><em class="icon-bullet-check"></em>Password Should be
+                <strong> alphanumeric</strong></li>
+              <li :class="{checked:inputpass.length > 5 && inputpass.length < 13}"><em
+                  class="icon-bullet-check"></em>Password must have <strong> min 6</strong> and <strong> max 12</strong>
+                charecters</li>
+            </ul>
+          </div>
+          <a class="btn btn-primary btn-block btn-lg"
+            :class="{disabled: inputpass != inputconfpass || inputpass == '' ?true : false }"
+            @click="passConfirm()">PROCEED</a>
+        </form>
+      </div>
+      <!--Password Confirmation Sec End-->
+
+      <!--Password Changed Confirm Sec Start-->
+      <div class="login-cont create-pass-sec" v-show="passwordConfirmVisible">
+        <div class="ttl-wrap text-center">
+          <h3>Password Confirmation</h3>
+          <div class="confirm-img-box">
+            <img src="../../assets/images/confirm-tick.svg" alt="confirm-img" />
+            <strong>Congratulations</strong>
+            <q>The password is sucessfully changed</q>
+
+            <!-- <a href="#">Continue to Login</a> -->
+            <router-link to="/watchlist" tag="a">Continue to Login</router-link>
+          </div>
+          
+          
+          
+        </div>
+        
+      </div>
+      <!--Password Changed Confirm Sec End-->
+
+      <!--Create Password Sec Start-->
+      <div class="login-cont create-pass-sec" v-show="createPasswordVisible">
+        <div class="ttl-wrap">
+          <h3>Create Password</h3>
+        </div>
+        <form action="">
+
+          <div class="form-group Password">
+            <em class="lbl-icon icon-lock"></em>
+            <float-label>
+              <input type="password" placeholder="Create Password" class="form-control" v-model="inputpass"
+                @keyup="CheckPassword()">
+
+            </float-label>
+          </div>
+          <div class="form-group Password">
+            <em class="lbl-icon icon-lock"></em>
+            <float-label>
+              <input :type="passwordFieldType" placeholder="Confirm Password" class="form-control"
+                v-model="inputconfpass" @keyup="passwordMatch()" @click="viewpass()">
+              <a class="view-password" :class="{disabled:inputconfpass.length < 1 ? true : false}"><em class="icon-eye"
+                  v-if="showPassVisible" @click="switchVisibility()"></em></a>
+            </float-label>
+            <label class="err-msg" v-show="matchPasswordErr">Password Didn’t Match</label>
+          </div>
+          <div class="password-conditions-checklist">
+            <ul>
+              <li :class="{checked:passAlphaNumeric == true}"><em class="icon-bullet-check"></em>Password Should be
+                <strong> alphanumeric</strong></li>
+              <li :class="{checked:inputpass.length > 5 && inputpass.length < 13}"><em
+                  class="icon-bullet-check"></em>Password must have <strong> min 6</strong> and <strong> max 12</strong>
+                charecters</li>
+            </ul>
+          </div>
+          <a class="btn btn-primary btn-block btn-lg"
+            :class="{disabled: inputpass != inputconfpass || inputpass == '' ?true : false }"
+            @click="chooseAcc()">PROCEED</a>
+        </form>
+      </div>
+      <!--Create Password Sec End-->
+
+
+      <!--Choose Account Sec Start-->
+      <div class="login-cont choose-acc-sec" v-show="chooseAccVisible">
+        <div class="ttl-wrap">
+          <h3>Choose an account </h3>
+        </div>
+        <div class="account-list-wrap">
+          <ul class="account-list">
+            <li v-for="acc in accountList">
+              <div class="radio_option position-right">
+                <input type="radio" name="account" :id="'acc-radio' + acc.id" :checked="acc.checked">
+                <label :for="'acc-radio' + acc.id">
+                  <div class="user-detail">
+                    <figure :class="acc.figbg">
+
+                      <img :src="acc.figpath" alt="" :class="{hide:acc.figpath == '' ? true : false}">
+
+                      <figcaption>{{acc.figcap}}</figcaption>
+                    </figure>
+                    <div>
+                      <h5>{{acc.name}}</h5>
+                      <h6>{{acc.subttl}}</h6>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+        <div class="btn-wrap">
+          <a class="btn btn-primary btn-block btn-lg" @click="setPinShow()">PROCEED</a>
+        </div>
+      </div>
+      <!--Choose Account Sec End-->
+
+
+      <!--Set Pin Sec Start-->
+      <!-- <div class="login-cont set-pin-sec text-center pin-sec" v-show="setPinVisible">
+
+        <div class="ttl-wrap">
+          <h3>Set Up PIN</h3>
+        </div>
+        <form>
+
+          <div class="form-group ">
+            <label class="form-lbl">Set a 4 Digit PIN</label>
+            <div class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+              <input type="password" ref="digit1" id="digit-1" name="digit-1" data-next="digit-2" v-model="digit1"
+                :class="{active:digit1.length > 0}" autofocus />
+              <input type="password" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1"
+                v-model="digit2" :class="{active:digit2.length > 0}" />
+              <input type="password" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2"
+                v-model="digit3" :class="{active:digit3.length > 0}" />
+              <input type="password" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3"
+                v-model="digit4" :class="{active:digit4.length > 0}" />
+            </div>
+          </div>
+
+          <div class="form-group confirm-pin"
+            v-show="digit1.length > 0 && digit2.length > 0 && digit3.length > 0 && digit4.length > 0">
+            <label class="form-lbl">Confirm PIN</label>
+            <div class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+              <input type="password" id="digit-11" name="digit-11" data-next="digit-21" v-model="digit11"
+                :class="{active:digit11.length > 0 , err:diffDigit}" />
+              <input type="password" id="digit-21" name="digit-21" data-next="digit-31" data-previous="digit-11"
+                v-model="digit21" :class="{active:digit21.length > 0 , err:diffDigit}" />
+              <input type="password" id="digit-31" name="digit-31" data-next="digit-41" data-previous="digit-21"
+                v-model="digit31" :class="{active:digit31.length > 0 , err:diffDigit}" />
+              <input type="password" id="digit-41" name="digit-41" data-next="digit-51" data-previous="digit-31"
+                v-model="digit41" :class="{active:digit41.length > 0 , err:diffDigit}" @keyup="pinMatchOrNot()" />
+            </div>
+
+            <label class="err-msg text-center" v-show="pinMatchErr">PIN did’t match</label>
+          </div>
+          <a class="btn btn-primary btn-block btn-lg"
+            :class="{disabled:digit1.length < 1 && digit2.length < 1 && digit3.length < 1 && digit4.length < 1}"
+            @click="returnUserLoginWin()">PROCEED</a>
+        </form>
+
+      </div> -->
+      <!--Set Pin Sec Ends-->
+
+      <!--Set Pin Sec Start New Design-->
+      <div class="login-cont set-pin-sec text-center pin-sec" v-show="setPinVisible">
+          <div class="ttl-wrap">
+            <h3>Set Up PIN</h3>
+          </div>
+          <form>
+            <div class="form-group otp-form-group Password">
+              <em class="lbl-icon custom-lock"></em>
+            <float-label>
+              <input :type="passwordFieldType1" placeholder="Set a 4 Digit PIN" class="form-control" v-model="digit1"
+                :class="{error:errorClass == true}" @click="viewpass()">
+
+              <a class="view-password" :class="{disabled:digit1.length < 1 ? true : false, hide:hidePassword}"><em
+                  class="icon-eye" @click="switchVisibility1()"></em></a>
+            </float-label>
+            </div>
+  
+            <div class="form-group confirm-pin otp-form-group Password" v-if="digit1.length >= 4">
+              <em class="lbl-icon custom-lock"></em>
+              <float-label>
+                <input :type="passwordFieldType2" placeholder="Confirm PIN" class="form-control" v-model="digit11"
+                  :class="{error:errorClass == true}" @click="viewpass()">
+  
+                <a class="view-password" :class="{disabled:digit11.length < 1 ? true : false, hide:hidePassword2}"><em
+                    class="icon-eye" @click="switchVisibility2()"></em></a>
+              </float-label>
+              <label class="err-msg" v-show="pinMatchErr">PIN did’t match</label>
+            </div>
+              <a class="btn btn-primary btn-block btn-lg"
+            :class="{disabled:digit11.length < 4}"
+            @click="returnUserLoginWin()">PROCEED</a>
+          </form>
+        </div>
+        <!--Set Pin Sec Ends New Design-->
+
+      <!--Return user Login Sec Start-->
+      <!-- <div class="login-cont return-user-login-sec pin-sec text-center" v-show="returnUserLoginVisible">
+        <div class="ttl-wrap">
+          <div class="user-detail">
+            <figure>
+              <img src="../../assets/images/user-acc-pic1.jpg" alt="">
+              <figcaption>PS</figcaption>
+            </figure>
+            <h4>Poonam Sharma</h4>
+            <h5>AB00123</h5>
+          </div>
+        </div>
+        <form>
+            <div class="form-group ">
+              <label class="form-lbl">Unlock Using PIN</label>
+              <div class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+                <input type="password" id="returnUserDigit-1" name="returnUserDigit-1" data-next="returnUserDigit-2" v-model="returnUserDigit1" :class="{active:returnUserDigit1.length > 0 , err:diffDigit}"/>
+                <input type="password" id="returnUserDigit-2" name="returnUserDigit-2" data-next="returnUserDigit-3" data-previous="returnUserDigit-1"  v-model="returnUserDigit2" :class="{active:returnUserDigit2.length > 0 , err:diffDigit}"/>
+                <input type="password" id="returnUserDigit-3" name="returnUserDigit-3" data-next="returnUserDigit-4" data-previous="returnUserDigit-2"  v-model="returnUserDigit3" :class="{active:returnUserDigit3.length > 0 , err:diffDigit}"/>
+                <input type="password" id="returnUserDigit-4" name="returnUserDigit-4" data-next="returnUserDigit-5" data-previous="returnUserDigit-3"  v-model="returnUserDigit4" :class="{active:returnUserDigit4.length > 0 , err:diffDigit}" @keyup="checkPin()"/>
+              </div>
+              <label class="err-msg" v-show="returnUserPinErr">Invalid PIN ,try again</label>
+            </div>
+            <div class="form-group ">
+              <a href="#" class="txt-link" @click="forgetPin()">Forgot PIN?</a>
+            </div>
+            <router-link to="/watchlist" class="btn btn-primary btn-block btn-lg">PROCEED</router-link>
+          </form>
+        <div class="btm-sec text-left">
+          <p>Login to another account? <a href="#" class="txt-link">Switch Here</a></p>
+        </div>
+
+
+
+      </div> -->
+      <!--Return user Login Sec Ends-->
+
+      <!--Return user Login Sec Start New Design-->
+      <div class="login-cont return-user-login-sec pin-sec text-center" v-show="returnUserLoginVisible">
+          <div class="ttl-wrap">
+            <div class="user-detail-new d-flex">
+              <div class="user-img">
+                <img src="../../assets/images/user-acc-pic1.jpg" alt="">
+              </div>
+              <div class="user-details">
+                <h4>Poonam Sharma</h4>
+                <h5>AB00123</h5>
+              </div>
+            </div>
+          </div>
+          <form>  
+            <div class="form-group otp-form-group Password">
+              <em class="lbl-icon custom-lock"></em>
+              <float-label>
+                <input :type="passwordFieldType1" placeholder="Unlock Using PIN" class="form-control" v-model="returnUserDigit1"
+                  :class="{error:errorClass == true}" @click="viewpass()">
+                <span><a href="#" class="otp-link-new" @click="forgetPin()">Forgot PIN?</a></span>
+                <a class="otp-link-new" v-show="otpLinkVisible">Reset PIN</a>
+  
+                <a class="view-password" :class="{disabled:returnUserDigit1.length < 1 ? true : false, hide:hidePassword}"><em
+                    class="icon-eye" @click="switchVisibility1()"></em></a>
+              </float-label>
+              <label class="err-msg" v-show="returnUserPinErr1">Invalid PIN , Attempt 1 of 3. Try again.</label>
+              <label class="err-msg" v-show="returnUserPinErr2">Invalid PIN , Attempt 2 of 3. Try again.</label>
+              <label class="err-msg" v-show="returnUserPinErr3">Invalid PIN , Attempt 3 of 3. Try again.</label>
+              <label class="err-msg" v-show="returnUserPinErr">Your account is locked. Reset your PIN to continue
+                login.</label>
+            </div>
+            <router-link to="/watchlist" class="btn btn-primary btn-block btn-lg" :class="{disabled:returnUserDigit1.length < 4}">PROCEED</router-link>
+          </form>
+          <div class="btm-sec text-left">
+            <p>Login to another account? <a href="#" class="txt-link">Switch Here</a></p>
+          </div>
+        </div>
+        <!--Return user Login Sec Ends New Design-->
+
+      <!--Phone Number Starts-->
+      <div class="user-login login-cont" v-show="forgetPinVisible">
+        <div class="ttl-wrap">
+          <h3>Forgot PIN? </h3>
+          <p>OTP Sent on registered mobile number and email id.</p>
+        </div>
+        <form action="">
+
+          <div class="form-group phone-no">
+            <em class="lbl-icon icon-phone"></em>
+            <float-label>
+              <input type="text" placeholder="Mobile Number" class="form-control" v-model="inputMob1"
+                v-on:keyup.enter="sendOtpNew()">
+              <span class="phone-pre">+91</span>
+            </float-label>
+          </div>
+          <div class="form-group otp-form-group Password">
+            <em class="lbl-icon icon-otp"></em>
+            <float-label>
+              <input type="password" placeholder="OTP" class="form-control" v-model="inputOtp1"
+                :class="{error:otperrmsgNew == true}">
+              <span class="countdown" v-show="countdownVisibleNew">00:{{ countDownNew }}</span>
+              <a class="otp-link" v-show="otpLinkVisibleNew">Resend OTP</a>
+            </float-label>
+            <label class="err-msg" v-show="otperrmsgNew">Invalid OTP. Enter Vaild OTP</label>
+          </div>
+          <a class="btn btn-primary btn-block btn-lg " @click="checkOtpNew()">PROCEED</a>
+        </form>
+      </div>
+      <!--Phone Number Ends-->
+
+
+      <!--Set New Pin Sec Start-->
+      <!-- <div class="login-cont set-pin-sec text-center pin-sec" v-show="setNewPinVisible">
+        <div class="ttl-wrap">
+          <h3>Set Up New PIN</h3>
+        </div>
+        <form>
+          <div class="form-group ">
+            <label class="form-lbl">Set a 4 Digit PIN</label>
+            <div class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+              <input type="password" id=" -1" name="digitNew-1" data-next="digitNew-2" v-model="digitNew1"
+                :class="{active:digitNew1.length > 0}" />
+              <input type="password" id="digitNew-2" name="digitNew-2" data-next="digitNew-3" data-previous="digitNew-1"
+                v-model="digitNew2" :class="{active:digitNew2.length > 0}" />
+              <input type="password" id="digitNew-3" name="digitNew-3" data-next="digitNew-4" data-previous="digitNew-2"
+                v-model="digitNew3" :class="{active:digitNew3.length > 0}" />
+              <input type="password" id="digitNew-4" name="digitNew-4" data-next="digitNew-5" data-previous="digitNew-3"
+                v-model="digitNew4" :class="{active:digitNew4.length > 0}" />
+            </div>
+          </div>
+
+          <div class="form-group confirm-pin"
+            v-show="digitNew1.length > 0 && digitNew2.length > 0 && digitNew3.length > 0 && digitNew4.length > 0">
+            <label class="form-lbl">Confirm PIN</label>
+            <div class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+              <input type="password" id="digitNew-11" name="digitNew-11" data-next="digitNew-21" v-model="digitNew11"
+                :class="{active:digitNew11.length > 0 , err:diffDigitNew}" />
+              <input type="password" id="digitNew-21" name="digitNew-21" data-next="digitNew-31"
+                data-previous="digitNew-11" v-model="digitNew21"
+                :class="{active:digitNew21.length > 0 , err:diffDigitNew}" />
+              <input type="password" id="digitNew-31" name="digitNew-31" data-next="digitNew-41"
+                data-previous="digitNew-21" v-model="digitNew31"
+                :class="{active:digitNew31.length > 0 , err:diffDigitNew}" />
+              <input type="password" id="digitNew-41" name="digitNew-41" data-next="digitNew-51"
+                data-previous="digitNew-31" v-model="digitNew41"
+                :class="{active:digitNew41.length > 0 , err:diffDigitNew}" @keyup="pinMatchOrNotNew()" />
+            </div>
+
+            <label class="err-msg text-center" v-show="pinMatchErrNew">PIN did’t match</label>
+          </div>
+          <a class="btn btn-primary btn-block btn-lg"
+            :class="{disabled:digitNew1.length < 1 && digitNew2.length < 1 && digitNew3.length < 1 && digitNew4.length < 1}"
+            @click="pinConfirmFunc()">PROCEED</a>
+        </form>
+
+      </div> -->
+      <!--Set New Pin Sec Ends-->
+
+      <!--Set New Pin Sec Start New Design-->
+      <div class="login-cont set-pin-sec text-center pin-sec" v-show="setNewPinVisible">
+          <div class="ttl-wrap">
+            <h3>Set Up New PIN</h3>
+          </div>
+          <form>
+            <div class="form-group otp-form-group Password">
+              <em class="lbl-icon custom-lock"></em>
+            <float-label>
+              <input :type="passwordFieldType1" placeholder="Set a 4 Digit PIN" class="form-control" v-model="digitNew1"
+                :class="{error:errorClass == true}" @click="viewpass()">
+                  <a class="view-password" :class="{disabled:digitNew1.length < 1 ? true : false, hide:hidePassword}"><em
+                    class="icon-eye" @click="switchVisibility1()"></em></a>
+            </float-label>
+            </div>
+  
+            <div class="form-group confirm-pin otp-form-group Password" v-if="digitNew1.length >= 4">
+              <em class="lbl-icon custom-lock"></em>
+              <float-label>
+                <input :type="passwordFieldType2" placeholder="Confirm PIN" class="form-control" v-model="digitNew11"
+                  :class="{error:errorClass == true}" @click="viewpass()">
+  
+                <a class="view-password" :class="{disabled:digitNew11.length < 1 ? true : false, hide:hidePassword2}"><em
+                    class="icon-eye" @click="switchVisibility2()"></em></a>
+              </float-label>
+              <label class="err-msg" v-show="pinMatchErr">PIN did’t match</label>
+            </div>
+              <a class="btn btn-primary btn-block btn-lg"
+            :class="{disabled:digitNew11.length < 4}"
+            @click="pinConfirmFunc()">PROCEED</a>
+          </form>
+        </div>
+        <!--Set New Pin Sec Ends New Design-->
+
+      <!--Set Pin Confirmation Starts-->
+      <div class="login-cont text-center pin-confirmation" v-if="pinConfirmation">
+        <div class="ttl-wrap">
+          <h3>PIN Confirmation</h3>
+        </div>
+        <img src="../../assets/images/success.svg" alt="">
+        <h5>Congratulations</h5>
+        <p>PIN has been sucessfully updated</p>
+        <a href="#" @click="contiueLogin()" class="txt-link">Continue to Login</a>
+      </div>
+      <!--Set Pin Confirmation Ends-->
+      <!--Language info Sec Start-->
+      <div class="language-info" v-show="langInfo">
+        <div class="error-info-msg">
+          <em class="icon-info"></em>
+          Language can be changed anytime from the menu.we’ll translate information to help you browse and communicate.
+          if you have any feedback on these transactions, please contact our customer support.please note that
+          translations are provided for convenience only and the english version in the definite version.
+        </div>
+      </div>
+      <!--Language info Sec Ends-->
+    </div>
+
+  </section>
+</section>

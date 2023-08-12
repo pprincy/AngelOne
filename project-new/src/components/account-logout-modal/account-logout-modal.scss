@@ -1,0 +1,30 @@
+@import '../../assets/scss/styles';
+
+.acc-logout-modal-sec {
+    .modal {
+        .modal-body {
+            p {
+                font-family: $font-base-reg;
+                font-size: $font-14;
+                color: $grey-med;
+            }
+        }
+        .modal-footer {
+            .logout-section {
+                width: 100%;
+            }
+
+            .btn {
+                min-width: 11.875rem;
+                border-radius: 0.25rem;
+                font-family: $font-base-semibold;
+                font-size: $font-14;
+                color: $white;
+            }
+            .cancel-btn {
+                background: transparent;
+                color: $highlighted;
+            }
+        }
+    }
+}

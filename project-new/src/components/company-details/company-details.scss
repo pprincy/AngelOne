@@ -1,0 +1,2196 @@
+@import '../../assets/scss/styles';
+
+.company_name {
+    margin-right: 2rem;
+
+    @include tablet {
+        margin-right: 3rem;
+    }
+
+    @include tablet {
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .short_name {
+        font-size: 1.313rem;
+        text-transform: uppercase;
+        font-family: $font-base-semibold;
+        margin: 0 0 0.625rem;
+
+        @include tablet {
+            font-family: $font-base-med;
+            font-size: $font-14;
+            margin: 0;
+        }
+
+        .badge {
+            font-family: $font-base-med;
+            font-size: 0.625rem;
+            margin-left: 0.625rem;
+            position: relative;
+            top: -0.2rem;
+            padding: 2px;
+        }
+    }
+
+    .full_name {
+        font-size: 0.875rem;
+        font-family: $font-base-reg;
+        margin: 0px;
+        color: $grey-med;
+    }
+}
+
+.market_val {
+    display: flex;
+    flex-wrap: flex-wrap;
+    align-items: center;
+
+    @include laptop {
+        display: block;
+    }
+
+    @include tablet {
+        @include flex(flex-start, center);
+    }
+
+    .amt {
+        font-size: 1.563rem;
+        font-size: 1.625rem;
+        font-family: $font-base-med;
+        margin-right: 0.5rem;
+        @include inlineFlex(flex-start, center);
+
+        @include laptop {
+            font-size: 1.5rem;
+            line-height: 1.563rem;
+        }
+
+        @include tablet {
+            font-family: $font-base-med;
+            font-size: $font-14;
+        }
+
+        &.txt-positive {
+            &:after {
+                font-size: 0;
+                position: relative;
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 5.5px 8px 5.5px;
+                border-color: transparent transparent $positive transparent;
+                display: inline-block;
+                margin-left: 0.3rem;
+            }
+        }
+
+        &.txt-negative {
+            &:after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 8px 5.5px 0 5.5px;
+                border-color: $red transparent transparent transparent;
+                margin-left: 0.3rem;
+                font-size: 0;
+                position: relative;
+            }
+        }
+    }
+
+    .chg {
+        font-size: 1rem;
+        font-size: 0.875rem;
+        color: $grey-med;
+
+        @include tablet {
+            font-family: $font-base-reg;
+            font-size: $font-12;
+        }
+
+        span {
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.action_btns {
+
+    .btn {
+        margin-right: 1rem;
+        height: 2.500rem;
+        border-radius: 4px;
+        padding: 0.625rem;
+        border-color: $light-border-color;
+        color: $base-text;
+
+        @include minidesktop {
+            margin-right: 0.65rem;
+        }
+
+        &.btn-sm {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:last-child {
+            margin-right: 0px;
+        }
+
+        i, em{
+            font-size: 1.125rem;
+        }
+
+        &.btn-outline-secondary {
+            &:hover {
+                border-color: $light-border-color !important;
+                color: $base-text !important;
+            }
+        }
+
+    }
+
+}
+
+.market-detail {
+    margin: 0 -12px;
+
+    .box {
+        label {
+            text-transform: uppercase;
+            color: $grey-med;
+            font-size: $font-14;
+            line-height: 1.063rem;
+            margin: 0 0 0.5rem;
+            cursor: auto;
+        }
+
+        h5 {
+            font-size: $font-14;
+            line-height: 1rem;
+            font-family: $font-base-med;
+            margin: 0px;
+        }
+
+        &.d-flex {
+            padding: 0 12px;
+
+            label {
+                font-size: 0.750rem;
+                margin: 0 0.4rem 0 0;
+            }
+
+        }
+    }
+
+    .row {
+        margin-bottom: -1.5rem;
+
+        >div {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+.chart_nav {
+
+    background: $white;
+    position: relative;
+
+    .nav-tabs {
+        .nav-item {
+            margin-bottom: 0px;
+
+            .nav-link {
+                &:first-child {
+                    border-radius: 2px 2px 0 0;
+                }
+
+                &.active {
+                    &:after {
+                        @include tablet {
+                            background: $highlighted !important;
+                            left: 0.75rem;
+                            right: 0.75rem;
+                            width: calc(100% - 1.5rem);
+                            bottom: 0;
+                            top: auto;
+                        }
+                    }
+
+                }
+
+                &.disabled {
+                    color: $disabled1;
+                }
+            }
+        }
+    }
+
+    .expand-view-btn {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0px;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.250rem;
+        line-height: normal;
+        color: $base-text;
+
+        &.hide {
+            display: none;
+        }
+
+        @include tablet {
+            display: none !important;
+        }
+
+        i, em {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @include laptop {
+            right: 1rem;
+        }
+
+    }
+}
+
+.chart-top-info {
+    position: absolute;
+    opacity: 0;
+
+    @include tablet {
+        padding-top: 50px;
+    }
+
+    @include tablet {
+        width: 100%;
+        top: auto;
+        opacity: 1;
+        z-index: 2;
+        position: relative;
+    }
+
+    .market-detail {
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+
+        @include tablet {
+            display: none !important;
+            padding: 8px 2px;
+            margin: 0;
+            left: 0;
+            right: 0px;
+            background: $input-bg;
+            top: 2rem;
+        }
+
+        .box {
+            @include tablet {
+                padding: 0 6px;
+            }
+
+            label {
+                @include tablet {
+                    font-size: 10px;
+                    line-height: 12px;
+                    margin-right: 4px;
+                }
+            }
+
+            h5 {
+                @include tablet {
+                    font-size: 10px;
+                    line-height: 12px;
+                }
+            }
+        }
+    }
+
+    &.open {
+        position: relative;
+        opacity: 1;
+        margin-bottom: 4px;
+    }
+
+    >.mob-expand-view-btn {
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        left: 1.5rem;
+        bottom: 0px;
+        padding: 0px;
+        background: url(../../assets/images/maximize-icon.svg) left top no-repeat;
+        background-size: 100% auto;
+        @include flex(center, center);
+        display: none;
+        background-color: $white;
+
+        @include tablet {
+            display: flex;
+            width: 1.7rem;
+            height: 1.7rem;
+            left: 1rem;
+            bottom: 6px;
+        }
+
+        &.open {
+            z-index: 9999;
+            left: 10px;
+            bottom: 10px;
+            position: fixed;
+        }
+    }
+}
+
+.chart-info-sec {
+    position: relative;
+    z-index: 5;
+
+    .market-detail {
+        .box {
+            div {
+                min-width: 45px;
+            }
+
+            .select-range-wrap {
+                padding: 5px 1.25rem 0;
+                width: 100%;
+            }
+
+        }
+    }
+
+    &.active {
+        padding-top: 58px;
+        padding-top: 60px;
+
+        @include laptop {
+            padding-top: 48px;
+        }
+
+        @include tablet {
+            padding-top: 0px;
+        }
+
+        .chart_nav {
+            position: fixed;
+            width: calc(100% - 28rem);
+            top: 9.95rem;
+            top: 10rem;
+            z-index: 5;
+
+            @include laptop {
+                width: calc(100% - 21.6rem);
+            }
+
+            @include tablet {
+                width: 100%;
+                top: 4.750rem;
+            }
+        }
+
+        .chart-show-btn {
+            visibility: visible;
+            opacity: 1;
+            display: flex !important;
+
+            @include tablet {
+                display: none !important;
+            }
+        }
+    }
+
+    .chart_nav {
+        border-radius: 4px 5px 0 0;
+        overflow: hidden;
+
+        @include tablet {
+            position: fixed;
+            top: 3.750rem;
+            top: 4.750rem;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-tabs {
+            @media (min-width: 992px) {
+                border-bottom: none;
+            }
+
+            @include tablet {
+                width: 100%;
+                padding-left: 10px;
+            }
+
+            .nav-item {
+                .nav-link {
+                    padding: 1.188rem 1.25rem;
+                    margin-bottom: 0px;
+
+                    @include laptop {
+                        padding: 0.82rem 1rem;
+                    }
+
+                    @include tablet {
+                        padding: 1.063rem 1rem 1rem;
+                        font-size: 0.875rem;
+                        line-height: 1.063rem;
+
+                    }
+
+                    &.active {
+                        @include tablet {
+                            font-family: $font-base-semibold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .chart-show-btn {
+        position: fixed;
+        bottom: 1rem;
+        right: 6.688rem;
+        border-radius: 24px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+        background-color: $highlighted;
+        @include flex(center, center);
+        @include wrap(nowrap);
+        height: 3rem;
+        width: 10.250rem;
+        color: $white;
+        font-size: $font-14;
+        text-transform: uppercase;
+        font-family: $font-base-semibold;
+        z-index: 99;
+        cursor: pointer;
+        transition: ease-in-out 0.3s all;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        padding: 0 1.5rem 0 1rem;
+
+        @include laptop {
+            bottom: 5rem;
+            right: 1.688rem;
+        }
+
+        span {
+            min-width: 88px;
+            opacity: 1;
+            visibility: visible;
+            transition: ease-in-out 0.3s all;
+        }
+
+        i, em {
+            margin: 0 0.5rem;
+        }
+
+        &.sm {
+            width: 3rem;
+            padding: 0;
+
+            span {
+                display: none;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &:hover {
+                width: 10.250rem;
+                padding: 0 1.5rem 0 1rem;
+
+                span {
+                    display: block;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        @include tablet {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        .tab-pane {
+            .tab-content-in {
+                height: calc(100vh - 13.75rem);
+
+                @include laptop {
+                    height: calc(100vh - 17rem);
+                }
+
+                @include tablet {
+                    padding-top: 0;
+                    height: auto;
+                    touch-action: auto !important;
+                    padding-bottom: 60px;
+                }
+                &.optionChainTabContent{
+                    height: auto;
+                    position: relative;
+                    z-index: 100;
+                }
+            }
+
+        }
+    }
+}
+
+
+.price-summary-sec {
+    margin: 0 0 3rem;
+
+    @include tablet {
+        margin: 0 0 2.250rem;
+    }
+    h3 {
+        color: $base-text !important;
+    }
+    .price-summary-carousal {
+        .slick-slide {
+            padding: 0 6px;
+        }
+
+        .border-box {
+            width: 16.75rem;
+            padding: 1.438rem;
+
+            .icn-info .icn-wrap {
+                margin-bottom: 2px;
+            }
+        }
+    }
+}
+
+.try-free-sec {
+    padding: 1.563rem 3rem 1.5rem 3.250rem;
+    border-radius: 4px;
+    background: url(../../assets/images/center-bg.png) center top no-repeat $pink-bg;
+    position: relative;
+    margin: 0 0 3rem;
+
+    @include minidesktop {
+        padding: 1.563rem 2rem;
+    }
+
+    @include tablet {
+        display: none;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        background: url(../../assets/images/left-bg.png) left top no-repeat;
+        width: 1.375rem;
+        height: 5.500rem;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        background: url(../../assets/images/right-bg.png) left top no-repeat;
+        width: 3.313rem;
+        height: 2.688rem;
+        position: absolute;
+        right: 0px;
+        bottom: 0%;
+    }
+
+    .media {
+        >img {
+            margin-right: 3.750rem;
+
+            @include minidesktop {
+                margin-right: 1.75rem;
+            }
+        }
+
+        .media-body {
+            position: relative;
+            padding-right: 14.375rem;
+
+            @include minidesktop {
+                padding-right: 10.5rem;
+            }
+
+            img {
+                display: inline-block;
+                margin: 0 0 0.563rem;
+            }
+
+            h3 {
+                margin: 0 0 0.563rem;
+                font-family: $font-base-bold;
+                line-height: 1.375rem;
+                font-weight: normal;
+                color: $base-text;
+            }
+
+            p {
+                margin: 0;
+                font-size: 0.938rem;
+                line-height: 1.250rem;
+                letter-spacing: -0.62px;
+                color: $base-text;
+            }
+
+            .try-for-free-btn {
+                position: absolute;
+                right: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+
+            }
+        }
+    }
+}
+
+.recent-news-sec {
+    margin: 0 0 3rem;
+
+    @include tablet {
+        display: none;
+    }
+
+    .recent-news-carousal {
+        a {
+            color: $base-text;
+        }
+
+        .media {
+            width: 20rem;
+
+            figure {
+                margin: 0 1rem 0 0;
+
+                img {
+                    width: 5.750rem;
+                    max-width: 5.750rem;
+                    height: auto;
+                }
+            }
+
+            .media-body {
+
+                .status {
+                    display: block;
+                    font-size: 0.750rem;
+                    font-family: $font-base-med;
+                    padding: 0 0 5px;
+                    color: $grey2;
+                    text-transform: uppercase;
+
+
+                }
+
+                a {
+                    color: $base-text;
+                    display: block;
+                }
+
+                h5 {
+                    font-family: $font-base-semibold;
+                    font-size: 0.875rem;
+                    line-height: 1.125rem;
+                    margin: 0 0 5px;
+                    display: -webkit-box;
+                    max-width: 200px;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+
+                }
+
+                .border-list {
+                    li {
+                        .icon-clock {
+                            margin-top: -4px;
+                            margin-right: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.security-info-sec {
+    margin-bottom: 3rem;
+
+    @include tablet {
+        margin: 0 0 0.75rem;
+    }
+
+    .card {
+        border: 1px solid $border-type1;
+
+        .card-header {
+            border-bottom: none;
+            background: transparent;
+            position: relative;
+            padding: 1.5rem;
+
+            h3 {
+                margin: 0px;
+                min-height: 2rem;
+                line-height: 1.250rem;
+                padding-top: 0.375rem;
+                color: $base-text !important;
+
+                @include tablet {
+                    min-height: 1.250rem;
+                    line-height: 1.250rem;
+                }
+            }
+
+            .btn {
+                right: 1.5rem;
+                top: 1.5rem;
+                width: 2rem;
+                min-width: 2rem;
+                height: 2rem;
+                background: url(../../assets/images/down-arrow.svg) center center no-repeat;
+                background-color: $bg;
+                position: absolute;
+                border-radius: 50%;
+                padding: 0px;
+                text-align: center;
+                color: $placeholder;
+                font-size: 1.4rem;
+                line-height: 1.2rem;
+
+                @include tablet {
+                    top: 1.125rem;
+                }
+
+                &[aria-expanded="true"] {
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .card-body {
+            padding: 0 1.5rem 1.5rem;
+
+            .market-detail {
+                padding-left: 0.5rem;
+
+                .row {
+                    margin-bottom: -2.500rem;
+
+                    >div {
+                        margin-bottom: 2.500rem;
+                    }
+                }
+
+                .box {
+                    label {
+                        letter-spacing: -0.25px;
+                        font-family: $font-base-med;
+
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.similar-stocks-sec {
+    @include tablet {
+        display: none;
+    }
+
+    .row {
+        >div {
+            margin-bottom: 0.625rem;
+
+            @include mobile {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .border-box {
+        height: 100%;
+        padding: 1.2rem 1.5rem 0.9rem;
+
+        .comp-info-sec {
+            .scrip_name {
+                font-size: 1rem;
+
+                .exchage {
+                    margin-left: 0.1rem;
+                }
+            }
+
+            .comp_name {
+                font-size: 0.813rem;
+            }
+        }
+
+        .price-info-sec {
+            padding-top: 1.35rem;
+
+            .price {
+                font-size: 1rem;
+            }
+
+            .chg {
+                font-size: 0.813rem;
+            }
+        }
+    }
+}
+
+.market-know-ur-stock-sec {
+    margin-bottom: 2.500rem;
+    margin-top: 0.75rem;
+
+    @include tablet {
+        margin-top: 2px;
+    }
+
+    h3 {
+        margin-bottom: 0.5rem !important;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+        font-size: 0.813rem;
+        color: $grey-med;
+    }
+
+    .row {
+        @include laptop {
+            margin: 0 -6px;
+        }
+
+        >div {
+            @include laptop {
+                padding: 0 6px;
+            }
+
+        }
+    }
+
+}
+
+.market-sec {
+    .table-wrap {
+        border: 1px solid $border-type1;
+        border-radius: 4px;
+
+        .table {
+
+            thead {
+                th {
+                    border: none;
+                    border-bottom: 1px solid $border-type1;
+                    font-size: 0.813rem;
+                    color: $grey-med;
+                    line-height: 1rem;
+                    padding-top: 0.688rem;
+                    padding-bottom: 0.625rem;
+                    padding-left: $font-18;
+                    padding-right: $font-18;
+                }
+
+                th.buy-price {
+                    padding-right: 0.5rem;
+                }
+
+                th.sell-price {
+                    padding-left: 0.5rem;
+                }
+            }
+
+            tbody {
+                td {
+                    border: none;
+                    font-size: 0.875rem;
+                    padding: 0.85rem 1rem;
+                    padding: 0.5rem 1rem;
+                    height: 50px;
+                    vertical-align: middle;
+                    padding-left: $font-18;
+                    padding-right: $font-18;
+
+                    &.tblWrapCol {
+                        width: 50%;
+                        height: auto;
+                    }
+
+                    strong {
+                        font-family: $font-base-med;
+                        font-weight: normal;
+                    }
+
+                    .price-wrap {
+                        width: 100%;
+                        position: relative;
+                        line-height: 1.625rem;
+                        display: block;
+
+                        .selected {
+                            position: absolute;
+                            right: 0px;
+                            top: 0px;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                td.buy-price {
+                    padding-right: 0;
+                }
+
+                td.sell-price {
+                    padding-left: 0;
+                }
+            }
+        }
+
+        .tot-tbl {
+            border-top: 1px solid $border-type1;
+        }
+
+        .tbl_best-bid {
+            border-right: 1px solid $light-border-color;
+
+            tr {
+                td {
+                    .price-wrap {
+                        padding-right: 5px;
+
+                        .selected {
+                            background: $positive;
+                            opacity: 0.2;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tbl_best-ask {
+            tr {
+                td {
+                    .price-wrap {
+                        padding-left: 5px;
+
+                        .selected {
+                            background: $negative;
+                            opacity: 0.2;
+                            right: auto;
+                            left: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        >.table {
+            margin-bottom: 1rem;
+            position: relative;
+
+            &:after {
+                content: "";
+                display: block;
+                height: 1rem;
+                width: 1px;
+                background: $light-border-color;
+                position: absolute;
+                left: 50%;
+                margin-left: -1px;
+                top: 100%;
+            }
+
+            &.tot-tbl {
+                margin-bottom: 0px;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.know-ur-stock-sec {
+    @include tablet {
+        margin-top: 2.250rem;
+    }
+
+    .arrow-border-link-list {
+        li {
+            a {
+                cursor: auto;
+
+                .icon-wrap {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border-radius: 4px;
+                    margin: 0 1rem 0 0;
+
+                    @include flex(center, center);
+
+                    i, em {
+                        color: $white;
+                        font-size: 1.5rem;
+                    }
+
+                    &.redBg {
+                        background: $red;
+                    }
+
+                    &.greenBg {
+                        background: $green;
+                    }
+
+                    &.orangeBg {
+                        background: $orange;
+                    }
+                }
+
+                h5 {
+                    font-size: 0.875rem;
+                    font-family: $font-base-semibold;
+                }
+
+                h6 {
+                    margin: 0px;
+                    font-size: 0.875rem;
+                    font-family: $font-base-reg;
+                    color: $grey-med;
+                }
+
+                &.disabled {
+                    cursor: not-allowed;
+
+                    .icon-wrap {
+                        background: $disabled !important;
+                    }
+
+                    &:after {
+                        color: $disabled !important;
+                    }
+                }
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .performance-overview {
+        background: $light-blue;
+        border-radius: 4px;
+
+        >div {
+            width: 33.3333%;
+            padding: 1rem;
+
+            @include minidesktop {
+                padding: 1rem 0.5rem;
+            }
+
+            @include tablet {
+                padding: 1rem 2px;
+            }
+        }
+
+        h6 {
+            font-size: 0.75rem;
+            font-family: $font-base-reg;
+            margin-bottom: 0.25rem;
+        }
+
+        strong {
+            font-size: 0.875rem;
+            font-family: $font-base-semibold;
+            text-transform: lowercase;
+            display: block;
+
+            &.disabled {
+                color: $disabled !important;
+            }
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    p {
+        @include tablet {
+            margin: 0 0 0.75rem;
+        }
+    }
+}
+
+.sell-error-cont {
+    background: $grey1;
+    color: $white;
+    width: 305px;
+    padding: 1rem 1.250rem;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.option-chain-sec {
+    .option-chain-top-sec {
+        padding: 0.750rem 1.5rem;
+        border-bottom: 1px solid $light-border-color;
+
+        .select-date {
+
+            label {
+                margin: 0px;
+                font-size: 0.750rem;
+                line-height: 0.875rem;
+                text-transform: uppercase;
+                margin-right: 1rem;
+                cursor: auto;
+                font-family: $font-base-med;
+            }
+
+            .bootstrap-select {
+                min-width: 130px;
+
+                div.dropdown-menu {
+                    min-width: 190px;
+
+                }
+                .dropdown-toggle{
+                    color: $base-text;
+                }
+            }
+
+        }
+
+        .select-form {
+            width: 12.25rem;
+        }
+    }
+
+
+}
+
+.option-chain-tbl-sec {
+    .optionChainTblWrap {
+        position: relative;
+
+        .table_body_wrap{
+            height: calc(100vh - 315px);
+            @include laptop{
+                height: calc(100vh - 370px);
+                
+            }
+            &.stickyTop{
+                padding-top: 79px;
+                .strike-price-row{
+                    position: fixed;
+                    top: 316px !important; 
+                    bottom: auto !important;
+                    width: calc(100% - 27.938rem);
+                    z-index: 9;
+                    @include laptop{
+                        top: 303px !important;
+                        width: calc(100% - 21.5rem);
+                    }
+                    .strike-price-cont {
+                        .toDownArrow{
+                            display: block;
+                        }
+                    }
+
+                }
+            }
+            &.stickyBtm{
+                padding-top: 0;
+                padding-bottom: 79px;
+                .strike-price-row{
+                    width: calc(100% - 27.938rem);
+                    position: fixed;
+                    bottom: 0 !important; 
+                    top: auto !important;
+                    z-index: 9;
+                    @include laptop{
+                        bottom: 67px !important;
+                        width: calc(100% - 21.5rem);
+                    }
+                    .strike-price-cont {
+                        .toUpArrow{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        .table_wrap {
+            .table {
+                overflow: hidden;
+                text-align: center;
+
+                tr {
+                    position: relative;
+                    cursor: pointer;
+                    display: flex;
+
+                    th {
+                        width: 8.88%;
+                        border-top: none;
+                        border-bottom: 1px solid $light-border-color;
+                        align-items: center;
+                        padding: 0.75rem 0.25rem;
+                        color:$grey-med;
+                        @include laptop{
+                            letter-spacing: -0.3px;
+                        }
+                        &.strikeCol{
+                            font-family: $font-base-med;
+                            color: $base-text;
+                        }
+                    }
+
+                    td {
+                        width: 8.88%;
+                        border: none;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.813rem;
+                        color: $base-text;
+                        padding-left: 0.25rem;
+                        padding-right: 0.25rem;
+                        .price-info-sec {
+                            .price {
+                                font-size: 0.813rem;
+                                line-height: 1rem;
+                                padding: 0px;
+                                margin:0 0 0.375rem;
+                                font-family: $font-base-reg;
+                                &::after {
+                                    display: none;
+                                }
+                                i, em{
+                                    font-style: normal;
+                                    margin-right: 1px;
+                                }
+                            }
+
+                            .chg {
+                                font-size: 0.688rem;
+                                color: $base-text;
+                                .per {
+                                    margin-left: 0.03rem;
+                                }
+                            }
+                        }
+
+                        &.OlPerChgeCol {
+                            .price-info-sec {
+                                .price {
+                                    color: $base-text;
+                                }
+                            }
+                        }
+
+                        &.strikeCol {
+                            box-shadow: 0 -8px 4px 2px rgb(145 145 145 / 12%);
+                            box-shadow: 0 5px 4px 2px rgb(145 145 145 / 12%);
+                            position: relative;
+                            background: $white;
+                        }
+
+                        &.hoverdCol {
+                            position: absolute;
+                            width: auto;
+                            left: 0px;
+                            top: 0px;
+                            height: 100%;
+                            padding: 0px;
+                            padding-left: 2rem;
+                            display: none;
+
+                            .more-option-btn {
+                                font-size: 1.15rem;
+                                color: $base-text;
+                                position: absolute;
+                                left: 0px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                cursor: pointer;
+                                i, em {
+                                    display: block;
+                                }
+                            }
+
+                            .stock-action {
+                                height: 100%;
+                                display: none;
+                                .stock-action-in {
+                                    height: 100%;
+
+                                    ul {
+                                        li {
+                                            margin-right: 1rem;
+                                            a{
+                                                cursor: pointer;
+                                            }
+                                            .addWatchlistBtn {
+                                                border-color: $grey3;
+                                                &.active {
+                                                    background: url(../../assets/images/star-active.svg) left top no-repeat;
+                                                    padding: 0px;
+                                                    background-size: 100% auto;
+
+                                                    .add-to-watchlist-icn {
+
+                                                        opacity: 0;
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .search-watchlist {
+
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                width: 17.5rem;
+                                height: auto;
+                                background: $white;
+                                border: 1px solid $border-color;
+                                border-radius: 4px;
+                                box-shadow: 6px 6px 28px 0 rgb(43 47 63 / 10%);
+                                z-index: 9;
+                                text-align: left;
+
+                                .seach-watchist-confirm {
+                                    .btn {
+                                        background: transparent;
+                                        color: $highlighted;
+
+                                        &.disabled {
+                                            background: transparent;
+                                            color: $placeholder;
+                                        }
+                                    }
+                                }
+
+
+
+                            }
+                            &:hover{
+                                .stock-action{
+                                    display: block;
+                                }
+                            }
+                            .search-watchlist{
+                                border-radius: 0.25rem;
+                                box-shadow: 0 8px 12px 0 rgba(231, 233, 243, 0.33);
+                                border: solid 1px $border-type3;
+                                z-index: 10;
+                                margin: 0px;
+                                top:calc(100% - 6px);
+                            }
+                        }
+
+                        
+                    }
+
+                    .callLeftCol {
+                        display: none;
+                    }
+
+                    .putRightCol {
+                        display: none;
+                    }
+
+                    .strikeCol {
+                        width: 11.2%;
+
+                    }
+
+                    &:hover {
+                        td {
+                            &.hoverdCol {
+                                display: block;
+
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(even) {
+                        td {
+                            &.leftCol {
+                                background: $white;
+                            }
+
+                            &.hoverdCol {
+                                background: $white;
+                            }
+
+                            &.rightCol {
+                                background: $white;
+                            }
+
+                        }
+                    }
+
+                    &:nth-of-type(odd) {
+                        td {
+                            &.leftCol {
+                                background: #fffaf1;
+                            }
+
+                            &.rightCol {
+                                background: #eff1fb;
+                            }
+
+                            &.hoverdCol {
+                                background: #fffaf1;
+                            }
+                        }
+                    }
+
+                    &.bottomTr{
+                        &:nth-of-type(even) {
+                            td {
+                                &.leftCol {
+                                    background: $white;
+                                }
+    
+                                &.hoverdCol {
+                                    background: $white;
+                                }
+    
+                                &.rightCol {
+                                    background: $white;
+                                }
+    
+                            }
+                        }
+    
+                        &:nth-of-type(odd) {
+                            td {
+                                &.leftCol {
+                                    background: #eff1fb;
+                                   
+                                }
+    
+                                &.rightCol {
+                                    background: #fffaf1;
+                                }
+    
+                                &.hoverdCol {
+                                    background: #eff1fb;
+                                }
+                            }
+                        }
+
+                        td.hoverdCol {
+                            .search-watchlist{
+                                top: auto;
+                                bottom: calc(100% - 6px);
+                            }
+                        }
+                    }
+                    
+
+                   
+
+                    &.strike-price-row {
+                        top: auto;
+                        bottom: auto;
+
+                        td {
+                            padding: 0px;
+                            height: auto;
+                            width: 100%;
+                            position: relative;
+                            z-index: 2;
+                            box-shadow: 0 0 8px 0 rgb(73 81 106 / 5%);
+                            .strike-price-sec {
+                                display: block;
+                               
+                                position: relative;
+                                left: auto;
+                                top: auto;
+                                right: auto;
+                                bottom: auto;
+                                transform: none;
+                                margin: 0px;
+                            }
+                        }
+
+                        &:last-child{
+                            display: none;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        &.hidePut {
+            .table_wrap {
+                .table {
+                    tr {
+                        .callLeftCol {
+                            display: flex;
+                        }
+
+                        .rightCol {
+                            display: none;
+                        }
+                    }
+                }
+
+
+            }
+
+            .put-sec {
+                
+                h6 {
+                    display: none;
+                }
+
+                .show-put-sec {
+                    pointer-events: none;
+                    cursor: not-allowed;
+                    background-image: url(../../assets/images/next-disabled.svg);
+                    background-color: $highlighted-bg;
+                }
+            }
+        }
+
+        &.hideCall {
+            .table_wrap {
+                .table {
+                    tr {
+                        .rightCol {
+                            display: flex;
+                        }
+
+                        .putRightCol {
+                            display: flex;
+                        }
+
+                        .leftCol {
+                            display: none;
+                        }
+                        &:nth-of-type(odd){
+                            &:hover{
+                                td{
+                                    &.hoverdCol{
+                                        background: $white;
+                                        &:hover{
+                                            background: #eff1fb;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        &.bottomTr{
+                            &:nth-of-type(odd){
+                                &:hover{
+                                    td{
+                                        &.hoverdCol{
+                                            background: $white;
+                                            &:hover{
+                                                background: #fffaf1;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+
+
+            }
+
+            .call-sec {
+                h6 {
+                    display: none;
+                }
+
+                .show-call-sec {
+                    pointer-events: none;
+                    cursor: not-allowed;
+                    background-image: url(../../assets/images/prev-disabled.svg);
+                    background-color: $highlighted-bg;
+                }
+            }
+        }
+
+    }
+
+    .strike-price-sec {
+        display: none;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        background: $white;
+        margin-top: 17.5px;
+        padding: 0rem 1.5rem;
+        > div{
+            height: 79px;
+        }
+        .nav-arrow {
+            width: 2rem;
+            height: 2rem;
+            background: $bg;
+            display: block;
+            border-radius: 4px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+
+            &.show-call-put-sec {
+                display: none;
+            }
+        }
+
+        h6 {
+            margin: 0px;
+            font-size: 0.875rem;
+            color: $base-text;
+            text-transform: uppercase;
+            font-family: $font-base-semibold;
+        }
+
+        .call-sec {
+            width: 12.188rem;
+            text-align: right;
+            position: relative;
+            padding-left: 2rem;
+            @include laptop{
+                width: 8rem;
+            }
+            .nav-arrow {
+                left: 0px;
+                background-image: url(../../assets/images/prev.svg);
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .put-sec {
+            width: 12.188rem;
+            position: relative;
+            padding-right: 2rem;
+            text-align: left;
+            @include laptop{
+                width: 8rem;
+            }
+            .nav-arrow {
+                right: 0px;
+                background-image: url(../../assets/images/next.svg);
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .strike-price-cont {
+            .ttl {
+                font-size: 0.813rem;
+                line-height: 1rem;
+                height: 1rem;
+                text-transform: uppercase;
+                font-family: $font-base-med;
+                margin-bottom: 0.25rem;
+
+                .icon-strike-wrap {
+                    display: inline-block;
+                    width: 0.875rem;
+                    height: 0.875rem;
+                    background: $bg;
+                    border-radius: 4px;
+                    margin-right: 4px;
+                    position: relative;
+                    top: -2px;
+                }
+            }
+
+            .price-info-sec {
+                .price {
+                    font-size: 1rem !important;
+                    line-height: 1.188rem !important;
+                    margin-right: 0.5rem !important;
+                    padding-bottom: 0px !important;
+                    margin-bottom: 0px !important;
+                    &.positive {
+                        &:after{
+                            font-size: 0;
+                            position: relative;
+                            top: -0.2rem;
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 0 4px 6px 4px;
+                            border-color: transparent transparent $positive transparent;
+                            display: inline-block !important;
+                            margin-left: 0.2rem;
+                        }
+                    }
+                    &.negative {
+                        &:after{
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 6px 4px 0 4px;
+                            border-color: $red transparent transparent transparent;
+                            margin-left: 0.2rem;
+                            font-size: 0;
+                            position: relative;
+                            top: -0.1rem;
+                            display: inline-block !important;
+                        }
+                    }
+                }
+
+                .chg {
+                    font-size: 0.813rem;
+                    font-family: $font-base-med;
+                    margin: 0px;
+                    line-height: 1.188rem !important;
+                }
+            }
+
+            .icon-strike-wrap {
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 0.875rem;
+                    height: 0.875rem;
+
+                    background-size: 100% auto;
+                }
+            }
+
+            &.longBuildUp {
+                .icon-strike-wrap {
+                    &:before {
+                        background: url(../../assets/images/long-build-up.svg);
+                    }
+                }
+            }
+
+            &.neutral {
+                .icon-strike-wrap {
+                    &:before {
+                        background: url(../../assets/images/neutral.svg);
+                    }
+                }
+            }
+
+            &.shortCovering {
+                .icon-strike-wrap {
+                    &:before {
+                        background: url(../../assets/images/short-covering.svg);
+                    }
+                }
+            }
+
+            &.shortBuildUp {
+                .icon-strike-wrap {
+                    &:before {
+                        background: url(../../assets/images/short-build-up.svg);
+                    }
+                }
+            }
+
+            &.longUnwinding {
+                .icon-strike-wrap {
+                    &:before {
+                        background: url(../../assets/images/long-unwinding.svg);
+                    }
+                }
+            }
+
+            .toUpArrow{
+                height: 1rem;
+                width: 1.875rem;
+                background:url(../../assets/images/chevron-down.svg) center center no-repeat;
+                transform: rotate(180deg);
+                margin: 2px auto 0;
+                display: none;
+            }
+            .toDownArrow{
+                height: 1rem;
+                width: 1.875rem;
+                background:url(../../assets/images/chevron-down.svg) center center no-repeat;
+                margin: 2px auto 0;
+                display: none;
+            }
+        }
+
+
+    }
+
+    .no-result-found {
+        @include flex(center, center);
+        text-align: center;
+        padding: 20px;
+
+        figure {
+            margin: 0 0 2rem;
+        }
+
+        p {
+            color: $grey-med;
+            line-height: 1.250rem;
+            font-size: 0.813rem;
+        }
+    }
+
+
+}
+
+
+#iftradingview {
+    width: 100% !important;
+    display: block;
+    border: none !important;
+}
+
+.main-content {
+    @include tablet {
+        padding-bottom: 63px;
+        left: 0 !important;
+        width: 100%;
+        padding-top: 0rem;
+    }
+
+    &.compony-main-content {
+        padding-top: 10rem;
+
+        @include tablet {
+            padding-top: 4.750rem;
+            overflow: scroll;
+            min-height: auto;
+        }
+
+        @include small {
+            height: calc(100vh - 54px);
+            display: none;
+
+            &.showDashboard {
+                display: block;
+                height: 100vh;
+                z-index: 101 !important;
+
+                .buy-sell-footer {
+                    display: block;
+                }
+            }
+        }
+
+        &.leftPosition {
+            overflow: hidden;
+            width: calc(100% - 28rem);
+            z-index: 5;
+
+            @include laptop {
+                width: calc(100% - 21.6rem);
+            }
+
+            @include tablet {
+                width: 100%;
+            }
+            &.full-width{
+                width: calc(100% - 6rem);
+                .top-content{
+                    width: calc(100% - 6rem);
+                }
+            }
+        }
+
+        .top-content {
+            position: fixed;
+            width: calc(100% - 28rem);
+            top: 4rem;
+            padding: 1.313rem 1.5rem;
+            z-index: 100;
+
+            @include minidesktop {
+                padding: 1.313rem 1rem;
+            }
+
+            @include laptop {
+                width: calc(100% - 21.6rem);
+            }
+
+            @include tablet {
+                width: 100%;
+                padding: 12px 24px 10px 24px;
+                top: 0;
+                box-shadow: 0 2px 4px 0 rgba(145, 145, 145, 0.24);
+                border-radius: 0;
+                @include flex(flex-start, center);
+                @include wrap(nowrap);
+                min-height: 4.750rem;
+            }
+            .btn-back {
+                display: none;
+                color: $grey2;
+                margin-left: -8px;
+                padding: 0px;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+
+                .icon-back {
+                    background: url(../../assets/images/back-arrow1.svg) left top no-repeat;
+                    width: 7px;
+                    height: 13px;
+                    margin: 0px;
+                }
+
+                @include tablet {
+                    @include flex(center, center);
+                    border: none;
+                }
+            }
+
+            .company_name {
+                @include minidesktop {
+                    margin-right: 1rem;
+                }
+
+                @include tablet {
+                    margin-right: 0px;
+                }
+
+                .short_name {
+                    @include tablet {
+                        margin: 0 0 4px;
+                    }
+
+                    .badge {
+                        @include tablet {
+                            top: 0px;
+                        }
+                    }
+                }
+            }
+
+            .market_val {
+                .amt {
+                    line-height: 1.15rem;
+                }
+            }
+
+            .action_btns_wrap {
+                @include tablet {
+                    display: none !important;
+                    position: absolute;
+                    right: 0px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    padding-right: 12px;
+                }
+
+                .action_btns {
+                    .btn {
+                        @include tablet {
+                            font-size: 0px;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            padding: 4px;
+                            min-width: 1.5rem;
+
+                            &:first-letter {
+                                font-size: 14px;
+                                line-height: 1rem;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .main-content-in {
+        }
+
+        &.visibleMob {
+            @include tablet {
+                .top-content {
+                    z-index: 9999;
+
+                }
+
+                .buy-sell-footer {
+                    display: block;
+                }
+            }
+        }
+
+        &.chartOpen {
+            #iftradingview {
+                min-height: calc(100vh - 4.750rem);
+                height: 678px;
+            }
+
+            .chart-top-info {
+                @include tablet {
+                    padding-top: 0px;
+                    position: fixed;
+                    left: 0px;
+                    top: 4.750rem;
+                    width: 100%;
+                    min-height: calc(100vh - 4.750rem);
+                    height: 678px;
+                    background: $white;
+                    z-index: 999;
+                }
+
+                .market-detail {
+                    @include tablet {
+                        display: flex !important;
+                    }
+
+                }
+            }
+
+            .top-content {
+                .action_btns_wrap {
+                    display: flex !important;
+                }
+            }
+        }
+    }
+}
+
+#iftradingview {
+    width: 100% !important;
+    height: calc(100vh - 13.9rem) !important;
+
+    @include laptop {
+        height: calc(100vh - 17.3rem) !important;
+    }
+
+    @include tablet {
+        height: 176px !important;
+    }
+
+    @include small {
+        height: 250px !important;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.chart-info-wrap {
+    >.field_bg {
+        margin-bottom: 0px;
+    }
+}
+
+.buy-sell-footer {
+    display: none;
+    background: $white;
+    position: fixed;
+    bottom: 0;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    z-index: 99;
+    box-shadow: 0 -3px 6px 0 rgba(145, 145, 145, 0.08);
+
+    >.row {
+        margin: 0 -4px;
+
+        >div {
+            padding: 0 4px;
+        }
+    }
+
+    .buyBtn,
+    .sellBtn {
+        @include tablet {
+            width: 100%;
+            height: 3rem;
+            border-radius: 0.25rem;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            color: $white;
+            font-family: $font-base-semibold;
+        }
+    }
+
+    .buyBtn {
+        @include tablet {
+            background: $green;
+        }
+    }
+
+    .sellBtn {
+        @include tablet {
+            background: $red;
+        }
+    }
+}
+
+.tab-wrap .nav-tabs {
+    .nav-item {
+        .nav-link {
+            font-size: 16px !important;
+            font-family: $font-base-reg !important;
+
+            &.active {
+                font-size: 16px !important;
+                font-family: $font-base-semibold !important;
+            }
+        }
+    }
+}
+

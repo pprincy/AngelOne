@@ -1,0 +1,503 @@
+<div class="derivative-section">
+    <div class="expire d-flex">
+        <h6>EXPIRES ON</h6>
+        <a href="#" class="btn">26 Mar 2020</a>
+        <a href="#" class="btn">30 Apr 2020</a>
+        <a href="#" class="btn">28 May 2020</a>
+        <a href="#" class="btn">30 Apr 2020</a>
+        <a href="#" class="btn">28 May 2020</a>
+        <a href="#" class="btn">30 Apr 2020</a>
+        <a href="#" class="btn">28 May 2020</a>
+
+    </div>
+    <div class="field_bg type2 derivatives">
+        <section class="derivative-trends">
+            <h3>Derivative Trends</h3>
+            <div class="tab-wrap">
+                <div class="fourblock">
+                    <ul class="nav nav-tabs " id="tab-links">
+                        <li class="nav-item"><a href="" data-target="#today" data-toggle="tab"
+                                class="nav-link small active">Today</a></li>
+                        <li class="nav-item"><a href="" data-target="#daily" data-toggle="tab"
+                                class="nav-link small">Daily</a></li>
+                        <li class="nav-item"><a href="" data-target="#weekly" data-toggle="tab"
+                                class="nav-link small">Weekly</a></li>
+                        <li class="nav-item"><a href="" data-target="#monthly" data-toggle="tab"
+                                class="nav-link small">Monthly</a></li>
+                    </ul>
+                </div>
+                <div id="tabsContent" class="tab-content">
+                    <div id="today" class="tab-pane active">
+                        <div class="tabContentWrap">
+                            <div>
+                                <img src="../../assets/images/derivative-trends-today.png" alt="chart" />
+                            </div>
+                            <div class="open-interest d-flex">
+                                <label>Open Interest</label>
+                                <label class="interest">
+                                    <span class="int1 positive">39.6L</span>
+                                    <span class="int2">5.4L</span>
+                                    <span class="int3">(+2.87%)</span>
+                                </label>
+                                <div class="ml-auto">
+                                    <label>Bullish Trend<em class="custom-bullish-trend"></em></label>
+                                    <label class="unwinding">Long Unwinding<em class="custom-unwinding"></em></label>
+                                </div>
+                                <div class="ml-auto" v-if="shortBuild">
+                                    <label>Bullish Trend<em class="custom-bullish-trend"></em></label>
+                                    <label class="unwinding">Short Build-Up<em
+                                            class="custom-short-build-up"></em></label>
+                                </div>
+                                <div class="ml-auto" v-if="neutral">
+                                    <label>Neutral Trend<em class="custom-neutral-trend"></em></label>
+                                    <label class="unwinding">Neutral<em class="custom-neutral"></em></label>
+                                </div>
+                            </div>
+
+                            <div class="view-details" v-show="viewDetailSection">
+                                <a href="#" class="btn view-btn" @click="viewDetail()">VIEW DETAILS<em
+                                        class="custom-view-more"></em></a>
+                            </div>
+                            <div class="derivative-price-summary-sec" v-show="priceSection">
+                                <div class="title-sec d-flex">
+                                    <label>Fresh <span class="count">{{ today.fresh }}</span></label>
+                                    <label>SQUARE OFF <span class="count">{{ today.squareOff}}</span></label>
+                                    <label>CONTRACT TRADED <span class="count">{{ today.contTraded }}</span></label>
+                                </div>
+                                <div class="slider price-summary-carousal variable-width-carousel carousel-theme1">
+                                    <div v-for="item in todaysPriceSummary">
+                                        <div class="border-box">
+                                            <div class="first-sec d-flex">
+                                                <div>
+                                                    <p class="range1"><em class="rupee-sign">₹</em>{{ item.range1 }}</p>
+                                                    <p class="range2"><em class="custom-timer"></em>{{ item.range2 }}</p>
+                                                </div>
+                                                <div class="trend ml-auto"
+                                                    :class="{shortcovering:item.trend == 'SHORT COVERING' ,longbuiltup:item.trend == 'LONG BUILT-UP'}">
+                                                    <label><em class="custom-trend"></em> {{ item.trend }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="second-sec">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>FRESH</label>
+                                                            <p>{{ item.fresh }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>SQUARE OFF</label>
+                                                            <p>{{ item.squareOff}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>CONT. TRADED</label>
+                                                            <p>{{ item.contTraded }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-less" v-show="viewLessSection">
+                                <a href="#" class="btn view-btn" @click="viewLess()">VIEW LESS<em
+                                        class="custom-view-less"></em></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="daily" class="tab-pane">
+                        <div class="tabContentWrap">
+                            <div>
+                                <img src="../../assets/images/derivative-trends-daily.png" alt="chart" />
+                            </div>
+                            <div class="open-interest d-flex">
+                                <label>Open Interest</label>
+                                <label class="interest">
+                                    <span class="int1">39.6L</span>
+                                    <span class="int2">5.4L</span>
+                                    <span class="int3">(+2.87%)</span>
+                                </label>
+                                <div class="ml-auto">
+                                    <label>Bullish Trend<em class="custom-bullish-trend"></em></label>
+                                    <label class="unwinding">Long Unwinding<em class="custom-unwinding"></em></label>
+                                </div>
+                            </div>
+
+                            <div class="view-details" v-show="viewDetailSection">
+                                <a href="#" class="btn view-btn" @click="viewDetail()">VIEW DETAILS<em
+                                        class="custom-view-more"></em></a>
+                            </div>
+                            <div class="derivative-price-summary-sec" v-show="priceSection">
+                                <div class="title-sec d-flex">
+                                    <label>Fresh <span class="count">{{ today.fresh }}</span></label>
+                                    <label>SQUARE OFF <span class="count">{{ today.squareOff}}</span></label>
+                                    <label>CONTRACT TRADED <span class="count">{{ today.contTraded }}</span></label>
+                                </div>
+                                <div class="slider price-summary-carousal variable-width-carousel carousel-theme1">
+                                    <div v-for="item in dailyPriceSummary">
+                                        <div class="border-box">
+                                            <div class="first-sec d-flex">
+                                                <div>
+                                                    <p class="range1"><em class="rupee-sign">₹</em>{{ item.range1 }}</p>
+                                                    <p class="range2"><em class="custom-timer"></em>{{ item.range2 }}</p>
+                                                </div>
+                                                <div class="trend ml-auto"
+                                                    :class="{shortcovering:item.trend == 'SHORT COVERING' ,longbuiltup:item.trend == 'LONG BUILT-UP'}">
+                                                    <label><em class="custom-trend"></em> {{ item.trend }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="second-sec">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>FRESH</label>
+                                                            <p>{{ item.fresh }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>SQUARE OFF</label>
+                                                            <p>{{ item.squareOff}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>CONT. TRADED</label>
+                                                            <p>{{ item.contTraded }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-less" v-show="viewLessSection">
+                                <a href="#" class="btn view-btn" @click="viewLess()">VIEW LESS<em
+                                        class="custom-view-less"></em></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="weekly" class="tab-pane">
+                        <div class="tabContentWrap">
+                            <div>
+                                <img src="../../assets/images/derivative-trends-weekly.png" alt="chart" />
+                            </div>
+                            <div class="open-interest d-flex">
+                                <label>Open Interest</label>
+                                <label class="interest">
+                                    <span class="int1">39.6L</span>
+                                    <span class="int2">5.4L</span>
+                                    <span class="int3">(+2.87%)</span>
+                                </label>
+                                <div class="ml-auto">
+                                    <label>Bullish Trend<em class="custom-bullish-trend"></em></label>
+                                    <label class="unwinding">Long Unwinding<em class="custom-unwinding"></em></label>
+                                </div>
+                            </div>
+
+                            <div class="view-details" v-show="viewDetailSection">
+                                <a href="#" class="btn view-btn" @click="viewDetail()">VIEW DETAILS<em
+                                        class="custom-view-more"></em></a>
+                            </div>
+                            <div class="derivative-price-summary-sec" v-show="priceSection">
+                                <div class="title-sec d-flex">
+                                    <label>Fresh <span class="count">{{ today.fresh }}</span></label>
+                                    <label>SQUARE OFF <span class="count">{{ today.squareOff}}</span></label>
+                                    <label>CONTRACT TRADED <span class="count">{{ today.contTraded }}</span></label>
+                                </div>
+                                <div class="slider price-summary-carousal variable-width-carousel carousel-theme1">
+                                    <div v-for="item in weeklyPriceSummary">
+                                        <div class="border-box">
+                                            <div class="first-sec d-flex">
+                                                <div>
+                                                    <p class="range1"><em class="rupee-sign">₹</em>{{ item.range1 }}</p>
+                                                    <p class="range2"><em class="custom-timer"></em>{{ item.range2 }}</p>
+                                                </div>
+                                                <div class="trend ml-auto"
+                                                    :class="{shortcovering:item.trend == 'SHORT COVERING' ,longbuiltup:item.trend == 'LONG BUILT-UP'}">
+                                                    <label><em class="custom-trend"></em> {{ item.trend }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="second-sec">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>FRESH</label>
+                                                            <p>{{ item.fresh }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>SQUARE OFF</label>
+                                                            <p>{{ item.squareOff}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>CONT. TRADED</label>
+                                                            <p>{{ item.contTraded }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-less" v-show="viewLessSection">
+                                <a href="#" class="btn view-btn" @click="viewLess()">VIEW LESS<em
+                                        class="custom-view-less"></em></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="monthly" class="tab-pane">
+                        <div class="tabContentWrap">
+                            <div>
+                                <img src="../../assets/images/derivative-trends-monthly.png" alt="chart" />
+                            </div>
+                            <div class="open-interest d-flex">
+                                <label>Open Interest</label>
+                                <label class="interest">
+                                    <span class="int1">39.6L</span>
+                                    <span class="int2">5.4L</span>
+                                    <span class="int3">(+2.87%)</span>
+                                </label>
+                                <div class="ml-auto">
+                                    <label>Bullish Trend<em class="custom-bearish-trend"></em></label>
+                                    <label class="unwinding">Long Unwinding<em class="custom-unwinding"></em></label>
+                                </div>
+                            </div>
+
+                            <div class="view-details" v-show="viewDetailSection">
+                                <a href="#" class="btn view-btn" @click="viewDetail()">VIEW DETAILS<em
+                                        class="custom-view-more"></em></a>
+                            </div>
+                            <div class="derivative-price-summary-sec" v-show="priceSection">
+                                <div class="title-sec d-flex">
+                                    <label>Fresh <span class="count">{{ today.fresh }}</span></label>
+                                    <label>SQUARE OFF <span class="count">{{ today.squareOff}}</span></label>
+                                    <label>CONTRACT TRADED <span class="count">{{ today.contTraded }}</span></label>
+                                </div>
+                                <div class="slider price-summary-carousal variable-width-carousel carousel-theme1">
+                                    <div v-for="item in monthlyPriceSummary">
+                                        <div class="border-box">
+                                            <div class="first-sec d-flex">
+                                                <div>
+                                                    <p class="range1"><em class="rupee-sign">₹</em>{{ item.range1 }}</p>
+                                                    <p class="range2"><em class="custom-timer"></em>{{ item.range2 }}</p>
+                                                </div>
+                                                <div class="trend ml-auto"
+                                                    :class="{shortcovering:item.trend == 'SHORT COVERING' ,longbuiltup:item.trend == 'LONG BUILT-UP'}">
+                                                    <label><em class="custom-trend"></em> {{ item.trend }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="second-sec">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>FRESH</label>
+                                                            <p>{{ item.fresh }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>SQUARE OFF</label>
+                                                            <p>{{ item.squareOff}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="price">
+                                                            <label>CONT. TRADED</label>
+                                                            <p>{{ item.contTraded }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-less" v-show="viewLessSection">
+                                <a href="#" class="btn view-btn" @click="viewLess()">VIEW LESS<em
+                                        class="custom-view-less"></em></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="highest-strikes">
+            <h3>Highest Builtup Strikes <span class="call-ratio">Put Call Ratio</span> <span
+                    class="ratio-count">0.99</span></h3>
+            <div class="tab-wrap">
+                <div class="twoblock">
+                    <ul class="nav nav-tabs " id="tab-links">
+                        <li class="nav-item"><a href="" data-target="#price" data-toggle="tab"
+                                class="nav-link small active">Price</a></li>
+                        <li class="nav-item"><a href="" data-target="#openinterest" data-toggle="tab"
+                                class="nav-link small">Open Interest</a></li>
+                    </ul>
+                </div>
+                <div id="tabsContent" class="tab-content">
+                    <div id="price" class="tab-pane active">
+                        <div class="tabContentWrap">
+                            <div class="chart-section">
+                                <div class="chart-cont">
+                                    <h3>Call Strikes</h3>
+                                    <div class="call-strike">
+                                        <img src="../../assets/images/call-strikes.png" alt="chart" />
+                                    </div>
+                                </div>
+                                <div class="chart-cont">
+                                    <h3>Put Strikes</h3>
+                                    <div class="put-strike">
+                                        <img src="../../assets/images/put-strikes.png" alt="chart" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="openinterest" class="tab-pane">
+                        <div class="tabContentWrap">
+                            <div class="chart-section">
+                                <div class="chart-cont">
+                                    <h3>Call Strikes</h3>
+                                    <div class="call-strike">
+                                        <img src="../../assets/images/call-strikes.png" alt="chart" />
+                                    </div>
+                                </div>
+                                <div class="chart-cont">
+                                    <h3>Put Strikes</h3>
+                                    <div class="put-strike">
+                                        <img src="../../assets/images/put-strikes.png" alt="chart" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="profit-loss-sec">
+            <h3>Find Max Profit & Loss</h3>
+            <form>
+                <div class="form-top-content">
+                    <div class="form-group-wrap">
+                        <label class="form-lbl">Action</label>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary ">
+                                <input type="radio" name="action" id="action1" autocomplete="off" v-model="action"
+                                    :checked="actionCheck" value="buy"> BUY
+                            </label>
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="action" id="action2" autocomplete="off" v-model="action"
+                                    :checked="actionCheck" value="sell"> SELL
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-wrap">
+                        <label class="form-lbl">Contract</label>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary ">
+                                <input type="radio" name="contract" id="contract1" autocomplete="off" v-model="contract"
+                                    value="call"> CALL
+                            </label>
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="contract" id="contract2" autocomplete="off" v-model="contract"
+                                    value="put"> PUT
+                            </label>
+                            <!-- <p v-show="contract == 'call' || contract == 'put'">callPut</p> -->
+                            <!-- <p v-show="contract == 'put'">put</p> -->
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-wrap">
+                        <label class="form-lbl">Strike Price</label>
+                        <input type="number" class="form-control" placeholder="Enter Price" v-model="price">
+                    </div>
+                    <div class="btn-wrap">
+                        <a class="btn btn-primary "
+                            :class="{disabled:contract == '' || action == '' || price.length === 0 ? true : false}"
+                            @click="showDetail()">GO</a>
+                    </div>
+                </div>
+
+                <div class="buy-contract-content" v-show="profitLossDetail">
+                    <div class="buy-contract-top">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>PRICE</label>
+                                <span class="price"><em>₹</em><span class="amt">1,341.25</span></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>OPEN INTEREST</label>
+                                <span>30.4L</span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>LOT SIZE</label>
+                                <span>250</span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>CAPITAL REQ.</label>
+                                <span>2.5L</span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>MAX LOSS</label>
+                                <span>3L</span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>MAX PROFIT</label>
+                                <span>Unlimited</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buy-contract-btm">
+                        <div class="form-group-wrap">
+                            <label>Enter Lot</label>
+                            <div class="form-group">
+                                <a class="btn btn-outline decrementBtn" @click="decrement()"></a>
+                                <input type="number" class="form-control" v-model="contractVal">
+                                <a class="btn btn-outline incrementBtn" @click="increment()"></a>
+                            </div>
+                        </div>
+                        <button class="btn btn-buy">BUY contract</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="strategy">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Pick Your Strategy</h3>
+                    <p>Angel Broking will reccomend different trade strategies based on your maket sentiment and risk
+                        capabilities</p>
+                    <div class="d-flex">
+                        <div>
+                            <em class="custom-market-sentiment"></em>
+                            <span class="name">Predict market sentiment</span>
+                        </div>
+                        <div class="risk-profile">
+                            <em class="custom-risk-profile"></em>
+                            <span class="name">Choose your risk profile</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn get-started-btn">GET STARTED</a>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <img src="../../assets/images/strategy.png" alt="chart" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

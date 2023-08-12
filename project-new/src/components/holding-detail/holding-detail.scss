@@ -1,0 +1,232 @@
+@import '../../assets/scss/styles';
+
+.holding_banner{
+    padding: 1.5rem 1.25rem;
+    margin-top: 0.25rem;
+    min-height: calc(100vh - 132px);
+    .ctr_btns{
+        .btn{
+            &.btn-square{
+                font-size: $font-18;
+
+                i, em{
+                    width: 1.125rem;
+                    height: 1.125rem;
+                    background-size: 100% auto;
+                }
+            }
+        }
+    }
+}
+
+.article_field_bg{
+    background-color: $grey-bg;
+    padding: 1.5rem 1.25rem;
+    border-radius: 0.25rem;
+    margin-top: 1.8rem;
+    .row{
+        &.low-space-columns{
+            margin: 0 -0.25rem;
+            >div{
+                padding: 0 0.25rem;
+            }
+        }
+    }
+}
+
+.tile{
+    width: 100%; height: 100%; background-color: $white;
+    border: 1px solid $border-type3;
+    box-shadow: 0 8px 12px 0 rgba(231, 233, 243, 0.58);
+    border-radius: 2px;
+    padding: 1.5rem 1.5rem;
+}
+.company_name {
+    text-transform: uppercase;
+}
+.holding_status{
+    &.tile{
+        padding: 1.5rem;
+        .d-flex{
+            margin-bottom: 1.5rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        .status_icon{
+            width: 2.5rem; height: 2.5rem;
+            background-color: $bg;
+            display: table;
+            @include borderradius(50%);
+            font-size: 1.4rem;
+            i, em{
+                display: table-cell; vertical-align: middle; text-align: center;
+            }
+        }
+        .status_content{
+            padding-left: 1rem;
+        }
+        .label{
+            font-size: 0.875rem;
+            line-height: 1.063rem;
+            font-family: $font-base-reg;
+            color: $grey-med;
+            margin-bottom: 0.5rem;
+        }
+        .amt{
+            font-size: 1.5rem;
+            font-family: $font-base-med;
+            line-height: 1.813rem;
+            @include flex(flex-start, center);
+            .icon-ruppe, .icon-rupee-bold{
+                font-size: 60%;
+                vertical-align: initial!important;
+                top: auto;
+                margin-right: 0.15rem;
+            }
+            @include ipad {
+                font-size: 1.25rem;
+            }
+            .chg{
+                color: $grey-med;
+                font-size: 0.875rem;
+                display: inline-block; vertical-align: baseline;
+                vertical-align: top;
+                position: relative;
+                top: auto;
+                font-family: $font-base-reg;
+                margin-left: 0.5rem;
+            }
+        }
+        .positive{
+            .status_icon{
+                background-color: rgba($green,0.2);
+                color: $green;
+                i, em{
+                    transform: rotate(90deg); -webkit-transform: rotate(90deg);
+                }
+            }
+        }
+        .negative{
+            .status_icon{
+                background-color: rgba($red,0.2);
+                color: $red;
+                i, em{
+                    transform: rotate(-90deg); -webkit-transform: rotate(-90deg);
+                }
+            }
+        }
+    }
+}
+
+table{
+    &.label-value_table{
+        tr{
+            td{
+                padding: 0 0 2.188rem 0;
+                vertical-align: middle;
+                line-height: 1.063rem;
+                .custom_tooltip{
+                    .tooltip_popup{
+                        top: 1.35rem;
+                        &:before{
+                            top: -5px;
+                        }
+                    }
+                }
+                &.value{
+                    b, strong{
+                        font-weight: normal;
+                    }
+                }
+            }
+            &:last-child{
+                td{
+                    padding-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+
+table{
+    &.transaction_history-table{
+        &.flex-table{
+            .innerTbl{
+                tr{
+                    td{
+                        &:nth-child(1){ width: 20%; }
+                        &:nth-child(2){ width: 16.5%; }
+                        &:nth-child(3){ width: 16.5%; }
+                        &:nth-child(4){ width: 20%; }
+                        &:nth-child(5){ width: 20%; text-align: left; }
+                        &:nth-child(6){ width: 20%; }
+                    }
+                }
+            }
+        }
+        tr{
+            th, td{
+                &.realizedGL{ text-align: right; }
+            }
+        }
+        tbody{
+            tr{
+                &.panel{
+                    &::after{ display: none !important; }
+                }
+                td{
+                    padding: 1rem 0.75rem;
+                }
+            }
+        }
+    }
+}
+
+table {
+	&.transaction_history-table {
+		tbody {
+			tr {
+				td {
+					    
+                    
+				}
+			}
+		}
+	}
+}
+
+
+.main-tr{
+    padding: 0 0.5rem;
+    &.collapsed{
+        &:hover{
+            background: $tbl-hoverd-bg;
+        }
+    }
+    &[aria-expanded=true]{
+        .btn-accordian{
+            i, em{
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+}
+.hovered-tr{
+    padding: 0 0.5rem;
+}
+.outerTr{
+    position: relative;
+    &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        left: 1.25rem;
+        right: 1.25rem;
+        bottom: 0px;
+        height: 1px;
+        background: $input-border;
+    }
+    
+}

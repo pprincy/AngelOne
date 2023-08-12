@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <g>
+                                <path fill="#1EC7B6" fill-rule="nonzero" d="M6 11.063C3.204 11.063.937 8.796.937 6S3.204.937 6 .937 11.063 3.204 11.063 6c0 1.343-.533 2.63-1.483 3.58-.95.95-2.237 1.483-3.58 1.483zm0-9.125c-1.643 0-3.125.99-3.754 2.508-.629 1.519-.28 3.266.881 4.428 1.163 1.162 2.91 1.51 4.429.88 1.518-.629 2.507-2.11 2.507-3.754 0-2.244-1.82-4.062-4.063-4.062z" transform="translate(-1041 -1825) translate(520 1737) translate(0 24) translate(0 43) translate(24) translate(497 21)"/>
+                                <path fill="#1EC7B6" fill-rule="nonzero" d="M5.259 8.1L3.6 6.442c-.13-.126-.182-.311-.136-.486.045-.175.182-.312.357-.357.175-.046.36.006.486.136l.953.952 2.434-2.435c.126-.13.311-.182.486-.136.175.045.312.182.357.357.046.175-.006.36-.136.486L5.259 8.1z" transform="translate(-1041 -1825) translate(520 1737) translate(0 24) translate(0 43) translate(24) translate(497 21)"/>
+                                <path d="M0 0H12V12H0z" transform="translate(-1041 -1825) translate(520 1737) translate(0 24) translate(0 43) translate(24) translate(497 21)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

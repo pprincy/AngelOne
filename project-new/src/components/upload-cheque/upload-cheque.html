@@ -1,0 +1,36 @@
+<div class="modal fade uploadChequeModal" id="uploadChequeModal" tabindex="-1" role="dialog" aria-labelledby="uploadChequeModal" aria-hidden="true" v-show="uploadChequeModal">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-zero">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <em class="custom-times-circle-solid"></em>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h5 class="modal-title">Upload Cheque</h5>
+        <p>Looks like we could not verify your bank account. <br>
+          Kindly upload a cancelled personalized cheque leaf.</p>
+
+        <div class="upload_check_div d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="cheque_img" v-if="preview">
+              <img :src="preview" class="img-fluid" />
+            </div>
+            <div class="cheque_detail">
+              <h5>Cancelled Cheque</h5>
+              <h6 class="format" v-if="supportedFormat">File format : JPG, JPEG and PNG</h6>
+              <h6 class="filename" v-if="fileName">{{ image.name }}</h6>
+            </div>
+          </div>
+          <label for="uploadCheque" class="uploadCheque_label" v-show="uploadChequeBtn"><img src="../../assets/images/icon-upload.svg" alt=""></label>
+          <input type="file" @change="previewImage" id="uploadCheque" name="filename">
+          <button type="button" class="btn-reset" v-if="btnReset" @click="reset"><em class="icon-close"></em></button>
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary btn-lg" :class="{ btn_disable : btnDisable }" data-dismiss="modal" data-toggle="modal" data-target="#requestSuccessModal">PROCEED</button>
+      </div>
+    </div>
+  </div>
+</div>

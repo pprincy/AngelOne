@@ -1,0 +1,150 @@
+@import '../../assets/scss/styles';
+
+.unpledge-transaction-page {
+    .main-content {
+        @include tabletPro {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            z-index: 999;
+        }
+    }
+
+    .sec_title_wrap {
+        @include tabletPro {
+            height: 61px;
+            box-shadow: 0 2px 4px 0 rgba(145, 145, 145, 0.24);
+        }
+    }
+
+    .main_section {
+        border-radius: 4px;
+        background: $white;
+
+        .main-content-wrapper {
+            max-height: calc(100vh - 125px);
+            background-color: #fff;
+            border-radius: 0 0 4px 4px;
+
+            @include tabletPro {
+                height: calc(100vh - 80px);
+                max-height: none;
+            }
+        }
+
+        .unpledge-table-mob {
+            @include tabletPro {
+                padding: 0 1rem;
+            }
+
+            .table {
+                thead {
+                    th {
+                        @include tabletPro {
+                            padding: 20px 0;
+                            border: none;
+                            font-family: $font-base-reg;
+                            font-size: $font-14;
+                            color: $grey-med;
+
+                            label {
+                                @include tabletPro {
+                                    margin-bottom: 0.75rem;
+                                }
+                            }
+
+                            p {
+                                @include tabletPro {
+                                    font-family: $font-base-med;
+                                    font-size: $font-14;
+                                    color: $base-text;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            @include tabletPro {
+                                padding: 1rem 0;
+                                border-top: solid 1px #e8ebf1;
+                            }
+                        }
+                    }
+
+                    .cmpny {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-14;
+                            color: $base-text;
+                        }
+                    }
+
+                    .cmpny-name {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-12;
+                            color: $grey-med;
+                            padding-top: 8px;
+                        }
+                    }
+
+                    .amt {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-14;
+                            color: $base-text;
+                        }
+                    }
+
+                    .status {
+                        @include tabletPro {
+                            font-family: $font-base-med;
+                            font-size: $font-12;
+                            padding-top: 6px;
+                        }
+                    }
+
+                    .status {
+                        @include tabletPro {
+                            i, em {
+                                font-family: $font-icomoon !important;
+                                font-style: normal;
+                                margin-right: 0.2rem;
+                                font-size: 0.750rem;
+
+                                &.failed {
+                                    &:before {
+                                        content: "\e91f";
+
+                                    }
+                                }
+
+                                &.success {
+                                    &:before {
+                                        content: "\e920";
+                                    }
+                                }
+
+                                &.pending {
+                                    &:before {
+                                        content: "\e921";
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .rupee-sign {
+                        @include tabletPro {
+                            font-family: $font-pingFangSC-medium;
+                            font-style: normal;
+                            font-size: $font-14;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

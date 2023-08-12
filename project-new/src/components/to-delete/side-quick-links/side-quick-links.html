@@ -1,0 +1,14 @@
+
+<section class="side-quick-links">
+  <ul>
+    <li v-for="item in items" :class="item.className" >
+      <a href="#" :id="item.className" :class="{active:item.id == selected}" @click="selected = item.id"      >
+        <em :class="item.iconName"></em>
+        <span>{{item.name}}</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+</section>
+

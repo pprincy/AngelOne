@@ -1,0 +1,308 @@
+@import '../../assets/scss/styles';
+
+.stickyTabWrap .liveipo-table-wrapper { height: calc(100vh - 7.5rem);
+
+    @include ipad {height: calc(100vh - 11.563rem);}
+}
+.sec_title_wrap { border-bottom: 1px solid $border-type5;}
+.liveipo-table-wrapper {
+    background-color: $white;
+    table.closeipotable {
+        background: $white;
+        position: relative; border-bottom: 1px solid $border-type5;
+        
+
+        thead {border-bottom: 1px solid $border-type5;
+            tr {
+                white-space: nowrap;padding: 0 1rem; 
+                th {
+                    padding: 1rem .5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px;
+                    color: $grey-med;                   
+                    
+                    @include ipad {
+                        font-size: $font-13;
+                    }
+                }
+    
+                th.companyname { width: 28% !important;}
+                th.issueprice { width: 16% !important;}
+                th.pricegain { width: 18% !important;}
+                th.predict { width: 18% !important;
+                    .icon-info.pointer { line-height: 11px;}
+                    .icon-info.pointer.tool-hover {
+                        position: relative;
+                        cursor: pointer;
+                        .tooltip {
+                            top: 25px;
+                            left: -4px;
+                            width: 250px;
+                            padding: 1.5rem;
+                            background-color: black;
+                            color: white;
+                            border-radius: 4px;
+                            opacity: 0;
+                            display: none;
+                            position: absolute;
+                            z-index: 1;
+                            -webkit-transform: translateX(-50%);
+                            transform: translateX(-50%);
+                            -webkit-transition: opacity 0.5s;
+                            -moz-transition: opacity 0.5s;
+                            -ms-transition: opacity 0.5s;
+                            -o-transition: opacity 0.5s;
+                            transition: opacity 0.5s;
+                            &::before {
+                                content: "";
+                                display: block;
+                                clear: both;
+                                position: absolute;
+                                top: -10px;
+                                left: 50%;
+                                width: 0;
+                                height: 0;
+                                border-left: 10px solid transparent;
+                                border-right: 10px solid transparent;
+                                border-bottom: 10px solid #000;
+                            }
+                            h4 {
+                                font-size: $font-14;
+                                font-family: $font-base-semibold;
+                                line-height: 1.063rem;
+                            }
+                            p {
+                                font-size: $font-14;
+                                letter-spacing: -0.3px;
+                                line-height: 1.125rem;
+                            }
+                        }
+                        &:hover {
+                            .tooltip {
+                                opacity: 1;
+                                display: block;
+                            }
+                        }
+                    }
+                    
+                }
+                th.subscription { width: 15% !important; white-space: nowrap;}
+                th.arrow { width: 5% !important;}
+            }
+            
+        }
+        tbody{
+            tr {
+                padding: 0 1rem;
+                align-items: flex-end;
+                position: relative;
+                
+            }
+            tr:after {
+                content: "";
+                display: block;
+                width: 96%;
+                max-width: calc(100% - 40px);
+                height: 1px;
+                border-bottom: 1px solid $border-type5;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+            tr:last-child:after {
+               display: none;
+            }
+            tr:hover {
+                background-color: $tbl-hoverd-bg;
+            }
+            
+        td {
+            padding: 1.375rem 0.5rem 1.688rem;
+            font-family: $font-base-med;
+            font-size: $font-16;
+            vertical-align: bottom;
+            color: $base-text;
+            @include ipad {
+                font-size: $font-14;
+            }
+            &.arrow {
+                .icon-dropdown-arrow {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    background: url(../../assets/images/right-arrow.svg) left top no-repeat; 
+                    background-size: 100% auto;
+                    transform: none;
+                    &:before {
+                        content: "";
+                    }
+                }
+            }
+        }
+
+            td.companyname { width: 28%;
+                .daytxt { background: $bg; font-size: $font-14; color: $grey-med; margin-bottom: 15px; display: inline-block; padding: 4px 8px; border-radius: 2px;
+                    
+                    b, strong { font-family: $font-base-med; color: $base-text; }
+                }
+            }
+            td.issueprice { width:16%;}
+            td.pricegain { width: 18%;
+                .share-value {
+                    display: inline-block;
+                    font-size: $font-14;
+                    line-height: normal;
+                    font-family: $font-base-med;
+                    margin: 0 0 0 0.125rem;
+                    &.txt-positive {
+                        &:after {
+                            font-size: 0;
+                            position: relative;
+                            top: -0.2rem;
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 0 4px 6px 4px;
+                            border-color: transparent transparent #21b7a8 transparent;
+                            display: inline-block;
+                            margin-left: 0.3rem;
+                        }
+                    }
+                    &.txt-negative {
+                        &:after {
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 6px 4px 0 4px;
+                            border-color: #ef5854 transparent transparent transparent;
+                            margin-left: 0.3rem;
+                            font-size: 0;
+                            position: relative;
+                            top: -0.1rem;
+                        }
+                    }
+                    em {
+                        margin-right: 2px;
+                    }
+                }
+            }
+            td.predict { width: 18%;
+                .highspd { background: url(../../assets/images/high.svg) 15px center no-repeat $bg; display: inline-block; padding: .5rem 1rem .5rem 3.125rem; border-radius: 1.25rem; color: $green; position: relative; top: 6px;  width: 7.5rem; font-family: $font-base-semibold;}
+
+                .medspd { background: url(../../assets/images/medium.svg) 15px center no-repeat $bg; display: inline-block; padding: .5rem 1rem .5rem 3.125rem; border-radius: 1.25rem; color: $orange; position: relative; top: 6px; width: 7.5rem; font-family: $font-base-semibold; }
+
+                .lowspd { background: url(../../assets/images/low.svg) 15px center no-repeat $bg; display: inline-block; padding: .5rem 1rem .5rem 3.125rem; border-radius: 1.25rem; color: $red; position: relative; top: 6px; width: 7.5rem; font-family: $font-base-semibold;}
+            }
+            td.subscription { width: 15%; white-space: nowrap; }
+            td.arrow { width: 5%;}
+        
+        
+
+        
+    }
+    }
+    .table.tbl-theme thead {
+        border-top: none;
+    }
+}
+
+.stickyTabWrap.stickyTop .liveipo-table-wrapper table.stickyonScroll.closeipotable {
+    padding: 0;
+}
+.stickyTabWrap {
+	
+		
+			table {
+				& {
+					& > thead {
+						background: $white;
+						z-index: 9;
+						position: fixed;
+						top: 120px;
+						width: calc(100% - 27.938rem);
+                        @include laptop {
+                            width: calc(100% - 21.938rem);
+                        }
+                        @include tablet {
+                            width: 100%;
+                            
+                        }
+					}
+                    & > tbody { padding-top: 50px; }
+				}
+			}
+		
+	
+}
+
+
+
+.tool-hover { position:relative; cursor: pointer; border: 0px solid red; }
+
+.tool-hover .tooltip { top:25px; left: -4px; width: 250px; padding: 1.5rem; background-color:black; color:$white;
+  border-radius:4px; opacity:1; display: none; position:absolute; z-index: 1; -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: opacity 0.5s;
+  -moz-transition:  opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition:  opacity 0.5s;
+  transition:  opacity 0.5s;
+}
+.tool-hover .tooltip::before { content: ""; display: block; clear: both; position: absolute; top: -10px;
+    left:50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #000;}
+.tool-hover .tooltip h4 { font-size: $font-14; font-family: $font-base-semibold; line-height: 1.063rem;}
+.tool-hover .tooltip p { font-size: $font-14; letter-spacing: -0.3px; line-height: 1.125rem;}
+.tool-hover:hover .tooltip { opacity:1; display: block;}
+
+
+.info-tooltip { 
+    top:45px; left: -20px; width: 250px; padding: 1.5rem; background-color:black; color:$white;
+  border-radius:4px; position:absolute; z-index: 1; 
+  -webkit-transition: opacity 0.5s;
+  -moz-transition:  opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition:  opacity 0.5s;
+  transition:  opacity 0.5s;
+}
+.info-tooltip:before{ border: solid; border-color: #000 transparent; border-width: 0px 6px 12px 6px; content: ""; left: 50%; top: -10px; position: absolute; z-index: 1; -webkit-transform: translateX(-50%);
+transform: translateX(-50%); }
+.info-tooltip h4 { font-size: $font-14; font-family: $font-base-semibold; line-height: 1.063rem;}
+.info-tooltip p { font-size: $font-14; letter-spacing: -0.3px; line-height: 1.125rem; white-space: initial;}
+.cname-tooltip { background: #000; color: $white; border-radius: 4px; padding: .5rem; position: absolute; bottom: -24px; z-index: 1; font-size: $font-14;}
+
+.cname-tooltip:before{ border: solid; border-color: #000 transparent; border-width: 0px 6px 12px 6px; content: ""; left: 35%; top: -10px; position: absolute; z-index: 1; }
+
+.scrollTop {
+    position: fixed;
+    right: 9.25rem;
+    bottom: 1.25rem;
+    min-width: 2.5rem;
+    width: auto;
+    height: 2.5rem;
+    text-align: center;
+    z-index: 6;
+    display: none;
+    background: $white; padding: 0 .5rem; transition: .2s;
+    border-radius: 2rem; border: 0px solid #000;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.25);
+
+    @include ipad {
+        right: 3.75em;
+        bottom: 4.688rem;
+    }
+}
+.scrollTop.show { display: flex; align-items: center; justify-content: center;}
+.scrollTop.show #hideMe { color:$highlighted; font-family: $font-base-semibold; font-size: $font-14; margin-left: .5rem;}
+.scrollTop.show em.icon { background: url(../../assets/images/scrollTop.png) no-repeat; width: 20px; height: 20px;}

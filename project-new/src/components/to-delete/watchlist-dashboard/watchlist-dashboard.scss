@@ -1,0 +1,97 @@
+@import '../../assets/scss/styles';
+
+.company_name{
+    margin-right: 2rem;
+    .short_name{
+        font-size: 1.313rem;
+        text-transform: uppercase;
+        font-family: $font-base-semibold;
+        margin: 0 0 0.5rem;
+        .badge{
+            font-family: $font-base-med;
+            font-size: 0.625rem;
+            margin-left: 0.5rem;
+            position: relative;
+            top: -0.2rem;
+        }
+    }
+    .full_name{
+        font-size: 0.875rem;
+        color: $base-text;
+        font-family: $font-base-reg;
+    }
+}
+
+.market_val{
+    display: flex;
+    flex-wrap: flex-wrap;
+    align-items: center;
+    .amt {
+        font-size: 1.563rem;
+        font-family: $font-base-med;
+        margin-right: 0.5rem;
+    }
+    .chg{
+        font-size: 1rem;
+        font-family: $font-base-med;
+        span{
+            font-family: $font-base-med;
+        }
+    }
+}
+.action_btns{
+    .btn{
+        margin-right: 1rem;
+        &.btn-sm{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &:last-child{
+            margin-right: 0px;
+        }
+        i{
+            font-size: 1.250rem;
+        }
+    }
+}
+.market-detail{
+    margin: 0 -15px;
+    .box{
+        padding: 0 15px;
+        min-width: 6.875rem;
+        label{
+            font-size: 0.813rem;
+            text-transform: uppercase;
+            color: $grey;
+            margin: 0 0 0.4rem;
+        }
+        h5{
+            font-size: 0.813rem;
+            font-family: $font-base-med;
+        }
+    }
+}
+
+.chart_nav {
+    margin: 0 -1.25rem;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    ul{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        li{
+            a{
+                display: block;
+                padding: 1rem 1.25rem;
+                font-size: 0.938rem;
+                color: $base-text;
+            }
+        }
+    }
+}

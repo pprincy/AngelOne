@@ -1,0 +1,183 @@
+@import '../../assets/scss/styles';
+
+.acc-bank-sec {
+    padding-top: 3rem;
+    @include tablet {
+        padding-top: 1.25rem;
+    }
+    .borderedBox {
+        border-color: $light-border-color;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+
+        h4 {
+            font-family: $font-base-med;
+            color: $grey-med;
+            padding: 1.5rem 1.5rem 0rem;
+        }
+
+        #bank-list-details {
+            overflow: hidden;
+            height: 25rem;
+            display: block;
+            @include tablet {
+                height: 23.7rem;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.2rem;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: $light-border-color;
+            border-radius: 10px;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: $placeholder-light;
+            border-radius: 10px;
+
+        }
+
+        .icon-info-list {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            display: block;
+
+            li {
+                padding: 1.5rem;
+                @include flex(flex-start, flex-end);
+                align-items: center;
+                border-bottom: 1px solid $light-border-color;
+                height: 6.25rem;
+
+                @include tablet {
+                    height: 4.75rem;
+                    padding: 0 1.5rem;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .bank-logo {
+                    border-radius: 3px;
+                    border: solid 1px $border-type2;
+                    padding: 0.35rem 0.8rem;
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    width: 2.875rem;
+                    height: 1.875rem;
+
+                    img {
+                        width: 1.1rem;
+                        height: 1rem;
+                        object-fit: contain;
+                        vertical-align: bottom;
+                    }
+                }
+
+                p {
+                    font-size: $font-12;
+                    font-family: $font-base-med;
+                    color: $grey-med;
+                    text-align: left;
+                    padding-top: 0.5rem;
+                    margin-left: 3.5rem;
+                    @include tablet {
+                        margin-left: 3.625rem;
+                    }
+                }
+                .bank-name {
+                    font-size: $font-16;
+                    font-family: $font-base-med;
+                    margin-left: 3.5rem;
+                    @include tablet {
+                        margin-left: 3.625rem;
+                    }
+                }
+
+                .container {
+                    position: relative;
+                    margin-bottom: 0rem;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    padding: 0rem;
+                }
+
+                .container input {
+                    position: absolute;
+                    opacity: 0;
+                }
+
+                .checkmark {
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    height: 1rem;
+                    width: 1rem;
+                    border-radius: 50%;
+                    background-color: $border-type2;
+                }
+
+                .container input:checked~.checkmark {
+                    background: url(../../assets/images/icon-checked.svg) $green no-repeat;
+                    background-size: 100% 100%;
+                }
+
+            }
+
+        }
+
+        .add-bank-details {
+            border-top: 1px solid $light-border-color;
+            padding: 1.75rem 1.5rem;
+
+            a {
+                display: block;
+                font-family: $font-base-semibold;
+                font-size: $font-14;
+                color: $highlighted;
+            }
+        }
+
+        button {
+            height: auto;
+            color: $highlighted;
+            background-color: $highlighted-bg;
+            font-family: $font-base-semibold;
+            font-size: $font-14;
+            text-transform: uppercase;
+            padding: 0.6rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+
+            span {
+                display: inline-block;
+            }
+
+            i, em {
+                font-size: 1.2rem;
+                display: inline-block;
+                vertical-align: text-top;
+            }
+
+            .icon-dropdown-arrows {
+                transform: rotate(178deg);
+                vertical-align: top;
+            }
+
+            .icon-dropdown-arrows:before {
+                content: "\e91b";
+            }
+        }
+        #view-more-btn {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,1352 @@
+<section class="main-content section main_section order_history-section min_full_height">
+  <div class="sec_title_wrap">
+    <router-link to="/portfolio" class="btn btn-back"><em class="custom-down-arrow"></em><span>Order History</span></router-link>
+  </div>
+  <div class="sticky_point"></div>
+
+  <div class="main-content-wrapper">
+
+    <!-- <div class="positionTopSec">
+      <div class="d-flex positionTopInnerSec">
+        <div class="todaysGainSec">
+          <em class="custom-gain"></em>
+          <label>Today’s Gain</label>
+          <span class="price"><em>₹</em>12,880.22</span>
+        </div>
+        <div class="unrealisedGainLossSec">
+          <em class="custom-gain-icon"></em>
+          <label>Unrealised gain & loss</label>
+          <span class="price"><em>₹</em>14,987.50</span>
+        </div>
+        <div class="realisedGainLossSec">
+          <em class="custom-gain-icon"></em>
+          <label>Realised gain & loss</label>
+          <span class="price"><em>₹</em>-3938.51</span>
+        </div>
+      </div>
+    </div> -->
+
+    <!--TODAY ORDER HISTORY start-->
+    <article class="article article_wrapper todays_order-article mb-0">
+      <!-- v-show="todayOrderTitle" -->
+      <div class="article_title_wrap todays-order-sec" >
+        <h3 class="article_title">Today’s Order <span class="count_circle">3</span></h3>
+      </div>
+      <div class="table-wrapper d-xs-none">
+        <table class="table tbl-theme flex-table todays_order-table accordian-table">
+          <thead>
+            <tr>
+              <th width="25%" class="name">Name</th>
+              <th width="20%" class="order_type">Order Type</th>
+              <th width="18%" class="qty">Quantity</th>
+              <th width="15%" class="action">Action</th>
+              <th width="15%" class="status">Status</th>
+              <th width="7%" class="accordian">&nbsp;</th>
+              <th width="0%" class="empty">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+<!--             
+            <tr v-show="todayOrderCount">
+              <td colspan="100%" class="total_order"><span>Today’s Order History</span> <span class="count_circle">3</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            
+            <tr class="panel">
+              <td width="25%" class="name">
+                <h5 class="company_name">RELIANCE</h5>
+                <div class="subline">Reliance Industries</div>
+              </td>
+              <td width="20%" class="order_type"><span class="order_type_tag">Intraday</span></td>
+              <td width="18%" class="qty">250/<span class="out_of">250</span></td>
+              <td width="15%" class="action positive">Buy</td>
+              <td width="15%" class="status"><span class="status_tag positive executed">Executed</span></td>
+              <td width="7%" class="accordian">
+                <button type="button" class="btn btn-accordian collapsed" data-toggle="collapse" data-target="#todayOrderRow-1" aria-expanded="false" aria-controls="todayOrderRow-1"><em class="custom-down-arrow"></em></button>
+              </td> 
+
+              <td colspan="100%" class="full-width-col">
+                <div id="todayOrderRow-1" class="collapse panel_body_wrapper">
+                  <table class="table innerTbl tbl-theme flex-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Order Placed</h5>
+                          <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Limit Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Target Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Stop Loss Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Validity</h5>
+                          <h5 class="td_value">Day</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Segment Type</h5>
+                          <h5 class="td_value">Cash</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange</h5>
+                          <h5 class="td_value">NSE</h5>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Broker No.</h5>
+                          <h5 class="td_value">7172909211</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange Order No.</h5>
+                          <h5 class="td_value">2834908120</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">AMO Order No.</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">No. Of Trades</h5>
+                          <h5 class="td_value">5</h5>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="avg_price">
+                    <div class="row">
+                      <div class="col-6 label">Average Price :</div>
+                      <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="panel">
+              <td width="25%" class="name">
+                <h5 class="company_name">SBIN</h5>
+                <div class="subline">31 Mar 2020 CE1400</div>
+              </td>
+              <td width="20%" class="order_type"><span class="order_type_tag">Margin</span></td>
+              <td width="18%" class="qty">50/<span class="out_of">250</span></td>
+              <td width="15%" class="action positive">Buy</td>
+              <td width="15%" class="status"><span class="status_tag negative cancelled">Cancelled</span></td>
+              <td width="7%" class="accordian">
+                <button type="button" class="btn btn-accordian collapsed" data-toggle="collapse" data-target="#todayOrderRow-2" aria-expanded="false" aria-controls="todayOrderRow-2"><em class="custom-down-arrow"></em></button>
+              </td> 
+
+              <td colspan="100%" class="full-width-col">
+                <div id="todayOrderRow-2" class="collapse panel_body_wrapper">
+                  <table class="table innerTbl tbl-theme flex-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Order Placed</h5>
+                          <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Limit Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Target Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Stop Loss Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Validity</h5>
+                          <h5 class="td_value">Day</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Segment Type</h5>
+                          <h5 class="td_value">Cash</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange</h5>
+                          <h5 class="td_value">NSE</h5>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Broker No.</h5>
+                          <h5 class="td_value">7172909211</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange Order No.</h5>
+                          <h5 class="td_value">2834908120</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">AMO Order No.</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">No. Of Trades</h5>
+                          <h5 class="td_value">5</h5>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="panel">
+              <td width="25%" class="name">
+                <h5 class="company_name">YESBANK</h5>
+                <div class="subline">Yes Bank</div>
+              </td>
+              <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+              <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+              <td width="15%" class="action positive">Buy</td>
+              <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+              <td width="7%" class="accordian">
+                <button type="button" class="btn btn-accordian collapsed" data-toggle="collapse" data-target="#todayOrderRow-3" aria-expanded="false" aria-controls="todayOrderRow-3"><em class="custom-down-arrow"></em></button>
+              </td> 
+
+              <td colspan="100%" class="full-width-col ">
+                <div id="todayOrderRow-3" class="collapse panel_body_wrapper">
+                  <table class="table innerTbl tbl-theme flex-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Order Placed</h5>
+                          <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Limit Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Target Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Stop Loss Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Validity</h5>
+                          <h5 class="td_value">Day</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Segment Type</h5>
+                          <h5 class="td_value">Cash</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange</h5>
+                          <h5 class="td_value">NSE</h5>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Broker No.</h5>
+                          <h5 class="td_value">7172909211</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange Order No.</h5>
+                          <h5 class="td_value">2834908120</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">AMO Order No.</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">No. Of Trades</h5>
+                          <h5 class="td_value">5</h5>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="reason">
+                    <h5>Reason :</h5>
+                    <p>Your order has been rejected due to insufficient funds. Available funds Rs. 165.69. Utilized Funds Rs. 101955.00. Your order has been rejected due to insufficient funds. Available funds Rs. 165.69. Utilized Funds Rs. 101955.00</p>
+                  </div>
+                </div>
+              </td>
+            </tr> -->
+           
+            <tr class="outerTr">
+              <td class="full-width-col p-0">
+              <table class="table flexTable innerTbl p-0">
+                <tbody>
+                  <tr class="main-tr collapsed" data-toggle="collapse" data-target="#pastOrderRow-4" aria-expanded="false" aria-controls="pastOrderRow-4">
+                    <td width="25%" class="name">
+                      <h5 class="company_name">YESBANK</h5>
+                      <div class="subline">Yes Bank</div>
+                    </td>
+                    <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+                    <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+                    <td width="15%" class="action positive">Buy</td>
+                    <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+                    <td width="7%" class="accordian">
+                      <button type="button" class="btn btn-accordian collapsed" ><em class="custom-down-arrow"></em></button>
+                    </td> 
+                  </tr>
+                  <tr class="hovered-tr">
+                    <td colspan="100%" class="full-width-col p-0">
+                      <div id="pastOrderRow-4" class="collapse panel_body_wrapper">
+                        <table class="table innerTbl tbl-theme flex-table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Order Placed</h5>
+                                <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Limit Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Target Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Stop Loss Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Validity</h5>
+                                <h5 class="td_value">Day</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Segment Type</h5>
+                                <h5 class="td_value">Cash</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange</h5>
+                                <h5 class="td_value">NSE</h5>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Broker No.</h5>
+                                <h5 class="td_value">7172909211</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange Order No.</h5>
+                                <h5 class="td_value">2834908120</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">AMO Order No.</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">No. Of Trades</h5>
+                                <h5 class="td_value">5</h5>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="avg_price">
+                          <div class="row">
+                            <div class="col-6 label">Average Price :</div>
+                            <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            </tr>
+            <tr class="outerTr">
+              <td class="full-width-col p-0">
+              <table class="table flexTable innerTbl p-0">
+                <tbody>
+                  <tr class="main-tr collapsed" data-toggle="collapse" data-target="#pastOrderRow-5" aria-expanded="false" aria-controls="pastOrderRow-5">
+                    <td width="25%" class="name">
+                      <h5 class="company_name">YESBANK</h5>
+                      <div class="subline">Yes Bank</div>
+                    </td>
+                    <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+                    <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+                    <td width="15%" class="action positive">Buy</td>
+                    <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+                    <td width="7%" class="accordian">
+                      <button type="button" class="btn btn-accordian collapsed" ><em class="custom-down-arrow"></em></button>
+                    </td> 
+                  </tr>
+                  <tr class="hovered-tr">
+                    <td colspan="100%" class="full-width-col p-0">
+                      <div id="pastOrderRow-5" class="collapse panel_body_wrapper">
+                        <table class="table innerTbl tbl-theme flex-table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Order Placed</h5>
+                                <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Limit Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Target Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Stop Loss Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Validity</h5>
+                                <h5 class="td_value">Day</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Segment Type</h5>
+                                <h5 class="td_value">Cash</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange</h5>
+                                <h5 class="td_value">NSE</h5>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Broker No.</h5>
+                                <h5 class="td_value">7172909211</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange Order No.</h5>
+                                <h5 class="td_value">2834908120</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">AMO Order No.</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">No. Of Trades</h5>
+                                <h5 class="td_value">5</h5>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="avg_price">
+                          <div class="row">
+                            <div class="col-6 label">Average Price :</div>
+                            <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            </tr>
+            
+            <!-- <tr class="outerTr">
+              <td class="full-width-col p-0">
+              <table class="table flexTable innerTbl p-0">
+                <tbody>
+                  <tr class="main-tr collapsed" data-toggle="collapse" data-target="#pastOrderRow-4" aria-expanded="false" aria-controls="pastOrderRow-4">
+                    <td width="25%" class="name">
+                      <h5 class="company_name">YESBANK</h5>
+                      <div class="subline">Yes Bank</div>
+                    </td>
+                    <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+                    <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+                    <td width="15%" class="action positive">Buy</td>
+                    <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+                    <td width="7%" class="accordian">
+                      <button type="button" class="btn btn-accordian collapsed" ><em class="custom-down-arrow"></em></button>
+                    </td> 
+                  </tr>
+                  <tr class="hovered-tr">
+                    <td colspan="100%" class="full-width-col p-0">
+                      <div id="pastOrderRow-4" class="collapse panel_body_wrapper">
+                        <table class="table innerTbl tbl-theme flex-table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Order Placed</h5>
+                                <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Limit Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Target Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Stop Loss Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Validity</h5>
+                                <h5 class="td_value">Day</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Segment Type</h5>
+                                <h5 class="td_value">Cash</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange</h5>
+                                <h5 class="td_value">NSE</h5>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Broker No.</h5>
+                                <h5 class="td_value">7172909211</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange Order No.</h5>
+                                <h5 class="td_value">2834908120</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">AMO Order No.</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">No. Of Trades</h5>
+                                <h5 class="td_value">5</h5>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="avg_price">
+                          <div class="row">
+                            <div class="col-6 label">Average Price :</div>
+                            <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            </tr> -->
+            <!-- <tr class="outerTr">
+              <td class="full-width-col p-0">
+              <table class="table flexTable innerTbl p-0">
+                <tbody>
+                  <tr class="main-tr collapsed" data-toggle="collapse" data-target="#pastOrderRow-4" aria-expanded="false" aria-controls="pastOrderRow-4">
+                    <td width="25%" class="name">
+                      <h5 class="company_name">YESBANK</h5>
+                      <div class="subline">Yes Bank</div>
+                    </td>
+                    <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+                    <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+                    <td width="15%" class="action positive">Buy</td>
+                    <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+                    <td width="7%" class="accordian">
+                      <button type="button" class="btn btn-accordian collapsed" ><em class="custom-down-arrow"></em></button>
+                    </td> 
+                  </tr>
+                  <tr class="hovered-tr">
+                    <td colspan="100%" class="full-width-col p-0">
+                      <div id="pastOrderRow-4" class="collapse panel_body_wrapper">
+                        <table class="table innerTbl tbl-theme flex-table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Order Placed</h5>
+                                <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Limit Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Target Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Stop Loss Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Validity</h5>
+                                <h5 class="td_value">Day</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Segment Type</h5>
+                                <h5 class="td_value">Cash</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange</h5>
+                                <h5 class="td_value">NSE</h5>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Broker No.</h5>
+                                <h5 class="td_value">7172909211</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange Order No.</h5>
+                                <h5 class="td_value">2834908120</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">AMO Order No.</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">No. Of Trades</h5>
+                                <h5 class="td_value">5</h5>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="avg_price">
+                          <div class="row">
+                            <div class="col-6 label">Average Price :</div>
+                            <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            </tr>
+            <tr class="outerTr">
+              <td class="full-width-col p-0">
+              <table class="table flexTable innerTbl p-0">
+                <tbody>
+                  <tr class="main-tr collapsed" data-toggle="collapse" data-target="#pastOrderRow-4" aria-expanded="false" aria-controls="pastOrderRow-4">
+                    <td width="25%" class="name">
+                      <h5 class="company_name">YESBANK</h5>
+                      <div class="subline">Yes Bank</div>
+                    </td>
+                    <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+                    <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+                    <td width="15%" class="action positive">Buy</td>
+                    <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+                    <td width="7%" class="accordian">
+                      <button type="button" class="btn btn-accordian collapsed" ><em class="custom-down-arrow"></em></button>
+                    </td> 
+                  </tr>
+                  <tr class="hovered-tr">
+                    <td colspan="100%" class="full-width-col p-0">
+                      <div id="pastOrderRow-4" class="collapse panel_body_wrapper">
+                        <table class="table innerTbl tbl-theme flex-table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Order Placed</h5>
+                                <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Limit Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Target Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Stop Loss Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Validity</h5>
+                                <h5 class="td_value">Day</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Segment Type</h5>
+                                <h5 class="td_value">Cash</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange</h5>
+                                <h5 class="td_value">NSE</h5>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Broker No.</h5>
+                                <h5 class="td_value">7172909211</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange Order No.</h5>
+                                <h5 class="td_value">2834908120</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">AMO Order No.</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">No. Of Trades</h5>
+                                <h5 class="td_value">5</h5>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="avg_price">
+                          <div class="row">
+                            <div class="col-6 label">Average Price :</div>
+                            <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            </tr>
+            <tr class="outerTr">
+              <td class="full-width-col p-0">
+              <table class="table flexTable innerTbl p-0">
+                <tbody>
+                  <tr class="main-tr collapsed" data-toggle="collapse" data-target="#pastOrderRow-4" aria-expanded="false" aria-controls="pastOrderRow-4">
+                    <td width="25%" class="name">
+                      <h5 class="company_name">YESBANK</h5>
+                      <div class="subline">Yes Bank</div>
+                    </td>
+                    <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+                    <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+                    <td width="15%" class="action positive">Buy</td>
+                    <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+                    <td width="7%" class="accordian">
+                      <button type="button" class="btn btn-accordian collapsed" ><em class="custom-down-arrow"></em></button>
+                    </td> 
+                  </tr>
+                  <tr class="hovered-tr">
+                    <td colspan="100%" class="full-width-col p-0">
+                      <div id="pastOrderRow-4" class="collapse panel_body_wrapper">
+                        <table class="table innerTbl tbl-theme flex-table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Order Placed</h5>
+                                <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Limit Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Target Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Stop Loss Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Validity</h5>
+                                <h5 class="td_value">Day</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Segment Type</h5>
+                                <h5 class="td_value">Cash</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange</h5>
+                                <h5 class="td_value">NSE</h5>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Broker No.</h5>
+                                <h5 class="td_value">7172909211</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange Order No.</h5>
+                                <h5 class="td_value">2834908120</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">AMO Order No.</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">No. Of Trades</h5>
+                                <h5 class="td_value">5</h5>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="avg_price">
+                          <div class="row">
+                            <div class="col-6 label">Average Price :</div>
+                            <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            </tr>
+            <tr class="outerTr">
+              <td class="full-width-col p-0">
+              <table class="table flexTable innerTbl p-0">
+                <tbody>
+                  <tr class="main-tr collapsed" data-toggle="collapse" data-target="#pastOrderRow-4" aria-expanded="false" aria-controls="pastOrderRow-4">
+                    <td width="25%" class="name">
+                      <h5 class="company_name">YESBANK</h5>
+                      <div class="subline">Yes Bank</div>
+                    </td>
+                    <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+                    <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+                    <td width="15%" class="action positive">Buy</td>
+                    <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+                    <td width="7%" class="accordian">
+                      <button type="button" class="btn btn-accordian collapsed" ><em class="custom-down-arrow"></em></button>
+                    </td> 
+                  </tr>
+                  <tr class="hovered-tr">
+                    <td colspan="100%" class="full-width-col p-0">
+                      <div id="pastOrderRow-4" class="collapse panel_body_wrapper">
+                        <table class="table innerTbl tbl-theme flex-table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Order Placed</h5>
+                                <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Limit Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Target Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Stop Loss Price</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Validity</h5>
+                                <h5 class="td_value">Day</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Segment Type</h5>
+                                <h5 class="td_value">Cash</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange</h5>
+                                <h5 class="td_value">NSE</h5>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <h5 class="td_heading">Broker No.</h5>
+                                <h5 class="td_value">7172909211</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">Exchange Order No.</h5>
+                                <h5 class="td_value">2834908120</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">AMO Order No.</h5>
+                                <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                              </td>
+                              <td>
+                                <h5 class="td_heading">No. Of Trades</h5>
+                                <h5 class="td_value">5</h5>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="avg_price">
+                          <div class="row">
+                            <div class="col-6 label">Average Price :</div>
+                            <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+
+      <!--MOBILE VIEW start-->
+      <div class="table-wrapper d-md-none mobile_table">
+        <table class="table mobTable mainTable">
+          <thead>
+            <tr>
+              <th class="col-stockName">Stock Name</th>
+              <th class="col-action">Action</th>
+              <th class="col-qty_ltp text-right">Executed Qty / LTP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr @click="historyDetailModal = true">
+              <td class="col-badge full-width-td">
+                <span class="badge badge-secondary">DELIVERY</span>
+              </td>
+              <td class="col-stockName">
+                <div class="comp-info-sec">
+                  <h5 class="scrip_name">SBIN</h5>
+                  <h6 class="comp_name">State Bank of India</h6>
+                </div>
+              </td>
+              <td class="col-action">
+                <span class="badge txt-negative">Sell</span>
+              </td>
+              <td class="col-qty_ltp text-right">
+                <div class="qty"><span class="qty1"><strong>0</strong></span><span class="qty2">/1500</span></div>
+                <div class="status"><span class="status_tag negative failed">Executed</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-badge full-width-td">
+                <span class="badge badge-secondary">INTRADAY</span>
+              </td>
+              <td class="col-stockName">
+                <div class="comp-info-sec">
+                  <h5 class="scrip_name">TATAMOTORS</h5>
+                  <h6 class="comp_name">31 Mar 2020 CE1400</h6>
+                </div>
+              </td>
+              <td class="col-action">
+                <span class="badge txt-positive">Buy</span>
+              </td>
+              <td class="col-qty_ltp text-right">
+                <div class="qty"><span class="qty1"><strong>0</strong></span><span class="qty2">/1500</span></div>
+                <div class="status"><span class="status_tag positive executed">Executed</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-badge full-width-td">
+                <span class="badge badge-secondary">DELIVERY</span>
+              </td>
+              <td class="col-stockName">
+                <div class="comp-info-sec">
+                  <h5 class="scrip_name">SBIN</h5>
+                  <h6 class="comp_name">State Bank of India</h6>
+                </div>
+              </td>
+              <td class="col-action">
+                <span class="badge txt-negative">Sell</span>
+              </td>
+              <td class="col-qty_ltp text-right">
+                <div class="qty"><span class="qty1"><strong>0</strong></span><span class="qty2">/1500</span></div>
+                <div class="status"><span class="status_tag positive executed">Executed</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-badge full-width-td">
+                <span class="badge badge-secondary">DELIVERY</span>
+              </td>
+              <td class="col-stockName">
+                <div class="comp-info-sec">
+                  <h5 class="scrip_name">SBIN</h5>
+                  <h6 class="comp_name">State Bank of India</h6>
+                </div>
+              </td>
+              <td class="col-action">
+                <span class="badge txt-negative">Sell</span>
+              </td>
+              <td class="col-qty_ltp text-right">
+                <div class="qty"><span class="qty1"><strong>0</strong></span><span class="qty2">/1500</span></div>
+                <div class="status"><span class="status_tag positive executed">Executed</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-badge full-width-td">
+                <span class="badge badge-secondary">DELIVERY</span>
+              </td>
+              <td class="col-stockName">
+                <div class="comp-info-sec">
+                  <h5 class="scrip_name">SBIN</h5>
+                  <h6 class="comp_name">State Bank of India</h6>
+                </div>
+              </td>
+              <td class="col-action">
+                <span class="badge txt-negative">Sell</span>
+              </td>
+              <td class="col-qty_ltp text-right">
+                <div class="qty"><span class="qty1"><strong>0</strong></span><span class="qty2">/1500</span></div>
+                <div class="status"><span class="status_tag positive executed">Executed</span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--MOBILE VIEW end-->
+
+      <div class="btn-row text-center d-xs-none" v-show="viewPastOrderArticle">
+        <a href="#" class="btn btn-outline btn-md" @click="showPastArticle()">VIEW Past ORDER HISTORY</a>
+      </div>
+    </article>
+    <!--TODAY ORDER HISTORY end-->
+
+    <!--DETAIL MODAL start-->
+    <div class="vue-modal fade mobile_modal historyDetailModal" id="historyDetailModal" tabindex="-1" aria-labelledby="" aria-hidden="true" v-show="historyDetailModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal_header">
+            <div class="row align-items-center">
+              <div class="col-auto pr-0">
+                <button type="button" class="btn btn-back-arrow" @click="historyDetailModal = false"><em class="icon-back"></em></button>
+              </div>
+              <div class="col-10">
+                <div class="comp-info-sec">
+                  <h5 class="scrip_name"><span class="name">HEROMOTOCORP</span>
+                    <span class="badge badge-secondary exchage">NSE</span></h5>
+                  <h6 class="comp_name">31 Mar 2020 CE1400</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="tile-panel">
+              <div class="row">
+                <div class="col-4">
+                  <h5 class="label_heading">Executed Qty</h5>
+                  <h5 class="label_value">0<span>/250</span></h5>
+                </div>
+                <div class="col-4">
+                  <h5 class="label_heading">Limit Price</h5>
+                  <h5 class="label_value">1450.00</h5>
+                </div>
+                <div class="col-4">
+                  <h5 class="label_heading">ATP</h5>
+                  <h5 class="label_value">1445.45</h5>
+                </div>
+              </div>
+            </div>
+            <div class="tile-panel">
+              <h5 class="tile-title">Order Details</h5>
+              <p>Order Placed on 14 Jun 2021 at 10:08:23</p>
+              <table class="label_value-table mt-20">
+                <tr>
+                  <td class="label_heading">Status</td>
+                  <td class="label_value">
+                    <div class="status"><span class="status_tag positive executed">Executed</span></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Order Type</td>
+                  <td class="label_value">Intraday - Normal</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Action</td>
+                  <td class="label_value positive">Buy</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Order Type</td>
+                  <td class="label_value">Limit</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Validity</td>
+                  <td class="label_value">Day</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Segment Type</td>
+                  <td class="label_value">Cash</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Exchange</td>
+                  <td class="label_value">NSE</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Exchange Order No.</td>
+                  <td class="label_value">1100000000012908</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">Broker Order No.</td>
+                  <td class="label_value">1100000000012908</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">AMO Order No.</td>
+                  <td class="label_value">1100000000012908</td>
+                </tr>
+                <tr>
+                  <td class="label_heading">No. of Trades</td>
+                  <td class="label_value">6</td>
+                </tr>
+              </table>
+            </div>
+            <div class="reason-panel failed">
+              <strong>Reason :</strong><br>
+              Your order has been rejected due to insufficient funds. Available funds Rs. 165.69. Utilized Funds Rs. 101955.00. Your order has been rejected due to insufficient funds. Available funds Rs. 165.69. Utilized Funds Rs. 101955.00
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--DETAIL MODAL end-->
+
+    <div class="past_order-sticky_point"></div>
+
+    <!--PAST ORDER HISTORY start-->
+    <article class="article article_wrapper past_order-article" v-show="pastOrderArticle">
+      <div class="article_title_wrap">
+        <h3 class="article_title">Past Order History <span class="count_circle">10</span></h3>
+      </div>
+      <div class="table-wrapper relative">
+        <div class="dataTables_dateRange_filter">
+          <input type="text" name="startDate" id="startDate" placeholder="Start Date">
+          <input type="text" name="endDate" id="endDate" placeholder="End Date">
+        </div>
+        <table class="table tbl-theme flex-table past_order-table accordian-table">
+          <thead>
+            <tr>
+              <th width="25%" class="name">Name</th>
+              <th width="20%" class="order_type">Order Type</th>
+              <th width="18%" class="qty">Quantity</th>
+              <th width="15%" class="action sort_enable">Action</th>
+              <th width="15%" class="status">Status</th>
+              <th width="7%" class="accordian">&nbsp;</th>
+              <th width="0%" class="empty">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="panel">
+              <td width="25%" class="name">
+                <h5 class="company_name">RELIANCE</h5>
+                <div class="subline">Reliance Industries</div>
+              </td>
+              <td width="20%" class="order_type"><span class="order_type_tag">Intraday</span></td>
+              <td width="18%" class="qty">250/<span class="out_of">250</span></td>
+              <td width="15%" class="action positive">Buy</td>
+              <td width="15%" class="status"><span class="status_tag positive executed">Executed</span></td>
+              <td width="7%" class="accordian">
+                <button type="button" class="btn btn-accordian collapsed" data-toggle="collapse" data-target="#pastOrderRow-1" aria-expanded="false" aria-controls="pastOrderRow-1"><em class="custom-down-arrow"></em></button>
+              </td> 
+
+              <td colspan="100%" class="full-width-col">
+                <div id="pastOrderRow-1" class="collapse panel_body_wrapper">
+                  <table class="table innerTbl tbl-theme flex-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Order Placed</h5>
+                          <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Limit Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Target Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Stop Loss Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Validity</h5>
+                          <h5 class="td_value">Day</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Segment Type</h5>
+                          <h5 class="td_value">Cash</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange</h5>
+                          <h5 class="td_value">NSE</h5>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Broker No.</h5>
+                          <h5 class="td_value">7172909211</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange Order No.</h5>
+                          <h5 class="td_value">2834908120</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">AMO Order No.</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">No. Of Trades</h5>
+                          <h5 class="td_value">5</h5>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="avg_price">
+                    <div class="row">
+                      <div class="col-6 label">Average Price :</div>
+                      <div class="col-6 value text-right"><em class="icon-rupee-bold"></em> 14,987.50</div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="panel">
+              <td width="25%" class="name">
+                <h5 class="company_name">SBIN</h5>
+                <div class="subline">31 Mar 2020 CE1400</div>
+              </td>
+              <td width="20%" class="order_type"><span class="order_type_tag">Margin</span></td>
+              <td width="18%" class="qty">50/<span class="out_of">250</span></td>
+              <td width="15%" class="action positive">Buy</td>
+              <td width="15%" class="status"><span class="status_tag negative cancelled">Cancelled</span></td>
+              <td width="7%" class="accordian">
+                <button type="button" class="btn btn-accordian collapsed" data-toggle="collapse" data-target="#pastOrderRow-2" aria-expanded="false" aria-controls="pastOrderRow-2"><em class="custom-down-arrow"></em></button>
+              </td> 
+
+              <td colspan="100%" class="full-width-col">
+                <div id="pastOrderRow-2" class="collapse panel_body_wrapper">
+                  <table class="table innerTbl tbl-theme flex-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Order Placed</h5>
+                          <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Limit Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Target Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Stop Loss Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Validity</h5>
+                          <h5 class="td_value">Day</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Segment Type</h5>
+                          <h5 class="td_value">Cash</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange</h5>
+                          <h5 class="td_value">NSE</h5>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Broker No.</h5>
+                          <h5 class="td_value">7172909211</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange Order No.</h5>
+                          <h5 class="td_value">2834908120</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">AMO Order No.</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">No. Of Trades</h5>
+                          <h5 class="td_value">5</h5>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="panel">
+              <td width="25%" class="name">
+                <h5 class="company_name">YESBANK</h5>
+                <div class="subline">Yes Bank</div>
+              </td>
+              <td width="20%" class="order_type"><span class="order_type_tag">Delivery</span></td>
+              <td width="18%" class="qty">0/<span class="out_of">250</span></td>
+              <td width="15%" class="action positive">Buy</td>
+              <td width="15%" class="status"><span class="status_tag negative failed">Failed</span></td>
+              <td width="7%" class="accordian">
+                <button type="button" class="btn btn-accordian collapsed" data-toggle="collapse" data-target="#pastOrderRow-3" aria-expanded="false" aria-controls="pastOrderRow-3"><em class="custom-down-arrow"></em></button>
+              </td> 
+
+              <td colspan="100%" class="full-width-col">
+                <div id="pastOrderRow-3" class="collapse panel_body_wrapper">
+                  <table class="table innerTbl tbl-theme flex-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Order Placed</h5>
+                          <h5 class="td_value">July 18 2020 | 10:10:23</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Limit Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Target Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Stop Loss Price</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Validity</h5>
+                          <h5 class="td_value">Day</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Segment Type</h5>
+                          <h5 class="td_value">Cash</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange</h5>
+                          <h5 class="td_value">NSE</h5>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h5 class="td_heading">Broker No.</h5>
+                          <h5 class="td_value">7172909211</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">Exchange Order No.</h5>
+                          <h5 class="td_value">2834908120</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">AMO Order No.</h5>
+                          <h5 class="td_value"><em class="icon-rupee-bold"></em> 2,175.50</h5>
+                        </td>
+                        <td>
+                          <h5 class="td_heading">No. Of Trades</h5>
+                          <h5 class="td_value">5</h5>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="reason">
+                    <h5>Reason :</h5>
+                    <p>Your order has been rejected due to insufficient funds. Available funds Rs. 165.69. Utilized Funds Rs. 101955.00. Your order has been rejected due to insufficient funds. Available funds Rs. 165.69. Utilized Funds Rs. 101955.00</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+
+
+
+          
+          </tbody>
+        </table>
+      </div>
+    </article>
+    <!--PAST ORDER HISTORY end-->
+
+  </div>
+
+</section>

@@ -1,0 +1,602 @@
+@import '../../assets/scss/styles';
+
+.mtf-pledge-sec {
+    background: $white;
+    padding: 2rem 0.5rem 4rem 0.5rem;
+
+    h2 {
+        font-family: $font-base-med;
+        letter-spacing: -0.4px;
+        text-align: center;
+        margin-bottom: 1.2rem;
+    }
+
+    img {
+        width: 28.25rem;
+        height: 14.063rem;
+        object-fit: contain;
+    }
+
+    .pledge-steps {
+        margin: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        >div {
+            padding-top: 1.5rem;
+            padding-bottom: 3.3rem;
+        }
+
+        .pledge-list {
+            label {
+                position: relative;
+                font-family: $font-base-med;
+                font-size: $font-12;
+                letter-spacing: -0.2px;
+                color: $grey-med;
+                width: 1.5rem;
+                height: 1.5rem;
+                padding: 0.3rem 0.5rem 0.3rem 0.6rem;
+                border-radius: 0.75rem;
+                background-color: $border-type4;
+                margin-bottom: 1.5rem;
+
+                .step-count::after {
+                    position: absolute;
+                    left: 100%;
+                    top: 13px;
+                    content: "";
+                    display: inline-block;
+                    width: 26.175rem;
+                    background: url(../../assets/images/border.png) left top repeat-x;
+                    height: 1px;
+                    border: none;
+                }
+            }
+
+            h3 {
+                font-family: $font-base-med;
+                letter-spacing: -0.2px;
+                margin-bottom: 0.7rem;
+            }
+
+            p {
+                font-family: $font-base-reg;
+                font-size: $font-14;
+                line-height: 1.188rem;
+                letter-spacing: -0.13px;
+                color: $grey-med;
+                width: 13rem;
+            }
+        }
+    }
+}
+
+.fundsBtmSecMTFPledge {
+    margin: 0 -1.5rem;
+    .tab-wrap {
+        .nav-tabs {
+            padding: 0 1.250rem;
+        }
+
+        .table.theme1 {
+            tbody {
+                tr {
+
+                    td {
+                        font-family: $font-base-med;
+
+
+                        &.refCol {
+                            .refNo {
+                                font-size: 1rem;
+                                font-family: $font-base-med;
+                                @include ipad{
+                                    font-size: 0.875rem;
+                                }
+                            }
+                        }
+
+                        &.dateTimeCol {
+                            font-size: 1rem;
+                            font-family: $font-base-med;
+                            @include ipad{
+                                font-size: 0.875rem;
+                            }
+
+                            ul {
+                                list-style: none;
+                                margin: 0px;
+                                padding: 0px;
+
+                                li {
+                                    display: inline-block;
+                                    padding-right: 0.9em;
+                                    position: relative;
+
+                                    &::after {
+                                        content: "";
+                                        display: block;
+                                        width: 4px;
+                                        height: 4px;
+                                        background: #a4a5a8;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        right: 5px;
+                                        top: 5px;
+                                    }
+
+                                    &:last-child {
+                                        padding-right: 0px;
+                                    }
+
+                                }
+                            }
+                        }
+
+                        &.statusCol {
+                            font-size: 1rem;
+                            font-family: $font-base-med;
+
+                            &.text-right {
+                                .status {
+                                    @include flex(flex-end, center);
+                                    @include wrap(nowrap);
+                                }
+                            }
+
+                            .status {
+                                @include flex(flex-start, center);
+                                @include wrap(nowrap);
+                                @include ipad{
+                                    font-size: 0.875rem;
+                                }
+
+                                i, em {
+                                    font-family: $font-icomoon !important;
+                                    font-style: normal;
+                                    margin-right: 0.2rem;
+                                    font-size: 0.750rem;
+
+                                    &.failed {
+                                        &:before {
+                                            content: "\e91f";
+
+                                        }
+                                    }
+
+                                    &.success {
+                                        &:before {
+                                            content: "\e920";
+                                        }
+                                    }
+
+                                    &.pending {
+                                        &:before {
+                                            content: "\e921";
+                                        }
+                                    }
+                                }
+                            }
+
+                            .authorize-sec {
+                                button {
+                                    font-family: $font-base-semibold;
+                                    font-size: $font-12;
+                                    border-radius: 0.25rem;
+                                }
+
+                                .square-off {
+                                    color: $highlighted1;
+                                    background-color: $white;
+                                    border: 1px solid $border-type1;
+                                }
+
+                                .authorize {
+                                    background-color: $highlighted1;
+                                    margin-left: 0.5rem;
+                                }
+                            }
+                        }
+
+                        &.stockCol {
+                            .stock {
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+                            }
+                        }
+
+                        &.cmpnyCol {
+                            .cmpny {
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+                            }
+                        }
+
+                        &.qtyCol {
+                            .qty {
+                                font-size: $font-14;
+                                font-family: $font-base-med;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .status1 {
+                @include flex(flex-start, center);
+                @include wrap(nowrap);
+                font-family: $font-base-reg;
+                font-size: $font-14;
+
+                i, em {
+                    font-family: $font-icomoon !important;
+                    font-style: normal;
+                    margin-right: 0.2rem;
+                    font-size: 0.750rem;
+
+                    &.failed {
+                        &:before {
+                            content: "\e91f";
+
+                        }
+                    }
+
+                    &.success {
+                        &:before {
+                            content: "\e920";
+                        }
+                    }
+
+                    &.pending {
+                        &:before {
+                            content: "\e921";
+                        }
+                    }
+                }
+            }
+
+            .refCol {
+                width: 50%;
+            }
+
+            .dateTimeCol {
+                width: 25%;
+            }
+
+            .statusCol {
+                width: 25%;
+            }
+
+            &.flexTable {}
+        }
+
+        #addMTFPledgeDetail {
+            th {
+                &.statusCol {
+                    padding-right: 2.3rem;
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        font-family: $font-base-med;
+
+                        &.full-width-col {
+                            width: 100%;
+                        }
+
+                        .refCol {
+                            width: 50%;
+                        }
+
+                        .dateTimeCol {
+                            width: 15%;
+                        }
+
+                        .statusCol {
+                            width: 35%;
+                        }
+
+                        &.statusCol {
+
+                            position: relative;
+                            padding-right: 2.5rem;
+
+                            .arrow {
+                                position: absolute;
+                                right: 0rem;
+                                top: 50%;
+                                margin-top: -$font-12;
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                cursor: pointer;
+                                transform: rotate(180deg);
+                                background: url(../../assets/images/dropdown-arrow-thin.svg) center center no-repeat;
+
+                                &.collapsed {
+                                    transform: none;
+                                }
+                            }
+                        }
+
+
+                    }
+                    &.main-tr{
+                        &.collapsed{
+                            td.statusCol {
+                                .arrow{
+                                    transform: none;
+                                }
+                            }
+                        }
+                        
+                    }
+                    &.hovered-tr {
+                        .full-width-col {
+                            &.collapse {
+                                display: block;
+                                height: 0px;
+                                overflow: hidden;
+
+                                &.show {
+                                    height: auto;
+                                }
+                            }
+                        }
+
+                        td {
+                            &:after {
+                                right: 1.25rem;
+                                width: calc(100% - 2.5rem);
+                            }
+
+                            padding-top: 0px;
+                            padding-bottom: 0px;
+
+                            .request-wrap {
+                                background: $hoveredTdBg;
+                                margin-bottom: 1.25rem;
+
+                                thead {
+                                    background-color: $grey-bg;
+                                    padding: 0rem 1.25rem;
+
+                                    th {
+
+                                        &.statusCol {
+                                            padding-right: 1.4rem;
+                                        }
+
+                                        &.cmpnyCol {
+                                            padding-left: 0rem;
+                                        }
+
+                                        &.qtyCol {
+                                            padding-left: 0rem;
+                                        }
+                                    }
+
+                                    tr {
+                                        border: none;
+                                    }
+                                }
+
+                                .top-sec {
+                                    padding: 1rem 1.25rem;
+                                    background-color: $grey-bg;
+                                    border-top: 1px solid $border-type3;
+
+                                    td {
+                                        font-family: $font-base-med;
+                                        font-size: $font-14;
+                                    }
+
+                                    tr td.statusCol {
+                                        padding-right: 1.4rem;
+                                    }
+                                }
+
+                                .trade-status {
+                                    label {
+                                        font-family: $font-base-reg;
+                                        font-size: $font-14;
+                                        letter-spacing: -0.2px;
+                                    }
+
+                                    p {
+                                        font-family: $font-base-med;
+                                        font-size: $font-14;
+                                        border-right: 1px solid $light-border-color;
+                                        padding-right: 1rem;
+                                        padding-left: 0.3rem;
+
+                                        &:last-child {
+                                            border: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .stockCol {
+                width: 23%;
+            }
+
+            .cmpnyCol {
+                width: 35%
+            }
+
+            .qtyCol {
+                width: 17%;
+            }
+
+            .statusCol {
+                width: 25%;
+            }
+        }
+
+        .noHistory {
+            text-align: center;
+            padding: 5.313rem 1.25rem;
+
+            img {
+                display: block;
+                margin: 0 auto 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.188rem;
+                color: $base-text;
+            }
+        }
+    }
+
+    .mtf-info {
+        position: fixed;
+        bottom: 30px;
+        right: 100px;
+        width: 17.563rem;
+        height: 3.063rem;
+        padding: 9px 0px 9px 16px;
+        border-radius: 0.25rem;
+        box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.19);
+        background-color: $base-text;
+        @include ipad {
+            bottom: 70px;
+        }
+
+        label {
+            font-family: $font-base-reg;
+            font-size: $font-14;
+            padding-left: 0.4rem;
+            padding-right: 1.7rem;
+            color: $white;
+            margin-bottom: 0rem;
+        }
+
+        .custom-close-white {
+            display: inline-block;
+            vertical-align: super;
+        }
+    }
+
+
+}
+
+.mtf-pledge-modal-sec {
+    .modal {
+        .modal-header {
+            border-bottom-color: transparent;
+        }
+
+        .modal-body {
+            padding: 0rem;
+
+            .pledge-sec {
+                background: $white;
+                padding: 0rem 1.5rem;
+                border-radius: 0.5rem;
+
+                h2 {
+                    font-family: $font-base-med;
+                    letter-spacing: -0.4px;
+                    text-align: center;
+                    margin-bottom: 1.2rem;
+                }
+
+                img {
+                    width: 28.25rem;
+                    height: 14.063rem;
+                    object-fit: contain;
+                }
+
+                .pledge-steps {
+                    margin: 0 1rem;
+                    display: flex;
+                    justify-content: space-between;
+
+                    >div {
+                        padding-top: 1.3rem;
+                        padding-bottom: 4rem;
+                    }
+
+                    .pledge-list {
+                        label {
+                            position: relative;
+                            font-family: $font-base-med;
+                            font-size: $font-12;
+                            letter-spacing: -0.2px;
+                            color: $grey-med;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            padding: 0.3rem 0.5rem 0.3rem 0.6rem;
+                            border-radius: 0.75rem;
+                            background-color: $border-type4;
+                            margin-bottom: 1.5rem;
+
+                            .step-count::after {
+                                position: absolute;
+                                left: 100%;
+                                top: 13px;
+                                content: "";
+                                display: inline-block;
+                                width: 15.875rem;
+                                background: url(../../assets/images/border.png) left top repeat-x;
+                                height: 1px;
+                                border: none;
+                            }
+                        }
+
+                        h3 {
+                            font-family: $font-base-med;
+                            letter-spacing: -0.2px;
+                            margin-bottom: 0.7rem;
+                        }
+
+                        p {
+                            font-family: $font-base-reg;
+                            font-size: $font-14;
+                            line-height: 1.188rem;
+                            letter-spacing: -0.13px;
+                            color: $grey-med;
+                            width: 13rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.table{
+    &.mainTable {
+        tbody{
+            tr{
+                
+                &.main-tr{
+                    padding: 0 1.25rem;
+                    margin: 0 -1.25rem;
+                    width: calc(100% + 2.5rem);
+                    cursor: pointer;
+                    &.collapsed{
+                        &:hover{
+                            background: $tbl-hoverd-bg;
+                        }
+                    }
+                    
+                    td.statusCol {
+                        .arrow{
+                            transform: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

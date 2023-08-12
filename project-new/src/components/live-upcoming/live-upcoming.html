@@ -1,0 +1,215 @@
+<div class="needhelp" v-show="isShow">
+    <img src="../../assets/images/bulb.svg" /> <span>Need Help ? <strong>3 simple steps to invest in IPO</strong></span>
+
+    <div class="btn-wrap">
+        <a href="#" class="btn btn-primary btn-xl knowmore" data-toggle="modal" data-target="#threestep">Know More</a>
+        <a href="#" class="bg" @click="isShow = !isShow"><em class="icon-close"></em></a>
+
+    </div>
+</div>
+
+
+
+<div class="table-block">
+    <div class="liveipos-section">
+        <div class="title-wrap">
+            <h3 class="headtxt">Live IPOs <span class="counttxt">02</span> </h3>
+            <h3 class="updatetxt">Subscription status updated <span class="ago">15 mins ago</span></h3>
+
+        </div>
+        <div class="liveipo-table-wrapper table-wrapper">
+            <table class="table table-hover tbl-theme flex-table stickyonScroll ipotable">
+                <thead>
+                    <tr>
+                        <th class="companyname">Company Name</th>
+                        <th class="closingdate">Closing Date</th>
+                        <th class="mininvest">Min Investment</th>
+                        <th class="pricerange">Price Range</th>
+                        <th class="predict">ARQ Prediction
+                            <em class="icon-info pointer tool-hover">
+                                <div class="tooltip">
+                                    <h4>ARQ Prediction</h4>
+                                    <p>Angel research team performs an in-depth analysis to predict the chances of
+                                        listing gain and over subscription for an IPO</p>
+                                </div>
+                            </em></th>
+                        <th class="subscription">Subscription</th>
+                        <th class="arrow"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="companyname pointer tool-hover-comp">
+                            <span class="daytxt">Day 1</span>
+                            <!-- <div class="truncate">MTAR Technologies</div> -->
+                            <!-- <div class="truncate">SBI Cards and Payment Services Limited</div> -->
+                            <div class="trunc" @mouseover="activeTooltip = true" @mouseleave="activeTooltip = false" >SBI Cards and Payment Services Limited
+                            </div>
+                            <div v-show="activeTooltip" class="cname-tooltip">SBI Cards and Payment Services Limited</div>
+                            
+                        </td>
+                        <td class="closingdate">2 Apr 2021</td>
+                        <td class="mininvest">₹14,000 <span>(100 shares)</span></td>
+                        <td class="pricerange">₹1,500 - ₹1,750</td>
+                        <td class="predict">Live at 5.00 PM</td>
+                        <td class="subscription">0.67x</td>
+                        <td class="arrow">
+                            <router-link to="/liveipo-order-details" class="" tag="a">
+                                <em class="icon-dropdown-arrow"></em>
+                            </router-link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="companyname pointer tool-hover-comp">
+                            <span class="daytxt">Day 2</span>
+                            <div class="truncate">Barbeque Nation Ltd</div>
+                        </td>
+                        <td class="closingdate">2 Apr 2021</td>
+                        <td class="mininvest">₹14,000 <span>(92 shares)</span></td>
+                        <td class="pricerange">₹1,800 - ₹1,900</td>
+                        <td class="predict">
+                            <div class="highspd">
+                                High
+                            </div>
+                        </td>
+                        <td class="subscription">0.67x</td>
+                        <td class="arrow">
+                            <router-link to="/liveipo-order-details" class="" tag="a">
+                                <em class="icon-dropdown-arrow"></em>
+                            </router-link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="companyname pointer tool-hover-comp">
+                            <span class="daytxt">Day 3</span>
+                            <div class="truncate">Barbeque Nation Ltd</div>
+                        </td>
+                        <td class="closingdate">6 Apr 2021</td>
+                        <td class="mininvest">₹14,000 <span>(145 shares)</span></td>
+                        <td class="pricerange">₹1,300 - ₹1,350</td>
+                        <td class="predict">
+                            <div class="medspd">
+                                Medium
+                            </div>
+                        </td>
+                        <td class="subscription">0.67x</td>
+                        <td class="arrow">
+                            <router-link to="/liveipo-order-details" class="" tag="a">
+                                <em class="icon-dropdown-arrow"></em>
+                            </router-link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="companyname pointer tool-hover-comp">
+                            <span class="daytxt">Day 3</span>
+                            <div class="truncate">Barbeque Nation Ltd</div>
+                        </td>
+                        <td class="closingdate">6 Apr 2021</td>
+                        <td class="mininvest">₹14,000 <span>(145 shares)</span></td>
+                        <td class="pricerange">₹1,300 - ₹1,350</td>
+                        <td class="predict">
+                            <div class="lowspd">
+                                Low
+                            </div>
+                        </td>
+                        <td class="subscription">0.67x</td>
+                        <td class="arrow">
+                            <router-link to="/liveipo-order-details" class="" tag="a">
+                                <em class="icon-dropdown-arrow"></em>
+                            </router-link>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="upcomingipos-section py-1">
+        <div class="title-wrap">
+            <h3 class="headtxt">Upcoming IPOs <span class="counttxt">03</span> </h3>
+
+
+        </div>
+        <div class="upcomingipo-table-wrapper table-wrapper">
+            <table class="table table-hover tbl-theme flex-table ipotable stickyonScroll1">
+                <thead>
+                    <tr>
+                        <th class="companyname">Company Name</th>
+                        <th class="closingdate">Open and Close Date</th>
+                        <th class="mininvest">Min Investment</th>
+                        <th class="pricerange">Price Range</th>
+                        <th class="arrow"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="companyname">
+                            <!-- Lodha Developers -->
+                            <div class="truncate pointer tool-hover-comp">Lodha Developers</div>
+                        </td>
+                        <td class="closingdate">7 Apr 2021 - 10 Apr 2021</td>
+                        <td class="mininvest">₹14,000 <span>(100 shares)</span></td>
+                        <td class="pricerange">₹1,500 - ₹1,600</td>
+                        <td class="arrow">
+                            <router-link to="/liveipo-order-details" class="" tag="a">
+                                <em class="icon-dropdown-arrow"></em>
+                            </router-link>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="companyname">
+                            <!-- Stovecraft -->
+                            <div class="truncate pointer tool-hover-comp">Stovecraft</div>
+                        </td>
+                        <td class="closingdate">7 Apr 2021 - 10 Apr 2021</td>
+                        <td class="mininvest">₹14,000 <span>(100 shares)</span></td>
+                        <td class="pricerange">₹1,800 - ₹2,000</td>
+                        <td class="arrow">
+                            <router-link to="/liveipo-order-details" class="" tag="a">
+                                <em class="icon-dropdown-arrow"></em>
+                            </router-link>
+                        </td>
+                    </tr>
+                    
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="btn-hold">
+            <div class=" text-center btn-wrap">
+
+                <router-link to="/closedipo" tag="a" class="btn btn-outline-primary btn-xl viewClosedIPOyBtn">VIEW
+                    CLOSED IPOS</router-link>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!---No Open Issue Start--->
+
+<!--
+<div class="noissue-cnt">
+    <div class="liveipo-table-wrapper text-center">
+    <figure class="">
+        <img src="../../assets/images/no-open-issue.svg" alt="" />
+        <figcaption>
+            No open issues
+        </figcaption>
+    </figure>
+    <div class="btn-hold">
+        <div class=" text-center btn-wrap">
+            <router-link to="/closedipo" tag="a" class="btn btn-outline-primary btn-xl viewClosedIPOyBtn">VIEW CLOSED IPOS</router-link>
+            <p>Learn how to invest in <strong>IPO</strong>. <a href="#" class="link" data-toggle="modal" data-target="#threestep">Click here</a></p>
+        </div>
+    </div>
+    
+    </div>
+</div>
+-->
+
+<!---No Open Issue End--->

@@ -1,0 +1,133 @@
+@import '../../assets/scss/styles';
+
+.acc-dp-id-sec {
+    padding-top: 3rem;
+    @include tablet {
+        padding-top: 1.25rem;
+    }
+    .borderedBox {
+        border-color: $light-border-color;
+        border-radius: 0.5rem;
+        padding: 0rem;
+
+        .accWrap {
+            border: none;
+            border-radius: 0px;
+            margin: 0rem;
+
+            .card {
+                background: transparent;
+
+                .card-header {
+                    padding: 0 1.5rem;
+
+                    h3 {
+                        font-family: $font-base-med;
+                        font-size: $font-16;
+                        color: $grey-med;
+                        margin-bottom: 0.5rem;
+
+                        .dp-count {
+                            font-family: $font-base-med;
+                            font-size: $font-11;
+                            color: $highlighted;
+                            background: rgba(63, 91, 217, 0.12);
+                            padding: 0rem 0.5rem;
+                            border-radius: 0.25rem;
+                            vertical-align: bottom;
+                            margin: 0rem 0.3rem;
+                        }
+                    }
+
+                    h5 {
+                        font-family: $font-base-reg;
+                        font-size: $font-12;
+                        letter-spacing: -0.25px;
+                        color: $grey-med;
+                    }
+                }
+
+                .icon-info-list {
+                    padding: 0px;
+                    margin: 0px;
+                    list-style: none;
+                    display: block;
+
+                    li {
+                        padding: 1.5rem 0rem;
+                        @include flex(flex-start, flex-end);
+                        align-items: center;
+                        border-bottom: 1px solid $light-border-color;
+                        position: relative;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        .dp-list {
+                            margin-left: 1rem;
+
+                            label {
+                                font-size: $font-12;
+                                font-family: $font-base-reg;
+                                letter-spacing: -0.25px;
+                                color: $grey-med;
+                                cursor: auto;
+                                span {
+                                    padding-left: 0.438rem;
+                                }
+                            }
+
+                            p {
+                                font-size: $font-16;
+                                font-family: $font-base-med;
+                                @include tablet {
+                                    font-size: $font-14;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .card-body {
+                    padding: 0rem;
+                    background: $white;
+                    border-radius: 0rem 0rem 0.5rem 0.5rem;
+                    border-top: 1px solid $light-border-color;
+                }
+            }
+        }
+    }
+}
+
+.copy_tooltip{
+    position: relative;
+    .tooltip_popup{
+        width: auto;
+        position: absolute;
+        background-color: $grey1;
+        color: $white; font-size: 0.7rem;
+        padding: 0.44rem 0.5rem;
+        border-radius: 0.2rem;
+        white-space: nowrap;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        transition: 0.3s all;
+        margin-top: 8px;
+        display: none;
+        &::before{
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 5px 6px 5px;
+            border-color: transparent transparent $grey1 transparent;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -6px;
+        }
+    }
+}

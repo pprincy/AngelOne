@@ -1,0 +1,881 @@
+@import '../../assets/scss/styles';
+
+.main-content {
+    &.increase-margin-page {
+        @include tabletPro {
+            padding-top: 3.5rem;
+        }
+
+        @include small {
+            padding-top: 3.5rem;
+        }
+    }
+}
+
+.pledge-increase-margin {
+    background: $white;
+
+    .tab-wrap {
+        padding-bottom: 8rem;
+        padding-bottom: 0px;
+
+        .sec-title {
+            font-family: $font-base-med;
+            letter-spacing: -0.18px;
+            color: $base-text;
+            // padding: 0.5rem 0rem;
+            font-size: 1rem;
+            padding: 0px;
+            @include flex(flex-start, center);
+            height: 56px;
+            // border-radius: 7px 7px 0 0;
+            border-bottom: 1px solid $light-border-color;
+            border-radius: 4px 4px 0 0;
+            overflow: hidden;
+
+            @include tabletPro {
+                width: 100%;
+                top: 0 !important;
+                z-index: 999;
+            }
+
+            @include small {
+                width: 100%;
+                top: 0 !important;
+                z-index: 999;
+            }
+
+            .btn {
+                padding: 0.58rem 0.75rem 0.58rem 0.4rem;
+                display: flex;
+            }
+
+            i, em {
+                vertical-align: sub;
+            }
+
+            position: fixed;
+            top: 3.813rem;
+            top:4rem;
+            background: $white;
+            z-index: 99;
+            width: calc(100% - 27.938rem);
+        }
+
+        .table.theme1 {
+            // padding-top: 3.438rem;
+            padding-top: 54px;
+            padding-bottom: 5rem;
+
+            @include tabletPro {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            @include small {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            thead {
+                background: $white;
+
+                tr {
+                    th {
+                        @include small {
+                            padding: 1.5rem 0.75rem;
+                        }
+                    }
+                }
+            }
+
+            th {
+                &.stockCol {
+                    font-size: $font-14;
+                    font-family: $font-base-reg;
+                    letter-spacing: -0.2px;
+                    padding-left: 0rem;
+
+                    .container {
+                        display: block;
+                        position: relative;
+                        padding-left: 1.8rem;
+                        margin-bottom: 0rem;
+                        cursor: pointer;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                    }
+
+                    .container input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                    }
+
+                    .container span {
+                        margin-bottom: 0rem;
+                        text-transform: capitalize;
+                        color: $base-text;
+                    }
+
+                    .container p {
+                        font-size: $font-12;
+                        font-family: $font-base-reg;
+                        letter-spacing: -0.2px;
+                        color: $grey-med;
+                        margin-bottom: 0rem;
+                        padding-top: 0.2rem;
+                        text-transform: capitalize;
+                    }
+
+                    .checkmark {
+                        position: absolute;
+                        top: -2px;
+                        left: -4px;
+                        // height: 0.9rem;
+                        // width: 0.9rem;
+                        // background-color: $light-border-color;
+                        background: url(../../assets/images/unchecked.svg) $light-border-color left top no-repeat;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        background-size: 100% auto;
+                    }
+
+                    // .container:hover input~.checkmark {
+                    //     background-color: $border-type1;
+                    // }
+
+                    .container input:checked~.checkmark {
+                        background-image: url(../../assets/images/checked.svg);
+                    }
+
+                    .checkmark:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                    }
+
+                    .container input:checked~.checkmark:after {
+                        display: block;
+                    }
+
+                    // .container .checkmark:after {
+                    //     left: 4.5px;
+                    //     top: 2px;
+                    //     width: 0.313rem;
+                    //     height: 0.525rem;
+                    //     border: solid $white;
+                    //     border-width: 0 2px 2px 0;
+                    //     -webkit-transform: rotate(45deg);
+                    //     -ms-transform: rotate(45deg);
+                    //     transform: rotate(45deg);
+                    // }
+                }
+            }
+
+            tbody {
+                background: $white;
+
+                tr {
+                    height: 6.25rem;
+
+                    &:last-child {
+                        &:after {
+                            display: block;
+                        }
+                    }
+
+                    td {
+                        padding: 1.3rem 0.75rem;
+
+                        @include tabletPro {
+                            padding: 1.3rem 1.75rem;
+                        }
+
+                        @include small {
+                            padding: 1.3rem 1.75rem;
+                        }
+
+                        &.stockCol {
+                            font-size: $font-14;
+                            font-family: $font-base-reg;
+                            letter-spacing: -0.2px;
+                            padding-left: 0rem;
+
+                            .container {
+                                display: block;
+                                position: relative;
+                                padding-left: 1.8rem;
+                                margin-bottom: 0rem;
+                                cursor: pointer;
+                                //font-size: 22px;
+                                -webkit-user-select: none;
+                                -moz-user-select: none;
+                                -ms-user-select: none;
+                                user-select: none;
+                            }
+
+                            .container input {
+                                position: absolute;
+                                opacity: 0;
+                                cursor: pointer;
+                                height: 0;
+                                width: 0;
+                            }
+
+                            .container span {
+                                font-size: $font-16;
+                                font-family: $font-base-med;
+                                margin-bottom: 0rem;
+                                text-transform: uppercase;
+                                color: $base-text;
+
+                                @include small {
+                                    font-size: $font-14;
+                                    font-weight: 500;
+                                }
+                            }
+
+                            .container p {
+                                font-size: $font-12;
+                                font-family: $font-base-reg;
+                                letter-spacing: -0.2px;
+                                color: $grey-med;
+                                margin-bottom: 0rem;
+                                padding-top: 0.2rem;
+                                text-transform: capitalize;
+                            }
+
+                            .checkmark {
+                                position: absolute;
+                                top: 8px;
+                                left: -4px;
+                                // height: 0.9rem;
+                                // width: 0.9rem;
+                                // background-color: $light-border-color;
+                                background: url(../../assets/images/unchecked.svg) $light-border-color left top no-repeat;
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                background-size: 100% auto;
+                                @include tabletPro {
+                                    top: 0;
+                                }
+                                @include small {
+                                    top: 0;
+                                }
+                            }
+
+                            // .container:hover input~.checkmark {
+                            //     background-color: $border-type1;
+                            // }
+
+                            .container input:checked~.checkmark {
+                                background-image: url(../../assets/images/checked.svg);
+                            }
+
+                            .checkmark:after {
+                                content: "";
+                                position: absolute;
+                                display: none;
+                            }
+
+                            .container input:checked~.checkmark:after {
+                                display: block;
+                            }
+
+                            // .container .checkmark:after {
+                            //     left: 4.5px;
+                            //     top: 2px;
+                            //     width: 0.313rem;
+                            //     height: 0.525rem;
+                            //     border: solid $white;
+                            //     border-width: 0 2px 2px 0;
+                            //     -webkit-transform: rotate(45deg);
+                            //     -ms-transform: rotate(45deg);
+                            //     transform: rotate(45deg);
+                            // }
+                        }
+
+                        &.pledgeQtyCol {
+                            font-size: $font-14;
+                            font-family: $font-base-reg;
+                            letter-spacing: -0.2px;
+
+                            .pledgeQty {
+                                font-size: $font-16;
+                                font-family: $font-base-med;
+
+                                @include small {
+                                    font-size: $font-14;
+                                }
+                            }
+                        }
+
+                        &.qtyCol {
+                            font-size: $font-14;
+                            font-family: $font-base-reg;
+                            letter-spacing: -0.2px;
+
+                            .qty {
+                                font-size: $font-16;
+                                font-family: $font-base-med;
+
+                                @include small {
+                                    font-size: $font-14;
+                                }
+                            }
+
+                            .form-control {
+                                width: 7.688rem;
+                                height: 2.25rem;
+                                border-radius: 0.25rem;
+                                background-color: $bg;
+
+                                @include tabletPro {
+                                    width: 10.5rem;
+                                    text-align: center;
+                                }
+                                @include small {
+                                    width: 5.5rem;
+                                    text-align: center;
+                                }
+                            }
+                        }
+
+                        &.amtCol {
+                            padding-right: 0rem;
+
+                            .amt {
+                                font-size: $font-16;
+                                font-family: $font-base-med;
+
+                                @include small {
+                                    font-size: $font-14;
+                                }
+                            }
+
+                            i, em {
+                                font-family: $font-pingFangSC-medium;
+                                font-style: normal;
+                                font-size: $font-16;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .pledge-table-title {
+                @include tabletPro {
+                    font-family: $font-base-reg;
+                    font-size: $font-12;
+                    color: $grey-med;
+                    padding-bottom: 18px;
+                }
+
+                @include small {
+                    font-family: $font-base-reg;
+                    font-size: $font-12;
+                    color: $grey-med;
+                    padding-bottom: 18px;
+                }
+            }
+
+            .enter-qty {
+                padding-bottom: 0;
+                text-align: center;
+                line-height: 1.5rem;
+            }
+
+            .stockCol {
+                width: 34%;
+
+                @include small {
+                    width: 100%;
+                    height: 60px;
+                }
+            }
+
+            .pledgeQtyCol {
+                width: 25%;
+
+                @include small {
+                    width: 33.33%;
+                }
+            }
+
+            .qtyCol {
+                width: 21%;
+
+
+                position: relative;
+
+                @include small {
+                    width: 33.33%;
+                }
+
+                .text-red {
+                    position: absolute;
+                    width: 320px;
+                    font-size: 0.813rem;
+                    top: calc(100% - 14px);
+                    color: $red;
+                    line-height: 1rem;
+                    font-family: $font-base-reg;
+                }
+            }
+
+            .amtCol {
+                width: 20%;
+
+                @include small {
+                    width: 33.33%;
+                }
+
+            }
+
+            &.flexTable {
+                thead {
+                    tr {
+                        @include tabletPro {
+                            padding: 0 0.75rem;
+                        }
+                        @include small {
+                            padding: 0 0.75rem;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        @include tabletPro {
+                            padding: 0 1rem 0 0.75rem;
+                        }
+
+                        @include small {
+                            padding: 0 1rem 0 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        #addPledgeIncrease {
+            tbody {
+                tr {
+                    td {
+                        font-family: $font-base-med;
+
+                        &.full-width-col {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .table.flexTable.mainTable tbody tr:first-child:after {
+                @include tabletPro {
+                    display: none;
+                }
+                @include small {
+                    display: none;
+                }
+            }
+
+            .table.flexTable.mainTable tbody tr:first-child {
+                @include small {
+                    height: 2rem;
+                }
+            }
+
+            .stockCol {
+                width: 34%;
+
+                @include small {
+                    width: 100%;
+                }
+
+            }
+
+            .pledgeQtyCol {
+                width: 25%;
+
+                @include tabletPro {
+                    width: 33.33%;
+                }
+
+                @include small {
+                    width: 33.33%;
+                }
+            }
+
+            .qtyCol {
+                width: 21%;
+
+                @include tabletPro {
+                    width: 33.33%;
+                }
+
+                @include small {
+                    width: 33.33%;
+                }
+
+            }
+
+            .amtCol {
+                width: 20%;
+
+                @include tabletPro {
+                    width: 33.33%;
+                }
+
+                @include small {
+                    width: 33.33%;
+                }
+
+            }
+        }
+
+        .noHistory {
+            text-align: center;
+            padding: 5.313rem 1.25rem;
+
+            img {
+                display: block;
+                margin: 0 auto 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.188rem;
+                color: $base-text;
+            }
+        }
+    }
+
+    .table-wrap {
+        min-height: calc(100vh - 236px);
+        padding-bottom: 5rem;
+
+        @include tabletPro {
+            min-height: 100vh;
+        }
+
+        @include small {
+            min-height: 100vh;
+        }
+    }
+
+    .icon-info-list {
+
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        display: block;
+        background-color: $grey-bg;
+
+        position: fixed;
+        bottom: 0;
+        width: calc(100% - 27.938rem);
+
+        @include tabletPro {
+            width: 100%;
+            z-index: 99;
+        }
+
+        @include small {
+            width: 100%;
+            z-index: 99;
+        }
+
+        li {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            min-height: 116px;
+
+            @include small {
+                padding: 1rem;
+            }
+
+            .price {
+                color: $base-text;
+                font-size: $font-26;
+                line-height: 2.688rem;
+
+                i, em {
+                    font-family: $font-pingFangSC-medium;
+                    font-style: normal;
+                    font-size: $font-26;
+                    padding-right: 0.3rem;
+
+                    @include small {
+                        font-size: $font-20;
+                    }
+                }
+
+                .amt {
+                    font-size: $font-26;
+                    font-family: $font-base-semibold;
+
+                    @include small {
+                        font-size: $font-20;
+                    }
+                }
+            }
+
+            p {
+                font-family: $font-base-med;
+                font-size: $font-16;
+                line-height: 1.5rem;
+                color: $grey-med;
+
+                @include small {
+                    font-size: $font-14;
+                }
+
+                span {
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    line-height: 1;
+                    color: $grey-med;
+                    letter-spacing: -0.18px;
+                    padding-left: 1rem;
+                }
+            }
+
+            button {
+                background: $highlighted;
+                color: $white;
+                font-family: $font-base-semibold;
+                font-size: $font-14;
+                border-radius: 0.25rem;
+                height: 3.063rem;
+                width: 12.188rem;
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+
+                @include small {
+                    width: 9.75rem;
+                }
+            }
+        }
+    }
+}
+
+.pledgeIncreaseMarginModal {
+    h4 {
+        font-size: $font-18;
+        font-family: $font-base-med;
+        line-height: 1.25rem;
+        @include small {
+            font-size: $font-24;
+            margin-bottom: 1rem;
+        }
+    }
+
+    p {
+        font-size: $font-16;
+        font-family: $font-base-reg;
+        line-height: 1.438rem;
+        width: 21rem;
+        color: $grey-med;
+        @include small {
+            font-size: $font-14;
+            width: 20rem;
+            padding-top: 0 !important;
+        }
+    }
+    .btn-modal {
+        @include small {
+            margin-top: 32px !important;
+            min-width: 11.125rem;
+        }
+    }
+    .modal_overlay{
+        @include small {
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: fixed; top: 0; left: 0;
+        }
+    }
+    .modal-dialog {
+        @include small {
+        height: 100%;
+        margin: 0 !important;
+        display: flex;
+        align-items: flex-end;
+        transform: translate(0, 50px);
+        transition: 0.2s all ease-out;
+        }
+    }
+
+    .modal-content {
+        @include small {
+        border-radius: 1rem 1rem 0 0;
+        min-height: 318px;
+        padding: 1.5rem;
+        }
+    }
+    .vue-modal .title_icon {
+        @include small {
+       margin: 0 auto 1rem !important;
+        }
+    }
+}
+
+.otpVerificationModal {
+    .modal-body {
+        min-height: 400px;
+        @include small {
+            padding: 0;
+            min-height: 0;
+        }
+
+        .otpMsg {
+            font-size: $font-14;
+            color: $grey-med;
+            margin-bottom: 1.5rem;
+            @include small {
+                margin: 12px 0 57px 0;
+            }
+
+            strong {
+                font-family: $font-base-med;
+                font-weight: normal;
+                display: inline-block;
+
+                span {
+                    color: $highlighted;
+                }
+
+                em {
+                    font-style: normal;
+                    margin-right: 0.25rem;
+                }
+            }
+        }
+
+        .otp-form-group {
+            @include small {
+                padding-top: 0 !important;
+            }
+            .countdown {
+                position: absolute;
+                right: 0px;
+                bottom: 0.5rem;
+                font-size: $font-12;
+                color: $red;
+                font-family: $font-base-med;
+
+                label {
+                    margin: 0px;
+                    color: $grey-med;
+                    font-family: $font-base-med;
+                    margin-right: 0.1rem;
+                }
+
+                span {}
+            }
+
+            .otpMatch {
+                position: absolute;
+                right: 0px;
+                bottom: 0.5rem;
+                font-size: 1.1rem;
+                color: $green;
+            }
+
+            .otp-link {
+                position: absolute;
+                right: 0px;
+                bottom: 0.5rem;
+                font-size: $font-12;
+                font-family: $font-base-med;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .modal-footer {
+        @include small {
+            padding: 0;
+            margin-top: 69px;
+        }
+        .btn-wrap .btn {
+            min-width: 100%;
+        }
+        .btn {
+            &.btn-primary {
+                font-size: $font-14;
+                text-transform: uppercase;
+
+                &.disabled,
+                &:disabled {
+                    background: $disabled;
+                    border-color: $disabled;
+                    opacity: 1;
+                    color: $grey-med;
+                    cursor: not-allowed;
+                    box-shadow: none !important;
+
+                }
+            }
+        }
+    }
+    .modal_overlay{
+        @include small {
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: fixed; top: 0; left: 0;
+        }
+    }
+    .modal-dialog {
+        @include small {
+        height: 100%;
+        margin: 0 !important;
+        display: flex;
+        align-items: flex-end;
+        transform: translate(0, 50px);
+        transition: 0.2s all ease-out;
+        }
+    }
+
+    .modal-content {
+        @include small {
+        border-radius: 1rem 1rem 0 0;
+        min-height: 318px !important;
+        padding: 1.5rem 1rem !important;
+        }
+    }
+    .modal-title {
+        @include small {
+        font-size: $font-18 !important;
+        }
+    }
+    .modal-header {
+        @include small {
+            border-bottom: none;
+            padding: 0;
+        }
+    }
+}
+
+
+.field_bg {
+    &.full-height {
+        background: transparent;
+
+        .tab-wrap {
+            background: transparent;
+        }
+    }
+}

@@ -1,0 +1,109 @@
+@import '../../assets/scss/styles';
+
+.contract-report-section {
+    background: $white;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        height: 3.375rem;
+
+        .balance {
+            font-family: $font-base-med;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+
+            .date {
+                font-family: $font-base-med;
+                font-size: $font-18;
+                letter-spacing: -0.26px;
+                padding-left: 0.5rem;
+            }
+        }
+
+        .ledger {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            color: $grey-med;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+
+            .date {
+                font-family: $font-base-reg;
+                font-size: $font-16;
+                letter-spacing: -0.23px;
+                color: $base-text;
+            }
+        }
+    }
+
+    .contract-table-wrapper {
+        table {
+            thead {
+                th {
+                    padding: 0.75rem 1rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px;
+                }
+            }
+
+            tbody {
+                tr {
+                    height: 4.188rem
+                }
+                tr:hover {
+                    background-color: $tbl-hoverd-bg;
+                }
+
+                td {
+                    padding: 1.3rem 1rem;
+                    font-family: $font-base-med;
+                    font-size: $font-16;
+                    vertical-align: middle;
+                }
+                .exchange span {
+                    text-transform: capitalize;
+                }
+                .action a {
+                    font-family: $font-base-semibold;
+                    font-size: $font-14;
+                    text-transform: uppercase;
+                    color: $highlighted;
+                    cursor: pointer;
+                    &.email {
+                        padding-left: 2.5rem;
+                    }
+                }
+            }
+        }
+        .table.tbl-theme thead {
+            border-top: none;
+        }
+    }
+}
+
+.emailModal {
+    h4 {
+        font-family: $font-base-med;
+        font-size: $font-18;
+        letter-spacing: -0.3px;
+        width: 18.25rem;
+        line-height: 1.625rem;
+        .email {
+            font-family: $font-base-reg;
+            font-size: $font-18;
+            letter-spacing: -0.3px;
+            color: $grey-med;
+        }
+    }
+}
+
+.vue-modal .modal-content {
+    min-height: 200px !important;
+    }

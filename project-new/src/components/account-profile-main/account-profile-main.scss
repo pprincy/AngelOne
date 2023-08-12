@@ -1,0 +1,28 @@
+@import '../../assets/scss/styles';
+.profile-main {
+    background: $white;
+    @include tablet {
+        padding: 0 0.75rem;
+    }
+}
+.logout-footer-section {
+    @include tablet {
+        height: 53px;
+        margin: 20px 4.5px;
+        padding: 1rem 0;
+        box-shadow: 0 1px 2px 0 #f9fafc;
+    }
+    .logout-footer {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            h3 {
+                font-family: $font-base-semibold;
+                font-size: $font-14;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

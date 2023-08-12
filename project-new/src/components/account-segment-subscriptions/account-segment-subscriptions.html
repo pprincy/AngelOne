@@ -1,0 +1,144 @@
+<div class="acc-segment-sec">
+    <div class="borderedBox p-0">
+        <h4>Segment Subscriptions</h4>
+        <ul class="icon-info-list">
+            <li>
+                <div>
+                    <label>Equity Cash Trading</label>
+                    <p>NSE, BSE</p>
+                </div>
+                <span class="ml-auto active_state">
+                    <em class="icon-exeuted-sm-icon"></em>
+                    <a href="#" class="active">Active</a>
+                </span>
+            </li>
+            <li>
+                <div>
+                    <label>Derivatives Trading</label>
+                    <p>NSE FO, MCX, NSECDS, NCDEX</p>
+                </div>
+                <span class="ml-auto">
+                    <a href="#" class="activate" data-toggle="modal" data-target="#activateDerivatives"
+                        v-show="activateLink">Activate</a>
+                    <a href="#" class="activate" data-toggle="collapse" data-target="#statusUpdate"
+                        aria-expanded="false" v-show="checkStatusLink"><span>Check Status</span> <em
+                            class="icon-dropdown-arrow"></em></a>
+                </span>
+            </li>
+            <li id="statusUpdate" class="status_update collapse">
+                <div class="d-flex">
+                    <h5 class="heading">Status Update</h5>
+                    <h5 class="date ml-auto">22 AUG 2020</h5>
+                </div>
+                <div class="row status-flow justify-content-between">
+                    <div class="step1 done">
+                        <span class="status_icon"><em class="icon-double-tick-indicator"></em></span>
+                        <h5 class="step_name">Document Received</h5>
+                    </div>
+                    <div class="step2">
+                        <span class="status_icon"><em class="icon-pending-sm-icon"></em></span>
+                        <h5 class="step_name">Document Verified by our team</h5>
+                    </div>
+                    <div class="step3">
+                        <span class="status_icon"><em class="icon-account-activation"></em></span>
+                        <h5 class="step_name">Account activation</h5>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="itrade-sec">
+                    <div class="trade-sec">
+                        <div class="trade">
+                            <div class="angel-prime">
+                                <span>Angel</span>
+                                <span class="itrade">iTrade</span>
+                                <span>PRIME</span>
+                            </div>
+                            <p class="trading-advice pt-2">Professional level trading advice</p>
+                        </div>
+                        <div class="view">
+                            <button class="btn btn-primary font-14">VIEW CHARGES</button>
+                            <p>*Terms and Conditions apply</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade upload_file_modal activateDerivatives" id="activateDerivatives" tabindex="-1" role="dialog"
+    aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Activate Derivatives</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <em class="custom-times-circle-solid"></em>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="note">Upload your <strong>6 months</strong> bank statement</p>
+                <div class="upload_area text-center" v-show="uploadStatementArea">
+                    <button type="button" class="btn btn-upload">
+                        <img src="../../assets/images/icon-upload.svg" alt="">
+                    </button>
+                    <h5>Upload Bank Statement</h5>
+                    <p class="condition">PDF file shouldn’t be more than <strong>2MB</strong></p>
+                    <div class="drop_area">
+                        <input type="file" @change="previewImage" id="uploadCheque" name="filename">
+                        <h6>DROP HERE</h6>
+                        <strong class="or">Or</strong>
+                        <label class="btn btn-field btn-choose_file"><em class="icon-custom-image"></em> CHOOSE
+                            FILE</label>
+                    </div>
+                </div>
+
+                <div class="upload_check_div" v-show="previewStatementArea">
+                    <div class="d-flex align-items-center">
+                        <div class="row align-items-center">
+                            <div class="cheque_img">
+                                <img :src="preview" class="img-fluid" />
+                            </div>
+                            <div class="cheque_detail">
+                                <h5>Bank Statement (Optional)</h5>
+                                <h6 class="filename">File : {{ name }}</h6>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-reset" @click="reset"><em class="icon-close"></em></button>
+                    </div>
+
+                    <button type="button" class="btn btn-modal" data-dismiss="modal"
+                        @click="activateDerivatives = false" data-toggle="modal"
+                        data-target="#docSubmittedModal">SUBMIT</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal docSubmittedModal" id="docSubmittedModal" tabindex="-1" role="dialog" v-show="docSubmittedModal">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="enableCheckStatus">
+                    <em class="custom-times-circle-solid"></em>
+                </button>
+            </div>
+            <div class="modal-wrapper">
+                <div class="modal-body">
+                    <img class="title_icon" src="../../assets/images/icon-pending.svg" alt="">
+                    <h4 class="modal-title">Document Submitted</h4>
+                    <p>your verification of documents will begin soon you can check your status by tapping on the Check
+                        Status button</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

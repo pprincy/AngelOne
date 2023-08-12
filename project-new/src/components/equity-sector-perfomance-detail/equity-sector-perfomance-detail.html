@@ -1,0 +1,837 @@
+<section class="main-content section main_section sector_perfomance-section min_full_height">
+  <div class="sec_title_wrap">
+    <router-link to="/Markets" class="btn btn-back"><em class="icon-dropdown-arrow"></em><span>Sector Performances</span>
+    </router-link>
+  </div>
+  
+  <div class="main-content-wrapper">
+    <div class="inner_wrapper">
+      <div class="filter_nav">
+        <ul class="nav">
+          <li v-for="(nav, index) in navs" v-on:click="addClass(index)" v-bind:class="{ active:index==current}" :class=nav.class>
+            <span>{{ nav.label }}</span><strong class="count">14</strong>
+        </li>
+        </ul>
+      </div>
+  
+      <article class="table_wrapper sector_perfomance_table_wrappper">
+        <table width="100%" class="table sector_perfomance_table">
+          <tbody>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-1" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-1">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-2" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-2">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-3" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-3">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-4" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-4">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-5" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-5">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-6" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-6">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-7" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-7">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="main-tr">
+              <td class="sector_icon">
+                <img src="~@/assets/images/automative.svg" alt="">
+              </td>
+              <td class="sector_name">Automotive</td>
+              <td class="percentage positive">26.50% <em class="indicator"></em></td>
+              <td class="change">+1234.50</td>
+              <td class="arrow">
+                <button data-toggle="collapse" data-target="#panel-8" aria-expanded="false" type="button" class="btn-accordian"><em class="icon-dropdown-arrow"></em></button></td>
+              <td class="panel_body">
+                <div class="collapse" id="panel-8">
+                  <div class="row main-row">
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt negativ"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 column">
+                      <div class="tile">
+                        <div class="company_name">
+                          <h4 class="short_name">APOLLOPHARMA</h4>
+                          <h5 class="full_name">Apollo hospitals</h5>
+                        </div>
+                        <div class="plus"></div>
+                        <div class="parameters row">
+                          <div class="col-auto">
+                            <div class="amt positive"><em class="icon-rupee-bold"></em>40,651.58 <em class="indicator"></em></div>
+                            <div class="change">
+                              <span class="per">+01.14%</span>
+                              <span class="chg">(+35.70)</span>
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="graph_view"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <div>
+        <ul class="table_navigation">
+          <li><a href="#" class="prev disable"><em class="icon-dropdown-arrow"></em></a></li>
+          <li><a href="#" class="active">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#" class="next"><em class="icon-dropdown-arrow"></em></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</section>

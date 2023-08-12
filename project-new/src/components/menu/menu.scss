@@ -1,0 +1,404 @@
+@import '../../assets/scss/styles';
+
+.markets,
+.advisory,
+.reports {
+    @include tablet {
+        display: none;
+    }
+}
+
+.icon-watchlist {
+    background: url(../../assets/images/watchlist-icon.svg) left top no-repeat;
+    width: 1.250rem;
+    height: 1.250rem;
+    display: block;
+
+    &:before {
+        display: none;
+    }
+}
+
+.icon-funds {
+    background: url(../../assets/images/funds.svg) left top no-repeat;
+    width: 1.250rem;
+    height: 1.250rem;
+    background-position: center center;
+    display: block;
+
+    &:before {
+        display: none;
+    }
+}
+
+.icon-portfolio {
+    background: url(../../assets/images/portfolio.svg) left top no-repeat;
+    width: 1.250rem;
+    height: 1.250rem;
+    display: block;
+
+    &:before {
+        display: none;
+    }
+}
+
+.icon-advisory {
+    background: url(../../assets/images/advisory.svg) left top no-repeat;
+    width: 1.250rem;
+    height: 1.250rem;
+    display: block;
+    background-position: center center;
+
+    &:before {
+        display: none;
+    }
+}
+
+.icon-market {
+    background: url(../../assets/images/market.svg) left top no-repeat;
+    width: 1.250rem;
+    height: 1.250rem;
+    display: block;
+    background-position: center center;
+
+    &:before {
+        display: none;
+    }
+}
+
+.icon-reports {
+    background: url(../../assets/images/report.svg) left top no-repeat;
+    width: 1.250rem;
+    height: 1.250rem;
+    background-position: center center;
+    display: block;
+
+    &:before {
+        display: none;
+    }
+}
+.icon-products {
+    background: url(../../assets/images/products.svg) left top no-repeat;
+    width: 1.250rem;
+    height: 1.250rem;
+    background-position: center center;
+    display: block;
+
+    &:before {
+        display: none;
+    }
+}
+
+.side-quick-links {
+    width: 5.438rem;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    padding-top: 4rem;
+    z-index: 100;
+    text-align: center;
+    background: $bg;
+    box-shadow: none;
+
+    @include tablet {
+        background: $white;
+        box-shadow: 0 0 0.2rem 0.1rem rgba(108, 148, 184, 0.21);
+        z-index: 90;
+    }
+
+    @include laptop {
+        width: 100%;
+        top: auto;
+        bottom: 0px;
+        height: auto;
+        padding: 0px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+
+        @include laptop {
+            display: flex;
+        }
+
+        li {
+
+            @include laptop {
+                width: 16.6666%;
+            }
+
+            @include tablet {
+                width: auto;
+                flex: 1 1 0px;
+            }
+
+            a {
+                display: flex;
+                flex-direction: column;
+                color: $base-text;
+                font-size: 0.875rem;
+                position: relative;
+                padding: 1.5rem 0;
+                cursor: pointer;
+
+                @include laptop {
+                    height: auto;
+                    padding: 0.7rem 0.65rem 0.827rem;
+                    display: block;
+                }
+
+                @include small {
+                    font-size: 0.75rem;
+                }
+
+                @include mobile {
+                    font-size: 0.625rem;
+                    font-family: $font-base-med;
+                    padding: 0.651rem 0.65rem 0.5rem;
+                }
+
+                i, em{
+                    font-size: 1.125rem;
+                    margin: 0 auto 0.625rem;
+
+                    @include laptop {
+                        margin-bottom: 0.35rem;
+                        display: block;
+                        min-height: 20px;
+                    }
+
+                }
+
+                span {
+                    @include mobile {
+                        line-height: 0.75rem;
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    bottom: 0px;
+                    width: 0.250rem;
+                    display: block;
+                    background: transparent;
+
+                    @include laptop {
+                        top: auto;
+                        bottom: 0px;
+                        width: 100%;
+                        height: 0.25rem;
+                    }
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    background: #e8ebfa;
+                    @include tablet{
+                        background: transparent !important;
+                    }
+                }
+
+                &.active,
+                &.router-link-active {
+                    color: $highlighted;
+                    font-family: $font-base-med;
+                    background: $grey4 !important;
+                    span {
+                        font-family: $font-base-med;
+                    }
+
+                    &:after {
+                        background: $highlighted;
+                    }
+               }
+               
+           }
+           &:last-child{
+               border-bottom: none;
+           }
+           &.watchlist{
+               a{
+                   
+                    &.active, &.router-link-active {
+                        .icon-watchlist{
+                            background-image: url(../../assets/images/watchlist-hover.svg);
+                        }
+
+                    }
+               }
+              
+           }
+        &.portfolio{
+            a{
+                &.active, &.router-link-active {
+                    .icon-portfolio{
+                        background-image: url(../../assets/images/portfolio-hover-new.svg);
+                    }
+                }
+           }
+        }
+      
+        &.funds{
+            a{
+                &.active, &.router-link-active {
+                    .icon-funds{
+                        background-image: url(../../assets/images/funds-hover.svg);
+                    }
+                }
+            }
+
+            &.advisory {
+                a {
+                    &.active {
+                        .icon-advisory {
+                            background-image: url(../../assets/images/advisory-hover.svg);
+                        }
+                    }
+                }
+           }
+        }
+        &.advisory {
+            a {
+                &.active, &.router-link-active {
+                    .icon-advisory {
+                        background-image: url(../../assets/images/advisory-hover.svg);
+                    }
+                }
+            }
+       }
+        &.markets{
+            a{
+                &.active, &.router-link-active {
+                    .icon-market{
+                        background-image: url(../../assets/images/market-hover.svg);
+                    }
+                }
+           }
+        }
+        &.reports{
+            a{
+                 &.active, &.router-link-active {
+                    .icon-reports{
+                        background-image: url(../../assets/images/reports-hover.svg);
+                    }
+                }
+            }
+
+        }
+        &.products{
+            a{
+                 &.active, &.router-link-active {
+                    .icon-products{
+                        background-image: url(../../assets/images/products-hover.svg);
+                    }
+                }
+            }
+
+        }
+    }
+    }
+}
+
+.keyboardShortcutsModal{
+    .modal-dialog{
+        max-width: 890px;
+        .modal-body{
+            padding: 0px;
+            max-height: calc(90vh - 72px);
+            overflow: auto;
+        }
+        .modal-header{
+            padding: 28px 64px 24px 64px;
+            @include small{
+                padding: 24px 20px;
+            }
+            .modal-title{
+                font-family: $font-base-semibold;
+            }
+            .close{
+                top: 24px;
+                right: 64px;
+                @include small{
+                    right: 20px;
+                }
+            }
+        }
+    }
+    .keyboard_shortcuts_sec{
+        padding: 0 64px;
+        @include small{
+            padding: 0 20px;
+        }
+    }
+    .block {
+        border-bottom: 1px solid $light-border-color;
+        &:last-child{
+            border-bottom: 0;
+        }
+        .d-flex {
+            width: 100%;
+        }
+    }
+    .block_title {
+        font-size: 1rem;
+        font-family: $font-base-med;
+        color: $grey-med;
+        padding: 24px 0 0 0;
+        margin: 0;
+    }
+    .inner_block{
+        padding: 12px 0px;
+    }
+    .main-row{
+        column-count: 2;
+        column-gap: 80px;
+        @include small{
+            column-count: 1;
+        }
+    }
+    .shortcut{
+        padding: 12px 0;
+        -webkit-column-break-inside: avoid;
+              page-break-inside: avoid;
+                   break-inside: avoid;
+        .shortcut_name{
+            font-size: 16px;
+            font-family: $font-base-med;
+            color: $base-text;
+            padding-right: 1rem;
+        }
+        .shortcut_key{
+            margin-left: auto;
+            font-size: 11px;
+            font-family: $font-base-reg;
+            color: $grey-med;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+        }
+        span{
+            display: inline-block; margin-left: 6px;
+        }
+        .code{
+            min-width: 32px; height: 32px;
+            border: 1.5px solid #e0e0ec;
+            padding: 0 4px;
+            border-radius: 4px;
+            color: $grey;
+            font-size: 14px;
+            line-height: 28px;
+            font-family: $font-base-semibold;
+            text-align: center;
+            margin-left: 6px;
+        }
+    }
+}

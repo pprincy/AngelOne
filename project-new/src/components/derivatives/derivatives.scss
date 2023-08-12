@@ -1,0 +1,724 @@
+@import '../../assets/scss/styles';
+
+.derivative-section {
+    .expire {
+        background: $input-bg;
+        width: 100%;
+        height: 64px;
+        padding: 20px 52px 12px 24px;
+        align-items: center;
+
+        h6 {
+            font-family: $font-base-med;
+            font-size: $font-12;
+            font-weight: 500;
+            text-align: center;
+            color: $base-text;
+        }
+
+        .btn {
+            height: 2rem;
+            padding: 9px 16px;
+            border-radius: 0.25rem;
+            margin-left: 13px;
+            background: $light-border-color;
+            color: $grey-med;
+            font-family: $font-base-reg;
+            font-size: $font-12;
+            text-align: center;
+
+            &:hover {
+                background: $highlighted;
+                color: $white;
+            }
+        }
+    }
+
+    .field_bg.derivatives {
+        padding: 0 1.5rem;
+
+        .derivative-trends {
+            margin-top: 2.5rem;
+
+            & h3 {
+                margin-bottom: 1rem;
+                font-family: $font-base-med;
+                color: $base-text;
+            }
+
+            .tab-wrap {
+                .fourblock {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 40px;
+
+                    .nav.nav-tabs {
+                        display: inline-flex;
+                        border-radius: 4px;
+                        border: 1px solid $border-type5;
+                        margin-right: auto;
+
+                        li.nav-item {
+                            a.nav-link {
+                                font-family: $font-base-med !important;
+                                font-size: $font-14 !important;
+                                height: 40px;
+                                padding: 12px 32px;
+                                border-radius: 2px;
+                                border: solid 1px $light-border-color;
+                                background-color: $white;
+                                color: $base-text;
+
+                                &:hover,
+                                &.active {
+                                    font-family: $font-base-med !important;
+                                    font-size: $font-14 !important;
+                                    height: 40px;
+                                    padding: 12px 32px;
+                                    border-radius: 2px;
+                                    border: solid 1px $light-border-color;
+                                    background-color: $input-bg;
+                                    color: $highlighted;
+                                }
+
+                                &:last-child {
+                                    border-right: 0;
+                                }
+
+                                &:after {
+                                    display: none;
+                                }
+                            }
+
+                            &:last-child {
+                                border-right: none;
+                            }
+                        }
+                    }
+                }
+
+                .open-interest {
+                    background: $bg;
+                    margin: 2rem 0;
+                    border-radius: 4px;
+                    padding: 1rem 1.5rem;
+
+                    em {
+                        font-style: normal;
+
+                        &:before {
+                            content: "";
+                            display: flex;
+                            align-items: center;
+                            clear: both;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            border: 0px solid red;
+                            margin-right: .5rem;
+                        }
+                    }
+
+                    label {
+                        font-family: $font-base-med;
+                        font-size: $font-14;
+                        color: $base-text;
+                        margin-bottom: 0;
+                    }
+
+                    .interest {
+                        padding-left: 1.938rem;
+
+                        .int1 {
+                            font-family: $font-base-med;
+                            font-size: $font-14;
+                            color: $positive;
+                        }
+
+                        .int2,
+                        .int3 {
+                            font-family: $font-base-med;
+                            font-size: $font-14;
+                            color: $grey-med;
+                        }
+
+                        .int1 {
+                            font-size: 1rem !important;
+                            line-height: 1.188rem !important;
+                            margin-right: 0.5rem !important;
+                            padding-bottom: 0px !important;
+                            margin-bottom: 0px !important;
+
+                            &.positive {
+                                &:after {
+                                    font-size: 0;
+                                    position: relative;
+                                    top: -0.2rem;
+                                    content: "";
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 0 4px 6px 4px;
+                                    border-color: transparent transparent $positive transparent;
+                                    display: inline-block !important;
+                                    margin-left: 0.2rem;
+                                }
+                            }
+
+                            &.negative {
+                                &:after {
+                                    content: "";
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 6px 4px 0 4px;
+                                    border-color: $red transparent transparent transparent;
+                                    margin-left: 0.2rem;
+                                    font-size: 0;
+                                    position: relative;
+                                    top: -0.1rem;
+                                    display: inline-block !important;
+                                }
+                            }
+                        }
+                    }
+
+                    .custom-bullish-trend,
+                    .custom-bearish-trend,
+                    .custom-unwinding,
+                    .custom-short-build-up,
+                    .custom-neutral-trend,
+                    .custom-neutral {
+                        margin-left: 10px;
+                        vertical-align: text-bottom;
+                    }
+
+                    .unwinding {
+                        margin-left: 48px;
+                    }
+                }
+
+                .view-details,
+                .view-less {
+                    width: 160px;
+                    height: 48px;
+                    border-radius: 2px;
+                    border: solid 1px $light-border-color;
+                    background-color: $white;
+                    text-align: center;
+                    margin: auto;
+
+                    .view-btn {
+                        font-family: $font-base-semibold;
+                        font-size: $font-14;
+                        letter-spacing: 0.21px;
+                        color: $highlighted;
+                    }
+
+                    .custom-view-more,
+                    .custom-view-less {
+                        margin-left: 8px;
+                        vertical-align: bottom;
+                    }
+                }
+
+                .derivative-price-summary-sec {
+                    margin: 0 0 3rem;
+
+                    @include tablet {
+                        margin: 0 0 2.250rem;
+                    }
+
+                    .title-sec {
+                        padding: 24px 0 20px 0;
+
+                        label {
+                            font-family: $font-base-med;
+                            font-size: $font-12;
+                            color: $grey-med;
+                            text-transform: uppercase;
+                            margin-bottom: 0;
+
+                            .count {
+                                font-family: $font-base-med;
+                                font-size: $font-12;
+                                color: $base-text;
+                                margin-left: 12px;
+                                margin-right: 32px;
+                            }
+                        }
+                    }
+
+                    .price-summary-carousal {
+                        .slick-slide {
+                            padding: 0 6px;
+                        }
+
+                        .border-box {
+                            width: 22.438rem;
+                            padding: 16px 12px;
+                            margin: 0 1.25rem 0 0;
+                        }
+
+                        .first-sec {
+                            .trend {
+                                height: 30px;
+                                padding: 8px 12px;
+                                border-radius: 4px;
+                                background-color: rgba(63, 91, 217, 0.12);
+                                font-family: $font-base-med;
+                                font-size: $font-12;
+                                margin-top: 0.5rem;
+                                text-transform: uppercase;
+
+                                &.shortcovering {
+                                    background-color: rgba(63, 91, 217, 0.12);
+                                    color: $highlighted;
+                                }
+
+                                &.longbuiltup {
+                                    background-color: rgba(30, 199, 182, 0.12);
+                                    color: $positive;
+
+                                }
+
+                                label {
+                                    margin-bottom: 0;
+                                    font-family: $font-base-med;
+                                    font-size: $font-12;
+                                }
+                            }
+
+                            .range1 {
+                                font-family: $font-base-med;
+                                font-size: $font-14;
+                                color: $base-text;
+                                margin-bottom: 8px;
+
+                                .rupee-sign {
+                                    font-style: normal;
+                                    font-size: $font-14;
+                                    line-height: 0.75rem;
+                                    font-family: $font-pingFangSC-medium;
+                                    font-weight: 500;
+                                    font-stretch: normal;
+                                    font-style: normal;
+                                    letter-spacing: normal;
+                                    color: $base-text;
+                                    margin-right: 3px;
+                                }
+                            }
+
+                            .range2 {
+                                font-family: $font-base-med;
+                                font-size: $font-12;
+                                color: $grey-med;
+                                margin-bottom: 1.5rem;
+
+                                .custom-timer {
+                                    margin-right: 3px;
+                                }
+                            }
+
+                            p {
+                                margin-bottom: 0;
+                            }
+                        }
+
+                        .second-sec {
+                            background: $input-bg;
+                            padding: 1rem;
+                            border-radius: 0.25rem;
+                            height: 70px;
+
+                            .col-md-4 {
+                                width: 1px;
+                                height: 34px;
+                                border-right: solid 1px $border-type2;
+
+                                &:last-child {
+                                    border: none;
+                                }
+                            }
+
+                            .price {
+                                text-align: center;
+                                padding: 0;
+
+                                label {
+                                    font-family: $font-base-med;
+                                    font-size: $font-12;
+                                    color: $grey-med;
+                                    margin-bottom: 8px;
+
+                                    p {
+                                        font-family: $font-base-med;
+                                        font-size: $font-14;
+                                        color: $base-text;
+                                        margin-bottom: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .highest-strikes {
+            margin-top: 3rem;
+
+            & h3 {
+                margin-bottom: 1.5rem;
+                font-family: $font-base-med;
+                color: $base-text;
+
+                .call-ratio,
+                .ratio-count {
+                    font-family: $font-base-reg;
+                    font-size: $font-12;
+                    color: $grey-med;
+                }
+
+                .call-ratio {
+                    padding-left: 10px;
+                }
+
+                .ratio-count {
+                    padding-left: 8px;
+                }
+            }
+
+            .tab-wrap {
+                .twoblock {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 2rem;
+
+                    .nav.nav-tabs {
+                        display: inline-flex;
+                        border-radius: 4px;
+                        border: 1px solid $border-type5;
+                        margin-right: auto;
+
+                        li.nav-item {
+                            a.nav-link {
+                                font-family: $font-base-med !important;
+                                font-size: $font-14 !important;
+                                height: 40px;
+                                padding: 12px 32px;
+                                border-radius: 2px;
+                                border: solid 1px $light-border-color;
+                                background-color: $white;
+                                color: $base-text;
+
+                                &:hover,
+                                &.active {
+                                    font-family: $font-base-med !important;
+                                    font-size: $font-14 !important;
+                                    height: 40px;
+                                    padding: 12px 32px;
+                                    border-radius: 2px;
+                                    border: solid 1px $light-border-color;
+                                    background-color: $input-bg;
+                                    color: $highlighted;
+                                }
+
+                                &:last-child {
+                                    border-right: 0;
+                                }
+
+                                &:after {
+                                    display: none;
+                                }
+                            }
+
+                            &:last-child {
+                                border-right: none;
+                            }
+                        }
+                    }
+                }
+
+                .chart-section {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 0 -0.75rem;
+
+                    .chart-cont {
+                        border: 1px solid $grey3;
+                        border-radius: 4px;
+                        width: 50%;
+                        margin: 0 0.75rem;
+                        padding: 1.25rem 1.5rem;
+
+                        h3 {
+                            font-family: $font-base-med;
+                            font-size: $font-14;
+                            color: $base-text;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .strategy {
+            margin: 3rem 0;
+            background: #fef7e9;
+            padding: 40px 0 32px 47px;
+
+            h3 {
+                font-family: $font-base-bold;
+                font-size: $font-20;
+                color: $base-text;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-family: $font-base-reg;
+                font-size: $font-16;
+                color: $base-text;
+                letter-spacing: -0.33px;
+                margin-bottom: 1.125rem;
+                width: 26rem;
+            }
+
+            .name {
+                font-family: $font-base-med;
+                font-size: $font-13;
+                letter-spacing: -0.27px;
+                color: $base-text;
+            }
+
+            .get-started-btn {
+                background: $highlighted;
+                color: $white;
+                font-family: $font-base-semibold;
+                font-size: $font-14;
+                margin-top: 2rem;
+                height: 2.5rem;
+                padding: 12px 24px 11px;
+                border-radius: 0.25rem;
+            }
+
+            .custom-market-sentiment,
+            .custom-risk-profile {
+                vertical-align: text-bottom;
+                margin-right: 8px;
+            }
+
+            .risk-profile {
+                margin-left: 1.5rem;
+            }
+        }
+    }
+}
+
+.profit-loss-sec {
+    border: 1px solid $light-border-color;
+    padding: 1.438rem;
+    border-radius: 0.5rem;
+    margin: 3rem 0 0;
+
+    .form-top-content {
+        @include flex(flex-start, flex-end);
+        position: relative;
+        padding-right: 4.125rem;
+
+        .form-group-wrap {
+            margin-right: 2rem;
+
+            .form-lbl {
+                font-size: 0.813rem;
+                line-height: 1rem;
+                margin: 0 0 0.688rem;
+                display: block;
+                color: $grey-med;
+                text-transform: uppercase;
+            }
+
+            .btn-group-toggle {
+                .btn {
+                    min-width: 6.250rem;
+                    border-radius: 2px;
+                    font-size: 0.875rem;
+                    line-height: 1rem;
+                    font-family: $font-base-med;
+                    padding: 0.688rem;
+
+                    &.btn-outline-secondary {
+                        border-color: $light-border-color;
+
+                        &.active {
+                            background: #ecf0fb !important;
+                            border-color: #ecf0fb !important;
+                        }
+                    }
+
+                }
+            }
+
+            .form-control {
+                border-radius: 2px;
+                height: 2.500rem;
+                font-size: 0.875rem;
+                font-family: $font-base-med;
+                width: 13.438rem;
+                padding: 0 1rem;
+
+                @include placeholder {
+                    color: $grey-med;
+                }
+            }
+        }
+
+        .btn-wrap {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+
+            .btn {
+                font-size: 0.875rem;
+                line-height: 1rem;
+                font-family: $font-base-med;
+                min-width: 4.125rem;
+                height: 2.500rem;
+                padding: 0.75rem 0;
+
+                &.disabled {
+                    background: transparent;
+                    color: $disabled;
+                    border-color: $light-border-color;
+                    opacity: 1;
+
+                }
+            }
+        }
+    }
+
+    .buy-contract-content {
+        padding: 2.625rem 0 0;
+
+        .buy-contract-top {
+            background: $input-bg;
+            padding: 1.5rem;
+            margin: 0 -1.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+
+            &:before {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 9px 10px 9px;
+                border-color: transparent transparent $input-bg transparent;
+                position: absolute;
+                left: 50%;
+                top: -10px;
+                margin-left: -9px;
+            }
+
+            .row {
+                margin-bottom: -3rem;
+
+                >div {
+                    padding: 0 0 3rem;
+                }
+            }
+
+            label {
+                font-size: 0.875rem;
+                line-height: 1.063rem;
+                margin: 0 0 0.5rem;
+                display: block;
+                font-family: $font-base-med;
+                color: $grey-med;
+            }
+
+            span {
+                font-size: 1rem;
+                line-height: 1.188rem;
+                color: $base-text;
+                font-family: $font-base-med;
+
+                &.price {
+                    @include inlineFlex(flex-start, center);
+
+                    em {
+                        font-style: normal;
+                        margin-right: 3px;
+                        font-family: $font-pingFangSC-medium;
+                        position: relative;
+                        top: 2px;
+                    }
+                }
+            }
+        }
+
+        .buy-contract-btm {
+            @include flex(flex-end, center);
+
+            .form-group-wrap {
+                @include flex(flex-start, center);
+                padding-right: 3rem;
+
+                label {
+                    margin: 0 1.188rem 0 0;
+                    font-size: 0.875rem;
+                    line-height: 1.063rem;
+                    font-family: $font-base-med;
+                }
+
+                .form-group {
+                    @include inlineFlex(space-between, center);
+                    margin: 0px;
+                    width: 13.188rem;
+
+                    .form-control {
+                        height: 2.5rem;
+                        width: 6.188rem;
+                        border-radius: 0.25rem;
+                        font-size: 1rem;
+                        font-family: $font-base-semibold;
+                        text-align: center;
+
+                    }
+
+                    input[type=number]::-webkit-inner-spin-button,
+                    input[type=number]::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    .btn {
+                        height: 2.5rem;
+                        width: 2.5rem;
+                        padding: 0px;
+                        border: none;
+                        min-width: 2.5rem;
+                        border-radius: 50%;
+
+                        &.decrementBtn {
+                            background: url(../../assets/images/minus-btn.svg) left top no-repeat;
+                        }
+
+                        &.incrementBtn {
+                            background: url(../../assets/images/plus-btn.svg) left top no-repeat;
+                        }
+                    }
+                }
+            }
+
+            .btn-buy {
+                font-size: 0.875rem;
+                line-height: 1.063rem;
+                padding: 0.75rem 1.5rem 0.688rem;
+                font-family: $font-base-semibold;
+                height: 2.5rem;
+                border-radius: 0.25rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+<section>
+    <div class="trade-scrip-report-section">
+        <div class="title-wrap">
+            <h3 class="balance">Trade History from : <span class="date">01 Feb 2020 - 28 Feb 2021</span></h3>
+            <h3 class="ledger">Ledger Last Updated on : <span class="date">Mon 02 Mar 2020</span></h3>
+
+        </div>
+        <div class="nsecm-table-wrap">
+        <div class="trade-table-wrapper table-wrapper ">
+            <table class="table trade-table table-hover tbl-theme flex-table" id="trade-scrip">
+                <thead>
+                    <tr class="text-center main-head">
+                        <th  colspan="2" class="seriesColblank">&nbsp;</th>
+                        <th  colspan="3" class="txtPositive buyCol">Buy</th>
+                        <th  colspan="3" class="txtNegative sellCol">Sell</th>
+                        <th  colspan="3" class="openCol">Open Position</th>
+                        <th  colspan="1" class="netcol"></th>
+                    </tr>
+                    <tr>
+                        <th  class="scrip-nameCol scripCol">Scrip Name</th>
+                        <th  class="seriesCol">Series</th>
+                        <th  class="buy-qtyCol sort_enable">Qty</th>
+                        <th  class="buy-avgpriceCol sort_enable">Avg. Price</th>
+                        <th  class="buy-valueCol sort_enable">Value</th>
+                        <th  class="sell-qtyCol sort_enable">Qty</th>
+                        <th  class="sell-avgpriceCol sort_enable">Avg. Price</th>
+                        <th  class="sell-valueCol sort_enable">Value</th>
+                        <th  class="open-qty sort_enable">Qty</th>
+                        <th  class="open-avgpriceCol sort_enable">Avg. Price</th>
+                        <th  class="open-valueCol sort_enable">Value</th>
+                        <th  class="text-right net-valueCol">Net Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in tradeScripHistoryReport" :key="item.key" class="panel">
+                        <td width="" class="scrip-name scripCol">
+                            <div>{{ item.scripName }}<span
+                                    class="badge badge-secondary exchage ml-2">{{ item.badge }}</span></div>
+                            <div class="group pt-2">{{ item.group }}</div>
+                        </td>
+                        <td width="" class="series">
+                            <span>{{ item.series }}</span>
+                        </td>
+                        <td width="" class="buy-qty">
+                            <span>{{ item.buyQty }}</span>
+                        </td>
+                        <td width="" class="buy-avgprice">
+                            <span><em class="rs">₹</em>{{ item.buyAvgPrice }}</span>
+                        </td>
+                        <td width="" class="buy-value">
+                            <span class="txtPositive"><em class="rs">₹</em>{{ item.buyValue }}</span>
+                        </td>
+                        <td width="" class="sell-qty">
+                            <span>{{ item.sellQty }}</span>
+                        </td>
+                        <td width="" class="sell-avgprice">
+                            <span><em class="rs">₹</em>{{ item.sellAvgPrice }}</span>
+                        </td>
+                        <td width="" class="sell-value">
+                            <span class="txtNegative"><em class="rs">₹</em>{{ item.sellValue}}</span>
+                        </td>
+                        <td width="" class="open-qty">
+                            <span>{{ item.openQty }}</span>
+                        </td>
+                        <td width="" class="open-avgprice">
+                            <span><em class="rs">₹</em>{{ item.openAvgPrice }}</span>
+                        </td>
+                        <td width="" class="open-value">
+                            <span><em class="rs">₹</em>{{ item.openValue }}</span>
+                        </td>
+                        <td width="" class="text-right net-value">
+                            <span class="txtNegative price"><em>-</em><em class="rs">₹</em>{{ item.netValue}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="total-section d-flex">
+        <h4 class="total-title">Total</h4>
+        <div class="lable_wrap">
+        <label class="total-buy-value">
+            <em>Total Buy Value</em>
+            <span class="txtPositive"><em class="rs">₹</em>{{ totalBuyValue }}</span>
+        </label>
+        <label class="total-sell-value">
+            <em>Total Sell Value</em>
+            <span class="txtNegative"><em class="rs">₹</em>{{ totalSellValue }}</span>
+        </label>
+        <label class="total-open-value">
+            <em>Total Open Position Value</em>
+            <span class="txtPositive"><em class="rs">₹</em>{{ totalOpenPositionValue }}</span>
+        </label>
+        <label class="total-net-value text-right">
+            <em>Total Net Value</em>
+            <span class="txtNegative price"><em>-</em><em class="rs">₹</em>{{ totalNetValue }}</span>
+        </label>
+        </div>
+    </div>
+    </div>
+</section>

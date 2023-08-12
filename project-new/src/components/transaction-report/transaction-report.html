@@ -1,0 +1,201 @@
+<section>
+    <div class="transaction-report-section leftPosition">
+        <div class="report-wrap">
+            <div class="d-flex">
+                <div class="reportType" id="report">
+                    <div class="form-group">
+                        <label for="reportType" id="form-lbl-report" class="form-lbl select-disabled">Type of Report</label>
+                            <select class="form-control selectpicker select-disabled" id="reportType">
+                                <option value="selreport" style="display: none;">Type of Report</option>
+                                <option value="ledger">Ledger</option>
+                                <option value="funds">Funds Transactions</option>
+                                <option value="dp">DP Transactions</option>
+                                <option value="auction">Auction Details</option>
+                                <option value="trade">Trade History</option>
+                                <option value="pl">P&L Summary</option>
+                                <option value="contract">Contract Notes</option>
+                                <option value="payout">Quaterly Payout Report</option>
+                                <option value="client">Client Master(DP)</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="exchange" id="exchange">
+                    <div class="form-group">
+                        <label for="exchangeType" id="form-lbl-exchange" class="form-lbl select-disabled">Exchange</label>
+                            <select class="form-control selectpicker select-disabled" id="exchangeType">
+                                <option value="selexchange" style="display: none;">Exchange</option>
+                                <option value="nsecm">NSECM</option>
+                                <option value="nsefo">NSEFO</option>
+                                <option value="nsecurfo">NSECURFO</option>
+                                <option value="mcx">MCX</option>
+                                <option value="ncdex">NCDEX</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="plAll" id="plAll">
+                    <div class="form-group">
+                        <label for="productType" id="form-lbl-plAll" class="form-lbl select-disabled">Product Type</label>
+                            <select class="form-control selectpicker select-disabled" id="productType">
+                                <option value="selplall" style="display: none;">Product Type</option>
+                                <option value="equity">Equity</option>
+                                <option value="fo">F & O</option>
+                                <option value="currency">Currency</option>
+                                <option value="all">All</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="year" id="year">
+                    <div class="form-group">
+                        <label for="yearType" id="form-lbl-year" class="form-lbl select-disabled">Year</label>
+                            <select class="form-control selectpicker select-disabled" id="yearType">
+                                <option value="selyear" style="display: none;">Year</option>
+                                <option value="y2021">2020-21</option>
+                                <option value="y2022">2021-22</option>
+                                <option value="y2020">2019-20</option>
+                                <option value="y2019">2018-19</option>
+                                <option value="y2018">2017-18</option>
+                                <option value="y2017">2016-17</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="selectDate" id="date">
+                    <div class="form-group">
+                        <label for="dateType" id="form-lbl-date" class="form-lbl select-disabled">Date</label>
+                            <div class="datepicker-wrap">
+                                <input type="text" placeholder="Date" value="Date" id="dateType"
+                                    class="form-control form-rangedatepicker daterangepicker-field">
+                                <span class="icon-dropdown-arrow"></span>
+                            </div>
+                    </div>
+                </div>
+                <div class="segment" id="segment">
+                    <div class="form-group">
+                        <label for="segmentType" id="form-lbl-segment" class="form-lbl select-disabled">Segment</label>
+                            <select class="form-control selectpicker select-disabled" id="segmentType">
+                                <option value="selsegment" style="display: none;">Segment</option>
+                                <option value="segments">All Segments</option>
+                                <option value="nbfc">NBFC</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="sort" id="sort">
+                    <div class="form-group">
+                        <label for="sortType" id="form-lbl-sort" class="form-lbl select-disabled">Sort By</label>
+                            <select class="form-control selectpicker select-disabled" id="sortType">
+                                <option value="selsort" style="display: none;">Sort By</option>
+                                <option value="scrip">Scrip</option>
+                                <option value="settlement">Settlement</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="submit-section" id="submit">
+                    <div class="box" id="pdf">
+                        <a class="btn custom-pdf-disabled custom-pdf custom_tooltip1" data-placement="bottom"
+                            id="pdfType">
+                            <div class="tooltip_popup small base-color">
+                                Download complete report as PDF
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box" id="excel">
+                        <a class="btn custom-excel-disabled custom-excel custom_tooltip2" data-placement="bottom"
+                            id="excelType">
+                            <div class="tooltip_popup small base-color">
+                                Download complete report as Excel
+                            </div>
+                        </a>
+                    </div>
+                    <a class="btn btn-primary btn-md sub-btn select-disabled" id="submitType">SUBMIT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field_bg p-0 ">
+        <!--No Table Entry found-->
+        <div class="noReport" id="view-report">
+            <img src="../../assets/images/funds-no-history.png" alt="">
+            <p>Please select the report options to view the report</p>
+        </div>
+        <!--No Table Entry found-->
+
+        <!--No Reports Entry found-->
+        <div class="noReport" id="no-report">
+            <img src="../../assets/images/funds-no-history.png" alt="">
+            <p>There are no reports to show</p>
+        </div>
+        <!--No Reports Entry found-->
+
+        <!-- Ledger Report Start -->
+        <div id="ledger_report">
+            <LedgerReport></LedgerReport>
+        </div>
+        <!-- Ledger Report End -->
+
+        <!-- Trade History Scrip Report Start -->
+        <div id="trade_history_scrip_report">
+            <TradeHistoryScripReport></TradeHistoryScripReport>
+        </div>
+        <!-- Trade History Scrip Report End -->
+
+        <!-- Trade History Settlement Report Start -->
+        <div id="trade_history_settlement_report">
+            <TradeHistorySettlementReport></TradeHistorySettlementReport>
+        </div>
+        <!-- Trade History Settlement Report End -->
+
+        <!-- Trade History Exchange Report Start -->
+        <div id="trade_history_exchange_NSEFO_report">
+            <TradeHistoryExchangeNSEFOReport></TradeHistoryExchangeNSEFOReport>
+        </div>
+        <!-- Trade History Exchange Report End -->
+
+        <!-- Trade History Exchange NSECURFO Report Start -->
+        <div id="trade_history_exchange_NSECURFO_report">
+            <TradeHistoryExchangeNSECURFOReport></TradeHistoryExchangeNSECURFOReport>
+        </div>
+        <!-- Trade History Exchange NSECURFO Report End -->
+
+        <!-- Trade History Exchange MCX Report Start -->
+        <div id="trade_history_exchange_MCX_report">
+            <TradeHistoryExchangeMCXReport></TradeHistoryExchangeMCXReport>
+        </div>
+        <!-- Trade History Exchange MCX Report End -->
+
+        <!-- Trade History Exchange NCDEX Report Start -->
+        <div id="trade_history_exchange_NCDEX_report">
+            <TradeHistoryExchangeNCDEXReport></TradeHistoryExchangeNCDEXReport>
+        </div>
+        <!-- Trade History Exchange NCDEX Report End -->
+
+        <!-- P&L Summary Equity Report Start -->
+        <div id="pl_summary_equity_report">
+            <PLSummaryEquityReport></PLSummaryEquityReport>
+        </div>
+        <!-- P&L Summary Equity Report End -->
+
+        <!-- P&L Summary Currency Report Start -->
+        <div id="pl_summary_currency_report">
+            <PLSummaryCurrencyReport></PLSummaryCurrencyReport>
+        </div>
+        <!-- P&L Summary Currency Report End -->
+
+        <!-- P&L Summary FO Report Start -->
+        <div id="pl_summary_fo_report">
+            <PLSummaryFOReport></PLSummaryFOReport>
+        </div>
+        <!-- P&L Summary FO Report End -->
+
+        <!-- P&L Summary ALL Report Start -->
+        <div id="pl_summary_all_report">
+            <PLSummaryALLReport></PLSummaryALLReport>
+        </div>
+        <!-- P&L Summary ALL Report End -->
+
+        <!-- Contract Notes Report Start -->
+        <div id="contract_notes_report">
+            <ContractNotesReport></ContractNotesReport>
+        </div>
+        <!-- Contract Notes Report End -->
+    </div>
+    
+</section>

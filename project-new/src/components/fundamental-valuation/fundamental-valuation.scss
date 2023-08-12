@@ -1,0 +1,158 @@
+@import '../../assets/scss/styles';
+.fundamental-valuation {
+    border-radius: 0.5rem;
+    background: $bg;
+    padding: 2.688rem 1.5rem 2.938rem;
+    @include flex(flex-start, center);
+    min-height: 312px;
+    &.withErr{
+        padding: 2rem 1.5rem;
+        min-height: 10px;
+    }
+    .chart-sec{
+        width: 46%;
+        padding-right: 1.875rem;
+        .chart{
+            width: 320px;
+            max-width: 100%;
+            img{
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+    .info-sec{
+        width: 54%;
+        padding-left: 1.875rem;
+        .legend-info-sec{ 
+            ul{
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+                @include flex(flex-start, flex-start);
+                margin: 0 -0.5rem;
+                width: calc(100% + 1rem);
+                li{
+                    width: 33.333%;
+                    padding: 0 0.5rem;
+                    div{
+                        position: relative;
+                        padding-left: 1rem;
+                        &:before{
+                            content: "";
+                            position: absolute;
+                            left: 0px;
+                            top: 0.313rem;
+                            width: 0.5rem;
+                            height: 0.5rem;
+                            border-radius: 50%;
+                            display: block;
+                        }
+                        &.attractive{
+                            &:before{
+                                background: $positive1;
+                            }
+                        }
+                        &.expensive{
+                            &:before{
+                                background: $orange;
+                            }
+                        }
+                        &.overPriced{
+                            &:before{
+                                background: $negative;
+                            }
+                        }
+                        label{
+                            display: block;
+                            font-size: 0.875rem;
+                            line-height: 1.063rem;
+                            margin: 0 0 0.5rem;
+                            color: $grey-med;
+                            font-family: $font-base-reg;
+                            font-weight: normal;
+                        }
+                        .price{
+                            font-size: 1rem;
+                            line-height: 1.375rem;
+                            color: $base-text;
+                            @include flex(flex-start, center);
+                            font-family: $font-base-med;
+                            em{
+                               font-style: normal;
+                               font-family: $font-pingFangSC-medium;
+                               margin-right:2px; 
+                            }
+                        }
+                    } 
+                }
+            }
+
+            +.val-info-sec{
+               padding-top: 1.750rem;
+               margin-top: 1.750rem; 
+               border-top: 1px solid $border-type5;
+            }
+        }
+        .val-info-sec{
+           
+            ul{
+                list-style: none;
+                margin:0 0 0.938rem ;
+                padding: 0px;
+                @include flex(flex-start, flex-start);
+                margin: 0 -0.5rem 0.938rem;
+                width: calc(100% + 1rem);
+                li{
+                    width: 33.333%;
+                    padding: 0 0.5rem;
+                    label{
+                        display: block;
+                        font-size: 0.875rem;
+                        line-height: 1.063rem;
+                        margin: 0 0 0.75rem;
+                        color: $grey-med;
+                        font-family: $font-base-reg;
+                        font-weight: normal;
+                    }
+                    strong{
+                        font-size: 1.625rem;
+                        line-height: 1.938rem;
+                        font-weight: normal;
+                        font-family: $font-base-med;
+                        display: block;
+                    }
+                }
+            }
+            .note{
+                font-size: 0.875rem;
+                line-height: 1rem;
+                color: $grey-med;
+                strong{
+                    color: $base-text;
+                    font-weight: normal;
+                    font-family: $font-base-med;
+                }
+            }
+        }
+       
+    }
+    .error-state{
+        width: 100%;
+        text-align: center;
+        p{
+            @include inlineFlex(center, center);
+            font-size: 1.125rem;
+            line-height: 1.250rem;
+            color: $grey-med;
+            font-family: $font-base-med;
+            position: relative;
+            padding-left: 3rem;
+            em{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+        }
+    }
+}

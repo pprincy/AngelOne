@@ -1,0 +1,43 @@
+<section>
+    <div class="pl-commodity-report-section leftPosition">
+        <div class="pl-table-wrapper pl-commodity-table-wrap">
+            <table class="table pl-table table-hover tbl-theme flex-table with-sorting-option" id="pl-commodity-table">
+                <thead>
+                    <tr>
+                        <th class="scripCol sort_enable">Scrip Name</th>
+                        <th class="instrumentCol">Instrument</th>
+                        <th class="buyCol sort_enable text-right">Buy Value (₹)</th>
+                        <th class="sellCol sort_enable text-right">Sell Value (₹)</th>
+                        <th class="text-right glCol sort_enable">Realised G/L (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in plSummaryCommodityReport" :key="item.key" class="panel">
+                        <td class="scrip-name scripCol">
+                            <div>{{ item.scripName }}<span
+                                    class="badge badge-secondary exchage ml-2">{{ item.badge }}</span></div>
+                            <div class="group pt-2">{{ item.date }}</div>
+                        </td>
+                        <td class="instrumentCol">
+                            <span>{{ item.instrument }}</span>
+                        </td>
+                        <td class="buyCol text-right">
+                            <span class=" price">{{ item.buyValue }}</span>
+                        </td>
+                        <td class="sellCol text-right">
+                            <span class=" price">{{ item.sellValue}}</span>
+                        </td>
+                        <td class="text-right glCol">
+                            <span class="glvaluewrap">
+                            <span v-if="item.gl >= '0'" class=" price"><em>-</em>{{ item.gl}}</span>
+                            <span class="percent ">(<em>-</em>{{ item.percent }})</span>
+                            <!-- percent minus-->
+                        </span>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

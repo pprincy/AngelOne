@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?k54a3f');
+  src:  url('fonts/icomoon.eot?k54a3f#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?k54a3f') format('truetype'),
+    url('fonts/icomoon.woff?k54a3f') format('woff'),
+    url('fonts/icomoon.svg?k54a3f#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-advisory:before {
+  content: "\e900";
+}
+.icon-bag:before {
+  content: "\e901";
+}
+.icon-bell:before {
+  content: "\e902";
+}
+.icon-down-arrow:before {
+  content: "\e903";
+  color: #4f5164;
+}
+.icon-file:before {
+  content: "\e904";
+}
+.icon-full-screen:before {
+  content: "\e905";
+}
+.icon-watch:before {
+  content: "\e906";
+}
+.icon-funds:before {
+  content: "\e907";
+}
+.icon-otp:before {
+  content: "\e908";
+}
+.icon-phone:before {
+  content: "\e909";
+}
+.icon-lock:before {
+  content: "\e90a";
+}
+.icon-eye:before {
+  content: "\e90b";
+}
+.icon-market:before {
+  content: "\e90c";
+}
+.icon-more-dots:before {
+  content: "\e90d";
+}
+.icon-plus:before {
+  content: "\e90e";
+}
+.icon-search:before {
+  content: "\e90f";
+}
+.icon-star:before {
+  content: "\e910";
+  color: #3f5bd9;
+}
+.icon-up-arrow:before {
+  content: "\e911";
+  color: #1ec7b5;
+}
+.icon-up-down-arrow:before {
+  content: "\e912";
+  color: #979ab2;
+}
+.icon-delete:before {
+  content: "\e913";
+}
+.icon-edit:before {
+  content: "\e914";
+}
+.icon-info:before {
+  content: "\e915";
+  color: #f65e5a;
+}
+.icon-back:before {
+  content: "\e916";
+}
+.icon-close:before {
+  content: "\e917";
+}
+.icon-check:before {
+  content: "\e918";
+  color: #3f5bd9;
+}
+.icon-expand:before {
+  content: "\e919";
+}
+.icon-bullet-check:before {
+  content: "\e91a";
+  color: #cacbce;
+}
+.icon-dropdown-arrow:before {
+  content: "\e91b";
+}
+.icon-rupee:before {
+  content: "\e91c";
+  color: #fff;
+}
+.icon-clock:before {
+  content: "\e91d";
+}
+.icon-minus:before {
+  content: "\e91e";
+}
+.icon-cancelled-sm-icon:before {
+  content: "\e91f";
+  color: #ef5854;
+}
+.icon-exeuted-sm-icon:before {
+  content: "\e920";
+  color: #21b7a8;
+}
+.icon-pending-sm-icon:before {
+  content: "\e921";
+  color: #f19d0c;
+}
+.icon-rupee-bold:before {
+  content: "\e922";
+  color: #6a7582;
+}
+.icon-bank:before {
+  content: "\e923";
+}
+.icon-bell-notification:before {
+  content: "\e924";
+}
+.icon-wallet:before {
+  content: "\e925";
+}
+.icon-camera:before {
+  content: "\e926";
+  color: #fff;
+}
+.icon-double-tick-indicator:before {
+  content: "\e927";
+  color: #1ec7b6;
+}
+.icon-language:before {
+  content: "\e928";
+}
+.icon-date:before {
+  content: "\e929";
+  color: #5d5e63;
+}

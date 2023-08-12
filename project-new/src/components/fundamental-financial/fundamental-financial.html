@@ -1,0 +1,83 @@
+<section class="section fundamental_financial-tab_content">
+    <div class="row like-dislike">
+        <div class="col-md-6">
+            <div class="panel working_well-panel">
+                <div class="panel-header">
+                    <h5>What’s working well?</h5>
+                    <h5 class="factor_count">10 Factors</h5><!--NA-->
+                </div>
+                <div class="panel-body">
+                    <!-- <div class="no-data d-flex align-items-center justify-content-center">
+                        <p>No Data Available</p>
+                    </div> -->
+                    <ul>
+                        <li>
+                            <h5>Profit Before Tax Less Other Income -  (Quarterly)</h5>
+                            <p>Highest at Rs. 11,779.95 Cr in the last six half yearly period</p>
+                        </li>
+                        <li>
+                            <h5>PAT (Quarterly)</h5>
+                            <p>Highest at Rs. 11,779.95 Cr.</p>
+                        </li>
+                        <li>
+                            <h5>EPS  (Quarterly)</h5>
+                            <p>Highest at Rs. 18.36 Cr.</p>
+                        </li>
+                        <li v-show="hiddenFactor">
+                            <h5>Profit Before Tax Less Other Income -  (Quarterly)</h5>
+                            <p>Highest at Rs. 11,779.95 Cr in the last six half yearly
+                                period</p>
+                        </li>
+                        <li v-show="hiddenFactor">
+                            <h5>PAT (Quarterly)</h5>
+                            <p>Highest at Rs. 11,779.95 Cr.</p>
+                        </li>
+                        <li v-show="hiddenFactor">
+                            <h5>EPS  (Quarterly)</h5>
+                            <p>Highest at Rs. 18.36 Cr.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel not_working-panel">
+                <div class="panel-header">
+                    <h5>What’s not working?</h5>
+                    <h5 class="factor_count">10 Factors</h5>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <h5>Interest (9 Months)</h5>
+                            <p>At Rs. 15,879.00 Cr has fallen at 23.31%</p>
+                        </li>
+                        <li>
+                            <h5>Profit Before Tax Less Other Income -  (Quarterly)</h5>
+                            <p>At Rs. 15,879.00 Cr has fallen at 23.31% <br>
+                                over average PBT of previous four quarters <br>
+                                of Rs. 11,225.50 Cr.</p>
+                        </li>
+                        <li v-show="hiddenFactor">
+                            <h5>Interest (9 Months)</h5>
+                            <p>At Rs. 15,879.00 Cr has fallen at 23.31%</p>
+                        </li>
+                        <li v-show="hiddenFactor">
+                            <h5>Profit Before Tax Less Other Income -  (Quarterly)</h5>
+                            <p>At Rs. 15,879.00 Cr has fallen at 23.31% <br>
+                                over average PBT of previous four quarters <br>
+                                of Rs. 11,225.50 Cr.</p>
+                        </li>
+                        <li v-show="hiddenFactor">
+                            <h5>Interest (9 Months)</h5>
+                            <p>At Rs. 15,879.00 Cr has fallen at 23.31%</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="view_all-cta text-center" v-show="viewAllFactors">
+        <a href="#" @click="hiddenFactor = true, viewAllFactors = false">VIEW ALL FACTORS</a>
+    </div>
+</section>

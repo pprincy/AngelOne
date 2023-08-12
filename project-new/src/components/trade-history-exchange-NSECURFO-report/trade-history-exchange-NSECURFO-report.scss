@@ -1,0 +1,475 @@
+@import '../../assets/scss/styles';
+
+.trade-exchange-report-section {
+    background: $white;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+
+    .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        position: relative;
+        z-index: 9;
+        background: $white;
+        .balance {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+
+            .date {
+                font-family: $font-base-med;
+                font-size: $font-18;
+                letter-spacing: -0.26px;
+                padding-left: 0.5rem;
+            }
+        }
+
+        .ledger {
+            font-family: $font-base-reg;
+            font-size: $font-16;
+            color: $grey-med;
+            letter-spacing: -0.23px;
+            margin-bottom: 0rem;
+
+            .date {
+                font-family: $font-base-reg;
+                font-size: $font-16;
+                letter-spacing: -0.23px;
+                color: $base-text;
+            }
+        }
+    }
+
+    .trade-table-wrapper,
+    .floatThead-wrapper {
+        table {
+            thead {
+                border-top: 1px solid $light-border-color;
+                border-bottom: 1px solid $light-border-color;
+                white-space: nowrap;
+
+                .main-head {
+                    th {
+                        font-family: $font-base-med;
+                        font-size: $font-14;
+                        letter-spacing: -0.2px;
+
+                    }
+
+                    .seriesColblank {width:19.5% !important;}
+                    .buyCol {width:23.5% !important;}
+                    .sellCol {width:23.5% !important;}
+                    .openCol {width:23.5% !important;}
+                    .netcol {width:10% !important;}
+
+                    .seriesCol, .seriesColblank,
+                    .buyCol,
+                    .sellCol,
+                    .openCol {
+                        border-right: 1px solid $light-border-color;
+                    }
+                }
+
+                th {
+                    padding: 0.75rem 1.5rem 0.75rem .5rem;
+                    border: none;
+                    font-family: $font-base-reg;
+                    font-size: $font-14;
+                    letter-spacing: -0.2px;
+
+                    &:after { position: absolute; right: 0.5rem; top: 1.125rem;}
+
+                    &.buy-valueCol, &.sell-valueCol, &.open-valueCol{
+                        &:after{
+                            right: 1rem;
+                        }
+                    }
+                }
+
+                
+
+                .scrip-nameCol {width:11.5% !important; padding-right: 0.5rem;}
+                .seriesCol { width:8% !important; padding-right: 0.5rem;}
+                .buy-qtyCol { width:6% !important; text-align: right;}
+                .buy-avgpriceCol { width:8.5% !important; text-align: right;}
+                .buy-valueCol { width:9% !important; text-align: right; padding-right: 2rem;}
+                .sell-qtyCol { width:6% !important; text-align: right;}
+                .sell-avgpriceCol { width:8.5% !important; text-align: right;}
+                .sell-valueCol { width:9% !important; text-align: right; padding-right: 2rem;}
+                .open-qty { width:6% !important; text-align: right;}
+                .open-avgpriceCol { width:8.5% !important; text-align: right;}
+                .open-valueCol { width:9% !important; text-align: right;  padding-right: 2rem;}
+                .net-valueCol { width:10% !important; }
+
+                .seriesCol,
+                .buy-valueCol,
+                .sell-valueCol,
+                .open-valueCol {
+                    border-right: 1px solid $light-border-color;
+                }
+
+                
+                // .buy-valueCol,
+                // .sell-valueCol,
+                // .open-valueCol {
+                //     //text-align: right;
+                // }
+
+                .sort-link {
+                    display: block;
+                    font-family: $font-base-reg;
+                    font-size: 0.875rem;
+                    color: $base-text;
+                    line-height: 1rem;
+
+                    @include laptop {
+                        padding: 0.85rem 1rem 0.5rem;
+                    }
+
+                    i,em {
+                        font-size: 0.75rem;
+                        color: $grey;
+                    }
+
+                    .up-down-arrow {
+                        display: inline-flex;
+                        flex-direction: column;
+                        position: relative;
+                        top: -0.3rem;
+                        line-height: 1rem;
+                        margin-left: 0.65rem;
+
+                        span {
+                            margin: -0.28rem 0;
+
+                            i,em {
+                                font-size: 0;
+
+                                &:before {
+                                    content: "";
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 0 3px 5px 3px;
+                                    border-color: transparent transparent #979ab2 transparent;
+                                    display: block;
+                                }
+                            }
+
+                            &.down {
+                                i,em {
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+                    }
+
+                    &.ascending {
+                        .up-down-arrow {
+                            .up {
+                                color: $highlighted;
+
+                                i,em {
+                                    color: $highlighted;
+
+                                    &:before {
+                                        border-color: transparent transparent $highlighted transparent;
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+
+                    &.descending {
+                        .up-down-arrow {
+                            .down {
+                                color: $highlighted;
+
+                                i,em {
+                                    color: $highlighted;
+
+                                    &:before {
+                                        border-color: transparent transparent $highlighted transparent;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    padding: 0 1rem;
+                    &:hover {
+                        background-color: $tbl-hoverd-bg;
+                    }
+                }
+                
+
+                td {
+                    padding: 0.75rem .5rem;
+                    font-family: $font-base-med;
+                    font-size: $font-16;
+                    vertical-align: middle;
+                   
+                    padding-right: 1.5rem;
+                }
+                .scrip-name { width: 11.5% !important;padding-right: 0.5rem;}
+                .series { width: 8% !important; padding-right: 0.5rem;}
+                .buy-qty { width: 6% !important; text-align: right;  }
+                .buy-avgprice { width: 8.5% !important; text-align: right;}
+                .buy-value { width: 9% !important; text-align: right; padding-right: 2%;}
+                .sell-qty { width: 6% !important; text-align: right; }
+                .sell-avgprice { width: 8.5% !important; text-align: right; }
+                .sell-value { width: 9% !important; text-align: right;padding-right: 2%; }
+                .open-qty { width: 6% !important; text-align: right; }
+                .open-avgprice { width: 8.5% !important; text-align: right; padding-right: 2%;}
+                .open-value { width: 9% !important; text-align: right; }
+                .net-value { width: 10% !important; }
+
+                // .buy-value,
+                // .sell-value,
+                // .open-value {
+                    
+                //     padding-right: 2rem;
+                // }
+                // .buy-avgprice, .sell-avgprice, .open-avgprice { text-align: right; }
+
+                .rs {
+                    font-style: normal;
+                    font-size: $font-16;
+                    font-family: $font-pingFangSC-medium;
+                    font-weight: normal;
+                }
+
+                .scrip-name {
+                    text-transform: uppercase;
+                    font-family: $font-base-med;
+                    font-size: $font-14;
+
+                    .exchage {
+                        font-size: $font-10;
+                        font-family: $font-base-med;
+                        line-height: 12px;
+                        padding: 2px;
+                        height: 15px;
+                    }
+
+                    .group {
+                        font-family: $font-base-reg;
+                        font-size: $font-12;
+                        text-transform: capitalize;
+                        color: $grey;
+                        padding-top: 0.438rem !important;
+                        line-height: 0.875rem;
+                        
+                    }
+                }
+
+                .series {
+                    text-transform: uppercase;
+                    font-family: $font-base-med;
+                    font-size: $font-16;
+                }
+            }
+        }
+    }
+
+    .total-section {
+        position: fixed;
+        bottom: 0rem;
+        width: calc(100% - 6rem);
+        background: $white;
+        padding: 1.250rem;
+        @include flex(space-between, center);
+        z-index: 9;
+        @include laptop{
+            padding: 0.75rem 1.25rem;
+            bottom: 67px;
+            width: calc(100% - 1.25rem);
+        }
+        label {
+            font-family: $font-base-med;
+            font-size: $font-18;
+            margin-bottom: 0;
+            padding: 0 2.5rem;
+            border-right: 1px solid $light-border-color;
+            &:last-child{
+                padding-right: 0px;
+                border: none;
+            }
+            em{
+                display: block;
+                font-size: $font-14;
+                line-height: 1.063rem;
+                font-style: normal;
+                margin: 0 0 4px;
+                color: $grey-med;
+                font-family: $font-base-reg;
+            }
+            span{
+                line-height: 1.563rem;
+                @include flex(flex-end, center)
+            }
+        }
+        h4 {
+            margin-bottom: 0;
+        }
+        .rs {
+            font-style: normal;
+            font-size: $font-16;
+            font-family: $font-pingFangSC-medium;
+            font-weight: normal;
+        }
+
+        .total-title {
+            font-family: $font-base-med;
+            font-size: $font-20;
+            color: $grey-med;
+        }
+
+        .total-buy-value {
+            text-align: right;
+        }
+
+        .total-sell-value {
+            text-align: right;
+        }
+
+        .total-open-value {
+            text-align: right;
+        }
+
+        .total-net-value {
+            text-align: right;
+            .price{
+                em{
+                    display: none;
+                }
+                &.txtNegative{
+                    em{
+                        display: inline-block;
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.nsecurfo-table-wrap{
+    table{
+       min-width: 1660px;
+      
+       thead{
+           position: relative;
+           z-index: 9;
+           background: $white;
+        &.stickyHead{
+            box-shadow: 0 13px 14px -11px rgba(73 81 106 / 5%);
+        }
+        tr{
+            padding:0 0.750rem !important;
+            th{
+                &.scripCol{
+                    &.stickyCol{
+                        min-width: 188px;
+                        z-index: 3;
+                        background: $white;
+                        position: fixed;
+                        left: 0.625rem;
+                        padding-left: 1.250rem !important;
+                        border-right: 1px solid $lighter-border-color;
+                        box-shadow: 4px 1px 11px 0px rgb(73 81 106 / 5%);
+                        top: 16.2rem;
+                        height: 82px;
+                        @include flex(flex-start ,flex-end);
+                        + .seriesCol {
+                            margin-left: 11.5%;
+                           }
+                    }
+                 }
+            }
+        } 
+       }
+        tbody{
+            height: calc(100vh - 428px);
+            @include laptop{
+                height:  calc(100vh - 412px - 67px);
+            }
+            tr{
+                &.panel{
+                    min-height: 70px;
+                    padding:0 0.750rem !important;
+                    td{
+                        height: auto !important;
+                        z-index: 1;
+                        padding-top: 1rem  !important;
+                        padding-bottom: 1rem  !important;
+                        &.scripCol{
+                           &.stickyCol{
+                               min-width: 188px;
+                               z-index: 3;
+                               background: $white;
+                                position: fixed;
+                                left: 0.625rem;
+                                padding-left: 1.250rem !important;
+                                border-right: 1px solid $lighter-border-color;
+                                box-shadow: 4px 11px 12px 0 rgba(73, 81, 106, 0.05);
+                               + .series{
+                                margin-left: 11.5%;
+                               }
+                           }
+                        }
+                        &.net-value{
+                            .price{
+                                @include flex(flex-end, center);
+                                em{
+                                    display: none;
+                                    margin-right: 2px;
+                                }
+                                &.txtNegative{
+                                    em{
+                                        display: inline-block;
+                                    }
+                                }
+                            }
+                            
+                            
+                        }
+                    }
+                    &:after{
+                        left: 1.250rem !important;
+                        width: calc(100% - 2.5rem) !important;
+                        max-width: calc(100% - 2.5rem) !important;
+                        right: auto !important;
+                        z-index: 3;
+                    }
+                    &:hover{
+                        &:before{
+                            background:$tbl-hoverd-bg ;
+                        }
+                        .scripCol{
+
+                           &.stickyCol{
+                            background:$tbl-hoverd-bg ;
+                           }
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+
+        
+    }
+   
+}
